@@ -1,0 +1,1206 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Data Processing &#8212; Mathematical Computing (Intro to Python)</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/week3/Week 3 Day 3';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="networkx Library" href="Week%203%20Day%204.html" />
+    <link rel="prev" title="More matplotlib &amp; pandas" href="Week%203%20Day%202.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Mathematical Computing (Intro to Python)</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Welcome!
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 1--Basics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week1/Week%201%20Day%201.html">Python Object Types &amp; Syntax</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week1/Week%201%20Day%202.html">Variables, Statements, &amp; For-Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week1/Week%201%20Day%203.html">The Art of Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week1/Week%201%20Day%204.html">Week 1 Review</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 2--Problem Solving Methods</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week2/Week%202%20Day%201.html">Complications in Coding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week2/Week%202%20Day%202.html">Working with Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week2/Week%202%20Day%203.html"><code class="docutils literal notranslate"><span class="pre">math</span></code>, <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, &amp; <code class="docutils literal notranslate"><span class="pre">sympy</span></code> Libraries</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 3--Data Science &amp; Visualization</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Week%203%20Day%201.html">The <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Week%203%20Day%202.html">More <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Data Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Week%203%20Day%204.html"><code class="docutils literal notranslate"><span class="pre">networkx</span></code> Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Week%203%20Day%205.html">Data Visualization Review</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 4--Statistical Analysis</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week4/Week%204%20Day%201.html">Exploratory Data Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week4/Week%204%20Day%204.html">Correlation &amp; Covariance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week4/Week%204%20Day%205.html">Linear Regression</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 5--Optimization &amp; Linear Algebra</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week5/Week%205%20Day%201.html"><code class="docutils literal notranslate"><span class="pre">numpy</span></code> Matrix Basix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week5/Week%205%20Day%202.html"><code class="docutils literal notranslate"><span class="pre">scipy</span></code> Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week5/Week%205%20Day%203.html">Optimization in Machine Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week5/Week%205%20Day%204.html"><code class="docutils literal notranslate"><span class="pre">scipy</span></code> &amp; Differential Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week5/Week%205%20Day%205.html">Optimization in Linear Algebra</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 6--Topics (Neural Networks &amp; Monte Carlo Methods)</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week6/Week%206%20Day%202.html">Neural Network Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week6/Week%206%20Day%203.html">Transfer Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week6/Week%206%20Day%204.html">Monte Carlo Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week6/Week%206%20Day%205.html">Markov Chain Monte Carlo</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/content/week3/Week 3 Day 3.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Data Processing</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-problems">Lab Problems</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-key">Lab Key*</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="data-processing">
+<h1>Data Processing<a class="headerlink" href="#data-processing" title="Link to this heading">#</a></h1>
+<p>Today, we’ll gain more experience using pandas to read and write datasets.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># preliminaries</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">geopandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gpd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The main object in pandas is the <i>pandas dataframe</i> which is similar to a spreadsheet or table. Moreover, we can convert the dataframe into whatever format we like.</p>
+<p>For example, consider the following table.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head text-right"><p>Age</p></th>
+<th class="head"><p>Major</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Alice</p></td>
+<td class="text-right"><p>20</p></td>
+<td><p>Mathematics</p></td>
+</tr>
+<tr class="row-odd"><td><p>Bob</p></td>
+<td class="text-right"><p>22</p></td>
+<td><p>Physics</p></td>
+</tr>
+<tr class="row-even"><td><p>Charlie</p></td>
+<td class="text-right"><p>19</p></td>
+<td><p>Biology</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>If I wanted to convert this into a dataframe, I could do the following:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Name</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Alice&#39;</span><span class="p">,</span> <span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="s1">&#39;Charlie&#39;</span><span class="p">]</span>
+<span class="n">Age</span> <span class="o">=</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">19</span><span class="p">]</span>
+<span class="n">Major</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Mathematics&#39;</span><span class="p">,</span> <span class="s1">&#39;Physics&#39;</span><span class="p">,</span> <span class="s1">&#39;Biology&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;Name&#39;</span><span class="p">:</span> <span class="n">Name</span><span class="p">,</span>
+    <span class="s1">&#39;Age&#39;</span><span class="p">:</span> <span class="n">Age</span><span class="p">,</span>
+    <span class="s1">&#39;Major&#39;</span><span class="p">:</span> <span class="n">Major</span>
+<span class="p">})</span>
+<span class="n">dataframe</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Major</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Alice</td>
+      <td>20</td>
+      <td>Mathematics</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Bob</td>
+      <td>22</td>
+      <td>Physics</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Charlie</td>
+      <td>19</td>
+      <td>Biology</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">dataframe</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas.DataFrame
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pandas will automatically store information about the dataframe that we can easily obtain:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataframe</span><span class="o">.</span><span class="n">info</span><span class="p">()</span> <span class="c1"># basic information</span>
+
+<span class="n">dataframe</span><span class="o">.</span><span class="n">columns</span> <span class="c1"># column names</span>
+
+<span class="n">dataframe</span><span class="o">.</span><span class="n">shape</span> <span class="c1"># dimensions of dataframe</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.DataFrame&#39;&gt;
+RangeIndex: 3 entries, 0 to 2
+Data columns (total 3 columns):
+ #   Column  Non-Null Count  Dtype
+---  ------  --------------  -----
+ 0   Name    3 non-null      str  
+ 1   Age     3 non-null      int64
+ 2   Major   3 non-null      str  
+dtypes: int64(1), str(2)
+memory usage: 204.0 bytes
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3, 3)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Even basic statistical information we might wish to obtain:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataframe</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span> <span class="c1"># summary statistics</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Age</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>3.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>20.333333</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>1.527525</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>19.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>19.500000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>20.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>21.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>22.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>We can also easily access data from the dataframe as well:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataframe</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Major</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Alice</td>
+      <td>20</td>
+      <td>Mathematics</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Bob</td>
+      <td>22</td>
+      <td>Physics</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Charlie</td>
+      <td>19</td>
+      <td>Biology</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataframe</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Major</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Alice</td>
+      <td>20</td>
+      <td>Mathematics</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataframe</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Name           Alice
+Age               20
+Major    Mathematics
+Name: 0, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataframe</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Major</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Alice</td>
+      <td>20</td>
+      <td>Mathematics</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Bob</td>
+      <td>22</td>
+      <td>Physics</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    20
+1    22
+2    19
+Name: Age, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataframe</span><span class="p">[[</span><span class="s1">&#39;Age&#39;</span><span class="p">,</span> <span class="s1">&#39;Major&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Age</th>
+      <th>Major</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>20</td>
+      <td>Mathematics</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>22</td>
+      <td>Physics</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>19</td>
+      <td>Biology</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>We’ve already had experience reading a <code class="docutils literal notranslate"><span class="pre">.csv</span></code> file into a notebook, now we will write our own:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataframe</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;dataframe.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;dataframe.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Major</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Alice</td>
+      <td>20</td>
+      <td>Mathematics</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Bob</td>
+      <td>22</td>
+      <td>Physics</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Charlie</td>
+      <td>19</td>
+      <td>Biology</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<section id="lab-problems">
+<h2>Lab Problems<a class="headerlink" href="#lab-problems" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<ol class="arabic simple">
+<li></li>
+</ol>
+<ul class="simple">
+<li><p>Create your own dataframe with at least 3 columns and 4 rows.</p></li>
+<li><p>Save the dataframe to a csv file.</p></li>
+<li><p>Read the csv back in.</p></li>
+<li><p>Plot the data.</p></li>
+</ul>
+<hr class="docutils" />
+<ol class="arabic simple" start="2">
+<li></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">list1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">655</span><span class="p">,</span> <span class="mi">115</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">760</span><span class="p">,</span> <span class="mi">282</span><span class="p">,</span> <span class="mi">251</span><span class="p">,</span> <span class="mi">229</span><span class="p">,</span> <span class="mi">143</span><span class="p">,</span> <span class="mi">755</span><span class="p">,</span> <span class="mi">105</span><span class="p">,</span> <span class="mi">693</span><span class="p">,</span> <span class="mi">759</span><span class="p">,</span> <span class="mi">914</span><span class="p">,</span> <span class="mi">559</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">605</span><span class="p">,</span> <span class="mi">433</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">96</span><span class="p">,</span> <span class="mi">224</span><span class="p">,</span> <span class="mi">239</span><span class="p">,</span> <span class="mi">518</span><span class="p">,</span> <span class="mi">617</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">575</span><span class="p">,</span> <span class="mi">204</span><span class="p">,</span> <span class="mi">734</span><span class="p">,</span> <span class="mi">666</span><span class="p">,</span> <span class="mi">719</span><span class="p">,</span> <span class="mi">559</span><span class="p">,</span> <span class="mi">430</span><span class="p">,</span> <span class="mi">226</span><span class="p">,</span> <span class="mi">460</span><span class="p">,</span> <span class="mi">604</span><span class="p">,</span> <span class="mi">285</span><span class="p">,</span> <span class="mi">829</span><span class="p">,</span> <span class="mi">891</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">778</span><span class="p">,</span> <span class="mi">826</span><span class="p">,</span> <span class="mi">164</span><span class="p">,</span> <span class="mi">715</span><span class="p">,</span> <span class="mi">433</span><span class="p">,</span> <span class="mi">349</span><span class="p">,</span> <span class="mi">285</span><span class="p">,</span> <span class="mi">160</span><span class="p">,</span> <span class="mi">221</span><span class="p">,</span> <span class="mi">981</span><span class="p">,</span> <span class="mi">782</span><span class="p">,</span> <span class="mi">345</span><span class="p">,</span> <span class="mi">105</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">390</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">368</span><span class="p">,</span> <span class="mi">868</span><span class="p">,</span> <span class="mi">353</span><span class="p">,</span> <span class="mi">619</span><span class="p">,</span> <span class="mi">271</span><span class="p">,</span> <span class="mi">827</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">748</span><span class="p">,</span> <span class="mi">471</span><span class="p">,</span> <span class="mi">550</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">997</span><span class="p">,</span> <span class="mi">945</span><span class="p">,</span> <span class="mi">388</span><span class="p">,</span> <span class="mi">81</span><span class="p">,</span> <span class="mi">566</span><span class="p">,</span> <span class="mi">301</span><span class="p">,</span> <span class="mi">850</span><span class="p">,</span> <span class="mi">644</span><span class="p">,</span> <span class="mi">634</span><span class="p">,</span> <span class="mi">907</span><span class="p">,</span> <span class="mi">883</span><span class="p">,</span> <span class="mi">371</span><span class="p">,</span> <span class="mi">592</span><span class="p">,</span> <span class="mi">197</span><span class="p">,</span> <span class="mi">722</span><span class="p">,</span> <span class="mi">72</span><span class="p">,</span> <span class="mi">47</span><span class="p">,</span> <span class="mi">678</span><span class="p">,</span> <span class="mi">234</span><span class="p">,</span> <span class="mi">792</span><span class="p">,</span> <span class="mi">297</span><span class="p">,</span> <span class="mi">82</span><span class="p">,</span> <span class="mi">876</span><span class="p">,</span> <span class="mi">239</span><span class="p">,</span> <span class="mi">888</span><span class="p">,</span> <span class="mi">104</span><span class="p">,</span> <span class="mi">390</span><span class="p">,</span> <span class="mi">285</span><span class="p">,</span> <span class="mi">465</span><span class="p">,</span> <span class="mi">651</span><span class="p">,</span> <span class="mi">855</span><span class="p">,</span> <span class="mi">374</span><span class="p">,</span> <span class="mi">167</span><span class="p">,</span> <span class="mi">380</span><span class="p">]</span>
+
+<span class="n">list2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">364</span><span class="p">,</span> <span class="mi">215</span><span class="p">,</span> <span class="mi">687</span><span class="p">,</span> <span class="mi">274</span><span class="p">,</span> <span class="mi">719</span><span class="p">,</span> <span class="mi">960</span><span class="p">,</span> <span class="mi">700</span><span class="p">,</span> <span class="mi">664</span><span class="p">,</span> <span class="mi">74</span><span class="p">,</span> <span class="mi">624</span><span class="p">,</span> <span class="mi">651</span><span class="p">,</span> <span class="mi">176</span><span class="p">,</span> <span class="mi">547</span><span class="p">,</span> <span class="mi">747</span><span class="p">,</span> <span class="mi">251</span><span class="p">,</span> <span class="mi">168</span><span class="p">,</span> <span class="mi">474</span><span class="p">,</span> <span class="mi">389</span><span class="p">,</span> <span class="mi">277</span><span class="p">,</span> <span class="mi">948</span><span class="p">,</span> <span class="mi">656</span><span class="p">,</span> <span class="mi">705</span><span class="p">,</span> <span class="mi">571</span><span class="p">,</span> <span class="mi">225</span><span class="p">,</span> <span class="mi">702</span><span class="p">,</span> <span class="mi">333</span><span class="p">,</span> <span class="mi">864</span><span class="p">,</span> <span class="mi">787</span><span class="p">,</span> <span class="mi">795</span><span class="p">,</span> <span class="mi">58</span><span class="p">,</span> <span class="mi">235</span><span class="p">,</span> <span class="mi">842</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">825</span><span class="p">,</span> <span class="mi">324</span><span class="p">,</span> <span class="mi">411</span><span class="p">,</span> <span class="mi">275</span><span class="p">,</span> <span class="mi">68</span><span class="p">,</span> <span class="mi">217</span><span class="p">,</span> <span class="mi">936</span><span class="p">,</span> <span class="mi">966</span><span class="p">,</span> <span class="mi">581</span><span class="p">,</span> <span class="mi">898</span><span class="p">,</span> <span class="mi">736</span><span class="p">,</span> <span class="mi">323</span><span class="p">,</span> <span class="mi">218</span><span class="p">,</span> <span class="mi">672</span><span class="p">,</span> <span class="mi">512</span><span class="p">,</span> <span class="mi">406</span><span class="p">,</span> <span class="mi">906</span><span class="p">,</span> <span class="mi">937</span><span class="p">,</span> <span class="mi">659</span><span class="p">,</span> <span class="mi">470</span><span class="p">,</span> <span class="mi">147</span><span class="p">,</span> <span class="mi">272</span><span class="p">,</span> <span class="mi">143</span><span class="p">,</span> <span class="mi">253</span><span class="p">,</span> <span class="mi">763</span><span class="p">,</span> <span class="mi">575</span><span class="p">,</span> <span class="mi">552</span><span class="p">,</span> <span class="mi">270</span><span class="p">,</span> <span class="mi">765</span><span class="p">,</span> <span class="mi">599</span><span class="p">,</span> <span class="mi">439</span><span class="p">,</span> <span class="mi">920</span><span class="p">,</span> <span class="mi">598</span><span class="p">,</span> <span class="mi">409</span><span class="p">,</span> <span class="mi">371</span><span class="p">,</span> <span class="mi">225</span><span class="p">,</span> <span class="mi">142</span><span class="p">,</span> <span class="mi">522</span><span class="p">,</span> <span class="mi">506</span><span class="p">,</span> <span class="mi">94</span><span class="p">,</span> <span class="mi">774</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">882</span><span class="p">,</span> <span class="mi">113</span><span class="p">,</span> <span class="mi">157</span><span class="p">,</span> <span class="mi">643</span><span class="p">,</span> <span class="mi">164</span><span class="p">,</span> <span class="mi">812</span><span class="p">,</span> <span class="mi">697</span><span class="p">,</span> <span class="mi">433</span><span class="p">,</span> <span class="mi">611</span><span class="p">,</span> <span class="mi">66</span><span class="p">,</span> <span class="mi">395</span><span class="p">,</span> <span class="mi">391</span><span class="p">,</span> <span class="mi">611</span><span class="p">,</span> <span class="mi">480</span><span class="p">,</span> <span class="mi">542</span><span class="p">,</span> <span class="mi">258</span><span class="p">,</span> <span class="mi">995</span><span class="p">,</span> <span class="mi">567</span><span class="p">,</span> <span class="mi">882</span><span class="p">,</span> <span class="mi">966</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">697</span><span class="p">,</span> <span class="mi">739</span><span class="p">,</span> <span class="mi">118</span><span class="p">,</span> <span class="mi">699</span><span class="p">]</span>
+
+<span class="n">list3</span> <span class="o">=</span> <span class="p">[</span><span class="mi">907</span><span class="p">,</span> <span class="mi">550</span><span class="p">,</span> <span class="mi">769</span><span class="p">,</span> <span class="mi">274</span><span class="p">,</span> <span class="mi">788</span><span class="p">,</span> <span class="mi">657</span><span class="p">,</span> <span class="mi">349</span><span class="p">,</span> <span class="mi">115</span><span class="p">,</span> <span class="mi">301</span><span class="p">,</span> <span class="mi">446</span><span class="p">,</span> <span class="mi">162</span><span class="p">,</span> <span class="mi">465</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">977</span><span class="p">,</span> <span class="mi">740</span><span class="p">,</span> <span class="mi">897</span><span class="p">,</span> <span class="mi">737</span><span class="p">,</span> <span class="mi">270</span><span class="p">,</span> <span class="mi">996</span><span class="p">,</span> <span class="mi">513</span><span class="p">,</span> <span class="mi">781</span><span class="p">,</span> <span class="mi">183</span><span class="p">,</span> <span class="mi">520</span><span class="p">,</span> <span class="mi">935</span><span class="p">,</span> <span class="mi">109</span><span class="p">,</span> <span class="mi">892</span><span class="p">,</span> <span class="mi">641</span><span class="p">,</span> <span class="mi">306</span><span class="p">,</span> <span class="mi">862</span><span class="p">,</span> <span class="mi">655</span><span class="p">,</span> <span class="mi">520</span><span class="p">,</span> <span class="mi">624</span><span class="p">,</span> <span class="mi">204</span><span class="p">,</span> <span class="mi">157</span><span class="p">,</span> <span class="mi">383</span><span class="p">,</span> <span class="mi">781</span><span class="p">,</span> <span class="mi">166</span><span class="p">,</span> <span class="mi">553</span><span class="p">,</span> <span class="mi">977</span><span class="p">,</span> <span class="mi">798</span><span class="p">,</span> <span class="mi">945</span><span class="p">,</span> <span class="mi">544</span><span class="p">,</span> <span class="mi">941</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">614</span><span class="p">,</span> <span class="mi">332</span><span class="p">,</span> <span class="mi">501</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">115</span><span class="p">,</span> <span class="mi">952</span><span class="p">,</span> <span class="mi">372</span><span class="p">,</span> <span class="mi">900</span><span class="p">,</span> <span class="mi">852</span><span class="p">,</span> <span class="mi">827</span><span class="p">,</span> <span class="mi">315</span><span class="p">,</span> <span class="mi">246</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">247</span><span class="p">,</span> <span class="mi">900</span><span class="p">,</span> <span class="mi">581</span><span class="p">,</span> <span class="mi">970</span><span class="p">,</span> <span class="mi">81</span><span class="p">,</span> <span class="mi">88</span><span class="p">,</span> <span class="mi">750</span><span class="p">,</span> <span class="mi">498</span><span class="p">,</span> <span class="mi">836</span><span class="p">,</span> <span class="mi">71</span><span class="p">,</span> <span class="mi">779</span><span class="p">,</span> <span class="mi">546</span><span class="p">,</span> <span class="mi">785</span><span class="p">,</span> <span class="mi">129</span><span class="p">,</span> <span class="mi">132</span><span class="p">,</span> <span class="mi">676</span><span class="p">,</span> <span class="mi">487</span><span class="p">,</span> <span class="mi">970</span><span class="p">,</span> <span class="mi">563</span><span class="p">,</span> <span class="mi">170</span><span class="p">,</span> <span class="mi">272</span><span class="p">,</span> <span class="mi">541</span><span class="p">,</span> <span class="mi">894</span><span class="p">,</span> <span class="mi">622</span><span class="p">,</span> <span class="mi">434</span><span class="p">,</span> <span class="mi">988</span><span class="p">,</span> <span class="mi">217</span><span class="p">,</span> <span class="mi">952</span><span class="p">,</span> <span class="mi">553</span><span class="p">,</span> <span class="mi">774</span><span class="p">,</span> <span class="mi">748</span><span class="p">,</span> <span class="mi">707</span><span class="p">,</span> <span class="mi">206</span><span class="p">,</span> <span class="mi">731</span><span class="p">,</span> <span class="mi">320</span><span class="p">,</span> <span class="mi">409</span><span class="p">,</span> <span class="mi">688</span><span class="p">,</span> <span class="mi">666</span><span class="p">,</span> <span class="mi">383</span><span class="p">,</span> <span class="mi">449</span><span class="p">,</span> <span class="mi">922</span><span class="p">,</span> <span class="mi">530</span><span class="p">,</span> <span class="mi">463</span><span class="p">]</span>
+
+<span class="n">list4</span> <span class="o">=</span> <span class="p">[</span><span class="mi">124</span><span class="p">,</span> <span class="mi">254</span><span class="p">,</span> <span class="mi">231</span><span class="p">,</span> <span class="mi">66</span><span class="p">,</span> <span class="mi">347</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">603</span><span class="p">,</span> <span class="mi">568</span><span class="p">,</span> <span class="mi">236</span><span class="p">,</span> <span class="mi">603</span><span class="p">,</span> <span class="mi">226</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">73</span><span class="p">,</span> <span class="mi">725</span><span class="p">,</span> <span class="mi">647</span><span class="p">,</span> <span class="mi">61</span><span class="p">,</span> <span class="mi">235</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">928</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">881</span><span class="p">,</span> <span class="mi">339</span><span class="p">,</span> <span class="mi">73</span><span class="p">,</span> <span class="mi">527</span><span class="p">,</span> <span class="mi">244</span><span class="p">,</span> <span class="mi">286</span><span class="p">,</span> <span class="mi">686</span><span class="p">,</span> <span class="mi">498</span><span class="p">,</span> <span class="mi">220</span><span class="p">,</span> <span class="mi">553</span><span class="p">,</span> <span class="mi">136</span><span class="p">,</span> <span class="mi">741</span><span class="p">,</span> <span class="mi">958</span><span class="p">,</span> <span class="mi">904</span><span class="p">,</span> <span class="mi">585</span><span class="p">,</span> <span class="mi">591</span><span class="p">,</span> <span class="mi">485</span><span class="p">,</span> <span class="mi">249</span><span class="p">,</span> <span class="mi">804</span><span class="p">,</span> <span class="mi">485</span><span class="p">,</span> <span class="mi">827</span><span class="p">,</span> <span class="mi">417</span><span class="p">,</span> <span class="mi">195</span><span class="p">,</span> <span class="mi">97</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">675</span><span class="p">,</span> <span class="mi">442</span><span class="p">,</span> <span class="mi">363</span><span class="p">,</span> <span class="mi">434</span><span class="p">,</span> <span class="mi">421</span><span class="p">,</span> <span class="mi">479</span><span class="p">,</span> <span class="mi">885</span><span class="p">,</span> <span class="mi">747</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="mi">690</span><span class="p">,</span> <span class="mi">670</span><span class="p">,</span> <span class="mi">662</span><span class="p">,</span> <span class="mi">101</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="mi">413</span><span class="p">,</span> <span class="mi">746</span><span class="p">,</span> <span class="mi">348</span><span class="p">,</span> <span class="mi">820</span><span class="p">,</span> <span class="mi">883</span><span class="p">,</span> <span class="mi">112</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">197</span><span class="p">,</span> <span class="mi">195</span><span class="p">,</span> <span class="mi">550</span><span class="p">,</span> <span class="mi">460</span><span class="p">,</span> <span class="mi">144</span><span class="p">,</span> <span class="mi">433</span><span class="p">,</span> <span class="mi">188</span><span class="p">,</span> <span class="mi">286</span><span class="p">,</span> <span class="mi">474</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">896</span><span class="p">,</span> <span class="mi">946</span><span class="p">,</span> <span class="mi">78</span><span class="p">,</span> <span class="mi">454</span><span class="p">,</span> <span class="mi">828</span><span class="p">,</span> <span class="mi">883</span><span class="p">,</span> <span class="mi">877</span><span class="p">,</span> <span class="mi">564</span><span class="p">,</span> <span class="mi">101</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">668</span><span class="p">,</span> <span class="mi">554</span><span class="p">,</span> <span class="mi">857</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">993</span><span class="p">,</span> <span class="mi">96</span><span class="p">,</span> <span class="mi">949</span><span class="p">,</span> <span class="mi">772</span><span class="p">,</span> <span class="mi">870</span><span class="p">,</span> <span class="mi">243</span><span class="p">,</span> <span class="mi">171</span><span class="p">,</span> <span class="mi">417</span><span class="p">,</span> <span class="mi">498</span><span class="p">,</span> <span class="mi">493</span><span class="p">]</span>
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p>Convert the above lists into a dataframe.</p></li>
+<li><p>Print the summary statistics.</p></li>
+<li><p>Print the last 5 rows.</p></li>
+<li><p>Plot the data in 4 separate plots. Make them as informative as possible.</p></li>
+</ol>
+<hr class="docutils" />
+<ol class="arabic simple" start="3">
+<li></li>
+</ol>
+<p>Download the “WA_County_Boundaries” folder from the “Datasets” folder on GitHub.</p>
+<ul class="simple">
+<li><p>Read the .shp file into Jupyter by using <code class="docutils literal notranslate"><span class="pre">variable_name</span> <span class="pre">=</span> <span class="pre">geopandas.read_file(&quot;path_to_.shp_file.shp&quot;)</span></code></p></li>
+<li><p>Plot the state using <code class="docutils literal notranslate"><span class="pre">variable_name.plot()</span></code></p></li>
+<li><p>Plot some information about the state by extracting two columns of data.</p></li>
+</ul>
+</section>
+<section id="lab-key">
+<h2>Lab Key*<a class="headerlink" href="#lab-key" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<ol class="arabic simple">
+<li></li>
+</ol>
+<div class="cell tag_hide-cell docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell content</p>
+<p class="expanded admonition-title">Hide code cell content</p>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># part 1</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>
+
+<span class="c1"># part 2</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">data</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;data.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># part 3</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data.csv&#39;</span><span class="p">)</span>
+
+<span class="c1"># part 4</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)],</span><span class="n">data</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;5 Normally Distributed Samples of 5&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;# in Sample&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Normal Value&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Normal Value&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/90de36d5346bdb49037824d6e5100c1254c4efb62dcee06f4c0cfdedb3866379.png" src="../../_images/90de36d5346bdb49037824d6e5100c1254c4efb62dcee06f4c0cfdedb3866379.png" />
+</div>
+</details>
+</div>
+<hr class="docutils" />
+<ol class="arabic simple" start="2">
+<li></li>
+</ol>
+<div class="cell tag_hide-cell docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell content</p>
+<p class="expanded admonition-title">Hide code cell content</p>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">list1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">655</span><span class="p">,</span> <span class="mi">115</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">760</span><span class="p">,</span> <span class="mi">282</span><span class="p">,</span> <span class="mi">251</span><span class="p">,</span> <span class="mi">229</span><span class="p">,</span> <span class="mi">143</span><span class="p">,</span> <span class="mi">755</span><span class="p">,</span> <span class="mi">105</span><span class="p">,</span> <span class="mi">693</span><span class="p">,</span> <span class="mi">759</span><span class="p">,</span> <span class="mi">914</span><span class="p">,</span> <span class="mi">559</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">605</span><span class="p">,</span> <span class="mi">433</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">96</span><span class="p">,</span> <span class="mi">224</span><span class="p">,</span> <span class="mi">239</span><span class="p">,</span> <span class="mi">518</span><span class="p">,</span> <span class="mi">617</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">575</span><span class="p">,</span> <span class="mi">204</span><span class="p">,</span> <span class="mi">734</span><span class="p">,</span> <span class="mi">666</span><span class="p">,</span> <span class="mi">719</span><span class="p">,</span> <span class="mi">559</span><span class="p">,</span> <span class="mi">430</span><span class="p">,</span> <span class="mi">226</span><span class="p">,</span> <span class="mi">460</span><span class="p">,</span> <span class="mi">604</span><span class="p">,</span> <span class="mi">285</span><span class="p">,</span> <span class="mi">829</span><span class="p">,</span> <span class="mi">891</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">778</span><span class="p">,</span> <span class="mi">826</span><span class="p">,</span> <span class="mi">164</span><span class="p">,</span> <span class="mi">715</span><span class="p">,</span> <span class="mi">433</span><span class="p">,</span> <span class="mi">349</span><span class="p">,</span> <span class="mi">285</span><span class="p">,</span> <span class="mi">160</span><span class="p">,</span> <span class="mi">221</span><span class="p">,</span> <span class="mi">981</span><span class="p">,</span> <span class="mi">782</span><span class="p">,</span> <span class="mi">345</span><span class="p">,</span> <span class="mi">105</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">390</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">368</span><span class="p">,</span> <span class="mi">868</span><span class="p">,</span> <span class="mi">353</span><span class="p">,</span> <span class="mi">619</span><span class="p">,</span> <span class="mi">271</span><span class="p">,</span> <span class="mi">827</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">748</span><span class="p">,</span> <span class="mi">471</span><span class="p">,</span> <span class="mi">550</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">997</span><span class="p">,</span> <span class="mi">945</span><span class="p">,</span> <span class="mi">388</span><span class="p">,</span> <span class="mi">81</span><span class="p">,</span> <span class="mi">566</span><span class="p">,</span> <span class="mi">301</span><span class="p">,</span> <span class="mi">850</span><span class="p">,</span> <span class="mi">644</span><span class="p">,</span> <span class="mi">634</span><span class="p">,</span> <span class="mi">907</span><span class="p">,</span> <span class="mi">883</span><span class="p">,</span> <span class="mi">371</span><span class="p">,</span> <span class="mi">592</span><span class="p">,</span> <span class="mi">197</span><span class="p">,</span> <span class="mi">722</span><span class="p">,</span> <span class="mi">72</span><span class="p">,</span> <span class="mi">47</span><span class="p">,</span> <span class="mi">678</span><span class="p">,</span> <span class="mi">234</span><span class="p">,</span> <span class="mi">792</span><span class="p">,</span> <span class="mi">297</span><span class="p">,</span> <span class="mi">82</span><span class="p">,</span> <span class="mi">876</span><span class="p">,</span> <span class="mi">239</span><span class="p">,</span> <span class="mi">888</span><span class="p">,</span> <span class="mi">104</span><span class="p">,</span> <span class="mi">390</span><span class="p">,</span> <span class="mi">285</span><span class="p">,</span> <span class="mi">465</span><span class="p">,</span> <span class="mi">651</span><span class="p">,</span> <span class="mi">855</span><span class="p">,</span> <span class="mi">374</span><span class="p">,</span> <span class="mi">167</span><span class="p">,</span> <span class="mi">380</span><span class="p">]</span>
+
+<span class="n">list2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">364</span><span class="p">,</span> <span class="mi">215</span><span class="p">,</span> <span class="mi">687</span><span class="p">,</span> <span class="mi">274</span><span class="p">,</span> <span class="mi">719</span><span class="p">,</span> <span class="mi">960</span><span class="p">,</span> <span class="mi">700</span><span class="p">,</span> <span class="mi">664</span><span class="p">,</span> <span class="mi">74</span><span class="p">,</span> <span class="mi">624</span><span class="p">,</span> <span class="mi">651</span><span class="p">,</span> <span class="mi">176</span><span class="p">,</span> <span class="mi">547</span><span class="p">,</span> <span class="mi">747</span><span class="p">,</span> <span class="mi">251</span><span class="p">,</span> <span class="mi">168</span><span class="p">,</span> <span class="mi">474</span><span class="p">,</span> <span class="mi">389</span><span class="p">,</span> <span class="mi">277</span><span class="p">,</span> <span class="mi">948</span><span class="p">,</span> <span class="mi">656</span><span class="p">,</span> <span class="mi">705</span><span class="p">,</span> <span class="mi">571</span><span class="p">,</span> <span class="mi">225</span><span class="p">,</span> <span class="mi">702</span><span class="p">,</span> <span class="mi">333</span><span class="p">,</span> <span class="mi">864</span><span class="p">,</span> <span class="mi">787</span><span class="p">,</span> <span class="mi">795</span><span class="p">,</span> <span class="mi">58</span><span class="p">,</span> <span class="mi">235</span><span class="p">,</span> <span class="mi">842</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">825</span><span class="p">,</span> <span class="mi">324</span><span class="p">,</span> <span class="mi">411</span><span class="p">,</span> <span class="mi">275</span><span class="p">,</span> <span class="mi">68</span><span class="p">,</span> <span class="mi">217</span><span class="p">,</span> <span class="mi">936</span><span class="p">,</span> <span class="mi">966</span><span class="p">,</span> <span class="mi">581</span><span class="p">,</span> <span class="mi">898</span><span class="p">,</span> <span class="mi">736</span><span class="p">,</span> <span class="mi">323</span><span class="p">,</span> <span class="mi">218</span><span class="p">,</span> <span class="mi">672</span><span class="p">,</span> <span class="mi">512</span><span class="p">,</span> <span class="mi">406</span><span class="p">,</span> <span class="mi">906</span><span class="p">,</span> <span class="mi">937</span><span class="p">,</span> <span class="mi">659</span><span class="p">,</span> <span class="mi">470</span><span class="p">,</span> <span class="mi">147</span><span class="p">,</span> <span class="mi">272</span><span class="p">,</span> <span class="mi">143</span><span class="p">,</span> <span class="mi">253</span><span class="p">,</span> <span class="mi">763</span><span class="p">,</span> <span class="mi">575</span><span class="p">,</span> <span class="mi">552</span><span class="p">,</span> <span class="mi">270</span><span class="p">,</span> <span class="mi">765</span><span class="p">,</span> <span class="mi">599</span><span class="p">,</span> <span class="mi">439</span><span class="p">,</span> <span class="mi">920</span><span class="p">,</span> <span class="mi">598</span><span class="p">,</span> <span class="mi">409</span><span class="p">,</span> <span class="mi">371</span><span class="p">,</span> <span class="mi">225</span><span class="p">,</span> <span class="mi">142</span><span class="p">,</span> <span class="mi">522</span><span class="p">,</span> <span class="mi">506</span><span class="p">,</span> <span class="mi">94</span><span class="p">,</span> <span class="mi">774</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">882</span><span class="p">,</span> <span class="mi">113</span><span class="p">,</span> <span class="mi">157</span><span class="p">,</span> <span class="mi">643</span><span class="p">,</span> <span class="mi">164</span><span class="p">,</span> <span class="mi">812</span><span class="p">,</span> <span class="mi">697</span><span class="p">,</span> <span class="mi">433</span><span class="p">,</span> <span class="mi">611</span><span class="p">,</span> <span class="mi">66</span><span class="p">,</span> <span class="mi">395</span><span class="p">,</span> <span class="mi">391</span><span class="p">,</span> <span class="mi">611</span><span class="p">,</span> <span class="mi">480</span><span class="p">,</span> <span class="mi">542</span><span class="p">,</span> <span class="mi">258</span><span class="p">,</span> <span class="mi">995</span><span class="p">,</span> <span class="mi">567</span><span class="p">,</span> <span class="mi">882</span><span class="p">,</span> <span class="mi">966</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">697</span><span class="p">,</span> <span class="mi">739</span><span class="p">,</span> <span class="mi">118</span><span class="p">,</span> <span class="mi">699</span><span class="p">]</span>
+
+<span class="n">list3</span> <span class="o">=</span> <span class="p">[</span><span class="mi">907</span><span class="p">,</span> <span class="mi">550</span><span class="p">,</span> <span class="mi">769</span><span class="p">,</span> <span class="mi">274</span><span class="p">,</span> <span class="mi">788</span><span class="p">,</span> <span class="mi">657</span><span class="p">,</span> <span class="mi">349</span><span class="p">,</span> <span class="mi">115</span><span class="p">,</span> <span class="mi">301</span><span class="p">,</span> <span class="mi">446</span><span class="p">,</span> <span class="mi">162</span><span class="p">,</span> <span class="mi">465</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">977</span><span class="p">,</span> <span class="mi">740</span><span class="p">,</span> <span class="mi">897</span><span class="p">,</span> <span class="mi">737</span><span class="p">,</span> <span class="mi">270</span><span class="p">,</span> <span class="mi">996</span><span class="p">,</span> <span class="mi">513</span><span class="p">,</span> <span class="mi">781</span><span class="p">,</span> <span class="mi">183</span><span class="p">,</span> <span class="mi">520</span><span class="p">,</span> <span class="mi">935</span><span class="p">,</span> <span class="mi">109</span><span class="p">,</span> <span class="mi">892</span><span class="p">,</span> <span class="mi">641</span><span class="p">,</span> <span class="mi">306</span><span class="p">,</span> <span class="mi">862</span><span class="p">,</span> <span class="mi">655</span><span class="p">,</span> <span class="mi">520</span><span class="p">,</span> <span class="mi">624</span><span class="p">,</span> <span class="mi">204</span><span class="p">,</span> <span class="mi">157</span><span class="p">,</span> <span class="mi">383</span><span class="p">,</span> <span class="mi">781</span><span class="p">,</span> <span class="mi">166</span><span class="p">,</span> <span class="mi">553</span><span class="p">,</span> <span class="mi">977</span><span class="p">,</span> <span class="mi">798</span><span class="p">,</span> <span class="mi">945</span><span class="p">,</span> <span class="mi">544</span><span class="p">,</span> <span class="mi">941</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">614</span><span class="p">,</span> <span class="mi">332</span><span class="p">,</span> <span class="mi">501</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">115</span><span class="p">,</span> <span class="mi">952</span><span class="p">,</span> <span class="mi">372</span><span class="p">,</span> <span class="mi">900</span><span class="p">,</span> <span class="mi">852</span><span class="p">,</span> <span class="mi">827</span><span class="p">,</span> <span class="mi">315</span><span class="p">,</span> <span class="mi">246</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">247</span><span class="p">,</span> <span class="mi">900</span><span class="p">,</span> <span class="mi">581</span><span class="p">,</span> <span class="mi">970</span><span class="p">,</span> <span class="mi">81</span><span class="p">,</span> <span class="mi">88</span><span class="p">,</span> <span class="mi">750</span><span class="p">,</span> <span class="mi">498</span><span class="p">,</span> <span class="mi">836</span><span class="p">,</span> <span class="mi">71</span><span class="p">,</span> <span class="mi">779</span><span class="p">,</span> <span class="mi">546</span><span class="p">,</span> <span class="mi">785</span><span class="p">,</span> <span class="mi">129</span><span class="p">,</span> <span class="mi">132</span><span class="p">,</span> <span class="mi">676</span><span class="p">,</span> <span class="mi">487</span><span class="p">,</span> <span class="mi">970</span><span class="p">,</span> <span class="mi">563</span><span class="p">,</span> <span class="mi">170</span><span class="p">,</span> <span class="mi">272</span><span class="p">,</span> <span class="mi">541</span><span class="p">,</span> <span class="mi">894</span><span class="p">,</span> <span class="mi">622</span><span class="p">,</span> <span class="mi">434</span><span class="p">,</span> <span class="mi">988</span><span class="p">,</span> <span class="mi">217</span><span class="p">,</span> <span class="mi">952</span><span class="p">,</span> <span class="mi">553</span><span class="p">,</span> <span class="mi">774</span><span class="p">,</span> <span class="mi">748</span><span class="p">,</span> <span class="mi">707</span><span class="p">,</span> <span class="mi">206</span><span class="p">,</span> <span class="mi">731</span><span class="p">,</span> <span class="mi">320</span><span class="p">,</span> <span class="mi">409</span><span class="p">,</span> <span class="mi">688</span><span class="p">,</span> <span class="mi">666</span><span class="p">,</span> <span class="mi">383</span><span class="p">,</span> <span class="mi">449</span><span class="p">,</span> <span class="mi">922</span><span class="p">,</span> <span class="mi">530</span><span class="p">,</span> <span class="mi">463</span><span class="p">]</span>
+
+<span class="n">list4</span> <span class="o">=</span> <span class="p">[</span><span class="mi">124</span><span class="p">,</span> <span class="mi">254</span><span class="p">,</span> <span class="mi">231</span><span class="p">,</span> <span class="mi">66</span><span class="p">,</span> <span class="mi">347</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">603</span><span class="p">,</span> <span class="mi">568</span><span class="p">,</span> <span class="mi">236</span><span class="p">,</span> <span class="mi">603</span><span class="p">,</span> <span class="mi">226</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">73</span><span class="p">,</span> <span class="mi">725</span><span class="p">,</span> <span class="mi">647</span><span class="p">,</span> <span class="mi">61</span><span class="p">,</span> <span class="mi">235</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">928</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">881</span><span class="p">,</span> <span class="mi">339</span><span class="p">,</span> <span class="mi">73</span><span class="p">,</span> <span class="mi">527</span><span class="p">,</span> <span class="mi">244</span><span class="p">,</span> <span class="mi">286</span><span class="p">,</span> <span class="mi">686</span><span class="p">,</span> <span class="mi">498</span><span class="p">,</span> <span class="mi">220</span><span class="p">,</span> <span class="mi">553</span><span class="p">,</span> <span class="mi">136</span><span class="p">,</span> <span class="mi">741</span><span class="p">,</span> <span class="mi">958</span><span class="p">,</span> <span class="mi">904</span><span class="p">,</span> <span class="mi">585</span><span class="p">,</span> <span class="mi">591</span><span class="p">,</span> <span class="mi">485</span><span class="p">,</span> <span class="mi">249</span><span class="p">,</span> <span class="mi">804</span><span class="p">,</span> <span class="mi">485</span><span class="p">,</span> <span class="mi">827</span><span class="p">,</span> <span class="mi">417</span><span class="p">,</span> <span class="mi">195</span><span class="p">,</span> <span class="mi">97</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">675</span><span class="p">,</span> <span class="mi">442</span><span class="p">,</span> <span class="mi">363</span><span class="p">,</span> <span class="mi">434</span><span class="p">,</span> <span class="mi">421</span><span class="p">,</span> <span class="mi">479</span><span class="p">,</span> <span class="mi">885</span><span class="p">,</span> <span class="mi">747</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="mi">690</span><span class="p">,</span> <span class="mi">670</span><span class="p">,</span> <span class="mi">662</span><span class="p">,</span> <span class="mi">101</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="mi">413</span><span class="p">,</span> <span class="mi">746</span><span class="p">,</span> <span class="mi">348</span><span class="p">,</span> <span class="mi">820</span><span class="p">,</span> <span class="mi">883</span><span class="p">,</span> <span class="mi">112</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">197</span><span class="p">,</span> <span class="mi">195</span><span class="p">,</span> <span class="mi">550</span><span class="p">,</span> <span class="mi">460</span><span class="p">,</span> <span class="mi">144</span><span class="p">,</span> <span class="mi">433</span><span class="p">,</span> <span class="mi">188</span><span class="p">,</span> <span class="mi">286</span><span class="p">,</span> <span class="mi">474</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">896</span><span class="p">,</span> <span class="mi">946</span><span class="p">,</span> <span class="mi">78</span><span class="p">,</span> <span class="mi">454</span><span class="p">,</span> <span class="mi">828</span><span class="p">,</span> <span class="mi">883</span><span class="p">,</span> <span class="mi">877</span><span class="p">,</span> <span class="mi">564</span><span class="p">,</span> <span class="mi">101</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">668</span><span class="p">,</span> <span class="mi">554</span><span class="p">,</span> <span class="mi">857</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">993</span><span class="p">,</span> <span class="mi">96</span><span class="p">,</span> <span class="mi">949</span><span class="p">,</span> <span class="mi">772</span><span class="p">,</span> <span class="mi">870</span><span class="p">,</span> <span class="mi">243</span><span class="p">,</span> <span class="mi">171</span><span class="p">,</span> <span class="mi">417</span><span class="p">,</span> <span class="mi">498</span><span class="p">,</span> <span class="mi">493</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell tag_hide-cell tag_scroll-output docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell content</p>
+<p class="expanded admonition-title">Hide code cell content</p>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># part 1</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;List1&#39;</span><span class="p">:</span><span class="n">list1</span><span class="p">,</span>
+             <span class="s1">&#39;List2&#39;</span><span class="p">:</span><span class="n">list2</span><span class="p">,</span>
+             <span class="s1">&#39;List3&#39;</span><span class="p">:</span><span class="n">list3</span><span class="p">,</span>
+             <span class="s1">&#39;List4&#39;</span><span class="p">:</span><span class="n">list4</span><span class="p">})</span>
+
+<span class="c1"># part 2</span>
+
+<span class="n">data</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+
+<span class="c1"># part 3</span>
+
+<span class="n">data</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+
+<span class="c1"># part 4</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">)],</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;List&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)]))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;List #&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;# in Sorted Version of List&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Value&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/77185af0b43d8afca1910f6de8e7e99c9cbc967c42d7bc0642a8ed44dfbfad98.png" src="../../_images/77185af0b43d8afca1910f6de8e7e99c9cbc967c42d7bc0642a8ed44dfbfad98.png" />
+<img alt="../../_images/6a4e5691de6082bc02fccbc043ba45cd1413cabcb38815922c15949f347072a9.png" src="../../_images/6a4e5691de6082bc02fccbc043ba45cd1413cabcb38815922c15949f347072a9.png" />
+<img alt="../../_images/a1e3accc57d61a2c08a2e6e57319bb18b68a4d3978d98881d13d80a85d16e896.png" src="../../_images/a1e3accc57d61a2c08a2e6e57319bb18b68a4d3978d98881d13d80a85d16e896.png" />
+<img alt="../../_images/2ae4557b9d3d780dc5d11edfa7c1f7ad2a2be4a8494a59bc2a230f29456c4811.png" src="../../_images/2ae4557b9d3d780dc5d11edfa7c1f7ad2a2be4a8494a59bc2a230f29456c4811.png" />
+</div>
+</details>
+</div>
+<hr class="docutils" />
+<ol class="arabic simple" start="3">
+<li></li>
+</ol>
+<div class="cell tag_remove-output tag_hide-cell docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell content</p>
+<p class="expanded admonition-title">Hide code cell content</p>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">washington</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;path_on_your_device&quot;</span><span class="p">)</span>
+
+<span class="n">washington</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;JURISDIC_4&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Jurisdiction Identifier 4&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">washington</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;JURISDIC_5&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Jurisdiction Identifier 5&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./content\week3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Week%203%20Day%202.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">More <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">pandas</span></code></p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Week%203%20Day%204.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><code class="docutils literal notranslate"><span class="pre">networkx</span></code> Library</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-problems">Lab Problems</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-key">Lab Key*</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Garrett Kepler
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,720 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Homework 2 &#8212; Mathematical Computing (Intro to Python)</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/homework/Homework 2';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Homework 3" href="Homework%203.html" />
+    <link rel="prev" title="Homework 1" href="Homework%201.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Mathematical Computing (Intro to Python)</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Welcome!
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 1--Basics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week1/Week%201%20Day%201.html">Python Object Types &amp; Syntax</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week1/Week%201%20Day%202.html">Variables, Statements, &amp; For-Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week1/Week%201%20Day%203.html">The Art of Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week1/Week%201%20Day%204.html">Week 1 Review</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 2--Problem Solving Methods</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week2/Week%202%20Day%201.html">Complications in Coding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week2/Week%202%20Day%202.html">Working with Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week2/Week%202%20Day%203.html"><code class="docutils literal notranslate"><span class="pre">math</span></code>, <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, &amp; <code class="docutils literal notranslate"><span class="pre">sympy</span></code> Libraries</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 3--Data Science &amp; Visualization</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week3/Week%203%20Day%201.html">The <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week3/Week%203%20Day%202.html">More <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week3/Week%203%20Day%203.html">Data Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week3/Week%203%20Day%204.html"><code class="docutils literal notranslate"><span class="pre">networkx</span></code> Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week3/Week%203%20Day%205.html">Data Visualization Review</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 4--Statistical Analysis</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week4/Week%204%20Day%201.html">Exploratory Data Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week4/Week%204%20Day%204.html">Correlation &amp; Covariance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week4/Week%204%20Day%205.html">Linear Regression</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 5--Optimization &amp; Linear Algebra</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week5/Week%205%20Day%201.html"><code class="docutils literal notranslate"><span class="pre">numpy</span></code> Matrix Basix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week5/Week%205%20Day%202.html"><code class="docutils literal notranslate"><span class="pre">scipy</span></code> Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week5/Week%205%20Day%203.html">Optimization in Machine Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week5/Week%205%20Day%204.html"><code class="docutils literal notranslate"><span class="pre">scipy</span></code> &amp; Differential Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week5/Week%205%20Day%205.html">Optimization in Linear Algebra</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 6--Topics (Neural Networks &amp; Monte Carlo Methods)</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week6/Week%206%20Day%202.html">Neural Network Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week6/Week%206%20Day%203.html">Transfer Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week6/Week%206%20Day%204.html">Monte Carlo Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week6/Week%206%20Day%205.html">Markov Chain Monte Carlo</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Homework</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Homework%201.html">Homework 1</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Homework 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Homework%203.html">Homework 3</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/content/homework/Homework 2.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Homework 2</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-math-sympy-libraries">Numpy, Math, &amp; Sympy Libraries</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problems">Problems:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-matplotlib-networkx">Pandas, Matplotlib, &amp; Networkx</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Problems:</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="homework-2">
+<h1>Homework 2<a class="headerlink" href="#homework-2" title="Link to this heading">#</a></h1>
+<p>This assignment was designed to be practice outside of in-class lab.</p>
+<p>There are 2 sections. Students picked 10 problems from the first section to complete and 2 problems from the second section to complete (12 questions total).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># before starting homework, run this cell and import these libraries</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sympy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sp</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">networkx</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nx</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="numpy-math-sympy-libraries">
+<h2>Numpy, Math, &amp; Sympy Libraries<a class="headerlink" href="#numpy-math-sympy-libraries" title="Link to this heading">#</a></h2>
+<p>For the following, use the <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, <code class="docutils literal notranslate"><span class="pre">math</span></code>, or <code class="docutils literal notranslate"><span class="pre">sympy</span></code> libraries to compute the answer.</p>
+<section id="problems">
+<h3>Problems:<a class="headerlink" href="#problems" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Factor <span class="math notranslate nohighlight">\(3x^3+51x^2+93x+45\)</span></p></li>
+<li><p>Factor <span class="math notranslate nohighlight">\(x^6+21x^5+175x^4+735x^3+1624x^2+1764x+720\)</span></p></li>
+<li><p>Factor <span class="math notranslate nohighlight">\(96x^3+224x^2+x+45\)</span></p></li>
+<li><p>Simplify
+<span class="math notranslate nohighlight">\(\frac{24x^{17}+12x^{16}+16x+8}{12x^{16}+8}\)</span></p></li>
+<li><p>Simplify
+<span class="math notranslate nohighlight">\(\frac{108x^{33}+54x^{32}+2x+1}{54x^{32}+1}\)</span></p></li>
+<li><p>Simplify
+<span class="math notranslate nohighlight">\(\frac{62x^{42}+31x^{41}+118x^2+589x+265}{31x^{41}+59x+265}\)</span></p></li>
+<li><p>Calculate the sum of the squares of the first 1000 integers by squaring a 1000 element numpy array then summing the elements.</p></li>
+<li><p>Generate 10 uniform random samples between 0 and 1 using <code class="docutils literal notranslate"><span class="pre">np.random.uniform()</span></code> and calculate the mean. Repeat with 50, 100, 500, 1000, 5000 and 10000 samples. Do the means seem to approach a value or not? If so, what value?</p></li>
+<li><p>Generate 10 normal random samples between 0 and 1 using <code class="docutils literal notranslate"><span class="pre">np.random.normal(0,</span> <span class="pre">1)</span></code> and calculate the mean. Repeat with 50, 100, 500, 1000, 5000 and 10000 samples. Do the means seem to approach a value or not? If so, what value?</p></li>
+<li><p>Compute <span class="math notranslate nohighlight">\(\cos(x)+\sin^4(x)+\sqrt{\tan(2 x)}\)</span> for 100 points between <span class="math notranslate nohighlight">\(0\)</span> and <span class="math notranslate nohighlight">\(\pi\)</span></p></li>
+<li><p>Compute <span class="math notranslate nohighlight">\(\sin^7(\pi x)+\cos^{3/2}(x)+\cot(x)\)</span> for 100 points between <span class="math notranslate nohighlight">\(0\)</span> and <span class="math notranslate nohighlight">\(2\pi\)</span></p></li>
+<li><p>Compute <span class="math notranslate nohighlight">\(\pi e^{\sqrt{x}}\)</span> for 1000 points between <span class="math notranslate nohighlight">\(0\)</span> and <span class="math notranslate nohighlight">\(2^{1/6}\)</span></p></li>
+<li><p>Problem 29 from Project Euler, found here: <a class="reference external" href="https://projecteuler.net/problem=29">https://projecteuler.net/problem=29</a></p></li>
+</ol>
+<p>“Consider all integer combinations of <span class="math notranslate nohighlight">\(a^b\)</span> for <span class="math notranslate nohighlight">\(2 \le a \le 5\)</span> and <span class="math notranslate nohighlight">\(2 \le b \le 5\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}{rrrr}
+2^2=4, &amp;2^3=8, &amp;2^4=16, &amp;2^5=32\\
+3^2=9, &amp;3^3=27, &amp;3^4=81, &amp;3^5=243\\
+4^2=16, &amp;4^3=64, &amp;4^4=256, &amp;4^5=1024\\
+5^2=25, &amp;5^3=125, &amp;5^4=625, &amp;5^5=3125
+\end{array}\end{split}\]</div>
+<p>If they are then placed in numerical order, with any repeats removed, we get the following sequence of <span class="math notranslate nohighlight">\(15\)</span> distinct terms:</p>
+<div class="math notranslate nohighlight">
+\[4, 8, 9, 16, 25, 27, 32, 64, 81, 125, 243, 256, 625, 1024, 3125.\]</div>
+<p>How many distinct terms are in the sequence generated by <span class="math notranslate nohighlight">\(a^b\)</span> for <span class="math notranslate nohighlight">\(2 \le a \le 100\)</span> and <span class="math notranslate nohighlight">\(2 \le b \le 100\)</span>?”</p>
+<ol class="arabic simple" start="14">
+<li><p>Problem 40 from Project Euler, found here: <a class="reference external" href="https://projecteuler.net/problem=40">https://projecteuler.net/problem=40</a></p></li>
+</ol>
+<p>"An irrational decimal fraction is created by concatenating the positive integers:
+<div class="math notranslate nohighlight">
+\[0.12345678910{\color{red}1}112131415161718192021\cdots\]</div>
+</p>
+<p>It can be seen that the $12$<sup>th</sup> digit of the fractional part is $1$.</p>
+<p>If $d_n$ represents the $n$<sup>th</sup> digit of the fractional part, find the value of the following expression.
+<div class="math notranslate nohighlight">
+\[d_1 \times d_{10} \times d_{100} \times d_{1000} \times d_{10000} \times d_{100000} \times d_{1000000}\]</div>
+<p>“</p></p>
+<ol class="arabic simple" start="15">
+<li><p>Problem 56 from Project Euler, found here: <a class="reference external" href="https://projecteuler.net/problem=56">https://projecteuler.net/problem=56</a></p></li>
+</ol>
+<p>"A googol ($10^{100}$) is a massive number: one followed by one-hundred zeros; $100^{100}$ is almost unimaginably large: one followed by two-hundred zeros. Despite their size, the sum of the digits in each number is only $1$.</p>
+<p>Considering natural numbers of the form, $a^b$, where $a, b \lt 100$, what is the maximum digital sum?"</p>
+</section>
+</section>
+<section id="pandas-matplotlib-networkx">
+<h2>Pandas, Matplotlib, &amp; Networkx<a class="headerlink" href="#pandas-matplotlib-networkx" title="Link to this heading">#</a></h2>
+<p>For the following problems, use <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> and/or <code class="docutils literal notranslate"><span class="pre">networkx</span></code> to solve them. If you do not have them downloaded from lab yet, you can access them here: <a class="reference external" href="https://github.com/garrett-kepler/Math-300----Mathematical-Computing/tree/main/Datasets">click here for Datasets on GitHub</a>.</p>
+<p>For your plots, make sure:</p>
+<ol class="arabic simple">
+<li><p>You have an informative title and meaningful axis labels</p></li>
+<li><p>If multiple datasets are on one plot, a legend with dataset indicators is shown</p></li>
+<li><p>All relevant text is visible and legible</p></li>
+<li><p>Your plot is an appropriate size</p></li>
+</ol>
+<p>For example, this is fantastic:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data1</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span>
+<span class="n">data2</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data1</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">data1</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> 
+            <span class="n">color</span><span class="o">=</span><span class="s1">&#39;lightblue&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span>
+            <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Dataset Name 1&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data2</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">data2</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> 
+            <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span>
+            <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Dataset Name 2&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.05</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Meaningful X Label Name Here&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Meaningful Y Label Name Here&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Informative Title Here&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s1">&#39;italic&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Informative Title Here&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/9e7bfb3cb3ab6f1e6167925d2d715548c1b18fbe74404ddb87c82b7789aaeb70.png" src="../../_images/9e7bfb3cb3ab6f1e6167925d2d715548c1b18fbe74404ddb87c82b7789aaeb70.png" />
+</div>
+</div>
+<p>And this is awful:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mf">.5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data1</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">data1</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data2</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">data2</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x1e8735f5ec8&gt;
+</pre></div>
+</div>
+<img alt="../../_images/c142bd8a29ae3d8d5d7cdd33d03c29110fb109f390ed779c7a2262850ecb9e75.png" src="../../_images/c142bd8a29ae3d8d5d7cdd33d03c29110fb109f390ed779c7a2262850ecb9e75.png" />
+</div>
+</div>
+<p>Somewhere in between the two plots above is great!</p>
+<section id="id1">
+<h3>Problems:<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Consider the flower dataset (iris.csv):</p>
+<ul class="simple">
+<li><p>Load the dataset using <code class="docutils literal notranslate"><span class="pre">pandas</span></code></p></li>
+<li><p>Make a scatter plot of sepal length against sepal width.</p></li>
+<li><p>Are there any outliers?</p></li>
+<li><p>Does there seem to be a relationship between the two?</p></li>
+<li><p>Make a histogram of the variety of flowers.</p></li>
+<li><p>Which is the most common variety?</p></li>
+</ul>
+</li>
+<li><p>Consider the dolphin network (DolphinNetwork.csv):</p>
+<ul class="simple">
+<li><p>Load the dataset and convert it to a graph (you can use your Week 3 Day 4 Lab code)</p></li>
+<li><p>Draw the network with nodes and edges colored to your choosing (not default).</p></li>
+<li><p>Write your own function (not using a <code class="docutils literal notranslate"><span class="pre">networkx</span></code> function) to calculate the number of triangles each dolphin appears in</p></li>
+<li><p>Make a bar chart with the x-axis corresponding to dolphins and y-axis corresponding to the dolphin’s triangle count</p></li>
+<li><p>Which dolphin has the highest? The lowest?</p></li>
+<li><p>What is the mean triangle count?</p></li>
+</ul>
+</li>
+<li><p>Consider the Titanic dataset (titanic.csv). The “Fare” column corresponds to the ticket price the individual paid. The “Ticket” column corresponds to the ticket number. Do the following:</p>
+<ul class="simple">
+<li><p>Load the dataset using <code class="docutils literal notranslate"><span class="pre">pandas</span></code> and print off the column names.</p></li>
+<li><p>What is the mean age? Median? Mode?</p></li>
+<li><p>What is the mean fare? Median? Mode?</p></li>
+<li><p>Print the name of the oldest person. Do the same with the youngest.</p></li>
+<li><p>For the person who paid the most for their ticket, what was their ticket number? What was the ticket number of the cheapest ticket?</p></li>
+<li><p>Plot a histogram of the fares with vertical lines corresponding to the mean and the median.</p></li>
+</ul>
+</li>
+<li><p>Consider the wine dataset (wine.csv):</p>
+<ul class="simple">
+<li><p>Create an empty graph named <code class="docutils literal notranslate"><span class="pre">wine</span></code></p></li>
+<li><p>Add a node for each of the wines in the dataset</p></li>
+<li><p>If a wine shares a <code class="docutils literal notranslate"><span class="pre">Nonflavanoid</span> <span class="pre">phenols</span></code> count, add an edge between them in <code class="docutils literal notranslate"><span class="pre">wine</span></code></p></li>
+<li><p>If a wine shares a <code class="docutils literal notranslate"><span class="pre">Alcalinity</span> <span class="pre">of</span> <span class="pre">ash</span></code> count, add an edge between them in <code class="docutils literal notranslate"><span class="pre">wine</span></code></p></li>
+<li><p>Plot the resulting network with node colors corresponding to <code class="docutils literal notranslate"><span class="pre">Class</span></code> in the dataset</p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./content\homework"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Homework%201.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Homework 1</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Homework%203.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Homework 3</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-math-sympy-libraries">Numpy, Math, &amp; Sympy Libraries</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problems">Problems:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-matplotlib-networkx">Pandas, Matplotlib, &amp; Networkx</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Problems:</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Garrett Kepler
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

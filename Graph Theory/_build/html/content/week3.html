@@ -1,0 +1,645 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Chapter 3: Combinatorial Thinking Practicum &#8212; Combinatorics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/week3';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Chapter 4: Combinatorial Models" href="week4.html" />
+    <link rel="prev" title="Chapter 2: “Counting”" href="week2.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Combinatorics</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome!
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="week1.html">Chapter 1: What is Combinatorics?</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="week2.html">Chapter 2: “Counting”</a></li>
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Chapter 3: Combinatorial Thinking Practicum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week4.html">Chapter 4: Combinatorial Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week5.html">Chapter 5</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="week6.html">Chapter 6: Recurrence Relations &amp; Generating Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week7-9.html">Chapter 7: Principle of Inclusion-Exclusion (P.I.E.) &amp; the D.I.E. Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week11-13.html">Chapter 8: Probability, Graphs, &amp; Ramsey Theory</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/content/week3.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Chapter 3: Combinatorial Thinking Practicum</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trailing-zeroes-in-a-product">Trailing Zeroes in a Product</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#points-in-a-square">Points in a Square</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lattice-paths">Lattice Paths</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tilings">Tilings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sums">{1,2}-sums</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="chapter-3-combinatorial-thinking-practicum">
+<h1>Chapter 3: Combinatorial Thinking Practicum<a class="headerlink" href="#chapter-3-combinatorial-thinking-practicum" title="Link to this heading">#</a></h1>
+<p>In this section, we’ll go through a few key problems to develop our
+intuition for combinatorial problems.\</p>
+<section id="trailing-zeroes-in-a-product">
+<h2>Trailing Zeroes in a Product<a class="headerlink" href="#trailing-zeroes-in-a-product" title="Link to this heading">#</a></h2>
+<p>\hfill
+Consider the set <span class="math notranslate nohighlight">\(S=\{1,2,3,\dots, 325\}\)</span>. How many zeroes are at the
+end of the product <span class="math notranslate nohighlight">\(1\cdot 2\cdot 3\cdot \cdots \cdot 324\cdot 325\)</span>?
+E.g. in <span class="math notranslate nohighlight">\(1\cdot 2\cdot 3\cdot 4\cdot 5=120\)</span> there is one zero at the
+end, but in <span class="math notranslate nohighlight">\(1\cdot 2\cdot 3\cdot 4=24\)</span> there are none.</p>
+<p>\hfill
+: Note that there are more powers of two than 5 in our set (i.e. the
+powers of 5 are <span class="math notranslate nohighlight">\(\{5, 25, 125\}\)</span> while powers of 2 are
+<span class="math notranslate nohighlight">\(\{2,4,8,16,32,\dots, 256\}\)</span>). We want to pair up 2’s and 5’s until we
+run out of 5’s. Try for yourself to verify there are 65 multiples of 5,
+13 multiples of 25, and 2 multiples of 125 in <span class="math notranslate nohighlight">\(S\)</span>. Then, there are at
+least 80 zeroes. Try and find why this implies there are <em>exactly</em> 80
+zeroes.</p>
+</section>
+<section id="points-in-a-square">
+<h2>Points in a Square<a class="headerlink" href="#points-in-a-square" title="Link to this heading">#</a></h2>
+<p>\hfill
+Given five points inside a 2 by 2 square, show that there are two points
+whose distance is at most <span class="math notranslate nohighlight">\(\sqrt{2}\)</span>.</p>
+<p>\hfill
+: Consider partitioning the square into 4 equally sized squares.</p>
+<p>The maximum distance between any two points is between the corners
+themselves. This distance is <span class="math notranslate nohighlight">\(\sqrt{2}\)</span>. Since we have 5 points in 4
+squares, by the pigeonhole principle, we have at least 2 points in one
+square. These two points could be on the corners, which means the
+distance between them is at most <span class="math notranslate nohighlight">\(\sqrt{2}\)</span>.</p>
+</section>
+<section id="lattice-paths">
+<h2>Lattice Paths<a class="headerlink" href="#lattice-paths" title="Link to this heading">#</a></h2>
+<p>\hfill
+Consider an <span class="math notranslate nohighlight">\(m\times n\)</span> grid with corners <span class="math notranslate nohighlight">\((0,0), (0,n),(m,0)~\&amp;~(m,n)\)</span>.
+A <em>lattice path</em> is a path starting at (0,0) and ending at <span class="math notranslate nohighlight">\((m,n)\)</span> only
+moving right and up.</p>
+<p>\hfill
+Below is an example of a lattice path on the <span class="math notranslate nohighlight">\(5\times 4\)</span> grid.\</p>
+<p>![image](math 325/book/content/photos/lattice path.png){width=”.3\textwidth”}</p>
+<p>\hfill
+How many lattices paths are there an <span class="math notranslate nohighlight">\(m\times n\)</span> grid?</p>
+<p>\hfill
+: Consider the steps we must make as a list
+<span class="math notranslate nohighlight">\(L=\{\underline{\hspace{.7em}},\underline{\hspace{.7em}},\underline{\hspace{.7em}}, \dots,\underline{\hspace{.7em}}\}\)</span>.
+To get from <span class="math notranslate nohighlight">\((0,0)\)</span> to <span class="math notranslate nohighlight">\((m,n)\)</span>, we must move right <span class="math notranslate nohighlight">\(m\)</span> steps and we must
+move up <span class="math notranslate nohighlight">\(n\)</span> steps. In total, we must make <span class="math notranslate nohighlight">\(m+n\)</span> steps (i.e. <span class="math notranslate nohighlight">\(|L|=m+n\)</span>).
+Note that if we choose when to go up/right, this determines when we must
+go right/up. There are <span class="math notranslate nohighlight">\(\binom{m+n}{n}\)</span> ways to select which steps
+should be up’s. We then fill the rest of the steps with right’s.
+Likewise, we could have also counted the ways to place right’s,
+<span class="math notranslate nohighlight">\(\binom{m+n}{m}\)</span>, and then place the up’s. As such, there are
+<span class="math notranslate nohighlight">\(\binom{m+n}{n}=\binom{m+n}{m}\)</span> lattice paths in this case.</p>
+<p>\hfill
+How many lattice paths on an <span class="math notranslate nohighlight">\(m\times n\)</span> grid do not cross the line
+<span class="math notranslate nohighlight">\(y=x\)</span>? i.e. They can meet the points <span class="math notranslate nohighlight">\((i,i)\)</span> but not <span class="math notranslate nohighlight">\((i+1,i)\)</span>.</p>
+<p>\hfill
+Below is an example of paths we want to consider. On the left, we have a
+path that does not cross <span class="math notranslate nohighlight">\(y=x\)</span> while on the right we do.</p>
+<p>![image](math 325/lecture notes/week 3/goodpath.png){width=”.3\textwidth”}
+![image](math 325/lecture notes/week 3/badpath.png){width=”.3\textwidth”}\</p>
+<p>\hfill
+: Consider the point after a path crosses the diagonal. Using the
+example above, we have something like</p>
+<p>![image](math 325/book/content/photos/latticepathproof.png){width=”.3\textwidth”}</p>
+<p>Assume we cross for some path. This point, <span class="math notranslate nohighlight">\((x-1,x)\)</span>, we have gone up
+one more time than we’d like. This means we will have <span class="math notranslate nohighlight">\(n-x\)</span> more ups and
+<span class="math notranslate nohighlight">\(n-x+1\)</span> more rights to get to <span class="math notranslate nohighlight">\((n,n)\)</span>.<br />
+Keeping the path up to <span class="math notranslate nohighlight">\((x-1,x)\)</span> the same, let’s reverse the direction
+of everything afterward. Before, we had one more right than up (<span class="math notranslate nohighlight">\(n-x+1\)</span>
+rights and <span class="math notranslate nohighlight">\(n-x\)</span> ups). Now, we will now have one more up than right
+(<span class="math notranslate nohighlight">\(n-x\)</span> rights and <span class="math notranslate nohighlight">\(n-x+1\)</span> ups). Since every step before <span class="math notranslate nohighlight">\((x-1,x)\)</span> is
+this same, we end up making <span class="math notranslate nohighlight">\(n-x\)</span> more rights to end up at <span class="math notranslate nohighlight">\(n-1\)</span> to the
+right and making <span class="math notranslate nohighlight">\(n-x+1\)</span> ups to end up at <span class="math notranslate nohighlight">\(n+1\)</span> up. So, we have a
+lattice path of the <span class="math notranslate nohighlight">\((n-1)\times (n+1)\)</span> grid.</p>
+<p>![image](math 325/book/content/photos/latticepathproof2.png){width=”.3\textwidth”}</p>
+<p>This operation defines our function <span class="math notranslate nohighlight">\(f\)</span> taking paths that cross the
+diagonal in the <span class="math notranslate nohighlight">\(n\times n\)</span> grid to lattice paths of the
+<span class="math notranslate nohighlight">\((n-1)\times (n+1)\)</span> grid. <span class="math notranslate nohighlight">\(f^{-1}\)</span> is simply taking a lattice path on
+the <span class="math notranslate nohighlight">\((n-1)\times (n+1)\)</span> grid and reversing steps after crossing the
+diagonal (try formalizing yourself!).<br />
+Since we have a bijection, there are the same number of paths that cross
+on the <span class="math notranslate nohighlight">\(n\times n\)</span> grid as lattice paths on the <span class="math notranslate nohighlight">\((n-1)\times (n+1)\)</span>
+grid. There are <span class="math notranslate nohighlight">\(\binom{n-1+n+1}{n-1}=\binom{2n}{n-1}\)</span> such lattice
+paths on the <span class="math notranslate nohighlight">\((n-1)\times (n+1)\)</span> grid. Removing this from the total
+<span class="math notranslate nohighlight">\(\binom{2n}{n}\)</span> lattices path on the <span class="math notranslate nohighlight">\(n\times n\)</span> grid, we get the number
+that do not cross the diagonal: $<span class="math notranslate nohighlight">\(\begin{aligned}
+\binom{2n}{n}-\binom{2n}{n-1}\end{aligned}\)</span>$</p>
+<p>This expression forms an exceptionally useful sequence of numbers, the
+<em>Catalan Numbers</em>. They count many, many things including rooted binary
+trees, polygon triangulations, and more. For a reference list, see
+<a class="reference external" href="https://oeis.org/A000108">https://oeis.org/A000108</a>.</p>
+</section>
+<section id="tilings">
+<h2>Tilings<a class="headerlink" href="#tilings" title="Link to this heading">#</a></h2>
+<p>We are going to place objects on a <span class="math notranslate nohighlight">\(1\times n\)</span> board. “Tiling” the board
+means we cover the <span class="math notranslate nohighlight">\(n\)</span> spots exactly.</p>
+<p>\centering
+=[font=] (2,9.75) – (5.25,9.75); (2,9.75) – (2,8.25); (2,8.25) –
+(5.25,8.25); (4.5,7.25) – (4.5,7.25); (5.25,9.75) – (7.5,9.75);
+(5.25,8.25) – (7.5,8.25); (7.5,9.75) – (9.25,9.75); (7.5,8.25) –
+(9.25,8.25); (9.25,9.75) – (9.25,8.25); (3.5,9.75) – (3.5,8.25);
+(5,9.75) – (5,8.25); (7.75,9.75) – (7.75,8.25);</p>
+<p>\hfill
+Let <span class="math notranslate nohighlight">\(t_n\)</span> be the number of ways there are to tile the <span class="math notranslate nohighlight">\(1\times n\)</span> board.
+Find an expression for <span class="math notranslate nohighlight">\(t_n\)</span> using <span class="math notranslate nohighlight">\(t_{n-1}\)</span> and <span class="math notranslate nohighlight">\(t_{n-2}\)</span> (i.e. some
+function <span class="math notranslate nohighlight">\(t_n=f(t_{n-1},t_{n-2})\)</span>).</p>
+<p>\hfill
+: Consider a tiling of a <span class="math notranslate nohighlight">\(1\times n-1\)</span> board. How can we extend this
+tiling to a tiling of <span class="math notranslate nohighlight">\(1\times n\)</span>? By adding a <span class="math notranslate nohighlight">\(1\times 1\)</span> square.
+Likewise, we can extend a tiling of a <span class="math notranslate nohighlight">\(1\times n-2\)</span> board to a tiling of
+<span class="math notranslate nohighlight">\(1\times n\)</span> by adding a domino. The extension of these tilings never
+produce the same tiling of the <span class="math notranslate nohighlight">\(1\times n\)</span> board. Moreover, any tiling
+must end in either a domino or a square. So, a tiling of the <span class="math notranslate nohighlight">\(1\times n\)</span>
+board is counted by these two cases. As such, <span class="math notranslate nohighlight">\(t_n=t_{n-1}+t_{n-2}\)</span>.</p>
+<p>Consider then, <span class="math notranslate nohighlight">\(t_1\)</span>. There is only 1 way to tile a <span class="math notranslate nohighlight">\(1\times 1\)</span> board,
+with a square. <span class="math notranslate nohighlight">\(t_2\)</span> gives 2: two squares or one domino. You might try
+finding higher and higher values: $<span class="math notranslate nohighlight">\(\begin{aligned}
+t_1&amp;=1\\
+t_2&amp;=2\\
+t_3&amp;=3\\
+t_4&amp;=5\\
+t_5&amp;=8\\
+\vdots\end{aligned}\)</span>$ You might immediately recognize the sequence,
+the <em>Fibonacci Numbers</em>! This is arguably the most ubiquitous sequence
+in combinatorics. The list of problems with Fibonacci numbers as the
+solution is immense. For a brief list, refer here
+<a class="reference external" href="https://oeis.org/A000045">https://oeis.org/A000045</a>.</p>
+<p>\hfill
+Recall we defined <span class="math notranslate nohighlight">\(t_n\)</span> to be the number of ways to tile the <span class="math notranslate nohighlight">\(1\times n\)</span>
+board with <span class="math notranslate nohighlight">\(1\times 1\)</span> squares and <span class="math notranslate nohighlight">\(1\times 2\)</span> dominoes. How many ways
+are there to tile a <span class="math notranslate nohighlight">\(2\times n\)</span> board with <span class="math notranslate nohighlight">\(1\times 2\)</span> dominoes?</p>
+<p>\hfill
+: Bijection! (<span class="math notranslate nohighlight">\(t_n=\)</span> the number of tilings of the <span class="math notranslate nohighlight">\(2\times n\)</span> board with
+dominoes)</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(f\)</span>: Take a <span class="math notranslate nohighlight">\(2\times n\)</span> tiling with <span class="math notranslate nohighlight">\(1\times 2\)</span> dominoes. Split the
+board down the middle (horizontally) perhaps with some
+domino-cutting-strength scissors. We now have two copies of a tiling
+of the <span class="math notranslate nohighlight">\(1\times n\)</span> board with <span class="math notranslate nohighlight">\(1\times 1\)</span> squares and <span class="math notranslate nohighlight">\(1\times 2\)</span>
+dominoes.</p></li>
+<li><p><span class="math notranslate nohighlight">\(f^{-1}\)</span>: Take two copies of the same <span class="math notranslate nohighlight">\(1\times n\)</span> tiling with
+<span class="math notranslate nohighlight">\(1\times 1\)</span> square and <span class="math notranslate nohighlight">\(1\times 2\)</span> dominoes. Stack them on top of
+one other. Take the squares that lay on top of one another and
+replace them with a vertical domino. We now have the tiling of the
+<span class="math notranslate nohighlight">\(2\times n\)</span> board with dominoes.</p></li>
+</ul>
+</section>
+<section id="sums">
+<h2>{1,2}-sums<a class="headerlink" href="#sums" title="Link to this heading">#</a></h2>
+<p>\hfill
+Using just 1 and 2, how many ways are there to form a sequence that sum
+to <span class="math notranslate nohighlight">\(n\)</span>? E.g. 1+1+2=1+2+1=4 are two examples of sequences that sum to 4.</p>
+<p>\hfill
+: We have already solved this!</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(f\)</span>: Take a sum <span class="math notranslate nohighlight">\(q_1+q_2+q_3+\dots+q_k=n\)</span> where each <span class="math notranslate nohighlight">\(q_i\)</span> is either
+1 or 2. We can create a tiling of the <span class="math notranslate nohighlight">\(1\times n\)</span> board using <span class="math notranslate nohighlight">\(k\)</span>
+tiles as follows:</p>
+<ul class="simple">
+<li><p>If <span class="math notranslate nohighlight">\(q_i=1\)</span>, the <span class="math notranslate nohighlight">\(i\)</span>-th tile will be a square.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(q_i=2\)</span>, the <span class="math notranslate nohighlight">\(i\)</span>-th tile will be a domino.</p></li>
+</ul>
+<p>Since the sum of the <span class="math notranslate nohighlight">\(q_i\)</span> terms must be <span class="math notranslate nohighlight">\(n\)</span>, we have a tiling of
+the <span class="math notranslate nohighlight">\(1\times n\)</span> board.</p>
+</li>
+<li><p><span class="math notranslate nohighlight">\(f^{-1}\)</span>: Take a tiling of the <span class="math notranslate nohighlight">\(1\times n\)</span> board using <span class="math notranslate nohighlight">\(k\)</span> tiles. If
+tile <span class="math notranslate nohighlight">\(i\)</span> is a square, let <span class="math notranslate nohighlight">\(q_i=1\)</span>. If tile <span class="math notranslate nohighlight">\(i\)</span> is a domino, let
+<span class="math notranslate nohighlight">\(q_i=2\)</span>. Since the sums of the lengths of the tiles must be <span class="math notranslate nohighlight">\(n\)</span>, the
+sum of <span class="math notranslate nohighlight">\(q_i\)</span> terms must be <span class="math notranslate nohighlight">\(n\)</span>.</p></li>
+</ul>
+<p>We have a bijection, so there are the same number of ways to do each.
+Since there are <span class="math notranslate nohighlight">\(t_n\)</span> ways to tile the <span class="math notranslate nohighlight">\(1\times n\)</span> board, we have <span class="math notranslate nohighlight">\(t_n\)</span>
+ways to form the <span class="math notranslate nohighlight">\(\{1,2\}\)</span>-sums.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./content"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="week2.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Chapter 2: “Counting”</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="week4.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Chapter 4: Combinatorial Models</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trailing-zeroes-in-a-product">Trailing Zeroes in a Product</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#points-in-a-square">Points in a Square</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lattice-paths">Lattice Paths</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tilings">Tilings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sums">{1,2}-sums</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Garrett Kepler
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

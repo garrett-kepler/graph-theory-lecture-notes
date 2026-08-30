@@ -1,0 +1,936 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Chapter 2: “Counting” &#8212; Combinatorics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/week2';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Chapter 3: Combinatorial Thinking Practicum" href="week3.html" />
+    <link rel="prev" title="Chapter 1: What is Combinatorics?" href="week1.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Combinatorics</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome!
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="week1.html">Chapter 1: What is Combinatorics?</a></li>
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Chapter 2: “Counting”</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="week3.html">Chapter 3: Combinatorial Thinking Practicum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week4.html">Chapter 4: Combinatorial Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week5.html">Chapter 5</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="week6.html">Chapter 6: Recurrence Relations &amp; Generating Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week7-9.html">Chapter 7: Principle of Inclusion-Exclusion (P.I.E.) &amp; the D.I.E. Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week11-13.html">Chapter 8: Probability, Graphs, &amp; Ramsey Theory</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/content/week2.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Chapter 2: “Counting”</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Chapter 2: “Counting”</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-s-warmups">Week’s Warmups</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#permutations-combinations-double-counting">Permutations, Combinations, &amp; Double Counting</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pigeonhole-principle">Pigeonhole Principle</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#warmup-problem">Warmup Problem</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="chapter-2-counting">
+<h1>Chapter 2: “Counting”<a class="headerlink" href="#chapter-2-counting" title="Link to this heading">#</a></h1>
+<section id="week-s-warmups">
+<h2>Week’s Warmups<a class="headerlink" href="#week-s-warmups" title="Link to this heading">#</a></h2>
+<p>\hfill
+How many total subsets of <span class="math notranslate nohighlight">\(S=\{1,2,3,\dots, 50\}\)</span> are there?</p>
+<p>\hfill
+Calculate <span class="math notranslate nohighlight">\(1+2+3+\cdots+49+50\)</span>. Could you form a general formula for
+<span class="math notranslate nohighlight">\(1+2+3+4+\cdots+n\)</span>?</p>
+<p>\hfill
+Determine the number of subsets of <span class="math notranslate nohighlight">\(S=\{1,2,3,\dots,50\}\)</span> whose sum of
+elements is larger than or equal to 638.</p>
+<p>\hfill</p>
+<ol class="arabic">
+<li><p>Consider a subset <span class="math notranslate nohighlight">\(\mathcal{S}\)</span> of <span class="math notranslate nohighlight">\(S\)</span>.</p>
+<ul class="simple">
+<li><p>For each <span class="math notranslate nohighlight">\(i=1,2,3,\dots, 50\)</span>, either <span class="math notranslate nohighlight">\(i\)</span> is in <span class="math notranslate nohighlight">\(\mathcal{S}\)</span> or
+not.</p></li>
+<li><p>For each <span class="math notranslate nohighlight">\(i\)</span>, define <span class="math notranslate nohighlight">\(\mathcal{S}_{i}=\{0,1\}\)</span> where <span class="math notranslate nohighlight">\(0\)</span> is the
+case where <span class="math notranslate nohighlight">\(i\)</span> is in <span class="math notranslate nohighlight">\(\mathcal{S}\)</span> and 0 where <span class="math notranslate nohighlight">\(i\)</span> is not.</p></li>
+<li><p>Then, the total number of ways we can create subsets is given by
+<span class="math notranslate nohighlight">\(|\mathcal{S}_1\times \mathcal{S}_2\times \mathcal{S}_3\times \cdots\times \mathcal{S}_{50}|\)</span>.</p></li>
+<li><p>By the multiplication principle, this tell us that there are
+$<span class="math notranslate nohighlight">\(\begin{aligned}
+ |\mathcal{S}_1\times \mathcal{S}_2\times \mathcal{S}_3\times \cdots\times \mathcal{S}_{50}|&amp;=|\mathcal{S}_1|\cdot |\mathcal{S}_2|\cdot |\mathcal{S}_3|\cdots |\mathcal{S}_{50}|\\
+ &amp;= 2\cdot 2\cdot 2\cdots 2=2^{50}
+ \end{aligned}\)</span><span class="math notranslate nohighlight">\( possible subsets of \)</span>S$.</p></li>
+</ul>
+<p>This is a totally valid solution.<br />
+As you may know, there are multiple ways to solve a problem. So,
+let’s try and solve this problem by finding a bijection. Consider
+taking a subset <span class="math notranslate nohighlight">\(A\subseteq S\)</span>.</p>
+<ul class="simple">
+<li><p>For each element <span class="math notranslate nohighlight">\(s\)</span> in <span class="math notranslate nohighlight">\(S\)</span>, <span class="math notranslate nohighlight">\(s\)</span> is either in <span class="math notranslate nohighlight">\(A\)</span> or not.</p></li>
+<li><p>We could think of assigning each element <span class="math notranslate nohighlight">\(s\)</span> a 1 or 0 depending
+on if it is in <span class="math notranslate nohighlight">\(A\)</span> (say, 1 if <span class="math notranslate nohighlight">\(s\in A\)</span>, 0 if <span class="math notranslate nohighlight">\(s\notin A\)</span>).</p></li>
+<li><p>Then, <span class="math notranslate nohighlight">\(f(A)\)</span> could be a vector of length <span class="math notranslate nohighlight">\(n\)</span> with entries 1
+or 0. For example,
+<span class="math notranslate nohighlight">\(f(\{1,3,4, 6\})=[1,0,1,1,0,1,0,\dots, 0]^T=X_A\)</span>.</p></li>
+<li><p>What <span class="math notranslate nohighlight">\(f^{-1}\)</span> be then? If the <span class="math notranslate nohighlight">\(i\)</span>-th entry of <span class="math notranslate nohighlight">\(X_A\)</span> is 1, put
+<span class="math notranslate nohighlight">\(i\)</span> in a set <span class="math notranslate nohighlight">\(A\)</span>. If the <span class="math notranslate nohighlight">\(i\)</span>-th entry of <span class="math notranslate nohighlight">\(X_A\)</span> is 0, exclude <span class="math notranslate nohighlight">\(i\)</span>
+from <span class="math notranslate nohighlight">\(A\)</span>.</p></li>
+<li><p>Thus, <span class="math notranslate nohighlight">\(f^{-1}\)</span> exists and <span class="math notranslate nohighlight">\(f\)</span> is a bijection. So, the number of
+subsets <span class="math notranslate nohighlight">\(A\)</span> of <span class="math notranslate nohighlight">\(S\)</span> equals the number of possible 0,1-vectors
+<span class="math notranslate nohighlight">\(X_A\)</span> of size <span class="math notranslate nohighlight">\(|S|\)</span>.</p></li>
+<li><p>How many vectors are there? There’s 2 options for each <span class="math notranslate nohighlight">\(|S|\)</span>
+entries of a vector <span class="math notranslate nohighlight">\(X_A\)</span>. So, again, by the multiplication
+principle, there are <span class="math notranslate nohighlight">\(2^{|S|}\)</span> possible such vectors. And so,
+the total number of subsets is equal to <span class="math notranslate nohighlight">\(2^{|S|}\)</span>.</p></li>
+<li><p>In our case, this means there are <span class="math notranslate nohighlight">\(2^{50}\)</span> subsets.</p></li>
+</ul>
+<p>There are multiple ways to solve a problem. The benefit of this is
+that we may learn different things about the objects in question.
+For example, in the bijection proof we learn about the relationship
+between 0,1-vectors of size <span class="math notranslate nohighlight">\(n\)</span> and total subsets of a set of size
+<span class="math notranslate nohighlight">\(n\)</span>. They are equivalent!</p>
+</li>
+<li><p>You might try the following: $<span class="math notranslate nohighlight">\(\begin{aligned}
+L &amp;= 1+2+3+\cdots+49+50\\
+\implies 2L &amp;= 1+2+3+\cdots+49+50\\
+&amp;+50+49+48+\cdots+2+1\\
+\implies2L&amp;= (1+50)+(2+49)+(3+48)\\
+&amp;+\cdots
++(49+2)+(50+1)\\
+&amp;= 51+51+51+\cdots+51+51\\
+&amp;=50(51)\\
+\implies 2L&amp;=50(51)\implies L=\frac{50(51)}{2}=1275
+\end{aligned}\)</span><span class="math notranslate nohighlight">\( This generalizes to \)</span>\frac{n(n+1)}{2}<span class="math notranslate nohighlight">\( when we
+sum 1 through \)</span>n$.</p></li>
+<li><p>Again, let us try and find a bijection. Let <span class="math notranslate nohighlight">\(T\)</span> be the collection of
+all possible subsets of <span class="math notranslate nohighlight">\(S\)</span>. From warmup problem 1, we know
+<span class="math notranslate nohighlight">\(|T|=2^{50}\)</span>. From warmup problem 2, the sum of elements of <span class="math notranslate nohighlight">\(S\)</span>
+is 1275.</p>
+<ul class="simple">
+<li><p>Let <span class="math notranslate nohighlight">\(A\)</span> be the set of all subsets of <span class="math notranslate nohighlight">\(S\)</span> whose sum is <span class="math notranslate nohighlight">\(\geq 638\)</span>
+and <span class="math notranslate nohighlight">\(B\)</span> be the set of all subsets of <span class="math notranslate nohighlight">\(S\)</span> whose sum is <span class="math notranslate nohighlight">\(&lt;638\)</span>.
+Since either a subset sums to <span class="math notranslate nohighlight">\(\geq 638\)</span> or <span class="math notranslate nohighlight">\(&lt;638\)</span> and not both,
+<span class="math notranslate nohighlight">\(A\cup B=T\)</span> and <span class="math notranslate nohighlight">\(A\cap B=\emptyset\)</span>. Thus,
+<span class="math notranslate nohighlight">\(|T|=|A\cup B|=|A|+|B|\)</span>.</p></li>
+<li><p>Moreover, if <span class="math notranslate nohighlight">\(A_i\in A\)</span>, then the sum of elements in <span class="math notranslate nohighlight">\(A_i\)</span> is
+<span class="math notranslate nohighlight">\(\geq 638\)</span>. Since the sum of elements in <span class="math notranslate nohighlight">\(S\)</span> is 1275, the sum of
+elements in <span class="math notranslate nohighlight">\(A_i^C\)</span> must be less than or equal <span class="math notranslate nohighlight">\(1275-638=637\)</span>.</p></li>
+<li><p>From Friday’s class, we know <span class="math notranslate nohighlight">\(f(A_i)=A_i^C\)</span> is a bijection. So,
+<span class="math notranslate nohighlight">\(|A|=|B|\)</span>.</p></li>
+</ul>
+<!-- -->
+<ul class="simple">
+<li><p>So, <span class="math notranslate nohighlight">\(|T|=|A|+|B|=|A|+|A|=2|A|\)</span>.</p></li>
+<li><p>Since <span class="math notranslate nohighlight">\(|T|=2^{50}=2|A|\)</span>, we know <span class="math notranslate nohighlight">\(|A|=2^{49}\)</span>.</p></li>
+</ul>
+<p>You might try and generalize this to <span class="math notranslate nohighlight">\(S=\{1,2,3,\cdots, n\}\)</span> with a
+specific choice of sum for the subsets, say 325.</p>
+</li>
+</ol>
+</section>
+<section id="permutations-combinations-double-counting">
+<h2>Permutations, Combinations, &amp; Double Counting<a class="headerlink" href="#permutations-combinations-double-counting" title="Link to this heading">#</a></h2>
+<p>Combinatorics differs itself from many fields by its proof techniques.
+We have been talking about bijections the last few classes. What
+bijections allow us to do is say the following:</p>
+<ul class="simple">
+<li><p>We want to find a formula to count something</p></li>
+<li><p>We can transform the problem into an equivalent problem with a
+bijection</p></li>
+<li><p>Finding a formula in this equivalent problem tells us the count of
+the original problem</p></li>
+</ul>
+<p>But, what if we found formulas for both problems? These are equivalent
+problems, so they should have equivalent formulas!<br />
+This is what is referred to as “double counting” or “counting with
+equivalence” or “counting in two ways”. The backbone of double counting
+can be summarized as follows:</p>
+<p>\hfill
+If <span class="math notranslate nohighlight">\(f(n)\)</span> and <span class="math notranslate nohighlight">\(g(n)\)</span> are functions that count the solutions to a problem
+involving <span class="math notranslate nohighlight">\(n\)</span> objects, then <span class="math notranslate nohighlight">\(f(n)=g(n)\)</span> for every <span class="math notranslate nohighlight">\(n\)</span>.</p>
+<p>\vspace{.5em}
+That is, if there are two equivalent ways to count something, they must
+be equivalent all the time!</p>
+<p>\hfill
+A <em>combinatorial proof</em> works as follows:</p>
+<ul class="simple">
+<li><p><strong>Problem</strong>: There is a problem of counting the number of solutions
+to a problem on <span class="math notranslate nohighlight">\(n\)</span> objects.</p></li>
+<li><p><strong>LHS</strong>: Count one way and find a function <span class="math notranslate nohighlight">\(f(n)\)</span> counts these
+solutions.</p></li>
+<li><p><strong>RHS</strong>: Count another way and find a function <span class="math notranslate nohighlight">\(g(n)\)</span> counts these
+solutions.</p></li>
+<li><p><strong>Conclusion</strong>: Then, <span class="math notranslate nohighlight">\(f(n)=g(n)\)</span> for every <span class="math notranslate nohighlight">\(n\)</span>.</p></li>
+</ul>
+<p>The result, <span class="math notranslate nohighlight">\(f(n)=g(n)\)</span>, is what we call a <em>combinatorial identity</em>.</p>
+<p>\hfill
+This first step is crucial. Sometimes we are given the problem we are
+going to solve (e.g. “How many ways are there to permute <span class="math notranslate nohighlight">\(n\)</span> objects?”).
+Then, we find two equivalent formulas. Other times, we are given an
+identity to prove and we must identify a problem to count (e.g. “Prove
+<span class="math notranslate nohighlight">\(\binom{n}{k}=\binom{n}{n-k}\)</span>”). Then, we must show that both the left
+hand side and right hand side count the solutions to the problem we have
+identified.</p>
+<p>\hfill
+A <em>selection</em> is the creation of a subset of a set. The resulting subset
+is called a <em>combination</em>. We do not care about the ordering of the
+elements. Simply what elements are chosen.</p>
+<p>\hfill
+The number of ways to select a subset of <span class="math notranslate nohighlight">\(k\)</span> objects from a set <span class="math notranslate nohighlight">\(n\)</span>
+distinct objects, <span class="math notranslate nohighlight">\(C(n,k)\)</span>, is denoted: $<span class="math notranslate nohighlight">\(\begin{aligned}
+C(n,k)&amp;=_nC_k=\binom{n}{k}
+\end{aligned}\)</span><span class="math notranslate nohighlight">\( The right hand side is what we call a _binomial
+coefficient_. We read this as &quot;\)</span>n<span class="math notranslate nohighlight">\( choose \)</span>k$”.</p>
+<p>\hfill
+How many ways are there to make a sundae with 3 toppings from an ice
+cream shop with 10 toppings?</p>
+<p>\hfill
+An <em>arrangement</em> is a selection . Each resulting ordered arrangement is
+called a <em>permutation</em>.</p>
+<p>\hfill
+The number of ways to arrange <span class="math notranslate nohighlight">\(k\)</span> objects from a set of <span class="math notranslate nohighlight">\(n\)</span> distinct
+objects, <span class="math notranslate nohighlight">\(P(n,k)\)</span>, is denoted: $<span class="math notranslate nohighlight">\(\begin{aligned}
+P(n,k)&amp;=_nP_k=(n)_k
+\end{aligned}\)</span>$</p>
+<p>\hfill
+Out of the 20 karaoke competitors, how many ways are there to schedule
+the performances of the 4 finalists?</p>
+<p>\hfill
+To recall a previous example “How many ways can we draw 4 labelled orbs
+(A,B,C,D) from an urn without replacement?” Using the multiplication
+principle, we found there was 4 options for the first draw, 3 for the
+second, and so on giving a count of <span class="math notranslate nohighlight">\(4\cdot 3\cdot 2\cdot 1=4!=12\)</span>.
+Equivalently, there are <span class="math notranslate nohighlight">\(P(4,4)\)</span> ways.</p>
+<p>\hfill
+How many ways are there to arrange <span class="math notranslate nohighlight">\(k\)</span> objects from a set of <span class="math notranslate nohighlight">\(n\)</span>
+distinct objects?</p>
+<p>\hfill</p>
+<ul class="simple">
+<li><p><strong>Identify Problem</strong>: How many ways are there to arrange <span class="math notranslate nohighlight">\(k\)</span> objects
+from a set of <span class="math notranslate nohighlight">\(n\)</span> distinct objects?</p></li>
+<li><p><strong>LHS</strong>: We know by definition <span class="math notranslate nohighlight">\(P(n,k)\)</span> counts this.</p></li>
+<li><p><strong>RHS</strong>: We can think of assigning <span class="math notranslate nohighlight">\(n\)</span> objects to <span class="math notranslate nohighlight">\(k\)</span> boxes. For box
+1, there are <span class="math notranslate nohighlight">\(n\)</span> possible objects that can be assigned to it. For
+box 2, there are <span class="math notranslate nohighlight">\(n-1\)</span> possible objects. Continuing on to the <span class="math notranslate nohighlight">\(k\)</span>th
+box, all <span class="math notranslate nohighlight">\(k-1\)</span> boxes before it have an object, so there are
+<span class="math notranslate nohighlight">\(n-(k-1)\)</span> possible objects that can be assigned box <span class="math notranslate nohighlight">\(k\)</span>. Using the
+multiplication principle, there are
+<span class="math notranslate nohighlight">\(n\cdot(n-1)\cdot (n-2)\cdot (n-(k-1))\)</span> ways to do this.</p></li>
+<li><p><strong>Conclusion</strong>: Thus, there are
+<span class="math notranslate nohighlight">\(P(n,k)=n\cdot (n-1)\cdot (n-2)\cdot (n-(k-1))\)</span> ways to arrange <span class="math notranslate nohighlight">\(k\)</span>
+objects from a set of <span class="math notranslate nohighlight">\(n\)</span>.</p></li>
+</ul>
+<p>The proof above allows us to immediately say the following as well:</p>
+<p>\hfill
+$<span class="math notranslate nohighlight">\(\begin{aligned}
+P(n,k)=n\cdot (n-1)\cdot (n-2)\cdot (n-(k-1))=\frac{n!}{(n-k)!}
+\end{aligned}\)</span><span class="math notranslate nohighlight">\( where
+\)</span>n!=n\cdot(n-1)\cdot(n-2)\cdots 3\cdot 2\cdot 1<span class="math notranslate nohighlight">\( and referred to as &quot;\)</span>n<span class="math notranslate nohighlight">\(
+factorial&quot;. By convention, \)</span>0!=1$.</p>
+<p>Coming back to a version of our orbs and urn problem: “You draw from an
+urn with 4 labeled orbs (A,B,C,D) one by one without replacement. How
+many ways are there to do this?”</p>
+<p>\hfill
+We are arranging 4 objects from a set of 4. There are <span class="math notranslate nohighlight">\(P(4,4)\)</span> ways to
+do this. So, there are <span class="math notranslate nohighlight">\(P(4,4)=\frac{4!}{(4-4)!}=4!\)</span> ways to do this.</p>
+<p>We also asked the following: “You draw the orbs from the urn with
+replacement, you write down 4 labels. How many ways are there to do this
+so their is only a pair of repeats?” (e.g. (A,B,C,A) is okay but not
+(D,D,C,D)).</p>
+<p>\hfill
+Consider a set of four slots <span class="math notranslate nohighlight">\(S\)</span> in which you will write the labels. We
+select one of the labels to repeat, there are 4 ways to do this. We
+select 2 slots from the 4 slots for this label, there are
+<span class="math notranslate nohighlight">\(C(4,2)=\binom{4}{2}\)</span> ways to do this. After this label has been placed,
+there are 3 labels to be arranged in 2 slots, there are
+<span class="math notranslate nohighlight">\(P(3,2)=\frac{3!}{(3-2)!}=3!\)</span> to do this. This means there are
+<span class="math notranslate nohighlight">\(4\cdot C(4,2)\cdot P(3,2)=4\cdot\binom{4}{2}\cdot 3!\)</span> ways in total to
+get exactly one pair in this case. This is a totally valid response to a
+combinatorics question. For an concise answer, we can simplify to obtain
+144 ways.</p>
+<p>\hfill
+How many ways are there to draw <span class="math notranslate nohighlight">\(n\)</span> labeled orbs from an urn with
+replacement?</p>
+<p>\hfill
+How many ways are there to draw <span class="math notranslate nohighlight">\(n\)</span> labeled orbs from an urn with
+replacement only <span class="math notranslate nohighlight">\(m\)</span> times when <span class="math notranslate nohighlight">\(m&lt;n\)</span>? What about <span class="math notranslate nohighlight">\(m&gt;n\)</span>?</p>
+<p>Now that we have some practice with combinations and permutations, let’s
+get some practice with combinatorial proofs and show how they are
+different from non-combinatorial proofs.</p>
+<p>\hfill
+Use a combinatorial proof to show that <span class="math notranslate nohighlight">\(P(n,k)=P(k,k)C(n,k)\)</span>.</p>
+<p>\hfill</p>
+<ul class="simple">
+<li><p><strong>Identify Problem</strong>: How many ways are there to arrange <span class="math notranslate nohighlight">\(k\)</span> objects
+from a set of <span class="math notranslate nohighlight">\(n\)</span> objects?</p></li>
+<li><p><strong>LHS</strong>: By definition, <span class="math notranslate nohighlight">\(P(n,k)\)</span> counts this.</p></li>
+<li><p><strong>RHS</strong>: <span class="math notranslate nohighlight">\(C(n,k)\)</span> counts the number of ways to select a subset of
+<span class="math notranslate nohighlight">\(k\)</span> objects from a set of <span class="math notranslate nohighlight">\(n\)</span>. This ignores the order of the
+objects. For each <span class="math notranslate nohighlight">\(k\)</span>-element selection, there are <span class="math notranslate nohighlight">\(P(k,k)\)</span> ways to
+arrange the elements. Thus, by the multiplication principle, there
+are <span class="math notranslate nohighlight">\(C(n,k)P(k,k)\)</span> ways to arrange <span class="math notranslate nohighlight">\(k\)</span> elements from a set of <span class="math notranslate nohighlight">\(n\)</span>
+objects.</p></li>
+<li><p><strong>Conclusion</strong>: Therefore, <span class="math notranslate nohighlight">\(P(n,k)=P(k,k)C(n,k)\)</span>.</p></li>
+</ul>
+<p>From the proof above, we can immediately algebraically deduce:</p>
+<p>\hfill
+$<span class="math notranslate nohighlight">\(\begin{aligned}
+C(n,k)=\binom{n}{k}=\frac{n!}{k!(n-k)!}
+\end{aligned}\)</span>$</p>
+<p>\hfill
+$<span class="math notranslate nohighlight">\(\begin{aligned}
+P(n,k)=P(k,k)C(n,k)&amp;\implies \frac{n!}{(n-k)!}=\frac{k!}{(k-k)!}C(n,k)\\
+&amp;\implies C(n,k)=\frac{n!}{k!(n-k)!}=\binom{n}{k}
+\end{aligned}\)</span>$</p>
+<p>\vspace{.5em}
+What we’ve done here is simply use algebra and pre-established
+relationships to reach our result. We have counted nothing. This is an
+example of a <em>non-combinatorial proof</em>.</p>
+<p>Using the above theorem, here is another good example of a
+non-combinatorial proof:</p>
+<p>\hfill
+$<span class="math notranslate nohighlight">\(\begin{aligned}
+\binom{n}{k}=\binom{n}{n-k}\end{aligned}\)</span><span class="math notranslate nohighlight">\(  
+(That is, the number of ways to select \)</span>k<span class="math notranslate nohighlight">\( objects from \)</span>n<span class="math notranslate nohighlight">\( is equal to
+the number of ways to select \)</span>n-k<span class="math notranslate nohighlight">\( objects from \)</span>n$.)</p>
+<p>\hfill
+$<span class="math notranslate nohighlight">\(\begin{aligned}
+\binom{n}{k}=\frac{n!}{k!(n-k)!}=\frac{n!}{(n-(n-k))!(n-k)!}=\binom{n}{n-k}
+\end{aligned}\)</span>$</p>
+<p>How could we change this into a combinatorial proof?</p>
+<p>\hfill
+$<span class="math notranslate nohighlight">\(\begin{aligned}
+\binom{n}{k}=\binom{n}{n-k}\end{aligned}\)</span>$</p>
+<p>\hfill</p>
+<ul class="simple">
+<li><p><strong>Identify Problem</strong>: How many ways are there to select <span class="math notranslate nohighlight">\(k\)</span> objects
+from a set of <span class="math notranslate nohighlight">\(n\)</span>?</p></li>
+<li><p><strong>LHS</strong>: By definition, <span class="math notranslate nohighlight">\(\binom{n}{k}\)</span> counts the number of ways to
+select <span class="math notranslate nohighlight">\(k\)</span> objects from a set of <span class="math notranslate nohighlight">\(n\)</span> objects.</p></li>
+<li><p><strong>RHS</strong>: By definition, <span class="math notranslate nohighlight">\(\binom{n}{n-k}\)</span> counts the number of ways
+to select <span class="math notranslate nohighlight">\(n-k\)</span> objects from a set of <span class="math notranslate nohighlight">\(n\)</span>. By including <span class="math notranslate nohighlight">\(n-k\)</span>
+objects in a set, we are creating a set of <span class="math notranslate nohighlight">\(k\)</span> excluded objects. If
+instead, we select the <span class="math notranslate nohighlight">\(n-k\)</span> objects from a set of <span class="math notranslate nohighlight">\(n\)</span> to exclude,
+we are including the other <span class="math notranslate nohighlight">\(k\)</span> objects. Thus, <span class="math notranslate nohighlight">\(\binom{n}{n-k}\)</span>
+counts the number of ways to select <span class="math notranslate nohighlight">\(k\)</span> from a set of <span class="math notranslate nohighlight">\(n\)</span>.</p></li>
+<li><p><strong>Conclusion</strong>: Therefore, <span class="math notranslate nohighlight">\(\binom{n}{k}=\binom{n}{n-k}\)</span>.</p></li>
+</ul>
+<p>Double counting gives us many ways to count the same thing! A few great
+examples:</p>
+<p>\hfill
+$<span class="math notranslate nohighlight">\(\begin{aligned}
+\binom{n}{k}&amp;=\binom{n}{n-k}=\frac{n}{n-k}\binom{n-1}{k}\\
+&amp;=\frac{n}{k}\binom{n-1}{k-1}=\binom{n-1}{k}+\binom{n-1}{k-1}
+\end{aligned}\)</span>$</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="pigeonhole-principle">
+<h1>Pigeonhole Principle<a class="headerlink" href="#pigeonhole-principle" title="Link to this heading">#</a></h1>
+<section id="warmup-problem">
+<h2>Warmup Problem<a class="headerlink" href="#warmup-problem" title="Link to this heading">#</a></h2>
+<p>\hfill
+There are <span class="math notranslate nohighlight">\(n\)</span> married couples waiting at tables around a dance floor.</p>
+<ol class="arabic simple">
+<li><p>Pairing the <span class="math notranslate nohighlight">\(2n\)</span> people up to dance, how many ways are there to
+select a pair of dance partners?</p></li>
+<li><p>How many people must be on the dance floor to guarantee a married
+couple is somewhere on the dance floor?</p></li>
+</ol>
+<p>\hfill</p>
+<ol class="arabic simple">
+<li><p>This is a case where we would like to use our new notion of
+combination:</p>
+<ul class="simple">
+<li><p>We are selecting 2 people from <span class="math notranslate nohighlight">\(2n\)</span> people.</p></li>
+<li><p>There are <span class="math notranslate nohighlight">\(C(2n,2)=\binom{2n}{2}\)</span> ways to do this.</p></li>
+</ul>
+</li>
+<li><p>We want to <em>guarantee</em> that a married couple is on the dance floor.
+If we invite <span class="math notranslate nohighlight">\(n\)</span> people to the floor, there is a chance we could
+have a couple. But, what if invite only one spouse from each couple?
+Then there is no couple on the floor. Consider this case.</p>
+<ul class="simple">
+<li><p>Select one spouse from each married couple to the dance floor.
+There are now <span class="math notranslate nohighlight">\(n\)</span> people ready to dance.</p></li>
+<li><p>If we invite any one else to the dance floor, we are guaranteed
+their spouse is on the dance floor.</p></li>
+<li><p>So, to <em>guarantee</em> we have a couple on the dance floor, we need
+to invite <span class="math notranslate nohighlight">\(n+1\)</span> people to the floor.</p></li>
+</ul>
+</li>
+</ol>
+<p>This is what we call the <em>pigeonhole principle</em>. It is an incredible
+powerful tool:</p>
+<p>\hfill
+If <span class="math notranslate nohighlight">\(n+1\)</span> objects are distributed into <span class="math notranslate nohighlight">\(n\)</span> boxes, then at least one box
+contains two or more objects.</p>
+<p>\hfill
+If each of the <span class="math notranslate nohighlight">\(n\)</span> boxes has at most one object, then the total number
+of objects is at most <span class="math notranslate nohighlight">\(1+1+1+\cdots+1=n\)</span>. Since there is one object not
+accounted for, we can say there exists some box that contains at least
+two objects.</p>
+<p>Out of Garrett, the Dean of the University, and the Chair of the Math &amp;
+Stats Department, there are at least two people either inside Garrett’s
+office or outside of Garrett’s office.</p>
+<p>We can also exploit a more generally case of the pigeonhole principle
+when we have potentially more than <span class="math notranslate nohighlight">\(n+1\)</span> objects:</p>
+<p>\hfill
+Let <span class="math notranslate nohighlight">\(q_1,q_2,\dots,q_n\)</span> be positive integers. If $<span class="math notranslate nohighlight">\(\begin{aligned}
+q_1+q_2+q_3+\cdots+q_n-n+1
+\end{aligned}\)</span><span class="math notranslate nohighlight">\( objects are distributed into \)</span>n<span class="math notranslate nohighlight">\( boxes, then
+either the 1st box contains at least \)</span>q_1<span class="math notranslate nohighlight">\( objects or the 2nd box
+contains at least \)</span>q_2<span class="math notranslate nohighlight">\( objects,\)</span>\dots<span class="math notranslate nohighlight">\(, or the \)</span>n<span class="math notranslate nohighlight">\(th box contains at
+least \)</span>q_n$ objects.</p>
+<p>\hfill
+We distribute the <span class="math notranslate nohighlight">\(q_1+q_2+q_3+\cdots+q_n-n+1\)</span> objects into <span class="math notranslate nohighlight">\(n\)</span> boxes.
+If each <span class="math notranslate nohighlight">\(i\)</span>th box contains less than <span class="math notranslate nohighlight">\(q_i\)</span> objects, then the number of
+objects in boxes is less than $<span class="math notranslate nohighlight">\(\begin{aligned}
+(q_1-1)+(q_2-1)+\cdots+(q_n-1)&amp;=q_1+q_2+\cdots+q_n-n
+\end{aligned}\)</span><span class="math notranslate nohighlight">\( Since there is an object not accounted for, we
+can say there exists a box \)</span>i<span class="math notranslate nohighlight">\( with at least \)</span>q_i$ objects.</p>
+<p>\hfill
+Out of the 21 students in Math 325, there are 3 whose birthday lie on
+the same day of the week.</p>
+<p>What both the simple form and strong form of the pigeonhole principle
+say in plain english is: <em><strong>distributing too many objects into too few
+boxes forces overlaps</strong></em>.<br />
+Recall the 4 E’s of combinatorics:</p>
+<ul class="simple">
+<li><p>Enumeration: How many ways…?</p></li>
+<li><p>Existence: Does there exist…?</p></li>
+<li><p>Extremal: What is the largest/smallest possible…?</p></li>
+<li><p>Expectation: What is the expected number of objects such that…?</p></li>
+</ul>
+<p>We have been covering how to answer questions of enumeration. The
+pigeonhole principle is our first technique to answer questions of
+existence!<br />
+For example, we can answer the following existence question using the
+pigeonhole principle:</p>
+<p>\hfill
+Consider choosing 101 integers from <span class="math notranslate nohighlight">\(S=\{1,2,3,4,\dots, 200\}\)</span>. Show
+that there are two chosen integers such that one divides the other.
+Hint: try factoring out as many 2’s as possible from each term in <span class="math notranslate nohighlight">\(S\)</span>.</p>
+<p>\hfill
+Each number in <span class="math notranslate nohighlight">\(S=\{1,2,3,4,\dots, 200\}\)</span> is either even or odd.
+Consider writing each integer <span class="math notranslate nohighlight">\(s\in S\)</span> as <span class="math notranslate nohighlight">\(s=2^k\cdot t\)</span> where <span class="math notranslate nohighlight">\(t\)</span> is
+odd and <span class="math notranslate nohighlight">\(k\geq 0\)</span>. Each <span class="math notranslate nohighlight">\(t\)</span> comes from the set <span class="math notranslate nohighlight">\(T=\{1,3,5,\dots, 199\}\)</span>
+of size 100. By picking 101 integers from <span class="math notranslate nohighlight">\(S\)</span>, we are also picking 101
+odd factors from <span class="math notranslate nohighlight">\(T\)</span>. Since 101=100+1 factors are chosen from 100
+factors, by the pigeonhole principle, there are two integers chosen from
+<span class="math notranslate nohighlight">\(S\)</span> that share a factor from <span class="math notranslate nohighlight">\(T\)</span>. That is, from the chosen integers of
+<span class="math notranslate nohighlight">\(S\)</span>, there are two, say <span class="math notranslate nohighlight">\(s_1\)</span> and <span class="math notranslate nohighlight">\(s_2\)</span>, such that <span class="math notranslate nohighlight">\(s_1=2^m\cdot t\)</span> and
+<span class="math notranslate nohighlight">\(s_2=2^n\cdot t\)</span>. Either <span class="math notranslate nohighlight">\(m&gt;n\)</span> and <span class="math notranslate nohighlight">\(s_2\)</span> divides <span class="math notranslate nohighlight">\(s_1\)</span> or <span class="math notranslate nohighlight">\(n&gt;m\)</span> and
+<span class="math notranslate nohighlight">\(s_1\)</span> divides <span class="math notranslate nohighlight">\(s_2\)</span>. As such, there are two integers such that one
+divides the other.</p>
+<p>This problem exemplifies why the pigeonhole principle is so useful:</p>
+<ul class="simple">
+<li><p>How many ways are there to select 101 integers from
+<span class="math notranslate nohighlight">\(S=\{1,2,3,\dots, 200\}\)</span>? <span class="math notranslate nohighlight">\(C(200,101)=\binom{200}{101}&gt;10^{57}\)</span>.</p></li>
+<li><p>This is an insanely large number. More than the number of atoms in 1
+million Earths (Earth is about <span class="math notranslate nohighlight">\(\approx 10^{51}\)</span> atoms).</p></li>
+<li><p>But, without going through every single possible subset choice, we
+know something about <em>every single one of these choices</em>. Namely,
+that there must be two numbers in each such that one divides the
+other.</p></li>
+</ul>
+<p>\centering
+=[font=] (5,11.75) to[short, -o] (5,11.75) ; (4.75,11.5) to[short,
+-o] (4.75,11.5) ; (8.75,11.5) rectangle (8.75,11.5); (8.5,11.5)
+rectangle (9.5,10.5); (9,10.5) rectangle (8.75,10.5); (9.25,8.75)
+rectangle (9.25,8.75); (8.5,9.75) rectangle (9.5,8.75); (9,8.75)
+rectangle (9,8.75); (9.5,11) rectangle (9.5,10.75); (9.5,11) rectangle
+(9.5,10.5); (8.5,8) rectangle (9.5,7); (8.5,13) rectangle (9.5,12);
+(tikzmaker) [shift=(0, -0.125)] at (3,8.75) ![Simple example of the
+pigeonhole principle (using
+pigeons!)[]{label=”fig:placeholder”}](math 325/lecture notes/week 3/pigeon.jpg “fig:”){#fig:placeholder
+width=”0cm”}; (tikzmaker) [shift=(.75, -0.75)] at (3.5,7.75) ![Simple
+example of the pigeonhole principle (using
+pigeons!)[]{label=”fig:placeholder”}](math 325/lecture notes/week 3/pigeon.jpg “fig:”){#fig:placeholder
+width=”1.5cm”}; (tikzmaker) [shift=(-0.75, –0.75)] at (5,12.75)
+![Simple example of the pigeonhole principle (using
+pigeons!)[]{label=”fig:placeholder”}](math 325/lecture notes/week 3/pigeon.jpg “fig:”){#fig:placeholder
+width=”1.5cm”}; (tikzmaker) [shift=(0.75, -0.75)] at (3.5,9.25)
+![Simple example of the pigeonhole principle (using
+pigeons!)[]{label=”fig:placeholder”}](math 325/lecture notes/week 3/pigeon.jpg “fig:”){#fig:placeholder
+width=”1.5cm”}; (tikzmaker) [shift=(-0.65, –0.75)] at (5,11.25)
+![Simple example of the pigeonhole principle (using
+pigeons!)[]{label=”fig:placeholder”}](math 325/lecture notes/week 3/pigeon.jpg “fig:”){#fig:placeholder
+width=”1.5cm”}; (tikzmaker) [shift=(0.75, -0.75)] at (3.5,11) ![Simple
+example of the pigeonhole principle (using
+pigeons!)[]{label=”fig:placeholder”}](math 325/lecture notes/week 3/pigeon.jpg “fig:”){#fig:placeholder
+width=”1.5cm”}; (4.75,13.5) – (8.25,12.5); (5,12) – (8.25,11);
+(5,10.25) – (8.25,9.25); (4.75,8.75) – (8.25,7.5); (5.25,6.75) –
+(8.25,7.25); at (9,12.5) 1; at (9,11) 2; at (9,7.5) 4; at (9,9.25) 3;</p>
+<p>To end this section, let’s work through a few problems:</p>
+<p>\hfill
+Pretend we are going to group the 21 Math 325 students into 4 study
+groups. Each group will have a leader.</p>
+<ul class="simple">
+<li><p>How many ways can we select the leaders?</p></li>
+<li><p>Pretend we number the groups 1,2,3, and 4. How many ways can we
+assign leaders to groups?</p></li>
+<li><p>Use the pigeonhole principle to show that there is a group with at
+least 2 people.</p></li>
+<li><p>Use the pigeonhole principle to show that there is a group with at
+least 6 people.</p></li>
+</ul>
+<p>\hfill</p>
+<ol class="arabic simple">
+<li><p>We are selecting 4 people from 20. There are <span class="math notranslate nohighlight">\(C(20,4)=\binom{20}{4}\)</span>
+ways to do this.</p></li>
+<li><p>We are arranging 4 people into 4 groups. There are <span class="math notranslate nohighlight">\(P(4,4)=(4)_4=4!\)</span>
+ways to do this.</p></li>
+<li><p>We are distributing 21 students into 4 groups. Considering the first
+5, we are placing 4+1 students into 4 groups. So, by the pigeonhole
+principle, there must be a group with at least two people.</p></li>
+<li><p>Again, we are distributing 21 students into 4 groups. In other
+words, we are placing 21 = 6+6+6+6-4+1 people into 4 groups. By the
+pigeonhole principle, either group 1 has at least 6, group 2 has at
+least 6, and so on. So, there exists at least one group with at
+least 6 people in it.</p></li>
+</ol>
+<p>\vspace{1em}</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./content"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="week1.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Chapter 1: What is Combinatorics?</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="week3.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Chapter 3: Combinatorial Thinking Practicum</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Chapter 2: “Counting”</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-s-warmups">Week’s Warmups</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#permutations-combinations-double-counting">Permutations, Combinations, &amp; Double Counting</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pigeonhole-principle">Pigeonhole Principle</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#warmup-problem">Warmup Problem</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Garrett Kepler
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

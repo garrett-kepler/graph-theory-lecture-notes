@@ -1,0 +1,8 @@
+format: jb-book
+root: intro
+
+parts:
+  - caption: Week 1--Sets & Basics
+    chapters:
+    - file: content/week1/Week 1 Day 1.ipynb
+    
