@@ -1,0 +1,1993 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>math, numpy, &amp; sympy Libraries &#8212; Mathematical Computing (Intro to Python)</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/week2/Week 2 Day 3';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="The matplotlib Library" href="../week3/Week%203%20Day%201.html" />
+    <link rel="prev" title="Working with Libraries" href="Week%202%20Day%202.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Mathematical Computing (Intro to Python)</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Welcome!
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 1--Basics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week1/Week%201%20Day%201.html">Python Object Types &amp; Syntax</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week1/Week%201%20Day%202.html">Variables, Statements, &amp; For-Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week1/Week%201%20Day%203.html">The Art of Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week1/Week%201%20Day%204.html">Week 1 Review</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 2--Problem Solving Methods</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Week%202%20Day%201.html">Complications in Coding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Week%202%20Day%202.html">Working with Libraries</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">math</span></code>, <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, &amp; <code class="docutils literal notranslate"><span class="pre">sympy</span></code> Libraries</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 3--Data Science &amp; Visualization</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week3/Week%203%20Day%201.html">The <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week3/Week%203%20Day%202.html">More <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week3/Week%203%20Day%203.html">Data Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week3/Week%203%20Day%204.html"><code class="docutils literal notranslate"><span class="pre">networkx</span></code> Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week3/Week%203%20Day%205.html">Data Visualization Review</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 4--Statistical Analysis</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week4/Week%204%20Day%201.html">Exploratory Data Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week4/Week%204%20Day%204.html">Correlation &amp; Covariance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week4/Week%204%20Day%205.html">Linear Regression</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 5--Optimization &amp; Linear Algebra</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week5/Week%205%20Day%201.html"><code class="docutils literal notranslate"><span class="pre">numpy</span></code> Matrix Basix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week5/Week%205%20Day%202.html"><code class="docutils literal notranslate"><span class="pre">scipy</span></code> Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week5/Week%205%20Day%203.html">Optimization in Machine Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week5/Week%205%20Day%204.html"><code class="docutils literal notranslate"><span class="pre">scipy</span></code> &amp; Differential Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week5/Week%205%20Day%205.html">Optimization in Linear Algebra</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 6--Topics (Neural Networks &amp; Monte Carlo Methods)</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week6/Week%206%20Day%202.html">Neural Network Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week6/Week%206%20Day%203.html">Transfer Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week6/Week%206%20Day%204.html">Monte Carlo Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week6/Week%206%20Day%205.html">Markov Chain Monte Carlo</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/content/week2/Week 2 Day 3.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>math, numpy, & sympy Libraries</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-math-library">The <code class="docutils literal notranslate"><span class="pre">math</span></code> Library</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-sympy-library">The <code class="docutils literal notranslate"><span class="pre">sympy</span></code> Library</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-problems">Lab Problems</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-key">Lab Key*</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="math-numpy-sympy-libraries">
+<h1><code class="docutils literal notranslate"><span class="pre">math</span></code>, <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, &amp; <code class="docutils literal notranslate"><span class="pre">sympy</span></code> Libraries<a class="headerlink" href="#math-numpy-sympy-libraries" title="Link to this heading">#</a></h1>
+<p>Three of the most commonly used libraries in Python are <strong>math</strong>, <strong>NumPy</strong>, and <strong>SymPy</strong>. We went over numpy yesterday. Let’s go over math and sympy today.</p>
+<p>Although they all perform mathematical operations, each library is designed for a different purpose.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Library</p></th>
+<th class="head"><p>Typical Use</p></th>
+<th class="head"><p>Good For</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">math</span></code></p></td>
+<td><p>Standard mathematical functions</p></td>
+<td><p>Individual numbers (scalars)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">NumPy</span></code></p></td>
+<td><p>Numerical computing</p></td>
+<td><p>Arrays, vectors, and matrices</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">SymPy</span></code></p></td>
+<td><p>Symbolic mathematics</p></td>
+<td><p>Algebra, calculus, and exact arithmetic</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<section id="the-math-library">
+<h2>The <code class="docutils literal notranslate"><span class="pre">math</span></code> Library<a class="headerlink" href="#the-math-library" title="Link to this heading">#</a></h2>
+<p>Python’s math library comes built-in and provides functions for common mathematical operations on <i>scalars</i>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">25</span><span class="p">))</span>         <span class="c1"># square root</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span>   <span class="c1"># sine</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>           <span class="c1"># cosine</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>          <span class="c1"># natural logarithm</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>           <span class="c1"># exponential (e^x)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">factorial</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>     <span class="c1"># factorial</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.0
+1.0
+1.0
+2.302585092994046
+7.38905609893065
+120
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="n">e</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.718281828459045
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_scroll-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">dir</span><span class="p">(</span><span class="n">math</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;__doc__&#39;,
+ &#39;__loader__&#39;,
+ &#39;__name__&#39;,
+ &#39;__package__&#39;,
+ &#39;__spec__&#39;,
+ &#39;acos&#39;,
+ &#39;acosh&#39;,
+ &#39;asin&#39;,
+ &#39;asinh&#39;,
+ &#39;atan&#39;,
+ &#39;atan2&#39;,
+ &#39;atanh&#39;,
+ &#39;ceil&#39;,
+ &#39;copysign&#39;,
+ &#39;cos&#39;,
+ &#39;cosh&#39;,
+ &#39;degrees&#39;,
+ &#39;e&#39;,
+ &#39;erf&#39;,
+ &#39;erfc&#39;,
+ &#39;exp&#39;,
+ &#39;expm1&#39;,
+ &#39;fabs&#39;,
+ &#39;factorial&#39;,
+ &#39;floor&#39;,
+ &#39;fmod&#39;,
+ &#39;frexp&#39;,
+ &#39;fsum&#39;,
+ &#39;gamma&#39;,
+ &#39;gcd&#39;,
+ &#39;hypot&#39;,
+ &#39;inf&#39;,
+ &#39;isclose&#39;,
+ &#39;isfinite&#39;,
+ &#39;isinf&#39;,
+ &#39;isnan&#39;,
+ &#39;ldexp&#39;,
+ &#39;lgamma&#39;,
+ &#39;log&#39;,
+ &#39;log10&#39;,
+ &#39;log1p&#39;,
+ &#39;log2&#39;,
+ &#39;modf&#39;,
+ &#39;nan&#39;,
+ &#39;pi&#39;,
+ &#39;pow&#39;,
+ &#39;radians&#39;,
+ &#39;remainder&#39;,
+ &#39;sin&#39;,
+ &#39;sinh&#39;,
+ &#39;sqrt&#39;,
+ &#39;tan&#39;,
+ &#39;tanh&#39;,
+ &#39;tau&#39;,
+ &#39;trunc&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8414709848078965
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="the-sympy-library">
+<h2>The <code class="docutils literal notranslate"><span class="pre">sympy</span></code> Library<a class="headerlink" href="#the-sympy-library" title="Link to this heading">#</a></h2>
+<p>SymPy performs what we call <i>symbolic mathematics</i> rather than solving numerically like in numpy. To do this, we reform arithmetic in terms of a “sympy symbol”. This object takes much longer to process and deal with than floats, so be careful!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sympy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sp</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To create a variable in sympy, we must tell Python to create a sympy symbol object:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, anytime the variable <code class="docutils literal notranslate"><span class="pre">x</span></code> is mentioned, Python knows to refer to the sympy-based arithmetic of the object. One basic operation in sympy is simplification:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">simplify</span><span class="p">((</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x + 1
+</pre></div>
+</div>
+</div>
+</div>
+<p>Also, expansion:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">expand</span><span class="p">((</span><span class="n">x</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mi">5</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x**5 + 10*x**4 + 40*x**3 + 80*x**2 + 80*x + 32
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also factor polynomials:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">factor</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">9</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(x - 3)*(x + 3)
+</pre></div>
+</div>
+</div>
+</div>
+<p>And solve quadratics:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">solution</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">4</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="c1"># sp.solve( function, variable )</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">solution</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-2, 2]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Or evaluate limits:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span> <span class="c1"># sp.limit( function, variable, limit )</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+</div>
+</div>
+<p>Even differentiate:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">x</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3*x**2 + 4*x - 1
+</pre></div>
+</div>
+</div>
+</div>
+<p>And integrate:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">integrate</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span> <span class="c1"># indefinite integral format</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">integrate</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">)))</span> <span class="c1"># definite integral (from 0 to 4)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x**3/3
+64/3
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_scroll-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">dir</span><span class="p">(</span><span class="n">sp</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Abs&#39;,
+ &#39;AccumBounds&#39;,
+ &#39;Add&#39;,
+ &#39;Adjoint&#39;,
+ &#39;AlgebraicField&#39;,
+ &#39;AlgebraicNumber&#39;,
+ &#39;And&#39;,
+ &#39;AppliedPredicate&#39;,
+ &#39;Array&#39;,
+ &#39;AssumptionsContext&#39;,
+ &#39;Atom&#39;,
+ &#39;AtomicExpr&#39;,
+ &#39;BasePolynomialError&#39;,
+ &#39;Basic&#39;,
+ &#39;BlockDiagMatrix&#39;,
+ &#39;BlockMatrix&#39;,
+ &#39;C&#39;,
+ &#39;CC&#39;,
+ &#39;CRootOf&#39;,
+ &#39;Catalan&#39;,
+ &#39;Chi&#39;,
+ &#39;Ci&#39;,
+ &#39;Circle&#39;,
+ &#39;ClassRegistry&#39;,
+ &#39;CoercionFailed&#39;,
+ &#39;Complement&#39;,
+ &#39;ComplexField&#39;,
+ &#39;ComplexRegion&#39;,
+ &#39;ComplexRootOf&#39;,
+ &#39;Complexes&#39;,
+ &#39;ComputationFailed&#39;,
+ &#39;ConditionSet&#39;,
+ &#39;Contains&#39;,
+ &#39;CosineTransform&#39;,
+ &#39;Curve&#39;,
+ &#39;DeferredVector&#39;,
+ &#39;DenseNDimArray&#39;,
+ &#39;Derivative&#39;,
+ &#39;Determinant&#39;,
+ &#39;DiagonalMatrix&#39;,
+ &#39;DiagonalOf&#39;,
+ &#39;Dict&#39;,
+ &#39;DiracDelta&#39;,
+ &#39;Domain&#39;,
+ &#39;DomainError&#39;,
+ &#39;DotProduct&#39;,
+ &#39;Dummy&#39;,
+ &#39;E&#39;,
+ &#39;E1&#39;,
+ &#39;EPath&#39;,
+ &#39;EX&#39;,
+ &#39;Ei&#39;,
+ &#39;Eijk&#39;,
+ &#39;Ellipse&#39;,
+ &#39;EmptySequence&#39;,
+ &#39;EmptySet&#39;,
+ &#39;Eq&#39;,
+ &#39;Equality&#39;,
+ &#39;Equivalent&#39;,
+ &#39;EulerGamma&#39;,
+ &#39;EvaluationFailed&#39;,
+ &#39;ExactQuotientFailed&#39;,
+ &#39;Expr&#39;,
+ &#39;ExpressionDomain&#39;,
+ &#39;ExtraneousFactors&#39;,
+ &#39;FF&#39;,
+ &#39;FF_gmpy&#39;,
+ &#39;FF_python&#39;,
+ &#39;FU&#39;,
+ &#39;FallingFactorial&#39;,
+ &#39;FiniteField&#39;,
+ &#39;FiniteSet&#39;,
+ &#39;FlagError&#39;,
+ &#39;Float&#39;,
+ &#39;FourierTransform&#39;,
+ &#39;FractionField&#39;,
+ &#39;Function&#39;,
+ &#39;FunctionClass&#39;,
+ &#39;FunctionMatrix&#39;,
+ &#39;GF&#39;,
+ &#39;GMPYFiniteField&#39;,
+ &#39;GMPYIntegerRing&#39;,
+ &#39;GMPYRationalField&#39;,
+ &#39;Ge&#39;,
+ &#39;GeneratorsError&#39;,
+ &#39;GeneratorsNeeded&#39;,
+ &#39;GeometryError&#39;,
+ &#39;GoldenRatio&#39;,
+ &#39;GramSchmidt&#39;,
+ &#39;GreaterThan&#39;,
+ &#39;GroebnerBasis&#39;,
+ &#39;Gt&#39;,
+ &#39;HadamardProduct&#39;,
+ &#39;HankelTransform&#39;,
+ &#39;Heaviside&#39;,
+ &#39;HeuristicGCDFailed&#39;,
+ &#39;HomomorphismFailed&#39;,
+ &#39;I&#39;,
+ &#39;ITE&#39;,
+ &#39;Id&#39;,
+ &#39;Identity&#39;,
+ &#39;Idx&#39;,
+ &#39;ImageSet&#39;,
+ &#39;ImmutableDenseMatrix&#39;,
+ &#39;ImmutableDenseNDimArray&#39;,
+ &#39;ImmutableMatrix&#39;,
+ &#39;ImmutableSparseMatrix&#39;,
+ &#39;ImmutableSparseNDimArray&#39;,
+ &#39;Implies&#39;,
+ &#39;Indexed&#39;,
+ &#39;IndexedBase&#39;,
+ &#39;Integer&#39;,
+ &#39;IntegerRing&#39;,
+ &#39;Integers&#39;,
+ &#39;Integral&#39;,
+ &#39;Intersection&#39;,
+ &#39;Interval&#39;,
+ &#39;Inverse&#39;,
+ &#39;InverseCosineTransform&#39;,
+ &#39;InverseFourierTransform&#39;,
+ &#39;InverseHankelTransform&#39;,
+ &#39;InverseLaplaceTransform&#39;,
+ &#39;InverseMellinTransform&#39;,
+ &#39;InverseSineTransform&#39;,
+ &#39;IsomorphismFailed&#39;,
+ &#39;KroneckerDelta&#39;,
+ &#39;KroneckerProduct&#39;,
+ &#39;LC&#39;,
+ &#39;LM&#39;,
+ &#39;LT&#39;,
+ &#39;Lambda&#39;,
+ &#39;LambertW&#39;,
+ &#39;LaplaceTransform&#39;,
+ &#39;Le&#39;,
+ &#39;LessThan&#39;,
+ &#39;LeviCivita&#39;,
+ &#39;Li&#39;,
+ &#39;Limit&#39;,
+ &#39;Line&#39;,
+ &#39;Line2D&#39;,
+ &#39;Line3D&#39;,
+ &#39;Lt&#39;,
+ &#39;MatAdd&#39;,
+ &#39;MatMul&#39;,
+ &#39;MatPow&#39;,
+ &#39;Matrix&#39;,
+ &#39;MatrixBase&#39;,
+ &#39;MatrixExpr&#39;,
+ &#39;MatrixSlice&#39;,
+ &#39;MatrixSymbol&#39;,
+ &#39;Max&#39;,
+ &#39;MellinTransform&#39;,
+ &#39;Min&#39;,
+ &#39;Mod&#39;,
+ &#39;Monomial&#39;,
+ &#39;Mul&#39;,
+ &#39;MultivariatePolynomialError&#39;,
+ &#39;MutableDenseMatrix&#39;,
+ &#39;MutableDenseNDimArray&#39;,
+ &#39;MutableMatrix&#39;,
+ &#39;MutableSparseMatrix&#39;,
+ &#39;MutableSparseNDimArray&#39;,
+ &#39;N&#39;,
+ &#39;NDimArray&#39;,
+ &#39;Nand&#39;,
+ &#39;Naturals&#39;,
+ &#39;Naturals0&#39;,
+ &#39;Ne&#39;,
+ &#39;NonSquareMatrixError&#39;,
+ &#39;Nor&#39;,
+ &#39;Not&#39;,
+ &#39;NotAlgebraic&#39;,
+ &#39;NotInvertible&#39;,
+ &#39;NotReversible&#39;,
+ &#39;Number&#39;,
+ &#39;NumberSymbol&#39;,
+ &#39;O&#39;,
+ &#39;OmegaPower&#39;,
+ &#39;OperationNotSupported&#39;,
+ &#39;OptionError&#39;,
+ &#39;Options&#39;,
+ &#39;Or&#39;,
+ &#39;Order&#39;,
+ &#39;Ordinal&#39;,
+ &#39;POSform&#39;,
+ &#39;Parabola&#39;,
+ &#39;Piecewise&#39;,
+ &#39;Plane&#39;,
+ &#39;Point&#39;,
+ &#39;Point2D&#39;,
+ &#39;Point3D&#39;,
+ &#39;PoleError&#39;,
+ &#39;PolificationFailed&#39;,
+ &#39;Poly&#39;,
+ &#39;Polygon&#39;,
+ &#39;PolynomialDivisionFailed&#39;,
+ &#39;PolynomialError&#39;,
+ &#39;PolynomialRing&#39;,
+ &#39;Pow&#39;,
+ &#39;PrecisionExhausted&#39;,
+ &#39;Predicate&#39;,
+ &#39;Product&#39;,
+ &#39;ProductSet&#39;,
+ &#39;PurePoly&#39;,
+ &#39;PythonFiniteField&#39;,
+ &#39;PythonIntegerRing&#39;,
+ &#39;PythonRationalField&#39;,
+ &#39;Q&#39;,
+ &#39;QQ&#39;,
+ &#39;QQ_gmpy&#39;,
+ &#39;QQ_python&#39;,
+ &#39;Quaternion&#39;,
+ &#39;RR&#39;,
+ &#39;Range&#39;,
+ &#39;Rational&#39;,
+ &#39;RationalField&#39;,
+ &#39;Ray&#39;,
+ &#39;Ray2D&#39;,
+ &#39;Ray3D&#39;,
+ &#39;RealField&#39;,
+ &#39;RealNumber&#39;,
+ &#39;Reals&#39;,
+ &#39;RefinementFailed&#39;,
+ &#39;RegularPolygon&#39;,
+ &#39;Rel&#39;,
+ &#39;RisingFactorial&#39;,
+ &#39;RootOf&#39;,
+ &#39;RootSum&#39;,
+ &#39;S&#39;,
+ &#39;SOPform&#39;,
+ &#39;SYMPY_DEBUG&#39;,
+ &#39;Segment&#39;,
+ &#39;Segment2D&#39;,
+ &#39;Segment3D&#39;,
+ &#39;SeqAdd&#39;,
+ &#39;SeqFormula&#39;,
+ &#39;SeqMul&#39;,
+ &#39;SeqPer&#39;,
+ &#39;Set&#39;,
+ &#39;ShapeError&#39;,
+ &#39;Shi&#39;,
+ &#39;Si&#39;,
+ &#39;Sieve&#39;,
+ &#39;SineTransform&#39;,
+ &#39;SingularityFunction&#39;,
+ &#39;SparseMatrix&#39;,
+ &#39;SparseNDimArray&#39;,
+ &#39;StrPrinter&#39;,
+ &#39;StrictGreaterThan&#39;,
+ &#39;StrictLessThan&#39;,
+ &#39;Subs&#39;,
+ &#39;Sum&#39;,
+ &#39;Symbol&#39;,
+ &#39;SymmetricDifference&#39;,
+ &#39;SympifyError&#39;,
+ &#39;TableForm&#39;,
+ &#39;Trace&#39;,
+ &#39;Transpose&#39;,
+ &#39;Triangle&#39;,
+ &#39;TribonacciConstant&#39;,
+ &#39;Tuple&#39;,
+ &#39;Unequality&#39;,
+ &#39;UnevaluatedExpr&#39;,
+ &#39;UnificationFailed&#39;,
+ &#39;Union&#39;,
+ &#39;UnivariatePolynomialError&#39;,
+ &#39;UniversalSet&#39;,
+ &#39;Wild&#39;,
+ &#39;WildFunction&#39;,
+ &#39;Xor&#39;,
+ &#39;Ynm&#39;,
+ &#39;Ynm_c&#39;,
+ &#39;ZZ&#39;,
+ &#39;ZZ_gmpy&#39;,
+ &#39;ZZ_python&#39;,
+ &#39;ZeroMatrix&#39;,
+ &#39;Znm&#39;,
+ &#39;__builtins__&#39;,
+ &#39;__cached__&#39;,
+ &#39;__doc__&#39;,
+ &#39;__file__&#39;,
+ &#39;__loader__&#39;,
+ &#39;__name__&#39;,
+ &#39;__package__&#39;,
+ &#39;__path__&#39;,
+ &#39;__spec__&#39;,
+ &#39;__sympy_debug&#39;,
+ &#39;__version__&#39;,
+ &#39;abc&#39;,
+ &#39;abundance&#39;,
+ &#39;acos&#39;,
+ &#39;acosh&#39;,
+ &#39;acot&#39;,
+ &#39;acoth&#39;,
+ &#39;acsc&#39;,
+ &#39;acsch&#39;,
+ &#39;add&#39;,
+ &#39;adjoint&#39;,
+ &#39;airyai&#39;,
+ &#39;airyaiprime&#39;,
+ &#39;airybi&#39;,
+ &#39;airybiprime&#39;,
+ &#39;algebras&#39;,
+ &#39;apart&#39;,
+ &#39;apart_list&#39;,
+ &#39;appellf1&#39;,
+ &#39;apply_finite_diff&#39;,
+ &#39;are_similar&#39;,
+ &#39;arg&#39;,
+ &#39;arity&#39;,
+ &#39;array&#39;,
+ &#39;as_finite_diff&#39;,
+ &#39;asec&#39;,
+ &#39;asech&#39;,
+ &#39;asin&#39;,
+ &#39;asinh&#39;,
+ &#39;ask&#39;,
+ &#39;ask_generated&#39;,
+ &#39;assemble_partfrac_list&#39;,
+ &#39;assoc_laguerre&#39;,
+ &#39;assoc_legendre&#39;,
+ &#39;assume&#39;,
+ &#39;assuming&#39;,
+ &#39;assumptions&#39;,
+ &#39;atan&#39;,
+ &#39;atan2&#39;,
+ &#39;atanh&#39;,
+ &#39;basic&#39;,
+ &#39;bell&#39;,
+ &#39;bernoulli&#39;,
+ &#39;besseli&#39;,
+ &#39;besselj&#39;,
+ &#39;besselk&#39;,
+ &#39;besselsimp&#39;,
+ &#39;bessely&#39;,
+ &#39;beta&#39;,
+ &#39;binomial&#39;,
+ &#39;binomial_coefficients&#39;,
+ &#39;binomial_coefficients_list&#39;,
+ &#39;bivariate&#39;,
+ &#39;block_collapse&#39;,
+ &#39;blockcut&#39;,
+ &#39;bool_map&#39;,
+ &#39;boolalg&#39;,
+ &#39;bottom_up&#39;,
+ &#39;bspline_basis&#39;,
+ &#39;bspline_basis_set&#39;,
+ &#39;cache&#39;,
+ &#39;cacheit&#39;,
+ &#39;calculus&#39;,
+ &#39;cancel&#39;,
+ &#39;capture&#39;,
+ &#39;carmichael&#39;,
+ &#39;cartes&#39;,
+ &#39;casoratian&#39;,
+ &#39;catalan&#39;,
+ &#39;cbrt&#39;,
+ &#39;ccode&#39;,
+ &#39;ceiling&#39;,
+ &#39;centroid&#39;,
+ &#39;chebyshevt&#39;,
+ &#39;chebyshevt_poly&#39;,
+ &#39;chebyshevt_root&#39;,
+ &#39;chebyshevu&#39;,
+ &#39;chebyshevu_poly&#39;,
+ &#39;chebyshevu_root&#39;,
+ &#39;check_assumptions&#39;,
+ &#39;checkodesol&#39;,
+ &#39;checkpdesol&#39;,
+ &#39;checksol&#39;,
+ &#39;class_registry&#39;,
+ &#39;classify_ode&#39;,
+ &#39;classify_pde&#39;,
+ &#39;closest_points&#39;,
+ &#39;codegen&#39;,
+ &#39;cofactors&#39;,
+ &#39;collect&#39;,
+ &#39;collect_const&#39;,
+ &#39;combinatorial&#39;,
+ &#39;combinatorics&#39;,
+ &#39;combsimp&#39;,
+ &#39;common&#39;,
+ &#39;comp&#39;,
+ &#39;compatibility&#39;,
+ &#39;compose&#39;,
+ &#39;composite&#39;,
+ &#39;compositepi&#39;,
+ &#39;concrete&#39;,
+ &#39;conditionset&#39;,
+ &#39;conjugate&#39;,
+ &#39;construct_domain&#39;,
+ &#39;containers&#39;,
+ &#39;contains&#39;,
+ &#39;content&#39;,
+ &#39;continued_fraction&#39;,
+ &#39;continued_fraction_convergents&#39;,
+ &#39;continued_fraction_iterator&#39;,
+ &#39;continued_fraction_periodic&#39;,
+ &#39;continued_fraction_reduce&#39;,
+ &#39;convex_hull&#39;,
+ &#39;convolution&#39;,
+ &#39;convolutions&#39;,
+ &#39;core&#39;,
+ &#39;coreerrors&#39;,
+ &#39;cos&#39;,
+ &#39;cosh&#39;,
+ &#39;cosine_transform&#39;,
+ &#39;cot&#39;,
+ &#39;coth&#39;,
+ &#39;count_ops&#39;,
+ &#39;count_roots&#39;,
+ &#39;covering_product&#39;,
+ &#39;csc&#39;,
+ &#39;csch&#39;,
+ &#39;cse&#39;,
+ &#39;cse_main&#39;,
+ &#39;cse_opts&#39;,
+ &#39;curve&#39;,
+ &#39;cxxcode&#39;,
+ &#39;cycle_length&#39;,
+ &#39;cyclotomic_poly&#39;,
+ &#39;decompogen&#39;,
+ &#39;decompose&#39;,
+ &#39;decorator&#39;,
+ &#39;decorators&#39;,
+ &#39;default_sort_key&#39;,
+ &#39;deg&#39;,
+ &#39;degree&#39;,
+ &#39;degree_list&#39;,
+ &#39;denom&#39;,
+ &#39;dense&#39;,
+ &#39;deprecated&#39;,
+ &#39;derive_by_array&#39;,
+ &#39;det&#39;,
+ &#39;det_quick&#39;,
+ &#39;deutils&#39;,
+ &#39;diag&#39;,
+ &#39;dict_merge&#39;,
+ &#39;diff&#39;,
+ &#39;difference_delta&#39;,
+ &#39;differentiate_finite&#39;,
+ &#39;digamma&#39;,
+ &#39;diophantine&#39;,
+ &#39;dirichlet_eta&#39;,
+ &#39;discrete&#39;,
+ &#39;discrete_log&#39;,
+ &#39;discriminant&#39;,
+ &#39;div&#39;,
+ &#39;divisor_count&#39;,
+ &#39;divisor_sigma&#39;,
+ &#39;divisors&#39;,
+ &#39;doctest&#39;,
+ &#39;dotprint&#39;,
+ &#39;dsolve&#39;,
+ &#39;egyptian_fraction&#39;,
+ &#39;elementary&#39;,
+ &#39;ellipse&#39;,
+ &#39;elliptic_e&#39;,
+ &#39;elliptic_f&#39;,
+ &#39;elliptic_k&#39;,
+ &#39;elliptic_pi&#39;,
+ &#39;entity&#39;,
+ &#39;enumerative&#39;,
+ &#39;epath&#39;,
+ &#39;epathtools&#39;,
+ &#39;erf&#39;,
+ &#39;erf2&#39;,
+ &#39;erf2inv&#39;,
+ &#39;erfc&#39;,
+ &#39;erfcinv&#39;,
+ &#39;erfi&#39;,
+ &#39;erfinv&#39;,
+ &#39;euler&#39;,
+ &#39;euler_equations&#39;,
+ &#39;evalf&#39;,
+ &#39;evaluate&#39;,
+ &#39;exceptions&#39;,
+ &#39;exp&#39;,
+ &#39;exp_polar&#39;,
+ &#39;expand&#39;,
+ &#39;expand_complex&#39;,
+ &#39;expand_func&#39;,
+ &#39;expand_log&#39;,
+ &#39;expand_mul&#39;,
+ &#39;expand_multinomial&#39;,
+ &#39;expand_power_base&#39;,
+ &#39;expand_power_exp&#39;,
+ &#39;expand_trig&#39;,
+ &#39;expint&#39;,
+ &#39;expr&#39;,
+ &#39;expr_with_intlimits&#39;,
+ &#39;expr_with_limits&#39;,
+ &#39;expressions&#39;,
+ &#39;exprtools&#39;,
+ &#39;exptrigsimp&#39;,
+ &#39;exquo&#39;,
+ &#39;external&#39;,
+ &#39;eye&#39;,
+ &#39;factor&#39;,
+ &#39;factor_&#39;,
+ &#39;factor_list&#39;,
+ &#39;factor_nc&#39;,
+ &#39;factor_terms&#39;,
+ &#39;factorial&#39;,
+ &#39;factorial2&#39;,
+ &#39;factorint&#39;,
+ &#39;factorrat&#39;,
+ &#39;facts&#39;,
+ &#39;failing_assumptions&#39;,
+ &#39;false&#39;,
+ &#39;fancysets&#39;,
+ &#39;farthest_points&#39;,
+ &#39;fcode&#39;,
+ &#39;ff&#39;,
+ &#39;fft&#39;,
+ &#39;fibonacci&#39;,
+ &#39;field&#39;,
+ &#39;field_isomorphism&#39;,
+ &#39;filldedent&#39;,
+ &#39;finite_diff_weights&#39;,
+ &#39;flatten&#39;,
+ &#39;floor&#39;,
+ &#39;fourier_series&#39;,
+ &#39;fourier_transform&#39;,
+ &#39;fps&#39;,
+ &#39;frac&#39;,
+ &#39;fraction&#39;,
+ &#39;fresnelc&#39;,
+ &#39;fresnels&#39;,
+ &#39;fu&#39;,
+ &#39;function&#39;,
+ &#39;functions&#39;,
+ &#39;fwht&#39;,
+ &#39;gamma&#39;,
+ &#39;gammasimp&#39;,
+ &#39;gcd&#39;,
+ &#39;gcd_list&#39;,
+ &#39;gcd_terms&#39;,
+ &#39;gcdex&#39;,
+ &#39;gegenbauer&#39;,
+ &#39;generate&#39;,
+ &#39;genocchi&#39;,
+ &#39;geometry&#39;,
+ &#39;get_contraction_structure&#39;,
+ &#39;get_indices&#39;,
+ &#39;gff&#39;,
+ &#39;gff_list&#39;,
+ &#39;glsl_code&#39;,
+ &#39;gosper&#39;,
+ &#39;grevlex&#39;,
+ &#39;grlex&#39;,
+ &#39;groebner&#39;,
+ &#39;ground_roots&#39;,
+ &#39;group&#39;,
+ &#39;gruntz&#39;,
+ &#39;hadamard_product&#39;,
+ &#39;half_gcdex&#39;,
+ &#39;hankel1&#39;,
+ &#39;hankel2&#39;,
+ &#39;hankel_transform&#39;,
+ &#39;harmonic&#39;,
+ &#39;has_dups&#39;,
+ &#39;has_variety&#39;,
+ &#39;hermite&#39;,
+ &#39;hermite_poly&#39;,
+ &#39;hessian&#39;,
+ &#39;hn1&#39;,
+ &#39;hn2&#39;,
+ &#39;homogeneous_order&#39;,
+ &#39;horner&#39;,
+ &#39;hyper&#39;,
+ &#39;hyperexpand&#39;,
+ &#39;hypersimilar&#39;,
+ &#39;hypersimp&#39;,
+ &#39;idiff&#39;,
+ &#39;ifft&#39;,
+ &#39;ifwht&#39;,
+ &#39;igcd&#39;,
+ &#39;igrevlex&#39;,
+ &#39;igrlex&#39;,
+ &#39;ilcm&#39;,
+ &#39;ilex&#39;,
+ &#39;im&#39;,
+ &#39;imageset&#39;,
+ &#39;immutable&#39;,
+ &#39;index_methods&#39;,
+ &#39;indexed&#39;,
+ &#39;inequalities&#39;,
+ &#39;inference&#39;,
+ &#39;init_printing&#39;,
+ &#39;init_session&#39;,
+ &#39;integer_log&#39;,
+ &#39;integer_nthroot&#39;,
+ &#39;integrals&#39;,
+ &#39;integrate&#39;,
+ &#39;interactive&#39;,
+ &#39;interactive_traversal&#39;,
+ &#39;interpolate&#39;,
+ &#39;interpolating_poly&#39;,
+ &#39;interpolating_spline&#39;,
+ &#39;intersecting_product&#39;,
+ &#39;intersection&#39;,
+ &#39;intervals&#39;,
+ &#39;intt&#39;,
+ &#39;inv_quick&#39;,
+ &#39;inverse_cosine_transform&#39;,
+ &#39;inverse_fourier_transform&#39;,
+ &#39;inverse_hankel_transform&#39;,
+ &#39;inverse_laplace_transform&#39;,
+ &#39;inverse_mellin_transform&#39;,
+ &#39;inverse_mobius_transform&#39;,
+ &#39;inverse_sine_transform&#39;,
+ &#39;invert&#39;,
+ &#39;is_abundant&#39;,
+ &#39;is_amicable&#39;,
+ &#39;is_convex&#39;,
+ &#39;is_decreasing&#39;,
+ &#39;is_deficient&#39;,
+ &#39;is_increasing&#39;,
+ &#39;is_mersenne_prime&#39;,
+ &#39;is_monotonic&#39;,
+ &#39;is_nthpow_residue&#39;,
+ &#39;is_perfect&#39;,
+ &#39;is_primitive_root&#39;,
+ &#39;is_quad_residue&#39;,
+ &#39;is_strictly_decreasing&#39;,
+ &#39;is_strictly_increasing&#39;,
+ &#39;is_zero_dimensional&#39;,
+ &#39;isolate&#39;,
+ &#39;isprime&#39;,
+ &#39;iterables&#39;,
+ &#39;itermonomials&#39;,
+ &#39;jacobi&#39;,
+ &#39;jacobi_normalized&#39;,
+ &#39;jacobi_poly&#39;,
+ &#39;jacobi_symbol&#39;,
+ &#39;jn&#39;,
+ &#39;jn_zeros&#39;,
+ &#39;jordan_cell&#39;,
+ &#39;jscode&#39;,
+ &#39;julia_code&#39;,
+ &#39;kronecker_product&#39;,
+ &#39;laguerre&#39;,
+ &#39;laguerre_poly&#39;,
+ &#39;lambdify&#39;,
+ &#39;laplace_transform&#39;,
+ &#39;latex&#39;,
+ &#39;lcm&#39;,
+ &#39;lcm_list&#39;,
+ &#39;legendre&#39;,
+ &#39;legendre_poly&#39;,
+ &#39;legendre_symbol&#39;,
+ &#39;lerchphi&#39;,
+ &#39;lex&#39;,
+ &#39;li&#39;,
+ &#39;limit&#39;,
+ &#39;limit_seq&#39;,
+ &#39;line&#39;,
+ &#39;line_integrate&#39;,
+ &#39;linear_eq_to_matrix&#39;,
+ &#39;linsolve&#39;,
+ &#39;list2numpy&#39;,
+ &#39;ln&#39;,
+ &#39;log&#39;,
+ &#39;logcombine&#39;,
+ &#39;loggamma&#39;,
+ &#39;logic&#39;,
+ &#39;lowergamma&#39;,
+ &#39;lucas&#39;,
+ &#39;magic&#39;,
+ &#39;manualintegrate&#39;,
+ &#39;mathematica_code&#39;,
+ &#39;mathieuc&#39;,
+ &#39;mathieucprime&#39;,
+ &#39;mathieus&#39;,
+ &#39;mathieusprime&#39;,
+ &#39;mathml&#39;,
+ &#39;matrices&#39;,
+ &#39;matrix2numpy&#39;,
+ &#39;matrix_multiply_elementwise&#39;,
+ &#39;matrix_symbols&#39;,
+ &#39;meijerg&#39;,
+ &#39;meijerint&#39;,
+ &#39;mellin_transform&#39;,
+ &#39;memoization&#39;,
+ &#39;memoize_property&#39;,
+ &#39;mersenne_prime_exponent&#39;,
+ &#39;minimal_polynomial&#39;,
+ &#39;minpoly&#39;,
+ &#39;misc&#39;,
+ &#39;mobius&#39;,
+ &#39;mobius_transform&#39;,
+ &#39;mod&#39;,
+ &#39;mod_inverse&#39;,
+ &#39;monic&#39;,
+ &#39;mul&#39;,
+ &#39;multidimensional&#39;,
+ &#39;multinomial&#39;,
+ &#39;multinomial_coefficients&#39;,
+ &#39;multipledispatch&#39;,
+ &#39;multiplicity&#39;,
+ &#39;n_order&#39;,
+ &#39;nan&#39;,
+ &#39;nextprime&#39;,
+ &#39;nfloat&#39;,
+ &#39;nonlinsolve&#39;,
+ &#39;not_empty_in&#39;,
+ &#39;npartitions&#39;,
+ &#39;nroots&#39;,
+ &#39;nsimplify&#39;,
+ &#39;nsolve&#39;,
+ &#39;nth_power_roots_poly&#39;,
+ &#39;ntheory&#39;,
+ &#39;nthroot_mod&#39;,
+ &#39;ntt&#39;,
+ &#39;numbered_symbols&#39;,
+ &#39;numbers&#39;,
+ &#39;numer&#39;,
+ &#39;octave_code&#39;,
+ &#39;ode&#39;,
+ &#39;ode_order&#39;,
+ &#39;ones&#39;,
+ &#39;oo&#39;,
+ &#39;operations&#39;,
+ &#39;ord0&#39;,
+ &#39;ordered&#39;,
+ &#39;ordinals&#39;,
+ &#39;pager_print&#39;,
+ &#39;parabola&#39;,
+ &#39;parallel_poly_from_expr&#39;,
+ &#39;parsing&#39;,
+ &#39;partition&#39;,
+ &#39;partitions_&#39;,
+ &#39;pde&#39;,
+ &#39;pde_separate&#39;,
+ &#39;pde_separate_add&#39;,
+ &#39;pde_separate_mul&#39;,
+ &#39;pdiv&#39;,
+ &#39;pdsolve&#39;,
+ &#39;perfect_power&#39;,
+ &#39;periodic_argument&#39;,
+ &#39;periodicity&#39;,
+ &#39;permutedims&#39;,
+ &#39;pexquo&#39;,
+ &#39;physics&#39;,
+ &#39;pi&#39;,
+ &#39;piecewise_fold&#39;,
+ &#39;plane&#39;,
+ &#39;plot&#39;,
+ &#39;plot_backends&#39;,
+ &#39;plot_implicit&#39;,
+ &#39;plotting&#39;,
+ &#39;point&#39;,
+ &#39;polar_lift&#39;,
+ &#39;polarify&#39;,
+ &#39;pollard_pm1&#39;,
+ &#39;pollard_rho&#39;,
+ &#39;poly&#39;,
+ &#39;poly_from_expr&#39;,
+ &#39;polygamma&#39;,
+ &#39;polygon&#39;,
+ &#39;polylog&#39;,
+ &#39;polys&#39;,
+ &#39;polysys&#39;,
+ &#39;posify&#39;,
+ &#39;postfixes&#39;,
+ &#39;postorder_traversal&#39;,
+ &#39;powdenest&#39;,
+ &#39;power&#39;,
+ &#39;powsimp&#39;,
+ &#39;pprint&#39;,
+ &#39;pprint_try_use_unicode&#39;,
+ &#39;pprint_use_unicode&#39;,
+ &#39;pquo&#39;,
+ &#39;prefixes&#39;,
+ &#39;prem&#39;,
+ &#39;preorder_traversal&#39;,
+ &#39;pretty&#39;,
+ &#39;pretty_print&#39;,
+ &#39;preview&#39;,
+ &#39;prevprime&#39;,
+ &#39;prime&#39;,
+ &#39;primefactors&#39;,
+ &#39;primenu&#39;,
+ &#39;primeomega&#39;,
+ &#39;primepi&#39;,
+ &#39;primerange&#39;,
+ &#39;primetest&#39;,
+ &#39;primitive&#39;,
+ &#39;primitive_element&#39;,
+ &#39;primitive_root&#39;,
+ &#39;primorial&#39;,
+ &#39;principal_branch&#39;,
+ &#39;print_ccode&#39;,
+ &#39;print_fcode&#39;,
+ &#39;print_glsl&#39;,
+ &#39;print_gtk&#39;,
+ &#39;print_jscode&#39;,
+ &#39;print_latex&#39;,
+ &#39;print_mathml&#39;,
+ &#39;print_python&#39;,
+ &#39;print_rcode&#39;,
+ &#39;print_tree&#39;,
+ &#39;printing&#39;,
+ &#39;prod&#39;,
+ &#39;product&#39;,
+ &#39;products&#39;,
+ &#39;public&#39;,
+ &#39;pycode&#39;,
+ &#39;python&#39;,
+ &#39;quadratic_residues&#39;,
+ &#39;quo&#39;,
+ &#39;rad&#39;,
+ &#39;radsimp&#39;,
+ &#39;randMatrix&#39;,
+ &#39;random_poly&#39;,
+ &#39;randprime&#39;,
+ &#39;randtest&#39;,
+ &#39;rational_interpolate&#39;,
+ &#39;ratsimp&#39;,
+ &#39;ratsimpmodprime&#39;,
+ &#39;rcode&#39;,
+ &#39;rcollect&#39;,
+ &#39;re&#39;,
+ &#39;real_root&#39;,
+ &#39;real_roots&#39;,
+ &#39;recurr&#39;,
+ &#39;reduce_abs_inequalities&#39;,
+ &#39;reduce_abs_inequality&#39;,
+ &#39;reduce_inequalities&#39;,
+ &#39;reduced&#39;,
+ &#39;reduced_totient&#39;,
+ &#39;refine&#39;,
+ &#39;refine_root&#39;,
+ &#39;register_handler&#39;,
+ &#39;relational&#39;,
+ &#39;release&#39;,
+ &#39;rem&#39;,
+ &#39;remove_handler&#39;,
+ &#39;reshape&#39;,
+ &#39;residue&#39;,
+ &#39;residue_ntheory&#39;,
+ &#39;resultant&#39;,
+ &#39;rf&#39;,
+ &#39;ring&#39;,
+ &#39;root&#39;,
+ &#39;rootof&#39;,
+ &#39;roots&#39;,
+ &#39;rot_axis1&#39;,
+ &#39;rot_axis2&#39;,
+ &#39;rot_axis3&#39;,
+ &#39;rotations&#39;,
+ &#39;rsolve&#39;,
+ &#39;rsolve_hyper&#39;,
+ &#39;rsolve_poly&#39;,
+ &#39;rsolve_ratio&#39;,
+ &#39;rules&#39;,
+ &#39;runtests&#39;,
+ &#39;rust_code&#39;,
+ &#39;satisfiable&#39;,
+ &#39;sec&#39;,
+ &#39;sech&#39;,
+ &#39;separatevars&#39;,
+ &#39;sequence&#39;,
+ &#39;series&#39;,
+ &#39;seterr&#39;,
+ &#39;sets&#39;,
+ &#39;sfield&#39;,
+ &#39;sieve&#39;,
+ &#39;sift&#39;,
+ &#39;sign&#39;,
+ &#39;signsimp&#39;,
+ &#39;simplify&#39;,
+ &#39;simplify_logic&#39;,
+ &#39;sin&#39;,
+ &#39;sinc&#39;,
+ &#39;sine_transform&#39;,
+ &#39;singleton&#39;,
+ &#39;singularities&#39;,
+ &#39;singularityfunctions&#39;,
+ &#39;singularityintegrate&#39;,
+ &#39;sinh&#39;,
+ &#39;solve&#39;,
+ &#39;solve_linear&#39;,
+ &#39;solve_linear_system&#39;,
+ &#39;solve_linear_system_LU&#39;,
+ &#39;solve_poly_inequality&#39;,
+ &#39;solve_poly_system&#39;,
+ &#39;solve_rational_inequalities&#39;,
+ &#39;solve_triangulated&#39;,
+ &#39;solve_undetermined_coeffs&#39;,
+ &#39;solve_univariate_inequality&#39;,
+ &#39;solvers&#39;,
+ &#39;solveset&#39;,
+ &#39;source&#39;,
+ &#39;sparse&#39;,
+ &#39;special&#39;,
+ &#39;sqf&#39;,
+ &#39;sqf_list&#39;,
+ &#39;sqf_norm&#39;,
+ &#39;sqf_part&#39;,
+ &#39;sqrt&#39;,
+ &#39;sqrt_mod&#39;,
+ &#39;sqrt_mod_iter&#39;,
+ &#39;sqrtdenest&#39;,
+ &#39;srepr&#39;,
+ &#39;sring&#39;,
+ &#39;sstr&#39;,
+ &#39;sstrrepr&#39;,
+ &#39;stieltjes&#39;,
+ &#39;strategies&#39;,
+ &#39;sturm&#39;,
+ &#39;subfactorial&#39;,
+ &#39;subresultants&#39;,
+ &#39;subsets&#39;,
+ &#39;substitution&#39;,
+ &#39;summation&#39;,
+ &#39;summations&#39;,
+ &#39;swinnerton_dyer_poly&#39;,
+ &#39;symarray&#39;,
+ &#39;symbol&#39;,
+ &#39;symbols&#39;,
+ &#39;symmetric_poly&#39;,
+ &#39;symmetrize&#39;,
+ &#39;sympify&#39;,
+ &#39;take&#39;,
+ &#39;tan&#39;,
+ &#39;tanh&#39;,
+ &#39;tensor&#39;,
+ &#39;tensorcontraction&#39;,
+ &#39;tensorproduct&#39;,
+ &#39;terms_gcd&#39;,
+ &#39;test&#39;,
+ &#39;textplot&#39;,
+ &#39;threaded&#39;,
+ &#39;timed&#39;,
+ &#39;timeutils&#39;,
+ &#39;to_cnf&#39;,
+ &#39;to_dnf&#39;,
+ &#39;to_nnf&#39;,
+ &#39;to_number_field&#39;,
+ &#39;together&#39;,
+ &#39;topological_sort&#39;,
+ &#39;total_degree&#39;,
+ &#39;totient&#39;,
+ &#39;trace&#39;,
+ &#39;trailing&#39;,
+ &#39;transforms&#39;,
+ &#39;transpose&#39;,
+ &#39;traversaltools&#39;,
+ &#39;tribonacci&#39;,
+ &#39;trigamma&#39;,
+ &#39;trigonometry&#39;,
+ &#39;trigsimp&#39;,
+ &#39;true&#39;,
+ &#39;trunc&#39;,
+ &#39;unbranched_argument&#39;,
+ &#39;unflatten&#39;,
+ &#39;unpolarify&#39;,
+ &#39;uppergamma&#39;,
+ &#39;use&#39;,
+ &#39;util&#39;,
+ &#39;utilities&#39;,
+ &#39;var&#39;,
+ &#39;variations&#39;,
+ &#39;vectorize&#39;,
+ &#39;vfield&#39;,
+ &#39;viete&#39;,
+ &#39;vring&#39;,
+ &#39;wronskian&#39;,
+ &#39;xfield&#39;,
+ &#39;xring&#39;,
+ &#39;xthreaded&#39;,
+ &#39;yn&#39;,
+ &#39;zeros&#39;,
+ &#39;zeta&#39;,
+ &#39;zoo&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="lab-problems">
+<h2>Lab Problems<a class="headerlink" href="#lab-problems" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<ol class="arabic simple">
+<li></li>
+</ol>
+<p>Import <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, <code class="docutils literal notranslate"><span class="pre">math</span></code>, and <code class="docutils literal notranslate"><span class="pre">sympy</span></code>.</p>
+<hr class="docutils" />
+<ol class="arabic simple" start="2">
+<li></li>
+</ol>
+<ul class="simple">
+<li><p>Write a recursive function <code class="docutils literal notranslate"><span class="pre">factorial()</span></code> that takes in a natural number <code class="docutils literal notranslate"><span class="pre">n</span></code> and computes <span class="math notranslate nohighlight">\(n!=n(n-1)(n-2)\cdots3\cdot2\cdot 1\)</span>.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">%timeit</span></code> to determine how fast your function calculates <code class="docutils literal notranslate"><span class="pre">factorial(150)</span></code>.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">%timeit</span></code> to calculate how fast <code class="docutils literal notranslate"><span class="pre">math.factorial()</span></code> calculates the same quantity.</p></li>
+<li><p>Were there any differences between the two methods?</p></li>
+</ul>
+<hr class="docutils" />
+<ol class="arabic simple" start="3">
+<li></li>
+</ol>
+<p>Recall for a quadratic equation of the form</p>
+<div class="math notranslate nohighlight">
+\[ax^2 + bx + c = 0\]</div>
+<p>The solutions are given by the <i>quadratic formula</i>:</p>
+<div class="math notranslate nohighlight">
+\[x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}\]</div>
+<ul class="simple">
+<li><p>Write a function <code class="docutils literal notranslate"><span class="pre">quadratic()</span></code> that calculates the two roots given by the quadratic formula only if they are real.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">%timeit</span></code> to determine how fast your function calculates the roots for <span class="math notranslate nohighlight">\(437x^2 - 915x + 478 = 0\)</span>.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">%timeit</span></code> to calculate how fast <code class="docutils literal notranslate"><span class="pre">sp.solve()</span></code> calculates the same quantities.</p></li>
+<li><p>Were there any differences between the two methods?</p></li>
+</ul>
+<hr class="docutils" />
+<ol class="arabic simple" start="4">
+<li></li>
+</ol>
+<p>For each of the following functions, use <code class="docutils literal notranslate"><span class="pre">sympy</span></code> calculate the first derivative, the second derivative, and the integral (all with respect to <span class="math notranslate nohighlight">\(x\)</span>):</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(f(x)=x\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(f(x)=6x^{-1/2}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(f(x)=\pi\sqrt{x}+x^5+7\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(f(x)=x(2x-5)(3+\tan(x))\)</span></p></li>
+</ul>
+<hr class="docutils" />
+<ol class="arabic simple" start="5">
+<li></li>
+</ol>
+<p>From yesterday, we calculated <i>numerically</i> what the derivative of <span class="math notranslate nohighlight">\(\sin(x)\)</span> is.</p>
+<ol class="arabic simple">
+<li><p>Using sympy, calculate derivative at 0.</p></li>
+<li><p>Using sympy, evaluate the limit definition of the derivative for <span class="math notranslate nohighlight">\(f(x)=\sin(x)\)</span>:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[f'(x)=\lim_{h\to0}\frac{f(x+h)-f(x)}{h}\]</div>
+</section>
+<section id="lab-key">
+<h2>Lab Key*<a class="headerlink" href="#lab-key" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<ol class="arabic simple">
+<li></li>
+</ol>
+<div class="cell tag_remove-output tag_hide-cell docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell content</p>
+<p class="expanded admonition-title">Hide code cell content</p>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sympy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sp</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<hr class="docutils" />
+<ol class="arabic simple" start="2">
+<li></li>
+</ol>
+<div class="cell tag_hide-cell docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell content</p>
+<p class="expanded admonition-title">Hide code cell content</p>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;no&#39;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">n</span><span class="o">*</span><span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="o">%</span><span class="k">timeit</span> factorial(150)
+<span class="o">%</span><span class="k">timeit</span> math.factorial(150)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>34.8 μs ± 1.64 μs per loop (mean ± std. dev. of 7 runs, 10,000 loops each)
+3 μs ± 210 ns per loop (mean ± std. dev. of 7 runs, 100,000 loops each)
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<hr class="docutils" />
+<ol class="arabic simple" start="3">
+<li></li>
+</ol>
+<div class="cell tag_hide-cell docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell content</p>
+<p class="expanded admonition-title">Hide code cell content</p>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">quadratic</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">b</span><span class="o">**</span><span class="mi">2</span><span class="o">-</span><span class="mi">4</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="n">c</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;not real&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="n">b</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">)</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">b</span><span class="o">**</span><span class="mi">2</span><span class="o">-</span><span class="mi">4</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="n">c</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="o">-</span><span class="n">y</span><span class="p">]</span>
+        
+<span class="n">x</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+
+<span class="o">%</span><span class="k">timeit</span> quadratic(437, -915, 478)
+<span class="o">%</span><span class="k">timeit</span> sp.solve(437*x**2-915*x+478, x)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4 μs ± 245 ns per loop (mean ± std. dev. of 7 runs, 100,000 loops each)
+4.15 ms ± 284 μs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<hr class="docutils" />
+<ol class="arabic simple" start="4">
+<li></li>
+</ol>
+<div class="cell tag_hide-cell docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell content</p>
+<p class="expanded admonition-title">Hide code cell content</p>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">alltogether</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">sp</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">sp</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">sp</span><span class="o">.</span><span class="n">integrate</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">)]</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">alltogether</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">alltogether</span><span class="p">(</span><span class="mi">6</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mf">.5</span><span class="p">)))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">alltogether</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">sp</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">+</span><span class="n">x</span><span class="o">**</span><span class="mi">5</span><span class="o">+</span><span class="mi">7</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">alltogether</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="o">-</span><span class="mi">5</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">3</span><span class="o">+</span><span class="n">sp</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="n">x</span><span class="p">))))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 0, x**2/2]
+[-3.0/x**1.5, 4.5/x**2.5, 12.0*x**0.5]
+[5*x**4 + pi/(2*sqrt(x)), 20*x**3 - pi/(4*x**(3/2)), 2*pi*x**(3/2)/3 + x**6/6 + 7*x]
+[x*(2*x - 5)*(tan(x)**2 + 1) + 2*x*(tan(x) + 3) + (2*x - 5)*(tan(x) + 3), 2*(x*(2*x - 5)*(tan(x)**2 + 1)*tan(x) + 2*x*(tan(x)**2 + 1) + (2*x - 5)*(tan(x)**2 + 1) + 2*tan(x) + 6), Integral(x*(2*x - 5)*(tan(x) + 3), x)]
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<hr class="docutils" />
+<ol class="arabic simple" start="5">
+<li></li>
+</ol>
+<div class="cell tag_hide-cell docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell content</p>
+<p class="expanded admonition-title">Hide code cell content</p>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sp</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">h</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;h&#39;</span><span class="p">)</span>
+<span class="n">sp</span><span class="o">.</span><span class="n">limit</span><span class="p">((</span><span class="n">sp</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">h</span><span class="p">)</span><span class="o">-</span><span class="n">sp</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="o">/</span><span class="n">h</span><span class="p">,</span><span class="n">h</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \cos{\left(x \right)}\]</div>
+</div>
+</details>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./content\week2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Week%202%20Day%202.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Working with Libraries</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../week3/Week%203%20Day%201.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">The <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> Library</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-math-library">The <code class="docutils literal notranslate"><span class="pre">math</span></code> Library</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-sympy-library">The <code class="docutils literal notranslate"><span class="pre">sympy</span></code> Library</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-problems">Lab Problems</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-key">Lab Key*</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Garrett Kepler
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

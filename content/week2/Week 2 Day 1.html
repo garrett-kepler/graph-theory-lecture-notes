@@ -1,0 +1,1283 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Complications in Coding &#8212; Mathematical Computing (Intro to Python)</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/week2/Week 2 Day 1';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Working with Libraries" href="Week%202%20Day%202.html" />
+    <link rel="prev" title="Week 1 Review" href="../week1/Week%201%20Day%204.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Mathematical Computing (Intro to Python)</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Welcome!
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 1--Basics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week1/Week%201%20Day%201.html">Python Object Types &amp; Syntax</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week1/Week%201%20Day%202.html">Variables, Statements, &amp; For-Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week1/Week%201%20Day%203.html">The Art of Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week1/Week%201%20Day%204.html">Week 1 Review</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 2--Problem Solving Methods</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Complications in Coding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Week%202%20Day%202.html">Working with Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Week%202%20Day%203.html"><code class="docutils literal notranslate"><span class="pre">math</span></code>, <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, &amp; <code class="docutils literal notranslate"><span class="pre">sympy</span></code> Libraries</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 3--Data Science &amp; Visualization</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week3/Week%203%20Day%201.html">The <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week3/Week%203%20Day%202.html">More <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week3/Week%203%20Day%203.html">Data Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week3/Week%203%20Day%204.html"><code class="docutils literal notranslate"><span class="pre">networkx</span></code> Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week3/Week%203%20Day%205.html">Data Visualization Review</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 4--Statistical Analysis</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week4/Week%204%20Day%201.html">Exploratory Data Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week4/Week%204%20Day%204.html">Correlation &amp; Covariance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week4/Week%204%20Day%205.html">Linear Regression</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 5--Optimization &amp; Linear Algebra</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week5/Week%205%20Day%201.html"><code class="docutils literal notranslate"><span class="pre">numpy</span></code> Matrix Basix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week5/Week%205%20Day%202.html"><code class="docutils literal notranslate"><span class="pre">scipy</span></code> Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week5/Week%205%20Day%203.html">Optimization in Machine Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week5/Week%205%20Day%204.html"><code class="docutils literal notranslate"><span class="pre">scipy</span></code> &amp; Differential Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week5/Week%205%20Day%205.html">Optimization in Linear Algebra</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 6--Topics (Neural Networks &amp; Monte Carlo Methods)</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week6/Week%206%20Day%202.html">Neural Network Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week6/Week%206%20Day%203.html">Transfer Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week6/Week%206%20Day%204.html">Monte Carlo Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week6/Week%206%20Day%205.html">Markov Chain Monte Carlo</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/content/week2/Week 2 Day 1.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Complications in Coding</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithmic-complexity">Algorithmic Complexity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overflow-underflow">Overflow &amp; Underflow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#guess-checking">Guess &amp; Checking</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-problems">Lab Problems</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-key">Lab Key*</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="complications-in-coding">
+<h1>Complications in Coding<a class="headerlink" href="#complications-in-coding" title="Link to this heading">#</a></h1>
+<p>Today, we are going to discuss some common issues and some language we use to discuss these issues.</p>
+<section id="algorithmic-complexity">
+<h2>Algorithmic Complexity<a class="headerlink" href="#algorithmic-complexity" title="Link to this heading">#</a></h2>
+<p>Firstly, let us discuss what we mean colloquially when code is <i>complex</i>. There is often a naive way to solve a problem in coding, we say <i> brute-force</i>. It gets the job done, but it probably takes a while to run as we increase the size of our input. To describe the formal difference between brute-force code and <i>optimized</i> code, we will use “Big-O Notation”.</p>
+<p>Consider iterating through a list to see if an element is in the list:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">element</span><span class="p">(</span><span class="n">somelist</span><span class="p">,</span> <span class="n">someitem</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">somelist</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="n">someitem</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">return</span> <span class="kc">False</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Of course, the best case scenario (meaning costing the least number of operations) is that <code class="docutils literal notranslate"><span class="pre">someitem</span></code> is just the first item in <code class="docutils literal notranslate"><span class="pre">somelist</span></code>. Then, we would only have to perform one operation. The worst case scenario (meaning costing the most number of operations) is that <code class="docutils literal notranslate"><span class="pre">someitem</span></code> is not in the list. In this case, if <code class="docutils literal notranslate"><span class="pre">somelist</span></code> is of length <span class="math notranslate nohighlight">\(n\)</span>, then we have to perform <span class="math notranslate nohighlight">\(n\)</span> operations in the worst case. So, we would say <code class="docutils literal notranslate"><span class="pre">element()</span></code> is a <span class="math notranslate nohighlight">\(\mathcal{O}(n)\)</span> algorithm (of order <span class="math notranslate nohighlight">\(n\)</span>).</p>
+<p>Consider another version:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">element_but_worse</span><span class="p">(</span><span class="n">somelist</span><span class="p">,</span> <span class="n">someitem</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">somelist</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">somelist</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">somelist</span><span class="p">:</span> 
+                    <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">somelist</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="n">someitem</span><span class="p">:</span>
+                            <span class="k">if</span> <span class="n">j</span> <span class="o">==</span> <span class="n">someitem</span><span class="p">:</span>
+                                <span class="k">if</span> <span class="n">k</span> <span class="o">==</span> <span class="n">someitem</span><span class="p">:</span>
+                                    <span class="k">if</span> <span class="n">l</span> <span class="o">==</span> <span class="n">someitem</span><span class="p">:</span>
+                                        <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">return</span> <span class="kc">False</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In <code class="docutils literal notranslate"><span class="pre">element_but_worse()</span></code>, the worst case scenario is that for each item of the <span class="math notranslate nohighlight">\(n\)</span> items in <code class="docutils literal notranslate"><span class="pre">somelist</span></code>, we iterate through all <span class="math notranslate nohighlight">\(n\)</span> items of <code class="docutils literal notranslate"><span class="pre">somelist</span></code> 4 separate times. So, in the worst case, we have to do <span class="math notranslate nohighlight">\(n^4\)</span> operations. Thus, we would say <code class="docutils literal notranslate"><span class="pre">element_but_worse()</span></code> is a <span class="math notranslate nohighlight">\(\mathcal{O}(n^4)\)</span> algorithm (of order <span class="math notranslate nohighlight">\(n^4\)</span>).</p>
+<p>Clearly, in the worst case, <code class="docutils literal notranslate"><span class="pre">element()</span></code> will always run faster than <code class="docutils literal notranslate"><span class="pre">element_but_worse()</span></code> which we can test.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">time</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">100</span>
+
+<span class="n">somelist</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span> <span class="c1"># a list filled with zeroes</span>
+<span class="n">someitem</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># the item 1 which is clearly not in the list</span>
+
+
+<span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">element</span><span class="p">(</span> <span class="n">somelist</span> <span class="p">,</span> <span class="n">someitem</span><span class="p">)</span>
+<span class="n">stop</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;element() took &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">stop</span><span class="o">-</span><span class="n">start</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot; seconds&quot;</span><span class="p">)</span>
+
+<span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">element_but_worse</span><span class="p">(</span> <span class="n">somelist</span> <span class="p">,</span> <span class="n">someitem</span><span class="p">)</span>
+<span class="n">stop</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;element_but_worse() took &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">stop</span><span class="o">-</span><span class="n">start</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot; seconds&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>element() took 0.0 seconds
+element_but_worse() took 4.73050594329834 seconds
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is what in essence big-O notation captures: given an input of size <span class="math notranslate nohighlight">\(n\)</span>, how many operations occur in the worst case? The more that must occur, the more complex the algorithm is.</p>
+<p>For reference, here’s some complexities of common functions we use:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">seq[i]</span></code> returns the i-th item of the sequence. Complexity: <span class="math notranslate nohighlight">\(\mathcal{O}(1)\)</span>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">seq[i:j]</span></code> returns the <span class="math notranslate nohighlight">\(k\)</span> items between <code class="docutils literal notranslate"><span class="pre">seq[i]</span></code> and <code class="docutils literal notranslate"><span class="pre">seq[j]</span></code>. Complexity: <span class="math notranslate nohighlight">\(\mathcal{O}(k)\)</span>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">len(seq)</span></code> returns the length of the sequence. Complexity: <span class="math notranslate nohighlight">\(\mathcal{O}(1)\)</span>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">item</span> <span class="pre">in</span> <span class="pre">list:</span></code> iterates through a list. Complexity: <span class="math notranslate nohighlight">\(\mathcal{O}(n)\)</span>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">list.pop(-1)</span></code> removes the last object in a list. Complexity: <span class="math notranslate nohighlight">\(\mathcal{O}(1)\)</span>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">list.pop(0)</span></code> removes the first object in a list. Complexity: <span class="math notranslate nohighlight">\(\mathcal{O}(n)\)</span>.</p></li>
+</ul>
+<p>Note: big-O notation is very nuanced. For more formality, please see <a class="reference external" href="https://en.wikipedia.org/wiki/Big_O_notation">https://en.wikipedia.org/wiki/Big_O_notation</a>.</p>
+<p>In general, we care only about the highest power of <span class="math notranslate nohighlight">\(n\)</span> in our complexity. That is, <span class="math notranslate nohighlight">\(\mathcal{O}(1+6n+n^2)\)</span> is not correcly formatted unless written as <span class="math notranslate nohighlight">\(\mathcal{O}(n^2)\)</span>.</p>
+</section>
+<section id="overflow-underflow">
+<h2>Overflow &amp; Underflow<a class="headerlink" href="#overflow-underflow" title="Link to this heading">#</a></h2>
+<p>You can get Python to perform operations on very small and very large floats only to a ceratin digit count. Beyond this point, Python tells you there is nothing or there is an error.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">float_info</span><span class="o">.</span><span class="n">min</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.2250738585072014e-308
+</pre></div>
+</div>
+</div>
+</div>
+<p>Up to 308 zeros, we are fine!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mf">10.0</span><span class="o">**</span><span class="p">(</span><span class="mi">308</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1e+308
+</pre></div>
+</div>
+</div>
+</div>
+<p>Any point afterward, we have <i>overflow</i>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mf">10.0</span><span class="o">**</span><span class="p">(</span><span class="mi">400</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">OverflowError</span><span class="g g-Whitespace">                             </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">9</span><span class="o">-</span><span class="n">a0a31f63196e</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="mf">10.0</span><span class="o">**</span><span class="p">(</span><span class="mi">400</span><span class="p">)</span>
+
+<span class="ne">OverflowError</span>: (34, &#39;Result too large&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Likewise, down to 308 decimals we are fine:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">float_info</span><span class="o">.</span><span class="n">min</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.2250738585072014e-308
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mf">10.0</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mi">308</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1e-308
+</pre></div>
+</div>
+</div>
+</div>
+<p>After this point, we will receive something strange. We call this <i>underflow</i>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mf">10.0</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mi">400</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>While this may not be <i>necessarily</i> be zero. Practically, it is close enough. This leads to issues in code as well:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="o">/</span> <span class="mf">10.0</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mi">400</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ZeroDivisionError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">13</span><span class="o">-</span><span class="n">ba33fe2505b8</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="mi">1</span> <span class="o">/</span> <span class="mf">10.0</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mi">400</span><span class="p">)</span>
+
+<span class="ne">ZeroDivisionError</span>: float division by zero
+</pre></div>
+</div>
+</div>
+</div>
+<p>To work around this, we typically use the natural logarithm. Recall that for <span class="math notranslate nohighlight">\(x\in \mathbb{R}\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\begin{align*}
+x&amp;=e^{\log(x)}
+\end{align*}\]</div>
+<p>Thus, to calculate <code class="docutils literal notranslate"><span class="pre">10.0**(400)</span></code> and <code class="docutils literal notranslate"><span class="pre">10.0**(-400)</span></code> accurately, we can use a very important library in Python: <code class="docutils literal notranslate"><span class="pre">numpy</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">2000</span><span class="p">,</span> <span class="mi">5000</span><span class="p">,</span> <span class="mi">8000</span><span class="p">,</span> <span class="mi">12000</span><span class="p">,</span><span class="mi">15000</span><span class="p">]</span>
+
+<span class="n">log_product</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">:</span>
+    <span class="n">log_product</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Log of the product:&quot;</span><span class="p">,</span> <span class="n">log_product</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Log of the product: 51.02151515945692
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">e</span><span class="o">**</span><span class="p">(</span><span class="n">log_product</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.4400000000000013e+22
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7166.666666666667
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="guess-checking">
+<h2>Guess &amp; Checking<a class="headerlink" href="#guess-checking" title="Link to this heading">#</a></h2>
+<p>Brute-forcing using for-loops often results in a lot of guess and checking. Consider using the <code class="docutils literal notranslate"><span class="pre">while</span></code> statement instead:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span> <span class="c1"># until this condition is met, iterate</span>
+    <span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">while</span></code> statement will iterate until a certain condition is met. This can mean the cell will never cease, so be careful!</p>
+<p>Another useful solution to guess and checking is <i>recursion</i>. Similar to the mathematical meaning of recursion, recursion in programming simply means using the same function within its own definition.</p>
+<p>A great example: computing the <span class="math notranslate nohighlight">\(n!=n\cdot (n-1)\cdots 3\cdot 2\cdot 1\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span> <span class="c1"># define a base case</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>      <span class="c1"># define the iteration case</span>
+        <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">factorial</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">factorial</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>24
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="lab-problems">
+<h2>Lab Problems<a class="headerlink" href="#lab-problems" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<ol class="arabic simple">
+<li></li>
+</ol>
+<p>Determine the time complexity of the following code.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<ol class="arabic simple" start="2">
+<li></li>
+</ol>
+<p>Consider the function from Friday’s quiz:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">squares</span><span class="p">(</span><span class="n">maximum</span><span class="p">):</span>
+
+    <span class="n">container</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">maximum</span><span class="p">):</span>
+        <span class="n">container</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+    <span class="n">container2</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">container</span><span class="p">:</span>
+        <span class="n">container2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">j</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="n">container3</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">container2</span><span class="p">:</span>
+        <span class="n">container3</span> <span class="o">+=</span> <span class="n">k</span>
+
+    <span class="k">return</span> <span class="n">container3</span>
+</pre></div>
+</div>
+<p>What is the complexity? Justify your answer. Write a new, simpler function that does the same as <code class="docutils literal notranslate"><span class="pre">squares()</span></code>. Calculate your function’s complexity and justify your answer.</p>
+<hr class="docutils" />
+<ol class="arabic simple" start="3">
+<li></li>
+</ol>
+<p>Using a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop, print off the first 100 integers.</p>
+<hr class="docutils" />
+<ol class="arabic simple" start="4">
+<li></li>
+</ol>
+<p>Using a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop, print off the product from 10,000 to 1,000,000.</p>
+<hr class="docutils" />
+<ol class="arabic simple" start="5">
+<li></li>
+</ol>
+<p>Write a recursive function <code class="docutils literal notranslate"><span class="pre">fibonacci(n)</span></code> that computes the <span class="math notranslate nohighlight">\(n\)</span>-th Fibonacci number. Compute the time complexity of your <code class="docutils literal notranslate"><span class="pre">fibonacci(n)</span></code> function.</p>
+<hr class="docutils" />
+<ol class="arabic simple" start="6">
+<li></li>
+</ol>
+<p>Write a recursive function <code class="docutils literal notranslate"><span class="pre">reverse(string)</span></code> that reverses the order of a string. Compute the time complexity of your <code class="docutils literal notranslate"><span class="pre">reverse()</span></code> function</p>
+<hr class="docutils" />
+<ol class="arabic simple" start="7">
+<li></li>
+</ol>
+<p>Write a recursive function that computes the sum of integers up to input <span class="math notranslate nohighlight">\(n\)</span>.</p>
+</section>
+<section id="lab-key">
+<h2>Lab Key*<a class="headerlink" href="#lab-key" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<ol class="arabic simple">
+<li></li>
+</ol>
+<div class="toggle docutils container">
+<p>We are doing <span class="math notranslate nohighlight">\(n\)</span> operations, so the time complexity is <span class="math notranslate nohighlight">\(n\)</span>.</p>
+</div>
+<hr class="docutils" />
+<ol class="arabic simple" start="2">
+<li></li>
+</ol>
+<div class="toggle docutils container">
+<p>We are doing <span class="math notranslate nohighlight">\(n\)</span> iterations for each for-loop. There are 3 of them. While we might say it is time complexity <span class="math notranslate nohighlight">\(\mathcal{O}(3n)\)</span>, the complexity is really <span class="math notranslate nohighlight">\(\mathcal{O}(n)\)</span> (scaling complexity by a constant does not affect the complexity,</p>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell content</p>
+<p class="expanded admonition-title">Hide code cell content</p>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">squares</span><span class="p">(</span><span class="n">maximum</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">([</span><span class="n">i</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">maximum</span><span class="p">)])</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="toggle docutils container">
+<p>We are taking <span class="math notranslate nohighlight">\(n\)</span> iterations through one for-loop giving us a time complexity of <span class="math notranslate nohighlight">\(\mathcal{O}(n)\)</span> still.</p>
+</div>
+<hr class="docutils" />
+<ol class="arabic simple" start="3">
+<li></li>
+</ol>
+<div class="cell tag_hide-cell tag_scroll-output docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell content</p>
+<p class="expanded admonition-title">Hide code cell content</p>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">while</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<hr class="docutils" />
+<ol class="arabic simple" start="4">
+<li></li>
+</ol>
+<div class="cell tag_hide-cell tag_scroll-output docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell content</p>
+<p class="expanded admonition-title">Hide code cell content</p>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">num</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="k">while</span> <span class="n">num</span> <span class="o">&lt;=</span> <span class="mi">100</span><span class="p">:</span>
+    <span class="n">x</span> <span class="o">*=</span> <span class="n">num</span>
+    <span class="n">num</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10
+110
+1320
+17160
+240240
+3603600
+57657600
+980179200
+17643225600
+335221286400
+6704425728000
+140792940288000
+3097444686336000
+71241227785728000
+1709789466857472000
+42744736671436800000
+1111363153457356800000
+30006805143348633600000
+840190544013761740800000
+24365525776399090483200000
+730965773291972714496000000
+22659938972051154149376000000
+725118047105636932780032000000
+23928895554486018781741056000000
+813582448852524638579195904000000
+28475385709838362350271856640000000
+1025113885554181044609786839040000000
+37929213765504698650562113044480000000
+1441310123089178548721360295690240000000
+56211094800477963400133051531919360000000
+2248443792019118536005322061276774400000000
+92186195472783859976218204512347750400000000
+3871820209856922119001164589518605516800000000
+166488269023847651117050077349300037222400000000
+7325483837049296649150203403369201637785600000000
+329646772667218349211759153151614073700352000000000
+15163751542692044063740921044974247390216192000000000
+712696322506526070995823289113789627340161024000000000
+34209423480313251407799517877461902112327729152000000000
+1676261750535349318982176375995633203504058728448000000000
+83813087526767465949108818799781660175202936422400000000000
+4274467463865140763404549758788864668935349757542400000000000
+222272308120987319697036587457020962784638187392204800000000000
+11780432330412327943942939135222111027585823931786854400000000000
+636143345842265708972918713301993995489634492316490137600000000000
+34987884021324613993510529231609669751929897077406957568000000000000
+1959321505194178383636589636970141506108074236334789623808000000000000
+111681325796068167867285609307298065848160231471083008557056000000000000
+6477516896171953736302565339823287819193293425322814496309248000000000000
+382173496874145270441851355049573981332404312094046055282245632000000000000
+22930409812448716226511081302974438879944258725642763316934737920000000000000
+1398754998559371689817175959481440771676599782264208562333019013120000000000000
+86722809910681044768664909487849327843949186500380930864647178813440000000000000
+5463537024372905820425889297734507654168798749523998644472772265246720000000000000
+349666369559865972507256915055008489866803119969535913246257424975790080000000000000
+22728314021391288212971699478575551841342202798019834361006732623426355200000000000000
+1500068725411825022056132165585986421528585384669309067826444353146139443200000000000000
+100504604602592276477760855094261090242415220772843707544371771660791342694400000000000000
+6834313112976274800487738146409754136484235012553372113017280472933811303219200000000000000
+471567604795362961233653932102273035417412215866182675798192352632432979922124800000000000000
+33009732335675407286355775247159112479218855110632787305873464684270308594548736000000000000000
+2343690995832953917331260042548296986024538712854927898717015992583191910212960256000000000000000
+168745751699972682047850723063477382993766787325554808707625151465989817535333138432000000000000000
+12318439874098005789493102783633848958544975474765501035656636057017256680079319105536000000000000000
+911564550683252428422489605988904822932328185132647076638591068219276994325869613809664000000000000000
+68367341301243932131686720449167861719924613884948530747894330116445774574440221035724800000000000000000
+5195917938894538842008190754136757490714270655256088336839969088849878867657456798715084800000000000000000
+400085681294879490834630688068530326784998840454718801936677619841440672809624173501061529600000000000000000
+31206683141000600285101193669345365489229909555468066551060854347632372479150685533082799308800000000000000000
+2465327968139047422522994299878283873649162854881977257533807493462957425852904157113541145395200000000000000000
+197226237451123793801839543990262709891933028390558180602704599477036594068232332569083291631616000000000000000000
+15975325233541027297949003063211279501246575299635212628819072557639964119526818938095746622160896000000000000000000
+1309976669150364238431818251183324919102219174570087435563163949726477057801199152923851223017193472000000000000000000
+108728063539480231789840914848215968285484191489317257151742607827297595797499529692679651510427058176000000000000000000
+9133157337316339470346636847250141335980672085102649600746379057492998046989960494185090726875872886784000000000000000000
+776318373671888854979464132016262013558357127233725216063442219886904833994146642005732711784449195376640000000000000000000
+66763380135782441528233915353398533166018712942100368581456030910273815723496611212493013213462630802391040000000000000000000
+5808414071813072412956350635745672385443628025962732066586674689193821967944205175486892149571248879808020480000000000000000000
+511140438319550372340158855945619169919039266284720421859627372649056333179090055442846509162269901423105802240000000000000000000
+45491499010439983138274138179160106122794494699340117545506836165766013652939014934413339315442021226656416399360000000000000000000
+4094234910939598482444672436124409551051504522940610579095615254918941228764511344097200538389781910399077475942400000000000000000000
+372575376895503461902465191687321269145686911587595562697700988197623651817570532312845248993470153846316050310758400000000000000000000
+34276934674386318495026797635233556761403195866058791768188490914181375967216488972781762907399254153861076628589772800000000000000000000
+3187754924717927620037492180076720778810497215543467634441529655018867964951133474468703950388130636309080126458848870400000000000000000000
+299648962923485196283524264927211753208186738261085957637503787571773588705406546600058171336484279813053531887131793817600000000000000000000
+28466651477731093646934805168085116554777740134803165975562859819318490927013621927005526276966006582240085529277520412672000000000000000000000
+2732798541862184990105741296136171189258663052941103933654034542654575128993307704992530522588736631895048210810641959616512000000000000000000000
+265081458560631944040256905725208605358090316135287081564441350637493787512350847384275460691107453293819676448632270082801664000000000000000000000
+25977982938941930515945176761070443325092850981258133993315252362474391176210383043658995147728530422794328291965962468114563072000000000000000000000
+2571820310955251121078572499345973889184192247144555265338209983884964726444827921322240519625124511856638500904630284343341744128000000000000000000000
+257182031095525112107857249934597388918419224714455526533820998388496472644482792132224051962512451185663850090463028434334174412800000000000000000000000
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<hr class="docutils" />
+<ol class="arabic simple" start="5">
+<li></li>
+</ol>
+<div class="cell tag_hide-cell docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell content</p>
+<p class="expanded admonition-title">Hide code cell content</p>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;Need a positive number&#39;</span>
+    <span class="k">elif</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">elif</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">2</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">while</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">fibonacci</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+    <span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+2
+3
+5
+8
+13
+21
+34
+55
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<hr class="docutils" />
+<ol class="arabic simple" start="6">
+<li></li>
+</ol>
+<div class="cell tag_hide-cell docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell content</p>
+<p class="expanded admonition-title">Hide code cell content</p>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">reverse</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">string</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">string</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">reverse</span><span class="p">(</span><span class="n">string</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span><span class="o">+</span><span class="n">string</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> 
+<span class="n">reverse</span><span class="p">(</span><span class="s1">&#39;string&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;gnirts&#39;
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<hr class="docutils" />
+<ol class="arabic simple" start="7">
+<li></li>
+</ol>
+<div class="cell tag_hide-cell docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell content</p>
+<p class="expanded admonition-title">Hide code cell content</p>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">partial_sum</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Need positive integer&#39;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">partial_sum</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">n</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="k">while</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">partial_sum</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+    <span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+6
+10
+15
+21
+28
+36
+45
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./content\week2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../week1/Week%201%20Day%204.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Week 1 Review</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Week%202%20Day%202.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Working with Libraries</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithmic-complexity">Algorithmic Complexity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overflow-underflow">Overflow &amp; Underflow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#guess-checking">Guess &amp; Checking</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-problems">Lab Problems</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-key">Lab Key*</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Garrett Kepler
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

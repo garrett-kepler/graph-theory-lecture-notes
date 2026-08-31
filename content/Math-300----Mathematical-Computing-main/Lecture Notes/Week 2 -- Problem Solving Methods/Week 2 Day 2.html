@@ -1,0 +1,1239 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Week 2 Day 2 &#8212; Mathematical Computing (Intro to Python)</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/Math-300----Mathematical-Computing-main/Lecture Notes/Week 2 -- Problem Solving Methods/Week 2 Day 2';</script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Mathematical Computing (Intro to Python)</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../../intro.html">
+                    Welcome!
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 2 Problem Solving Methods</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../week2/Week%202%20Day%201.html">Week 2 Day 1</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../../../week2/Week%202%20Day%202.html">Week 2 Day 2</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../../_sources/content/Math-300----Mathematical-Computing-main/Lecture Notes/Week 2 -- Problem Solving Methods/Week 2 Day 2.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Week 2 Day 2</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#libraries">Libraries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy">Numpy</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="week-2-day-2">
+<h1>Week 2 Day 2<a class="headerlink" href="#week-2-day-2" title="Link to this heading">#</a></h1>
+<section id="libraries">
+<h2>Libraries<a class="headerlink" href="#libraries" title="Link to this heading">#</a></h2>
+<p>Today we’ll be talking about libraries and how to use them.</p>
+<p>First of all, what is a <i>library</i>? A library is simply a collection of functions that others have written, tested, and likely optimized for everyone to use. While some coding languages require you to pay for these libraries, Python is <i>open-source</i> meaning anyone can contribute and no one pays.</p>
+<p>Two important libraries we will need today should be built in: numpy and math. To use a library, we need to <i>import</i> the library from our Anaconda download into this notebook:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>numpy
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: numpy in C:\Users\Garrett\AppData\Local\Continuum\anaconda3\envs\jbook\Lib\site-packages (2.4.6)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><u>Important:</u> If you ever find that you do not have a library downloaded, you can install it by running this in your notebook: <code class="docutils literal notranslate"><span class="pre">!pip</span> <span class="pre">install</span> <span class="pre">library_name</span></code>. Just like the functions we design, all the functions in these libraries are typically dependent on other libraries or base code called <i>dependencies</i>. When using <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span></code>, your system will typically download/update these as well to match whatever version of the library you are downloading.</p>
+<p>To use libraries, we have to write <code class="docutils literal notranslate"><span class="pre">library_we_want.function_we_want()</span></code>. Since we might end up writing the same library name hundreds of times, we can assign a variable to the name of the library when we import if we want to:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Every library comes with an instruction manual called <i>documentation</i> that allows you to find what is required to run a specific library’s function. For example, here is numpy’s and math’s: <a class="reference external" href="https://numpy.org/doc/">https://numpy.org/doc/</a> and <a class="reference external" href="https://docs.python.org/3/library/math.html">https://docs.python.org/3/library/math.html</a> . You should always try referring to the documentation for troubleshooting.</p>
+<p>If you forget what the function name is in whatever library you are looking at, <code class="docutils literal notranslate"><span class="pre">dir()</span></code> will list out all of them for you:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">dir</span><span class="p">(</span><span class="n">np</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;False_&#39;,
+ &#39;ScalarType&#39;,
+ &#39;True_&#39;,
+ &#39;_CopyMode&#39;,
+ &#39;_NoValue&#39;,
+ &#39;__NUMPY_SETUP__&#39;,
+ &#39;__all__&#39;,
+ &#39;__array_api_version__&#39;,
+ &#39;__array_namespace_info__&#39;,
+ &#39;__builtins__&#39;,
+ &#39;__cached__&#39;,
+ &#39;__config__&#39;,
+ &#39;__dir__&#39;,
+ &#39;__doc__&#39;,
+ &#39;__expired_attributes__&#39;,
+ &#39;__file__&#39;,
+ &#39;__former_attrs__&#39;,
+ &#39;__future_scalars__&#39;,
+ &#39;__getattr__&#39;,
+ &#39;__loader__&#39;,
+ &#39;__name__&#39;,
+ &#39;__numpy_submodules__&#39;,
+ &#39;__package__&#39;,
+ &#39;__path__&#39;,
+ &#39;__spec__&#39;,
+ &#39;__version__&#39;,
+ &#39;_array_api_info&#39;,
+ &#39;_core&#39;,
+ &#39;_distributor_init&#39;,
+ &#39;_expired_attrs_2_0&#39;,
+ &#39;_globals&#39;,
+ &#39;_int_extended_msg&#39;,
+ &#39;_mat&#39;,
+ &#39;_msg&#39;,
+ &#39;_pyinstaller_hooks_dir&#39;,
+ &#39;_pytesttester&#39;,
+ &#39;_specific_msg&#39;,
+ &#39;_type_info&#39;,
+ &#39;_typing&#39;,
+ &#39;_utils&#39;,
+ &#39;abs&#39;,
+ &#39;absolute&#39;,
+ &#39;acos&#39;,
+ &#39;acosh&#39;,
+ &#39;add&#39;,
+ &#39;all&#39;,
+ &#39;allclose&#39;,
+ &#39;amax&#39;,
+ &#39;amin&#39;,
+ &#39;angle&#39;,
+ &#39;any&#39;,
+ &#39;append&#39;,
+ &#39;apply_along_axis&#39;,
+ &#39;apply_over_axes&#39;,
+ &#39;arange&#39;,
+ &#39;arccos&#39;,
+ &#39;arccosh&#39;,
+ &#39;arcsin&#39;,
+ &#39;arcsinh&#39;,
+ &#39;arctan&#39;,
+ &#39;arctan2&#39;,
+ &#39;arctanh&#39;,
+ &#39;argmax&#39;,
+ &#39;argmin&#39;,
+ &#39;argpartition&#39;,
+ &#39;argsort&#39;,
+ &#39;argwhere&#39;,
+ &#39;around&#39;,
+ &#39;array&#39;,
+ &#39;array2string&#39;,
+ &#39;array_equal&#39;,
+ &#39;array_equiv&#39;,
+ &#39;array_repr&#39;,
+ &#39;array_split&#39;,
+ &#39;array_str&#39;,
+ &#39;asanyarray&#39;,
+ &#39;asarray&#39;,
+ &#39;asarray_chkfinite&#39;,
+ &#39;ascontiguousarray&#39;,
+ &#39;asfortranarray&#39;,
+ &#39;asin&#39;,
+ &#39;asinh&#39;,
+ &#39;asmatrix&#39;,
+ &#39;astype&#39;,
+ &#39;atan&#39;,
+ &#39;atan2&#39;,
+ &#39;atanh&#39;,
+ &#39;atleast_1d&#39;,
+ &#39;atleast_2d&#39;,
+ &#39;atleast_3d&#39;,
+ &#39;average&#39;,
+ &#39;bartlett&#39;,
+ &#39;base_repr&#39;,
+ &#39;binary_repr&#39;,
+ &#39;bincount&#39;,
+ &#39;bitwise_and&#39;,
+ &#39;bitwise_count&#39;,
+ &#39;bitwise_invert&#39;,
+ &#39;bitwise_left_shift&#39;,
+ &#39;bitwise_not&#39;,
+ &#39;bitwise_or&#39;,
+ &#39;bitwise_right_shift&#39;,
+ &#39;bitwise_xor&#39;,
+ &#39;blackman&#39;,
+ &#39;block&#39;,
+ &#39;bmat&#39;,
+ &#39;bool&#39;,
+ &#39;bool_&#39;,
+ &#39;broadcast&#39;,
+ &#39;broadcast_arrays&#39;,
+ &#39;broadcast_shapes&#39;,
+ &#39;broadcast_to&#39;,
+ &#39;busday_count&#39;,
+ &#39;busday_offset&#39;,
+ &#39;busdaycalendar&#39;,
+ &#39;byte&#39;,
+ &#39;bytes_&#39;,
+ &#39;c_&#39;,
+ &#39;can_cast&#39;,
+ &#39;cbrt&#39;,
+ &#39;cdouble&#39;,
+ &#39;ceil&#39;,
+ &#39;char&#39;,
+ &#39;character&#39;,
+ &#39;choose&#39;,
+ &#39;clip&#39;,
+ &#39;clongdouble&#39;,
+ &#39;column_stack&#39;,
+ &#39;common_type&#39;,
+ &#39;complex128&#39;,
+ &#39;complex64&#39;,
+ &#39;complexfloating&#39;,
+ &#39;compress&#39;,
+ &#39;concat&#39;,
+ &#39;concatenate&#39;,
+ &#39;conj&#39;,
+ &#39;conjugate&#39;,
+ &#39;convolve&#39;,
+ &#39;copy&#39;,
+ &#39;copysign&#39;,
+ &#39;copyto&#39;,
+ &#39;core&#39;,
+ &#39;corrcoef&#39;,
+ &#39;correlate&#39;,
+ &#39;cos&#39;,
+ &#39;cosh&#39;,
+ &#39;count_nonzero&#39;,
+ &#39;cov&#39;,
+ &#39;cross&#39;,
+ &#39;csingle&#39;,
+ &#39;ctypeslib&#39;,
+ &#39;cumprod&#39;,
+ &#39;cumsum&#39;,
+ &#39;cumulative_prod&#39;,
+ &#39;cumulative_sum&#39;,
+ &#39;datetime64&#39;,
+ &#39;datetime_as_string&#39;,
+ &#39;datetime_data&#39;,
+ &#39;deg2rad&#39;,
+ &#39;degrees&#39;,
+ &#39;delete&#39;,
+ &#39;diag&#39;,
+ &#39;diag_indices&#39;,
+ &#39;diag_indices_from&#39;,
+ &#39;diagflat&#39;,
+ &#39;diagonal&#39;,
+ &#39;diff&#39;,
+ &#39;digitize&#39;,
+ &#39;divide&#39;,
+ &#39;divmod&#39;,
+ &#39;dot&#39;,
+ &#39;double&#39;,
+ &#39;dsplit&#39;,
+ &#39;dstack&#39;,
+ &#39;dtype&#39;,
+ &#39;dtypes&#39;,
+ &#39;e&#39;,
+ &#39;ediff1d&#39;,
+ &#39;einsum&#39;,
+ &#39;einsum_path&#39;,
+ &#39;emath&#39;,
+ &#39;empty&#39;,
+ &#39;empty_like&#39;,
+ &#39;equal&#39;,
+ &#39;errstate&#39;,
+ &#39;euler_gamma&#39;,
+ &#39;exceptions&#39;,
+ &#39;exp&#39;,
+ &#39;exp2&#39;,
+ &#39;expand_dims&#39;,
+ &#39;expm1&#39;,
+ &#39;extract&#39;,
+ &#39;eye&#39;,
+ &#39;f2py&#39;,
+ &#39;fabs&#39;,
+ &#39;fft&#39;,
+ &#39;fill_diagonal&#39;,
+ &#39;finfo&#39;,
+ &#39;fix&#39;,
+ &#39;flatiter&#39;,
+ &#39;flatnonzero&#39;,
+ &#39;flexible&#39;,
+ &#39;flip&#39;,
+ &#39;fliplr&#39;,
+ &#39;flipud&#39;,
+ &#39;float16&#39;,
+ &#39;float32&#39;,
+ &#39;float64&#39;,
+ &#39;float_power&#39;,
+ &#39;floating&#39;,
+ &#39;floor&#39;,
+ &#39;floor_divide&#39;,
+ &#39;fmax&#39;,
+ &#39;fmin&#39;,
+ &#39;fmod&#39;,
+ &#39;format_float_positional&#39;,
+ &#39;format_float_scientific&#39;,
+ &#39;frexp&#39;,
+ &#39;from_dlpack&#39;,
+ &#39;frombuffer&#39;,
+ &#39;fromfile&#39;,
+ &#39;fromfunction&#39;,
+ &#39;fromiter&#39;,
+ &#39;frompyfunc&#39;,
+ &#39;fromregex&#39;,
+ &#39;fromstring&#39;,
+ &#39;full&#39;,
+ &#39;full_like&#39;,
+ &#39;gcd&#39;,
+ &#39;generic&#39;,
+ &#39;genfromtxt&#39;,
+ &#39;geomspace&#39;,
+ &#39;get_include&#39;,
+ &#39;get_printoptions&#39;,
+ &#39;getbufsize&#39;,
+ &#39;geterr&#39;,
+ &#39;geterrcall&#39;,
+ &#39;gradient&#39;,
+ &#39;greater&#39;,
+ &#39;greater_equal&#39;,
+ &#39;half&#39;,
+ &#39;hamming&#39;,
+ &#39;hanning&#39;,
+ &#39;heaviside&#39;,
+ &#39;histogram&#39;,
+ &#39;histogram2d&#39;,
+ &#39;histogram_bin_edges&#39;,
+ &#39;histogramdd&#39;,
+ &#39;hsplit&#39;,
+ &#39;hstack&#39;,
+ &#39;hypot&#39;,
+ &#39;i0&#39;,
+ &#39;identity&#39;,
+ &#39;iinfo&#39;,
+ &#39;imag&#39;,
+ &#39;index_exp&#39;,
+ &#39;indices&#39;,
+ &#39;inexact&#39;,
+ &#39;inf&#39;,
+ &#39;info&#39;,
+ &#39;inner&#39;,
+ &#39;insert&#39;,
+ &#39;int16&#39;,
+ &#39;int32&#39;,
+ &#39;int64&#39;,
+ &#39;int8&#39;,
+ &#39;int_&#39;,
+ &#39;intc&#39;,
+ &#39;integer&#39;,
+ &#39;interp&#39;,
+ &#39;intersect1d&#39;,
+ &#39;intp&#39;,
+ &#39;invert&#39;,
+ &#39;is_busday&#39;,
+ &#39;isclose&#39;,
+ &#39;iscomplex&#39;,
+ &#39;iscomplexobj&#39;,
+ &#39;isdtype&#39;,
+ &#39;isfinite&#39;,
+ &#39;isfortran&#39;,
+ &#39;isin&#39;,
+ &#39;isinf&#39;,
+ &#39;isnan&#39;,
+ &#39;isnat&#39;,
+ &#39;isneginf&#39;,
+ &#39;isposinf&#39;,
+ &#39;isreal&#39;,
+ &#39;isrealobj&#39;,
+ &#39;isscalar&#39;,
+ &#39;issubdtype&#39;,
+ &#39;iterable&#39;,
+ &#39;ix_&#39;,
+ &#39;kaiser&#39;,
+ &#39;kron&#39;,
+ &#39;lcm&#39;,
+ &#39;ldexp&#39;,
+ &#39;left_shift&#39;,
+ &#39;less&#39;,
+ &#39;less_equal&#39;,
+ &#39;lexsort&#39;,
+ &#39;lib&#39;,
+ &#39;linalg&#39;,
+ &#39;linspace&#39;,
+ &#39;little_endian&#39;,
+ &#39;load&#39;,
+ &#39;loadtxt&#39;,
+ &#39;log&#39;,
+ &#39;log10&#39;,
+ &#39;log1p&#39;,
+ &#39;log2&#39;,
+ &#39;logaddexp&#39;,
+ &#39;logaddexp2&#39;,
+ &#39;logical_and&#39;,
+ &#39;logical_not&#39;,
+ &#39;logical_or&#39;,
+ &#39;logical_xor&#39;,
+ &#39;logspace&#39;,
+ &#39;long&#39;,
+ &#39;longdouble&#39;,
+ &#39;longlong&#39;,
+ &#39;ma&#39;,
+ &#39;mask_indices&#39;,
+ &#39;matmul&#39;,
+ &#39;matrix&#39;,
+ &#39;matrix_transpose&#39;,
+ &#39;matvec&#39;,
+ &#39;max&#39;,
+ &#39;maximum&#39;,
+ &#39;may_share_memory&#39;,
+ &#39;mean&#39;,
+ &#39;median&#39;,
+ &#39;memmap&#39;,
+ &#39;meshgrid&#39;,
+ &#39;mgrid&#39;,
+ &#39;min&#39;,
+ &#39;min_scalar_type&#39;,
+ &#39;minimum&#39;,
+ &#39;mintypecode&#39;,
+ &#39;mod&#39;,
+ &#39;modf&#39;,
+ &#39;moveaxis&#39;,
+ &#39;multiply&#39;,
+ &#39;nan&#39;,
+ &#39;nan_to_num&#39;,
+ &#39;nanargmax&#39;,
+ &#39;nanargmin&#39;,
+ &#39;nancumprod&#39;,
+ &#39;nancumsum&#39;,
+ &#39;nanmax&#39;,
+ &#39;nanmean&#39;,
+ &#39;nanmedian&#39;,
+ &#39;nanmin&#39;,
+ &#39;nanpercentile&#39;,
+ &#39;nanprod&#39;,
+ &#39;nanquantile&#39;,
+ &#39;nanstd&#39;,
+ &#39;nansum&#39;,
+ &#39;nanvar&#39;,
+ &#39;ndarray&#39;,
+ &#39;ndenumerate&#39;,
+ &#39;ndim&#39;,
+ &#39;ndindex&#39;,
+ &#39;nditer&#39;,
+ &#39;negative&#39;,
+ &#39;nested_iters&#39;,
+ &#39;newaxis&#39;,
+ &#39;nextafter&#39;,
+ &#39;nonzero&#39;,
+ &#39;not_equal&#39;,
+ &#39;number&#39;,
+ &#39;object_&#39;,
+ &#39;ogrid&#39;,
+ &#39;ones&#39;,
+ &#39;ones_like&#39;,
+ &#39;outer&#39;,
+ &#39;packbits&#39;,
+ &#39;pad&#39;,
+ &#39;partition&#39;,
+ &#39;percentile&#39;,
+ &#39;permute_dims&#39;,
+ &#39;pi&#39;,
+ &#39;piecewise&#39;,
+ &#39;place&#39;,
+ &#39;poly&#39;,
+ &#39;poly1d&#39;,
+ &#39;polyadd&#39;,
+ &#39;polyder&#39;,
+ &#39;polydiv&#39;,
+ &#39;polyfit&#39;,
+ &#39;polyint&#39;,
+ &#39;polymul&#39;,
+ &#39;polynomial&#39;,
+ &#39;polysub&#39;,
+ &#39;polyval&#39;,
+ &#39;positive&#39;,
+ &#39;pow&#39;,
+ &#39;power&#39;,
+ &#39;printoptions&#39;,
+ &#39;prod&#39;,
+ &#39;promote_types&#39;,
+ &#39;ptp&#39;,
+ &#39;put&#39;,
+ &#39;put_along_axis&#39;,
+ &#39;putmask&#39;,
+ &#39;quantile&#39;,
+ &#39;r_&#39;,
+ &#39;rad2deg&#39;,
+ &#39;radians&#39;,
+ &#39;random&#39;,
+ &#39;ravel&#39;,
+ &#39;ravel_multi_index&#39;,
+ &#39;real&#39;,
+ &#39;real_if_close&#39;,
+ &#39;rec&#39;,
+ &#39;recarray&#39;,
+ &#39;reciprocal&#39;,
+ &#39;record&#39;,
+ &#39;remainder&#39;,
+ &#39;repeat&#39;,
+ &#39;require&#39;,
+ &#39;reshape&#39;,
+ &#39;resize&#39;,
+ &#39;result_type&#39;,
+ &#39;right_shift&#39;,
+ &#39;rint&#39;,
+ &#39;roll&#39;,
+ &#39;rollaxis&#39;,
+ &#39;roots&#39;,
+ &#39;rot90&#39;,
+ &#39;round&#39;,
+ &#39;row_stack&#39;,
+ &#39;s_&#39;,
+ &#39;save&#39;,
+ &#39;savetxt&#39;,
+ &#39;savez&#39;,
+ &#39;savez_compressed&#39;,
+ &#39;sctypeDict&#39;,
+ &#39;searchsorted&#39;,
+ &#39;select&#39;,
+ &#39;set_printoptions&#39;,
+ &#39;setbufsize&#39;,
+ &#39;setdiff1d&#39;,
+ &#39;seterr&#39;,
+ &#39;seterrcall&#39;,
+ &#39;setxor1d&#39;,
+ &#39;shape&#39;,
+ &#39;shares_memory&#39;,
+ &#39;short&#39;,
+ &#39;show_config&#39;,
+ &#39;show_runtime&#39;,
+ &#39;sign&#39;,
+ &#39;signbit&#39;,
+ &#39;signedinteger&#39;,
+ &#39;sin&#39;,
+ &#39;sinc&#39;,
+ &#39;single&#39;,
+ &#39;sinh&#39;,
+ &#39;size&#39;,
+ &#39;sort&#39;,
+ &#39;sort_complex&#39;,
+ &#39;spacing&#39;,
+ &#39;split&#39;,
+ &#39;sqrt&#39;,
+ &#39;square&#39;,
+ &#39;squeeze&#39;,
+ &#39;stack&#39;,
+ &#39;std&#39;,
+ &#39;str_&#39;,
+ &#39;strings&#39;,
+ &#39;subtract&#39;,
+ &#39;sum&#39;,
+ &#39;swapaxes&#39;,
+ &#39;take&#39;,
+ &#39;take_along_axis&#39;,
+ &#39;tan&#39;,
+ &#39;tanh&#39;,
+ &#39;tensordot&#39;,
+ &#39;test&#39;,
+ &#39;testing&#39;,
+ &#39;tile&#39;,
+ &#39;timedelta64&#39;,
+ &#39;trace&#39;,
+ &#39;transpose&#39;,
+ &#39;trapezoid&#39;,
+ &#39;tri&#39;,
+ &#39;tril&#39;,
+ &#39;tril_indices&#39;,
+ &#39;tril_indices_from&#39;,
+ &#39;trim_zeros&#39;,
+ &#39;triu&#39;,
+ &#39;triu_indices&#39;,
+ &#39;triu_indices_from&#39;,
+ &#39;true_divide&#39;,
+ &#39;trunc&#39;,
+ &#39;typecodes&#39;,
+ &#39;typename&#39;,
+ &#39;typing&#39;,
+ &#39;ubyte&#39;,
+ &#39;ufunc&#39;,
+ &#39;uint&#39;,
+ &#39;uint16&#39;,
+ &#39;uint32&#39;,
+ &#39;uint64&#39;,
+ &#39;uint8&#39;,
+ &#39;uintc&#39;,
+ &#39;uintp&#39;,
+ &#39;ulong&#39;,
+ &#39;ulonglong&#39;,
+ &#39;union1d&#39;,
+ &#39;unique&#39;,
+ &#39;unique_all&#39;,
+ &#39;unique_counts&#39;,
+ &#39;unique_inverse&#39;,
+ &#39;unique_values&#39;,
+ &#39;unpackbits&#39;,
+ &#39;unravel_index&#39;,
+ &#39;unsignedinteger&#39;,
+ &#39;unstack&#39;,
+ &#39;unwrap&#39;,
+ &#39;ushort&#39;,
+ &#39;vander&#39;,
+ &#39;var&#39;,
+ &#39;vdot&#39;,
+ &#39;vecdot&#39;,
+ &#39;vecmat&#39;,
+ &#39;vectorize&#39;,
+ &#39;void&#39;,
+ &#39;vsplit&#39;,
+ &#39;vstack&#39;,
+ &#39;where&#39;,
+ &#39;zeros&#39;,
+ &#39;zeros_like&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="numpy">
+<h2>Numpy<a class="headerlink" href="#numpy" title="Link to this heading">#</a></h2>
+<p>Numpy is one of the most crucial libraries when doing mathematical computing. The reason numpy is so useful is its computational efficiency in most regards.</p>
+<p>Numpy introduces a different type of object to the list of Python objects we know now: the numpy array. Similar to a list, a numpy array is a collection of objects. However, unlike a list, applying a function to a numpy array applies the function immediately to the elements.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">contlist</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span> <span class="c1"># a list</span>
+<span class="n">contarray</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">contlist</span><span class="p">)</span> <span class="c1"># the numpy array version</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">contlist</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="n">contarray</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(list, numpy.ndarray)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">contlist</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+</div>
+</div>
+<p>The only restriction on numpy array elements are that they are all the <u>same type of object</u>. If not, then numpy will often make them the same type.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;1&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;1&#39;, &#39;1&#39;], dtype=&#39;&lt;U21&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>So, how do we work with numpy arrays? The way we would work with numbers (not lists).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">4</span> <span class="o">*</span> <span class="n">contlist</span> <span class="o">+</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 1, 4, 5, 2, 6, 1, 1, 4, 5, 2, 6, 1, 1, 4, 5, 2, 6, 1, 1, 4, 5, 2, 6, 1]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">contarray</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 1, 4, 5, 2, 6])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">4</span> <span class="o">*</span> <span class="n">contarray</span> <span class="o">+</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 5,  5, 17, 21,  9, 25])
+</pre></div>
+</div>
+</div>
+</div>
+<p>We also get a speed up when inputting functions:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">100000</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.00000000e+00, 6.28324814e-05, 1.25664963e-04, ...,
+       6.28305964e+00, 6.28312247e+00, 6.28318531e+00], shape=(100000,))
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># using list indexing</span>
+<span class="o">%</span><span class="k">timeit</span> y = [math.sin(x[i]) + math.exp(x[i]**2) for i in range(n)]
+
+<span class="c1"># using numpy ufuncs</span>
+<span class="o">%</span><span class="k">timeit</span> y = np.sin(x) + np.exp(x**2)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>99 ms ± 12 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.01 ms ± 189 μs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+</pre></div>
+</div>
+</div>
+</div>
+<p>The reason for this speed up is called <i> vectorization </i>. Numpy functions that act on arrays (called <i> universal functions </i> or <i> ufuncs</i>) are designed to execute a single instruction on an entire data set using hardware instructions giving a dramatic speed up in most scenarios.</p>
+<p>We can design functions so that they benefit from this same speed up as well. That is, we can <i>vectorize</i> a function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">+</span> <span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">n</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.00000000e+00, 6.28324814e-05, 1.25664963e-04, ...,
+       6.28305964e+00, 6.28312247e+00, 6.28318531e+00], shape=(100000,))
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># method 1</span>
+
+
+<span class="n">vectf</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="c1"># for each element in a vector x, apply f</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># method 2</span>
+
+
+<span class="n">g</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> out = list(map(f,x))
+
+<span class="o">%</span><span class="k">timeit</span> out = g(x)
+
+<span class="o">%</span><span class="k">timeit</span> out = np.sin(x) + np.exp(x**2)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>77.1 ms ± 3.15 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>68.6 ms ± 5.02 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.42 ms ± 309 μs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Not only will numpy arrays speed up our computation for basic problems, but numpy arrays will be our matrix objects in the linear algebra section of this class:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">contlist</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+<span class="n">matrix</span> <span class="o">=</span> <span class="n">contlist</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">matrix</span> <span class="o">*</span> <span class="n">matrix</span> <span class="c1"># element-wise multiplication</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1,  4],
+       [ 9, 16]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">matrix</span> <span class="o">@</span> <span class="n">matrix</span> <span class="c1"># regular matrix multiplication</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 7, 10],
+       [15, 22]])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./content\Math-300----Mathematical-Computing-main\Lecture Notes\Week 2 -- Problem Solving Methods"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#libraries">Libraries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy">Numpy</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Garrett Kepler
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

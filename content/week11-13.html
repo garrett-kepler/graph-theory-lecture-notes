@@ -1,0 +1,610 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Chapter 8: Probability, Graphs, &amp; Ramsey Theory &#8212; Combinatorics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/week11-13';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Chapter 7: Principle of Inclusion-Exclusion (P.I.E.) &amp; the D.I.E. Method" href="week7-9.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Combinatorics</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome!
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="week1.html">Chapter 1: What is Combinatorics?</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="week2.html">Chapter 2: “Counting”</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="week3.html">Chapter 3: Combinatorial Thinking Practicum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week4.html">Chapter 4: Combinatorial Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week5.html">Chapter 5</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="week6.html">Chapter 6: Recurrence Relations &amp; Generating Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week7-9.html">Chapter 7: Principle of Inclusion-Exclusion (P.I.E.) &amp; the D.I.E. Method</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Chapter 8: Probability, Graphs, &amp; Ramsey Theory</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/content/week11-13.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Chapter 8: Probability, Graphs, & Ramsey Theory</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-basics">Probability Basics</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="chapter-8-probability-graphs-ramsey-theory">
+<h1>Chapter 8: Probability, Graphs, &amp; Ramsey Theory<a class="headerlink" href="#chapter-8-probability-graphs-ramsey-theory" title="Link to this heading">#</a></h1>
+<section id="probability-basics">
+<h2>Probability Basics<a class="headerlink" href="#probability-basics" title="Link to this heading">#</a></h2>
+<p>You probably (pun-intended) have an idea of what probability is. We
+experience this most every day of our lives. Thoughts like “I figure the
+bus will be late today” or “I think I will pass this class” are both
+simple examples of probabilistic thinking. <em>We are assigning an event
+some chance of occurring</em>. We will now formalize this idea
+mathematically.</p>
+<p>\hfill
+A <em>sample space</em> <span class="math notranslate nohighlight">\(\Omega=\{\omega_1,\omega_2,\dots, \omega_n\}\)</span> is a set
+of events (outcomes, occurences, etc.). A <em>probability</em>
+<span class="math notranslate nohighlight">\(\mathbb{P}:\Omega\to [0,1]\)</span> is a function assigning elements of
+<span class="math notranslate nohighlight">\(\Omega\)</span> a number such that the following hold</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(\mathbb{P}[\omega_i]\geq 0\)</span> for all <span class="math notranslate nohighlight">\(i\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\sum\limits_{i=1}^n\mathbb{P}[\omega_i]=1\)</span></p></li>
+</ol>
+<p>Intuitively, a sample space is simply a set and a probability is just a
+function with special restrictions. Even more intuitively, a sample
+space is a set of events and a probability is a likelihood those events
+occur.<br />
+Enough formalism, examples below.</p>
+<p>\hfill
+Let <span class="math notranslate nohighlight">\(\Omega=\{\)</span>heads, tails<span class="math notranslate nohighlight">\(\}\)</span> and
+<span class="math notranslate nohighlight">\(\mathbb{P}[\)</span>heads<span class="math notranslate nohighlight">\(]=\mathbb{P}[\)</span>tails<span class="math notranslate nohighlight">\(]=\frac{1}{2}\)</span>. Then, we have the
+famed “fair coin toss”. If you have not flipped a coin yet, please do.
+Note that <span class="math notranslate nohighlight">\(\mathbb{P}[\omega_i]=\frac{1}{2}\geq 0\)</span> for all <span class="math notranslate nohighlight">\(i\)</span>. Also,
+<span class="math notranslate nohighlight">\(\sum\limits_{i=1}^n\mathbb{P}[\omega_i]=\mathbb{P}[\text{heads}]+\mathbb{P}[\text{tails}]=\frac{1}{2}+\frac{1}{2}=1\)</span>.
+So, the <span class="math notranslate nohighlight">\(\mathbb{P}[\cdot]\)</span> we have chosen is indeed a <em>probability</em>.</p>
+<p>Let <span class="math notranslate nohighlight">\(\Omega=\{1,2,3,4,5,6\}\)</span> and <span class="math notranslate nohighlight">\(\mathbb{P}[i]=\frac{1}{6}\)</span> for all
+<span class="math notranslate nohighlight">\(i\in \Omega\)</span>. Then, we have the “dice roll”. Note that
+<span class="math notranslate nohighlight">\(\mathbb{P}[\omega_i]=\frac{1}{6}\geq 0\)</span> for all <span class="math notranslate nohighlight">\(i\)</span>. Also,
+<span class="math notranslate nohighlight">\(\sum\limits_{i=1}^n\mathbb{P}[\omega_i]=\mathbb{P}[1]+\mathbb{P}[2]+\mathbb{P}[3]+\mathbb{P}[4]+\mathbb{P}[5]+\mathbb{P}[6]=\frac{1}{6}+\frac{1}{6}+\frac{1}{6}+\frac{1}{6}+\frac{1}{6}+\frac{1}{6}=1\)</span>.
+So, the <span class="math notranslate nohighlight">\(\mathbb{P}[\cdot]\)</span> we have chosen is again a <em>probability</em>.</p>
+<p>A lot of the rules of combinatorics have probabilistic counterparts. For
+example, the addition rule says that if sets <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are disjoint
+<span class="math notranslate nohighlight">\((|A\cap B|=0)\)</span>, then <span class="math notranslate nohighlight">\(|A\cup B|=|A|+|B|\)</span>. Likewise, the following
+holds.</p>
+<ul class="simple">
+<li><p>If <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are <em>mutually exclusive</em> events (they cannot occur at
+the same time), then
+<span class="math notranslate nohighlight">\(\mathbb{P}[A\cup B]=\mathbb{P}[A]+\mathbb{P}[B]\)</span>.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(A_1,A_2,\dots,A_n\)</span> are all mutually exclusive, then
+<span class="math notranslate nohighlight">\(\mathbb{P}\left[\bigcup\limits_{i=1}^nA_i\right]=\sum\limits_{i=1}^n\mathbb{P}[A_i]\)</span>.</p></li>
+</ul>
+<p>Likewise, there is a product rule for probability:</p>
+<ul class="simple">
+<li><p>If <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are <em>independent</em> events (<span class="math notranslate nohighlight">\(A\)</span> has no impact on <span class="math notranslate nohighlight">\(B\)</span>),
+then <span class="math notranslate nohighlight">\(\mathbb{P}[A\cap B]=\mathbb{P}[A]\mathbb{P}[B]\)</span>.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(A_1,A_2,\dots,A_n\)</span> are all independent, then
+<span class="math notranslate nohighlight">\(\mathbb{P}\left[\bigcap\limits_{i=1}^nA_i\right]=\prod\limits_{i=1}^n\mathbb{P}[A_i]\)</span>.</p></li>
+</ul>
+<p>\hfill
+Consider an urn with <span class="math notranslate nohighlight">\(n\)</span> orbs labeled <span class="math notranslate nohighlight">\(\{1,2,\dots,n\}\)</span>. We will draw an
+orb without looking and then putting it back.</p>
+<ol class="arabic simple">
+<li><p>Since there are <span class="math notranslate nohighlight">\(n\)</span> orbs, the probability we draw any specific orb
+is <span class="math notranslate nohighlight">\(\frac{1}{n}\)</span> (<span class="math notranslate nohighlight">\(\mathbb{P}[i\in \{1,2,\dots,n\}]=\frac{1}{n}\)</span>).</p></li>
+<li><p>We are only drawing one orb at a time. So, drawing orb <span class="math notranslate nohighlight">\(j\)</span> or orb
+<span class="math notranslate nohighlight">\(i\)</span> are mutually exclusive (we cannot draw both at once). For
+example, seeing 2 or 3 are cannot happen at the same time. So,
+<span class="math notranslate nohighlight">\(\mathbb{P}[2\cup 3]=\mathbb{P}[2]+\mathbb{P}[3]=\frac{1}{n}+\frac{1}{n}=\frac{2}{n}\)</span>.</p></li>
+<li><p>If we draw one orb, put it back, and draw again, then the event of
+seeing orb <span class="math notranslate nohighlight">\(j\)</span> first has no impact on seeing orb <span class="math notranslate nohighlight">\(i\)</span> second. So, the
+events are independent. For example, drawing 1 first has no impact
+on whether we draw 5 second. So,
+<span class="math notranslate nohighlight">\(\mathbb{P}[1\cap 5]=\mathbb{P}[1]\mathbb{P}[5]=\frac{1}{n}\cdot\frac{1}{n}=\frac{1}{n^2}\)</span></p></li>
+</ol>
+<p>This is the best case scenario. We do not have to care about overlap of
+events. But, you might wonder what happens if events are not independent
+or mutually exclusive? In general, we have the following:</p>
+<p>\hfill
+For two events <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>, the probability of <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> happening
+(<span class="math notranslate nohighlight">\(\mathbb{P}[A\cap B]\)</span>) is the probability of <span class="math notranslate nohighlight">\(B\)</span> happening
+(<span class="math notranslate nohighlight">\(\mathbb{P}[B]\)</span>) times the probability of <span class="math notranslate nohighlight">\(A\)</span> happening <em>given that <span class="math notranslate nohighlight">\(B\)</span>
+has already happened</em> (<span class="math notranslate nohighlight">\(\mathbb{P}[A|B]\)</span>). That is, $<span class="math notranslate nohighlight">\(\begin{aligned}
+\mathbb{P}[A\cap B]=\mathbb{P}[A|B]\mathbb{P}[B]
+\end{aligned}\)</span><span class="math notranslate nohighlight">\( We call \)</span>\mathbb{P}[A|B]<span class="math notranslate nohighlight">\( a *conditional
+probability* and we say &quot;probability of \)</span>A<span class="math notranslate nohighlight">\( given \)</span>B$”.</p>
+<p>Hopefully this seems rather intuitive: “<span class="math notranslate nohighlight">\(A\)</span> <em>and</em> <span class="math notranslate nohighlight">\(B\)</span> happening means
+<span class="math notranslate nohighlight">\(B\)</span> must have happened. Now given that <span class="math notranslate nohighlight">\(B\)</span> has happened, consider <span class="math notranslate nohighlight">\(A\)</span>”.
+Note that the choice of <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> here is arbitrary. That is, we can
+also say <span class="math notranslate nohighlight">\(\mathbb{P}[A\cap B]=\mathbb{P}[B|A]\mathbb{P}[A]\)</span>.</p>
+<p>\hfill
+Consider again the orb and urn problem with <span class="math notranslate nohighlight">\(n\)</span> numbered orbs. We will
+draw without looking. This time, we will not put the drawn orb back in
+the urn. Consider drawing 2 and setting it to the side. Now, there are
+only <span class="math notranslate nohighlight">\(n-1\)</span> orbs in the urn. This affects the probability of drawing any
+of the remaining orbs. Originally, <span class="math notranslate nohighlight">\(\mathbb{P}[i]=\frac{1}{n}\)</span> for all
+<span class="math notranslate nohighlight">\(i\)</span> in the urn. Without 2, we have <span class="math notranslate nohighlight">\(\mathbb{P}[i]=\frac{1}{n-1}\)</span> for all
+<span class="math notranslate nohighlight">\(i\)</span> in the urn.</p>
+<p>Consider the second part of the definition of a probability:
+<span class="math notranslate nohighlight">\(\sum\limits_{i=1}^n\mathbb{P}[\omega_i]=1\)</span>. What this is saying is that
+the probability that <em>anything</em> happens is 1. That is, there is a 100%
+chance of something happening. Formally, we would say
+<span class="math notranslate nohighlight">\(\mathbb{P}[\Omega]=1\)</span> (the probability of our sample space is 1). This
+leads to the following theorem.</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\mathbb{P}[A]=1-\mathbb{P}[A^C]\)</span> for all <span class="math notranslate nohighlight">\(A\in \Omega\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbb{P}\left[\bigcup\limits_{i=1}^nA_i\right]=1-\mathbb{P}\left[\bigcap\limits_{i=1}^nA_i^C\right]\)</span>
+for <span class="math notranslate nohighlight">\(A_i\in \Omega\)</span></p></li>
+</ul>
+<p>\hfill
+<span class="math notranslate nohighlight">\(\mathbb{P}[A]=\mathbb{P}[\Omega\textbackslash A^C]=1-\mathbb{P}[A^C]\)</span>
+and then DeMorgan’s laws to obtain second point.</p>
+<p>We are now ready to define what is called a random variable. Much like a
+variable in the traditional sense, a random variable is a placeholder
+that takes on values from some set. A random variable differs from a
+traditional variable since we also require that it takes <em>random</em> values
+from <span class="math notranslate nohighlight">\(\Omega\)</span> according to <span class="math notranslate nohighlight">\(\mathbb{P}\)</span>. Formally,</p>
+<p>\hfill
+A random variable <span class="math notranslate nohighlight">\(X:\Omega \to \mathbb{R}\)</span> is a function that maps the
+events in <span class="math notranslate nohighlight">\(\Omega\)</span> equipped with the probability <span class="math notranslate nohighlight">\(\mathbb{P}[\cdot]\)</span>.</p>
+<p>\hfill
+The above definition may be scary but think about the following:</p>
+<ul class="simple">
+<li><p>Let <span class="math notranslate nohighlight">\(\Omega=\{\)</span>heads, tails<span class="math notranslate nohighlight">\(\}\)</span> and <span class="math notranslate nohighlight">\(X:\Omega\to \Omega\)</span> be the
+outcome of a coin toss.</p></li>
+<li><p>Let <span class="math notranslate nohighlight">\(\Omega=\{\)</span>heads, tails<span class="math notranslate nohighlight">\(\}\)</span> and <span class="math notranslate nohighlight">\(X:\Omega\to \{0,1\}\)</span> be the
+outcome of a coin toss where heads will be assigned 0 and tails will
+be assigned 1.</p></li>
+<li><p>Let <span class="math notranslate nohighlight">\(\Omega=\{\)</span>tilings of the <span class="math notranslate nohighlight">\(1\times n\)</span> board with squares and
+dominoes<span class="math notranslate nohighlight">\(\}\)</span> and <span class="math notranslate nohighlight">\(X:\Omega\to \{1,2,\dots,n\}\)</span> be the length of a
+randomly draw board.</p></li>
+</ul>
+<p>\hfill
+The <em>expectation</em> (expected value) of a random variable is defined as
+$<span class="math notranslate nohighlight">\(\begin{aligned}
+\mathbb{E}[X]=\sum_{x}x\cdot \mathbb{P}[X=x]
+\end{aligned}\)</span>$</p>
+<p>\hfill
+Let <span class="math notranslate nohighlight">\(X\)</span> be the outcome of a fair coin toss where 0 is heads and 1 is
+tails. The expected value of <span class="math notranslate nohighlight">\(X\)</span> is the average: <span class="math notranslate nohighlight">\(\frac{1}{2}\)</span>.
+$<span class="math notranslate nohighlight">\(\begin{aligned}
+\mathbb{E}[X]=0\cdot \mathbb{P}[X=0]+1\cdot \mathbb{P}[X=1]=0\cdot\frac{1}{2}+1\cdot\frac{1}{2}=\frac{1}{2}
+\end{aligned}\)</span>$</p>
+<p>We can think of the expected value in the following way: “Given that we
+have assigned events in <span class="math notranslate nohighlight">\(\Omega\)</span> the probabilities <span class="math notranslate nohighlight">\(\mathbb{P}\)</span>, what
+will be the average of events we see?” In the coin toss example, we
+should see heads half the time and tails half the time. Assigning these
+0 and 1 respectively, we should see 0 and 1 half the time. So, the
+average of things we should see is <span class="math notranslate nohighlight">\(\frac{1}{2}\)</span>.<br />
+A couple useful properties of expectation:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\mathbb{E}[f(X)]=\sum\limits_xf(x)\cdot\mathbb{P}[X=x]\)</span> for random
+variable <span class="math notranslate nohighlight">\(X\)</span> and function <span class="math notranslate nohighlight">\(f\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbb{E}[aX+bY]=a\mathbb{E}[X]+b\mathbb{E}[Y]\)</span> for scalars <span class="math notranslate nohighlight">\(a,b\)</span>
+and random variables <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbb{E}\left[\sum\limits_{i=1}^na_iX_i\right]=\sum\limits_{i=1}^na_i\mathbb{E}[X_i]\)</span>
+for scalars <span class="math notranslate nohighlight">\(a,b\)</span> and random variables <span class="math notranslate nohighlight">\(X_i\)</span></p></li>
+</ul>
+<p>Coming soon:</p>
+<ul class="simple">
+<li><p>Indicator variables</p></li>
+<li><p>Erdös-Renyi model</p></li>
+<li><p>Probabilistic method</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./content"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="week7-9.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Chapter 7: Principle of Inclusion-Exclusion (P.I.E.) &amp; the D.I.E. Method</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-basics">Probability Basics</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Garrett Kepler
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

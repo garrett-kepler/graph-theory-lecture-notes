@@ -1,0 +1,619 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Chapter 5 &#8212; Combinatorics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/week5';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Chapter 6: Recurrence Relations &amp; Generating Functions" href="week6.html" />
+    <link rel="prev" title="Chapter 4: Combinatorial Models" href="week4.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Combinatorics</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome!
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="week1.html">Chapter 1: What is Combinatorics?</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="week2.html">Chapter 2: “Counting”</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="week3.html">Chapter 3: Combinatorial Thinking Practicum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week4.html">Chapter 4: Combinatorial Models</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Chapter 5</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="week6.html">Chapter 6: Recurrence Relations &amp; Generating Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week7-9.html">Chapter 7: Principle of Inclusion-Exclusion (P.I.E.) &amp; the D.I.E. Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week11-13.html">Chapter 8: Probability, Graphs, &amp; Ramsey Theory</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/content/week5.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Chapter 5</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Chapter 5</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#graphs">Graphs</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="chapter-5">
+<h1>Chapter 5<a class="headerlink" href="#chapter-5" title="Link to this heading">#</a></h1>
+<p>Week’s Warmup</p>
+<p>\hfill
+Given 5 points on the surface of a sphere, show that there is a closed
+hemisphere that contains 4 points. (A closed hemisphere is a sphere cut
+in half including the boundary that was cut)</p>
+<p>\hfill</p>
+<ol class="arabic simple">
+<li><p>How many ways are there to select <span class="math notranslate nohighlight">\(k\)</span> objects from <span class="math notranslate nohighlight">\(n\)</span>?</p></li>
+<li><p>After selecting, how many ways are there to permute those <span class="math notranslate nohighlight">\(k\)</span>
+objects?</p></li>
+<li><p>How many ways are there permute <span class="math notranslate nohighlight">\(k\)</span> objects from <span class="math notranslate nohighlight">\(n\)</span>?</p></li>
+</ol>
+<p>Courtesy of Zvezdelina Stankova, a combinatorial thinking builder:</p>
+<p>\hfill
+Given <span class="math notranslate nohighlight">\(n\)</span> points on the boundary of a circle, connect each pair of
+points such that only two lines intersect at any point. How many regions
+does this create?</p>
+<p>\hfill
+For 1 point, this is an easy answer: 1 region, the circle itself. For 2,
+also fairly straightforward: 2. For 3, we get 4. Powers of 2! Pictures
+from:
+<a class="reference external" href="https://threesixty360.wordpress.com/2008/04/30/1-2-4-8-what-comes-next/">ThreeSixty360</a>.</p>
+<p>![image](math 325/book/content/photos/Screenshot 2026-02-15 192106.png){width=”.5\textwidth”}</p>
+<p>We can continue this process and find the answer for higher numbers of
+points:</p>
+<p>![image](math 325/book/content/photos/pizza.png){width=”.5\textwidth”}</p>
+<p>With a fair bit of zooming in, you may count 1,2,4,8,16, and then…
+31. This strange sequence exemplifies the need for combinatorial
+reasoning. Although we may conjecture a relationship between a sequence
+and a process like this, without proof, we know close to nothing! So, be
+careful when conjecturing.</p>
+<p>\hfill
+Given an <span class="math notranslate nohighlight">\(n\times n\)</span> board, how many ways can we place <span class="math notranslate nohighlight">\(n\)</span> points so
+that no point shares a column or row with any other point?</p>
+<p>This question formulated differently, is what we call the “non-attacking
+rook position” problem. Given an <span class="math notranslate nohighlight">\(n\times n\)</span> chess board, we want to
+places <span class="math notranslate nohighlight">\(n\)</span> rooks so that no rook can attack any others. As an example,
+consider the following placement.</p>
+<p>Each rook has been placed in a spot such that it is the only rook in its
+respective row and column.</p>
+<p>\hfill
+Going column by column, consider placing a rook in the first column. No
+other have been placed, so we can place this rook in <span class="math notranslate nohighlight">\(n\)</span> ways. Now that
+this rook has been placed, the rook we will place in second column can
+be placed anywhere so long as it doesn’t share the row from the first
+rook. There are <span class="math notranslate nohighlight">\(n-1\)</span> ways we can do this. Likewise, we can place the
+rook to be in column 3 in any row except the rows of the 2 previous.
+There are <span class="math notranslate nohighlight">\(n-2\)</span> ways. Continuing on, we have
+<span class="math notranslate nohighlight">\(n(n-1)(n-2)\cdots 3\cdot 2\cdot 1=n!\)</span> total ways. (One could equally
+think of this as a permutation problem!)</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="graphs">
+<h1>Graphs<a class="headerlink" href="#graphs" title="Link to this heading">#</a></h1>
+<p>One fundamental combinatorial object we study in combinatorics is the
+<em>graph</em>. You may have already seen these. For example, see Figure
+<a class="reference internal" href="#fig:network"><span class="xref myst">[fig:network]</span></a>{reference-type=”ref”
+reference=”fig:network”}. We will formalize the idea in this section.</p>
+<p>\centering
+![Examples of graphs. On the left, a network of the internet. On the
+right, a graph corresponding to a molecule. Courtesy of
+<a class="reference external" href="https://en.wikipedia.org/wiki/Computer_network">https://en.wikipedia.org/wiki/Computernetwork</a>
+and <a class="reference external" href="https://en.wikipedia.org/wiki/Molecule">https://en.wikipedia.org/wiki/Molecule</a>
+respectively.[]{label=”fig:network”}](math 325/book/content/photos/Internet_map_1024.png “fig:”){#fig:network
+height=”0.2\textheight”} ![Examples of graphs. On the left, a network of
+the internet. On the right, a graph corresponding to a molecule.
+Courtesy of
+<a class="reference external" href="https://en.wikipedia.org/wiki/Computer_network">https://en.wikipedia.org/wiki/Computernetwork</a>
+and <a class="reference external" href="https://en.wikipedia.org/wiki/Molecule">https://en.wikipedia.org/wiki/Molecule</a>
+respectively.[]{label=”fig:network”}](math 325/book/content/photos/TOAT_AFM.png “fig:”){#fig:network
+height=”.2\textheight”}</p>
+<p>\hfill
+A <em>graph</em> <span class="math notranslate nohighlight">\(G=(V,E)\)</span> is a collection of vertices <span class="math notranslate nohighlight">\(V\)</span> and edges <span class="math notranslate nohighlight">\(E\)</span> where
+<span class="math notranslate nohighlight">\(E\)</span> is a set of pairs of vertices.</p>
+<p>We can synonymously call vertices and edges nodes and arcs, but I will
+try to remain consistent with the former. We typically assume <span class="math notranslate nohighlight">\(E\)</span> is a
+set of edges defined over <span class="math notranslate nohighlight">\(V\)</span>. Otherwise, this object would indeed be
+hard to interpret. Consider the following graphs.</p>
+<p>\hfill
+Let <span class="math notranslate nohighlight">\(G=(\{1,2,3\},\{(1,2),(2,3)\}\)</span>. Then, we can visualize <span class="math notranslate nohighlight">\(G\)</span> as</p>
+<p>Notice, if we remove <span class="math notranslate nohighlight">\((2,3)\)</span>, we end up with a different, yet similar
+graph <span class="math notranslate nohighlight">\(H=(\{1,2,3\},\{(1,2)\}\)</span></p>
+<p>Note that in drawing these graphs, we have an ordered pair <span class="math notranslate nohighlight">\((x,y)\)</span>
+telling us our edge begins at <span class="math notranslate nohighlight">\(x\)</span> and ends at <span class="math notranslate nohighlight">\(y\)</span>. As such, we have an
+arrow indicating the starting node and ending node for each edge. A
+graph where this <em>direction</em> is important we call a <em>directed graph</em>. If
+instead, order does not matter, we have an <em>undirected graph</em>.</p>
+<p>\hfill
+A graph <span class="math notranslate nohighlight">\(G=(V,E)\)</span> is <em>directed</em> when <span class="math notranslate nohighlight">\(E\)</span> consists of <em>ordered pairs</em> of
+vertices (e.g. <span class="math notranslate nohighlight">\((2,3)\)</span>). Conversely, a graph is <em>undirected</em> when <span class="math notranslate nohighlight">\(E\)</span>
+consists of <em>unordered pairs</em> of vertices (e.g. <span class="math notranslate nohighlight">\(\{2,3\}\)</span>).</p>
+<p>Consider the graph from before, <span class="math notranslate nohighlight">\(G=(\{1,2,3\},\{(1,2),(2,3)\}\)</span>.</p>
+<p>We can form an undirected analogue, <span class="math notranslate nohighlight">\(H=(\{1,2,3\},\{\{1,2\},\{2,3\}\}\)</span>.</p>
+<p>Note, we do not require that the vertices in an edge be distinct. That
+is, we could have a <em>self-loop</em> <span class="math notranslate nohighlight">\((x,x)\)</span> for some <span class="math notranslate nohighlight">\(x\in V\)</span>.</p>
+<p>We also do not require that there is only one edge between a pair of
+nodes.</p>
+<p>We can even weight edges!</p>
+<p>These objects can be very complicated indeed. As such, we can further
+restrict our graphs to what we call <em>simple</em>.</p>
+<p>\hfill
+A <em>simple</em> graph is an undirected, unweighted graph without self-loops
+and multiple edges.</p>
+<p>A simple graph is arguably the easiest graph to think of. But, simple
+and not simple graphs have the pros and cons when dealing with them in
+practice. Consider the following question:</p>
+<p>\hfill
+How many simple graphs in general are there on <span class="math notranslate nohighlight">\(n\)</span> nodes?</p>
+<p>\hfill
+For an edge to exist, we have to pair up two nodes. How many ways can we
+do this? <span class="math notranslate nohighlight">\(\binom{n}{2}\)</span> ways. For each of those potential edges, there
+is 2 possibilities: the edge exists or it doesn’t. So, by multiplication
+principle, there are <span class="math notranslate nohighlight">\(2^{\binom{n}{2}}\)</span> possible graphs in general.</p>
+<p>Okay, <span class="math notranslate nohighlight">\(2^{\binom{n}{2}}\)</span> in general. But, consider the two following
+graphs.</p>
+<p>Intuitively, these are representatives of the same structure. One could
+say these are the same graph with different labels. This idea is what we
+call <em>isomorphic graphs</em>. The question of “How many simple
+<em>non-isomorphic</em> graphs are there on <span class="math notranslate nohighlight">\(n\)</span> nodes?” is a much more
+difficult question to answer. We will come back to this.<br />
+There are many features of graphs we care about. One particular example
+is the number of edges each node is represented in.</p>
+<p>\hfill
+The number of edges incident with a node <span class="math notranslate nohighlight">\(v\)</span> is the <em>degree</em> of <span class="math notranslate nohighlight">\(v\)</span>
+denoted <span class="math notranslate nohighlight">\(d(v)\)</span>.</p>
+<p>\hfill
+For the following graph, the degree of each node is: <span class="math notranslate nohighlight">\(d(1)=1\)</span>, <span class="math notranslate nohighlight">\(d(2)=2\)</span>,
+and <span class="math notranslate nohighlight">\(d(3)=1\)</span>.</p>
+<p>\hfill
+Let <span class="math notranslate nohighlight">\(G=(V,E)\)</span>. Then, $<span class="math notranslate nohighlight">\(\begin{aligned}
+\sum_{v\in V} d(v)&amp;=2|E|
+\end{aligned}\)</span>$</p>
+<p>\hfill
+For each node <span class="math notranslate nohighlight">\(v\)</span>, <span class="math notranslate nohighlight">\(d(v)\)</span> counts the number of edges <span class="math notranslate nohighlight">\(v\)</span> appears in
+(i.e. the number of edges <span class="math notranslate nohighlight">\((v,u)\)</span> or <span class="math notranslate nohighlight">\(\{v,u\}\)</span>). The sum over all <span class="math notranslate nohighlight">\(v\)</span>
+will count <span class="math notranslate nohighlight">\((v,u)\)</span> and <span class="math notranslate nohighlight">\((u,v)\)</span> for every edge in the graph. As such, we
+count twice the number of edges in the graph.</p>
+<p>\hfill
+In a graph <span class="math notranslate nohighlight">\(G\)</span>, there are an even number of odd degree nodes.</p>
+<p>\hfill
+Let <span class="math notranslate nohighlight">\(x,y\in \mathbb{R}\)</span>. Then, $<span class="math notranslate nohighlight">\(\begin{aligned}
+(x+y)^n&amp;=\sum_{k=0}^n\binom{n}{k}x^ky^{n-k}
+\end{aligned}\)</span>$</p>
+<p>On the left, we have <span class="math notranslate nohighlight">\(n\)</span> factors of <span class="math notranslate nohighlight">\((x+y)\)</span>,
+<span class="math notranslate nohighlight">\((x+y)^n=(x+y)(x+y)\cdots (x+y)\)</span>. The coefficient of <span class="math notranslate nohighlight">\(x^k\)</span> will be the
+number of ways to choose <span class="math notranslate nohighlight">\(x\)</span> from the total factors. Since we have <span class="math notranslate nohighlight">\(n\)</span>,
+we also choose <span class="math notranslate nohighlight">\(y^{n-k}\)</span> as a consequence. This corresponds to selecting
+<span class="math notranslate nohighlight">\(k\)</span> terms to contribute to the coefficient of <span class="math notranslate nohighlight">\(x^ky^{n-k}\)</span> from <span class="math notranslate nohighlight">\(n\)</span>
+factors. Since we can do this in <span class="math notranslate nohighlight">\(\binom{n}{k}\)</span> ways, the coefficient of
+<span class="math notranslate nohighlight">\(x^ky^{n-k}\)</span> is <span class="math notranslate nohighlight">\(\binom{n}{k}\)</span>. Adding from <span class="math notranslate nohighlight">\(k=0\)</span> to <span class="math notranslate nohighlight">\(k=n\)</span> gives <em>all</em>
+the ways we can do this.</p>
+<p>\hfill
+Using the binomial theorem, how many <em>directed</em> graphs are there on <span class="math notranslate nohighlight">\(n\)</span>
+nodes in general?</p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./content"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="week4.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Chapter 4: Combinatorial Models</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="week6.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Chapter 6: Recurrence Relations &amp; Generating Functions</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Chapter 5</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#graphs">Graphs</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Garrett Kepler
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,1018 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Chapter 1: What is Combinatorics? &#8212; Combinatorics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/week1';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Chapter 2: “Counting”" href="week2.html" />
+    <link rel="prev" title="Welcome!" href="../intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Combinatorics</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome!
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Chapter 1: What is Combinatorics?</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="week2.html">Chapter 2: “Counting”</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="week3.html">Chapter 3: Combinatorial Thinking Practicum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week4.html">Chapter 4: Combinatorial Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week5.html">Chapter 5</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="week6.html">Chapter 6: Recurrence Relations &amp; Generating Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week7-9.html">Chapter 7: Principle of Inclusion-Exclusion (P.I.E.) &amp; the D.I.E. Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week11-13.html">Chapter 8: Probability, Graphs, &amp; Ramsey Theory</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/content/week1.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Chapter 1: What is Combinatorics?</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Chapter 1: What is Combinatorics?</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-s-warmups">Week’s Warmups</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-solving-basics-set-theory">Problem Solving Basics &amp; Set Theory</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simplification">Simplification</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-theory-basics">Set Theory Basics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-counting-techniques">Introduction to counting techniques</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#warmup">Warmup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-set-theory">More Set Theory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#addition-multiplication-principle">Addition &amp; Multiplication Principle</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#in-dependence">(In)dependence</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Summary</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="chapter-1-what-is-combinatorics">
+<h1>Chapter 1: What is Combinatorics?<a class="headerlink" href="#chapter-1-what-is-combinatorics" title="Link to this heading">#</a></h1>
+<p>One great property of the field of combinatorics is most people have
+already encountered combinatorial questions in their own life.</p>
+<p><em>Considering the optimal path we should take to get groceries and visit
+the coffee shop then return home. Now that we have the groceries,
+figuring out which set of dishes we can cook for the party when we’ve
+invited a vegetarian, a non-vegetarian, and someone allergic to peanuts.
+Now that we know what to cook, determining the best drinks paired with
+which dishes.</em></p>
+<p>As simple of an example party planning is, we have described three
+combinatorial problems already: minimal path, dish enumeration, and
+drink/dish combinations.<br />
+Many of the questions we ask in combinatorics focus on counting of some
+sort.</p>
+<ul class="simple">
+<li><p>Enumeration: How many ways<span class="math notranslate nohighlight">\(\dots\)</span>?</p></li>
+<li><p>Existence: Does there exist<span class="math notranslate nohighlight">\(\dots\)</span>?</p></li>
+<li><p>Extremal: What is the largest/smallest possible<span class="math notranslate nohighlight">\(\dots\)</span>?</p></li>
+<li><p>Expectation: What is the expected number of<span class="math notranslate nohighlight">\(\dots\)</span>?</p></li>
+</ul>
+<section id="week-s-warmups">
+<h2>Week’s Warmups<a class="headerlink" href="#week-s-warmups" title="Link to this heading">#</a></h2>
+<p>\hfill
+How many ways are there to assign 3 students 3 distinct Math 325
+projects? 4 students 4 distinct projects? <span class="math notranslate nohighlight">\(n\)</span> students <span class="math notranslate nohighlight">\(n\)</span> distinct
+projects?</p>
+<p>\hfill
+How many people must attend the first day of lecture in Math 325 to
+guarantee 2 people either both have met before or both have not met
+before?</p>
+<p>\hfill
+How many people must attend the first day of lecture in Math 325 to
+guarantee 3 people either have all met before or have all not met
+before?</p>
+<p>These preliminary warmup problems are classic combinatorial questions.
+The first, a question of enumeration, we may have a straightforward way
+to answer already:</p>
+<p>\hfill
+Well, we could assign student A project 1. Or, we could assign them
+project 2. Or, we could assign them project 3. That’s 3 ways. Okay, for
+student B, we could assign project 1. Or, we could assign them project
+2. Or,<span class="math notranslate nohighlight">\(\dots\)</span> This is exhausting listing them out. I’m bored.</p>
+<p>What we are going to learn in this class is methods to avoid this one by
+one counting. Instead, we will “count”. Rather than assigning a specific
+student to a specific project one by one, we’ll deal with the collection
+of students and the collection of projects in their entirety:</p>
+<p>\hfill
+Given a student, we assign them 1 of the 3 projects. Since we want
+distinct assignments, the next student must be assigned one of the other
+2 projects. Likewise, the final student must be assigned the leftover
+project. Using what we will later refer to as the <em>multiplication
+principle</em>, we have <span class="math notranslate nohighlight">\(3\cdot 2\cdot 1=6\)</span> ways to do this.</p>
+<p>Questions 1.2 and 1.3 ask questions of guaranteed substructures that we
+will discuss later in the Ramsey Theory section.</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="problem-solving-basics-set-theory">
+<h1>Problem Solving Basics &amp; Set Theory<a class="headerlink" href="#problem-solving-basics-set-theory" title="Link to this heading">#</a></h1>
+<p>We will start with questions of <em>enumeration</em> and dedicate a fair amount
+of time to this concept.</p>
+<p>\hfill
+The problem of <em>enumeration</em> is to count the total number of objects
+with a specified property.</p>
+<p>\hfill
+A few basic examples:</p>
+<ul class="simple">
+<li><p>How many ways are there to assign <span class="math notranslate nohighlight">\(n\)</span> students to <span class="math notranslate nohighlight">\(m\)</span> projects?</p></li>
+<li><p>How many distinct Sudoku puzzles are there?</p></li>
+<li><p>How many total (potentially isomorphic) graphs are there are on <span class="math notranslate nohighlight">\(n\)</span>
+nodes?</p></li>
+</ul>
+<p>This questions can often be difficult to answer given a certain object
+with a desired property. However, the philosophical approach we often
+take is: <strong>simplify</strong>!<br />
+Our approach to these problems can be summarized in a joke told to me by
+a faculty member at WSU:</p>
+<p><em>A mathematician walks into a room. In one corner, he sees an empty
+bucket. In another corner, he sees a sink with a water faucet. In yet
+another corner, he sees a fire. Leaping into action, he picks up the
+bucket, fills it up at the faucet, and douses the fire.</em><br />
+<em>The next day, the same mathematician returns to the room. Once again,
+he sees a fire in the same corner. But, this time the bucket rests next
+to the fire full of water. Once more he leaps into action: he picks up
+the bucket, dumps the water in the sink, places the bucket empty where
+it was from the day before and leaves. As he exits, he exclaims
+victoriously “I’ve reduced it to a previously solved problem!”</em></p>
+<p>Our first goal will be to mimic this proverbial mathematician’s
+mentality: <em>simplify</em>! Once we’ve simplified, we’ll ask ourselves: “can
+we generalize this?”\</p>
+<section id="simplification">
+<h2>Simplification<a class="headerlink" href="#simplification" title="Link to this heading">#</a></h2>
+<p>[[question1]]{#question1 label=”question1”}</p>
+<p>Consider the following problems:</p>
+<ol class="arabic simple">
+<li><p>How many whole numbers are between 1 and 325 inclusive?</p></li>
+<li><p>How many whole numbers are between 28 and 352 inclusive?</p></li>
+<li><p>How many even numbers are there between 28 and 352 inclusive?</p></li>
+<li><p>How many numbers between 28 and 352 are divisible by 3?</p></li>
+</ol>
+<p>On the one hand, these are four distinct problems. On the other, you may
+be able to see there is a process we can use to answer all of them. One
+main approach we often utilize in combinatorics is the following: to
+count what we need to count, reframe the problem as something we already
+know how to count. To quote a great mathematician:</p>
+<p>“<em>I have reduced it to a previously solved problem!</em>”</p>
+<p>Consider our first problem: “How many whole numbers are between 1 and
+325 inclusive?”</p>
+<ul class="simple">
+<li><p>1 is our <span class="math notranslate nohighlight">\(1^{st}\)</span>, 2 is our <span class="math notranslate nohighlight">\(2^{nd}\)</span>, and so on, 325 is our
+<span class="math notranslate nohighlight">\(325^{th}\)</span>. So, there must be 325 such numbers.</p></li>
+</ul>
+<p>This was so easy to solve! What we want to do now is use this solved
+problem to answer another. Consider our second problem: “How many whole
+numbers are between 28 and 352 inclusive?”</p>
+<ul class="simple">
+<li><p>We begin counting: 28 is our <span class="math notranslate nohighlight">\(1^{st}\)</span> number, 29 is our <span class="math notranslate nohighlight">\(2^{nd}\)</span>,
+and so on, so 352 must be our <span class="math notranslate nohighlight">\(?^{th}\)</span>.</p></li>
+</ul>
+<p>What do we put here? No idea. We only know how to count numbers between
+1 and 325. Let’s instead transform this counting problem to the one we
+know how to count:</p>
+<ul class="simple">
+<li><p>We may notice 28 is 27 away from 1. Likewise, 29 is 27 away from 2
+and so on.</p></li>
+<li><p>So, take each number <span class="math notranslate nohighlight">\(28,29,30,\dots, 352\)</span> and subtract 27:
+<span class="math notranslate nohighlight">\(1,2,3,\dots, 325\)</span>.</p></li>
+<li><p>Amazing! We already know this answer: there are 325 such numbers.</p></li>
+</ul>
+<p>One issue you may already have thought of: “how do I know there are the
+same amount of numbers between 1 and 325 as 28 and 352 by simply
+subtracting 27?” That is a great point. We don’t yet know. However, this
+is the beauty of a <em>bijection</em>. Something we’ll talk about: if we have a
+bijection between two sets, we know they are the same size. More on the
+formalities later!\</p>
+<p>“<em>I have generalized the method to solve a previously unsolved
+problem!</em>”</p>
+<p>For now, consider the third problem: “How many even numbers are there
+between 28 and 352 inclusive?”. Again, we don’t know how to count this.
+But, on the second problem, we transformed to the numbers
+<span class="math notranslate nohighlight">\(1,2,3,\dots, 325\)</span> and made our problem easier. Let’s try something
+similar:</p>
+<ul class="simple">
+<li><p>Take each number, <span class="math notranslate nohighlight">\(28,30,32,\dots,350, 352\)</span>, and divide by <span class="math notranslate nohighlight">\(2\)</span>:
+<span class="math notranslate nohighlight">\(14,15,16,\dots, 175, 176\)</span>.</p></li>
+<li><p>They may look different, but we can transform similarly to problem
+two. Subtract 13 and we get <span class="math notranslate nohighlight">\(1,2,3,\dots, 162, 163\)</span>.</p></li>
+<li><p>There are 163 such numbers, so there must be 163 such even numbers
+between 28 and 352.</p></li>
+</ul>
+<p>Now that we have a specific method of solution, we might reformat this
+method to a more general problem. We may want to count the numbers
+between <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(n\)</span> (<span class="math notranslate nohighlight">\(m&lt;n\)</span>).<br />
+In our second and third problem, we took each number and found a way to
+obtain <span class="math notranslate nohighlight">\(\{1,2,3,\dots, n\}\)</span> so that we could enumerate the solutions. If
+we want to take our <span class="math notranslate nohighlight">\(1^{st}\)</span> number <span class="math notranslate nohighlight">\(m\)</span> and send it the first natural
+number <span class="math notranslate nohighlight">\(1\)</span>, we might subtract <span class="math notranslate nohighlight">\(m-1\)</span> (since <span class="math notranslate nohighlight">\(m-(m-1)=m-m+1=1\)</span>). For each
+of these numbers, we get
+<span class="math notranslate nohighlight">\(m-(m-1),m+1-(m-1), m+2-(m-1),\dots, n-1-(m-1), n-(m-1)\)</span> which really is
+<span class="math notranslate nohighlight">\(1,2,3,\dots, n-m, n-m+1\)</span>. As such, we obtain a count of <span class="math notranslate nohighlight">\(n-m+1\)</span>
+integers between <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(n\)</span> (<span class="math notranslate nohighlight">\(m&lt;n\)</span>). What’s left to prove is that the
+process of subtracting <span class="math notranslate nohighlight">\(m-1\)</span> here guarantees the two sets of numbers are
+the same size. The next section will discuss how to use a <em>bijection</em> to
+do so.</p>
+</section>
+<section id="set-theory-basics">
+<h2>Set Theory Basics<a class="headerlink" href="#set-theory-basics" title="Link to this heading">#</a></h2>
+<p>This concept of bijection we subtly utilized previously is actually a
+fundamental result combinatorialists love to exploit. Before we get
+there, some basics are necessary.</p>
+<p>\hfill
+A <em>set</em> is a collection of distinct objects. E.g. The set of integers
+between 28 and 56 = <span class="math notranslate nohighlight">\(\{28,29,30,\dots, 56\}\)</span>, a set of graphs =
+<span class="math notranslate nohighlight">\(\{ {\includegraphics[height=2ex,valign=m]{math 593/photos/8.23.25/gseq1.png}},{\includegraphics[height=2ex,valign=m]{math 593/photos/8.23.25/gseq2.png}},{\includegraphics[height=2ex,valign=m]{math 593/photos/8.23.25/gseq3.png}},{\includegraphics[height=2ex,valign=m]{math 593/photos/8.23.25/gseq4.png}},\dots \}\)</span>,
+etc.</p>
+<p>Note in our definition of a set we require <em>distinctness</em>. As such, the
+collection <span class="math notranslate nohighlight">\(\{1,1,2,3,\dots,29\}\)</span> is not a set. Likewise with any
+collection with repeating elements, but this permits another important
+definition:</p>
+<p>\hfill
+A <em>multiset</em> is a collection of not necessarily distinct objects. E.g.
+The multiset of integers = <span class="math notranslate nohighlight">\(\{28,28,28,29,30,\dots, 56\}\)</span>, the multiset
+of graphs =
+<span class="math notranslate nohighlight">\(\{ {\includegraphics[height=2ex,valign=m]{math 593/photos/8.23.25/gseq1.png}},{\includegraphics[height=2ex,valign=m]{math 593/photos/8.23.25/gseq1.png}},{\includegraphics[height=2ex,valign=m]{math 593/photos/8.23.25/gseq2.png}},{\includegraphics[height=2ex,valign=m]{math 593/photos/8.23.25/gseq3.png}},{\includegraphics[height=2ex,valign=m]{math 593/photos/8.23.25/gseq4.png}},\dots \}\)</span>,
+etc.</p>
+<p>However, we won’t touch multisets until later on. For now, let us
+discuss relations between sets.</p>
+<p>\hfill
+A function <span class="math notranslate nohighlight">\(f:A\to B\)</span> is a relation between sets <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> such that
+for each <span class="math notranslate nohighlight">\(a\in A\)</span> (<span class="math notranslate nohighlight">\(a\)</span> in <span class="math notranslate nohighlight">\(A\)</span>), there is a unique <span class="math notranslate nohighlight">\(b\in B\)</span> such that
+<span class="math notranslate nohighlight">\(f(a)=b\)</span>.</p>
+<p>\hfill
+As an example, on the left, we have <span class="math notranslate nohighlight">\(g:A\to B\)</span> that assigns the second
+element in <span class="math notranslate nohighlight">\(A\)</span> to two elements in <span class="math notranslate nohighlight">\(B\)</span>. This means <span class="math notranslate nohighlight">\(g\)</span> a function.
+However, on the right, we have <span class="math notranslate nohighlight">\(f:A\to B\)</span> that assigns each element in
+<span class="math notranslate nohighlight">\(A\)</span> only one element in <span class="math notranslate nohighlight">\(B\)</span>. This means <span class="math notranslate nohighlight">\(f\)</span> a function.</p>
+<p></p>
+<p>\hfill
+Firstly, a function <span class="math notranslate nohighlight">\(f\)</span> is <em>injective</em> if distinct elements in <span class="math notranslate nohighlight">\(A\)</span> are
+mapped to distinct elements in <span class="math notranslate nohighlight">\(B\)</span>. Secondly, <span class="math notranslate nohighlight">\(f\)</span> is <em>surjective</em> if
+every element in <span class="math notranslate nohighlight">\(B\)</span> has at least one element in <span class="math notranslate nohighlight">\(A\)</span> that gets mapped to
+it. Lastly, if <span class="math notranslate nohighlight">\(f\)</span> is both injective and surjective, then <span class="math notranslate nohighlight">\(f\)</span> is
+<em>bijective</em>.</p>
+<p>For combinatorial purposes, one nice way to think of a function
+<span class="math notranslate nohighlight">\(f:A\to B\)</span> as the placement of a set of objects <span class="math notranslate nohighlight">\(A\)</span> into a set of boxes
+<span class="math notranslate nohighlight">\(B\)</span>:</p>
+<ul class="simple">
+<li><p>If no two objects are placed in the same box, <span class="math notranslate nohighlight">\(f\)</span> is injective.</p></li>
+<li><p>If no box is left empty, <span class="math notranslate nohighlight">\(f\)</span> is surjective.</p></li>
+<li><p>If both occur, <span class="math notranslate nohighlight">\(f\)</span> is bijective.</p></li>
+</ul>
+<p>We can use this thinking to phrase the following statements:<br />
+Let <span class="math notranslate nohighlight">\(f:A\to B\)</span> be a function that assigns a set of objects <span class="math notranslate nohighlight">\(A\)</span> to be
+placed into a set of boxes <span class="math notranslate nohighlight">\(B\)</span>.</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(f\)</span> is injective means <span class="math notranslate nohighlight">\(f\)</span> ensures no two objects are placed in the
+same box.</p></li>
+<li><p><span class="math notranslate nohighlight">\(f\)</span> is surjective means <span class="math notranslate nohighlight">\(f\)</span> leaves no box empty.</p></li>
+<li><p><span class="math notranslate nohighlight">\(f\)</span> is bijective means <span class="math notranslate nohighlight">\(f\)</span> leaves no box empty and ensures no two
+objects are placed in the same box.</p></li>
+</ul>
+<p>But, why do we care about this as combinatorialists?</p>
+<p>\hfill
+Again, let <span class="math notranslate nohighlight">\(f:A\to B\)</span> as defined above.</p>
+<ol class="arabic simple">
+<li><p>If <span class="math notranslate nohighlight">\(f\)</span> is injective, <span class="math notranslate nohighlight">\(|A|\leq |B|\)</span>.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(f\)</span> is surjective, <span class="math notranslate nohighlight">\(|A|\geq |B|\)</span>.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(f\)</span> is bijective, <span class="math notranslate nohighlight">\(|A|=|B|\)</span></p></li>
+</ol>
+<p>where <span class="math notranslate nohighlight">\(|\cdot|\)</span> denotes the number of elements in a set.</p>
+<p>First, an outline of a proof.</p>
+<p>\hfill
+Let <span class="math notranslate nohighlight">\(f\)</span> be a function such that <span class="math notranslate nohighlight">\(f:A\to B\)</span> for sets <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>.\</p>
+<ol class="arabic simple">
+<li><p>If <span class="math notranslate nohighlight">\(f\)</span> is injective, it ensures no two objects are in the same box.
+So, there must be at least enough boxes to house these distinctly
+assigned objects (<span class="math notranslate nohighlight">\(|A|\leq |B|\)</span>).</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(f\)</span> is surjective, it leaves no box empty. So, there must be at
+least enough objects to fill each box (<span class="math notranslate nohighlight">\(|A|\geq |B|\)</span>).</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(f\)</span> is bijective, it ensures no two objects are in the same box
+<em>and</em> no box is left empty. As such, we know <span class="math notranslate nohighlight">\(|A|\leq |B|\)</span> <em>and</em>
+<span class="math notranslate nohighlight">\(|A|\geq |B|\)</span> (i.e. that <span class="math notranslate nohighlight">\(|A|=|B|\)</span>).</p></li>
+</ol>
+<p>This simple statement is incredibly powerful. What this theorem firstly
+tells us is that there is a way to infer information about the <em>sizes</em>
+of the sets when we have a specific property about the <em>relationship</em>
+between those sets. Most importantly, the theorem also states that if
+there exists a bijection between two sets, they must be the exact same
+size. We can exploit this fact to enumerate easily! In fact, we already
+have.<br />
+Think back to our second problem: “how many integers are there between
+28 and 352 inclusive?”. Perhaps we write out “28 is <span class="math notranslate nohighlight">\(1^{st}\)</span>, 29 is
+<span class="math notranslate nohighlight">\(2^{nd}\)</span>,<span class="math notranslate nohighlight">\(\dots\)</span>” and so on until we reach 352 or count on our 325
+fingers one by one. Either way we know this would be annoying and
+tedious to count explicitly. By defining a bijective function between
+sets, we eased the trouble, <span class="math notranslate nohighlight">\(f(a)=a-27\)</span> for
+<span class="math notranslate nohighlight">\(a\in \{28,29,30,\dots, 325\}\)</span>.<br />
+From this final “proof” in
+<a class="reference internal" href="#injsurjbij"><span class="xref myst">[injsurjbij]</span></a>{reference-type=”ref”
+reference=”injsurjbij”}, we can infer a lot of information. For clarity,
+if <span class="math notranslate nohighlight">\(f\)</span> is bijective, each object has a distinct box <em>and</em> each box has a
+distinct object. If we wish to reverse the process of assignment <span class="math notranslate nohighlight">\(f\)</span> has
+committed, we could easily do so: simply reverse each assignment!<br />
+This thinking leads to the following theorem:</p>
+<p>\hfill
+The function <span class="math notranslate nohighlight">\(f:A\to B\)</span> is a bijection if and only if <span class="math notranslate nohighlight">\(f^{-1}\)</span> exists.</p>
+<p>This allows us to formalize our results:</p>
+<ul class="simple">
+<li><p>Let <span class="math notranslate nohighlight">\(A=\{28,29,\dots, 352\}\)</span>, <span class="math notranslate nohighlight">\(B=\{1,2,\dots, 325\}\)</span>, and <span class="math notranslate nohighlight">\(f:A\to B\)</span>
+be defined as <span class="math notranslate nohighlight">\(f(a)=a-27=b\)</span> for <span class="math notranslate nohighlight">\(a\in A\)</span> and <span class="math notranslate nohighlight">\(b\in B\)</span>.</p></li>
+<li><p>Since <span class="math notranslate nohighlight">\(f\)</span> subtracts 27, <span class="math notranslate nohighlight">\(f^{-1}\)</span> might add 27
+(<span class="math notranslate nohighlight">\(f(a)=a-27=b\implies a=f(a)+27\implies f^{-1}(b)=b+27\)</span>).</p></li>
+<li><p>Thus, <span class="math notranslate nohighlight">\(f\)</span> must be a bijection since there exists an <span class="math notranslate nohighlight">\(f^{-1}\)</span>. So, we
+know <span class="math notranslate nohighlight">\(|A|=|B|\)</span>.</p></li>
+<li><p>Therefore, <span class="math notranslate nohighlight">\(|\{1,2,\dots, 325\}|=|\{28,29,\dots, 352\}|=325\)</span>.</p></li>
+</ul>
+<p>We can use the same process with problems 3 and 4 of
+<a class="reference internal" href="#question1"><span class="xref myst">[question1]</span></a>{reference-type=”ref” reference=”question1”}
+:</p>
+<ul class="simple">
+<li><p>Let <span class="math notranslate nohighlight">\(A=\{28,30, 32,\dots, 352\}\)</span> and define <span class="math notranslate nohighlight">\(f(a)=\frac{1}{2}a-13=b\)</span>
+for <span class="math notranslate nohighlight">\(a\in A\)</span>. What is <span class="math notranslate nohighlight">\(f^{-1}\)</span>? What is <span class="math notranslate nohighlight">\(B\)</span>? Conclude <span class="math notranslate nohighlight">\(|A|=|B|\)</span>.</p></li>
+<li><p>Let <span class="math notranslate nohighlight">\(A=\{30,33,36,\dots,348,351\}\)</span> and define <span class="math notranslate nohighlight">\(f(a)=\frac{1}{3}a=b\)</span>
+for <span class="math notranslate nohighlight">\(a\in A\)</span>. What is <span class="math notranslate nohighlight">\(f^{-1}\)</span>? What is <span class="math notranslate nohighlight">\(B\)</span>? Conclude <span class="math notranslate nohighlight">\(|A|=|B|\)</span>.</p></li>
+<li><p>(Extra!) Let <span class="math notranslate nohighlight">\(A=\{m,m+1,m+2,\dots, n-1, n\}\)</span> and define
+<span class="math notranslate nohighlight">\(f(a)=\frac{1}{k}a-\ell\)</span> for <span class="math notranslate nohighlight">\(m&lt;k&lt;n\)</span> and <span class="math notranslate nohighlight">\(\ell\geq 0\)</span>. What is
+<span class="math notranslate nohighlight">\(f^{-1}\)</span>? What is <span class="math notranslate nohighlight">\(B\)</span>? Conclude <span class="math notranslate nohighlight">\(|A|=|B|\)</span>.</p></li>
+</ul>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
+<p>What we’ve done so far is introduce important techniques we often use in
+combinatorics:</p>
+<ul class="simple">
+<li><p>Let’s simplify our current problem to a problem we already know how
+to solve</p></li>
+<li><p>Now that we have found a method to solve a problem, let us
+generalize</p></li>
+</ul>
+<p>These often guide thought in mathematical problem solving and we will
+utilize both in combinatorics!</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="introduction-to-counting-techniques">
+<h1>Introduction to counting techniques<a class="headerlink" href="#introduction-to-counting-techniques" title="Link to this heading">#</a></h1>
+<section id="warmup">
+<h2>Warmup<a class="headerlink" href="#warmup" title="Link to this heading">#</a></h2>
+<p>Consider the following problem:</p>
+<p>[[question2]]{#question2 label=”question2”}</p>
+<p>Physics 533 and Math 325 occur at the same time (12:10-1PM MWF). Phys
+533 has 5 people enrolled while Math 325 has 21.</p>
+<ol class="arabic simple">
+<li><p>How many people are in Math 325 or Physics 533 from 12:10-1 MWF?</p></li>
+<li><p>How many people are in Math 325 and Physics 533 from 12:10-1 MWF?</p></li>
+</ol>
+<p>This may seem immediately obvious to some, but this highlights key
+counting principles used in combinatorics.</p>
+<p>\hfill</p>
+<ol class="arabic simple">
+<li><p>There are 21 people in Math 325. There are 5 in Phys 533. So, there
+are 21+5 in either during the class period.</p></li>
+<li><p>Nobody can be in two places at once, so there must be zero people in
+both classrooms during the class period.</p></li>
+</ol>
+<p>This is a nice set up. We know the set of students in 325 is completely
+separate from the set of students in 533. If we use set theoretic
+language, the set of students in 325 is <em>disjoint</em> from the set of
+students in 533. More on this later.<br />
+For now, consider yet another problem:</p>
+<p>\hfill
+How many ways are there to flip a coin then a six sided dice? More
+generally, rolling an <span class="math notranslate nohighlight">\(m\)</span> sided dice then an <span class="math notranslate nohighlight">\(n\)</span> sided dice?</p>
+<p>You might note that my first roll <em>does not affect</em> my second roll. They
+are independent! Intuitively, if I roll heads, I have the opportunity to
+roll 1-6 on the dice. Likewise if roll tails. As such:</p>
+<p>\hfill
+There are 2 options for my first roll. Since each roll is independent,
+there are 6 options for my second roll. So, there must be <span class="math notranslate nohighlight">\(2\cdot 6=12\)</span>
+ways to do this. More generally, since each roll is independent, there
+are <span class="math notranslate nohighlight">\(m\cdot n\)</span> ways to do this with an <span class="math notranslate nohighlight">\(m\)</span> sided dice and an <span class="math notranslate nohighlight">\(n\)</span> sided
+dice.</p>
+</section>
+<section id="more-set-theory">
+<h2>More Set Theory<a class="headerlink" href="#more-set-theory" title="Link to this heading">#</a></h2>
+<p>\hfill
+Let <span class="math notranslate nohighlight">\(B\)</span> be some set. Another set <span class="math notranslate nohighlight">\(A\)</span> is a <em>subset</em> of <span class="math notranslate nohighlight">\(B\)</span> if every
+element of <span class="math notranslate nohighlight">\(A\)</span> is an element of <span class="math notranslate nohighlight">\(B\)</span> (for every <span class="math notranslate nohighlight">\(a\in A\)</span>, <span class="math notranslate nohighlight">\(a\in B\)</span>). We
+denote this relationship by <span class="math notranslate nohighlight">\(A\subseteq B\)</span> if <span class="math notranslate nohighlight">\(A\)</span> could equal <span class="math notranslate nohighlight">\(B\)</span>
+itself. If <span class="math notranslate nohighlight">\(A\)</span> cannot equal <span class="math notranslate nohighlight">\(B\)</span>, we write <span class="math notranslate nohighlight">\(A\subset B\)</span>.</p>
+<p>\hfill
+Let <span class="math notranslate nohighlight">\(A\subseteq S\)</span>. The <em>complement</em> of <span class="math notranslate nohighlight">\(A\)</span> with respect to <span class="math notranslate nohighlight">\(S\)</span>,
+<span class="math notranslate nohighlight">\(A^C=S\setminus A\)</span>, is the set of elements in <span class="math notranslate nohighlight">\(S\)</span> that are not in <span class="math notranslate nohighlight">\(A\)</span>
+(<span class="math notranslate nohighlight">\(A^C=\{s\in S|s\notin A\}\)</span>). The complement of <span class="math notranslate nohighlight">\(S\)</span> with respect to
+itself, <span class="math notranslate nohighlight">\(S^C=S\setminus S\)</span>, is the set with zero elements,
+<span class="math notranslate nohighlight">\(\emptyset=\{\}\)</span>.</p>
+<p>We can think of the set complement <span class="math notranslate nohighlight">\(S\setminus A\)</span> as considering all the
+elements of <span class="math notranslate nohighlight">\(S\)</span> that are not in <span class="math notranslate nohighlight">\(A\)</span>. If there are no such elements (i.e.
+<span class="math notranslate nohighlight">\(A\nsubseteq S\)</span>), <span class="math notranslate nohighlight">\(S\setminus A\)</span> is <span class="math notranslate nohighlight">\(\emptyset\)</span>.\</p>
+<p>\hfill
+Let <span class="math notranslate nohighlight">\(A=\{\)</span>integers between 28 and 352 divisible by 3<span class="math notranslate nohighlight">\(\}\)</span> and
+<span class="math notranslate nohighlight">\(S=\{\)</span>integers between 28 and 352 inclusive<span class="math notranslate nohighlight">\(\}\)</span></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(A\subset S\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(A^C=S\setminus A=\{\)</span>integers between 28 and 352 not divisible by 3}</p></li>
+</ul>
+<p>\hfill
+The choice of <span class="math notranslate nohighlight">\(S\)</span> is important. If <span class="math notranslate nohighlight">\(S=\mathbb{Z}\)</span> (the set of all
+integers), then <span class="math notranslate nohighlight">\(A^C\)</span> in the previous example would become the set of
+<em>all</em> integers excluding only integers between 28 and 352 that are
+divisible by 3.</p>
+<p>\hfill
+Let <span class="math notranslate nohighlight">\(A\subseteq S\)</span>. Is the function <span class="math notranslate nohighlight">\(f(A)=A^C\)</span> a bijection? If so, what
+is <span class="math notranslate nohighlight">\(f^{-1}\)</span>?</p>
+<p>\hfill
+<span class="math notranslate nohighlight">\(f\)</span> assigns subset <span class="math notranslate nohighlight">\(A\)</span> to its complement <span class="math notranslate nohighlight">\(A^C=S\setminus A\)</span>.</p>
+<ul class="simple">
+<li><p>Let us say <span class="math notranslate nohighlight">\(f(A)=A^C=B\)</span>.</p></li>
+<li><p>By the definition of a set’s complement, <span class="math notranslate nohighlight">\(B\)</span> contains every element
+of <span class="math notranslate nohighlight">\(S\)</span> that is not in <span class="math notranslate nohighlight">\(A\)</span>. Likewise, <span class="math notranslate nohighlight">\(A\)</span> contains every element of
+<span class="math notranslate nohighlight">\(S\)</span> that is not in <span class="math notranslate nohighlight">\(B\)</span>.</p></li>
+<li><p>In other words, <span class="math notranslate nohighlight">\(A^C=B\)</span> <em>and</em> <span class="math notranslate nohighlight">\(A=B^C\)</span>.</p></li>
+<li><p>So, <span class="math notranslate nohighlight">\(f^{-1}(B)=B^C\)</span>. Hence, <span class="math notranslate nohighlight">\(f^{-1}\)</span> exists and <span class="math notranslate nohighlight">\(f\)</span> is a bijection!</p></li>
+</ul>
+<p>\vspace{.5em}
+This is a nice property. Consider the problem of enumerating <span class="math notranslate nohighlight">\(k\)</span>-element
+subsets of <span class="math notranslate nohighlight">\(S=\{1,2,3,4,\dots, n\}\)</span> (<span class="math notranslate nohighlight">\(k&lt;n\)</span>).</p>
+<ul class="simple">
+<li><p>Let <span class="math notranslate nohighlight">\(A\)</span> be the set of all <span class="math notranslate nohighlight">\(k\)</span>-elements subsets <span class="math notranslate nohighlight">\(A_i\subset S\)</span>.
+Moreover, let <span class="math notranslate nohighlight">\(B\)</span> be the set of all the complements of elements in
+<span class="math notranslate nohighlight">\(A\)</span>.</p></li>
+<li><p>Then for each <span class="math notranslate nohighlight">\(A_i\)</span>, there is some set <span class="math notranslate nohighlight">\(B_i\)</span> such that
+<span class="math notranslate nohighlight">\(f(A_i)=A_i^C=B_i\subset S\)</span> of size <span class="math notranslate nohighlight">\(n-k\)</span>.</p></li>
+<li><p>Since <span class="math notranslate nohighlight">\(f(A_i)=A_i^C\)</span> is a bijection, the set of all <span class="math notranslate nohighlight">\(k\)</span>-element
+subsets, <span class="math notranslate nohighlight">\(A\)</span>, is the same size as the set of all (<span class="math notranslate nohighlight">\(n-k\)</span>)-element
+subsets, <span class="math notranslate nohighlight">\(B\)</span>. That is, <span class="math notranslate nohighlight">\(|A|=|B|\)</span>.</p></li>
+</ul>
+<p>We will talk about what the actual sizes <span class="math notranslate nohighlight">\(|A|\)</span> and <span class="math notranslate nohighlight">\(|B|\)</span> later.</p>
+<p>\hfill
+The <em>union</em> of two sets <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>, denoted <span class="math notranslate nohighlight">\(A\cup B\)</span>, is the set of
+all elements in <span class="math notranslate nohighlight">\(A\)</span> or <span class="math notranslate nohighlight">\(B\)</span> (<span class="math notranslate nohighlight">\(A\cup B=\{x|x\in A\)</span> or <span class="math notranslate nohighlight">\(x\in B\)</span>}).</p>
+<p>\hfill
+The <em>intersection</em> of two sets <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>, denoted <span class="math notranslate nohighlight">\(A\cap B\)</span>, is the
+set of all elements in <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> (<span class="math notranslate nohighlight">\(A\cap B=\{x|x\in A\)</span> and <span class="math notranslate nohighlight">\(x\in B\)</span>}).</p>
+<p>\hfill
+If the intersection between sets <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> is empty, denoted
+<span class="math notranslate nohighlight">\(A\cap B=\emptyset\)</span>, we say <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are <em>disjoint</em>.</p>
+<p>\hfill
+Let <span class="math notranslate nohighlight">\(A=\{\)</span>the set of students in Math 325<span class="math notranslate nohighlight">\(\}\)</span> and <span class="math notranslate nohighlight">\(B=\{\)</span>the set of
+students in Physics 533<span class="math notranslate nohighlight">\(\}\)</span>.</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(A\cup B=\{\)</span>the set of students in either couse<span class="math notranslate nohighlight">\(\}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(A\cap B=\emptyset\)</span> since now student is in both classes</p></li>
+</ul>
+</section>
+<section id="addition-multiplication-principle">
+<h2>Addition &amp; Multiplication Principle<a class="headerlink" href="#addition-multiplication-principle" title="Link to this heading">#</a></h2>
+<p>Thinking back to the initial problem of this section
+(<a class="reference internal" href="#question2"><span class="xref myst">[question2]</span></a>{reference-type=”ref”
+reference=”question2”}), we could simply add the number of people in 325
+and 533 to get the total number <em>since no student is in both classes</em>.
+This principle of complete separation allowing simple addition can be
+formalized:</p>
+<p>\hfill
+If <span class="math notranslate nohighlight">\(A\cap B=\emptyset\)</span>, <span class="math notranslate nohighlight">\(|A\cup B|=|A|+|B|\)</span>.<br />
+More generally, if <span class="math notranslate nohighlight">\(A_i\cap A_j=\emptyset\)</span> for all <span class="math notranslate nohighlight">\(i\neq j\)</span> and
+<span class="math notranslate nohighlight">\(1\leq i,j\leq n\)</span>, then
+<span class="math notranslate nohighlight">\(|A_1\cup A_2\cup \cdots \cup A_n|=|A_1|+|A_2|+\cdots +|A_n|\)</span>.</p>
+<p>\hfill
+Let <span class="math notranslate nohighlight">\(A\times B\)</span> be the set of ordered pairs <span class="math notranslate nohighlight">\((a,b)\)</span> where <span class="math notranslate nohighlight">\(a\in A\)</span> and
+<span class="math notranslate nohighlight">\(b\in B\)</span>.</p>
+<p>\hfill
+Let <span class="math notranslate nohighlight">\(S=A\times B\)</span>. Then, <span class="math notranslate nohighlight">\(|S|=|A\times B|=|A|\cdot|B|\)</span>.<br />
+More generally, let <span class="math notranslate nohighlight">\(S=A_1\times A_2\times \cdots \times A_n\)</span>. Then,
+<span class="math notranslate nohighlight">\(|S|=|A_1\times A_2\times \cdots \times A_n|=|A_1||A_2|\cdots|A_n|\)</span></p>
+<p>\hfill
+From warmup problem 2, let <span class="math notranslate nohighlight">\(A=\{H,T\}\)</span> be the results from flipping a
+coin and <span class="math notranslate nohighlight">\(B=\{1,2,3,4,5,6\}\)</span> be the results from rolling the six-sided
+dice. Then,</p>
+<p><span class="math notranslate nohighlight">\(A\times B=\{(H,1),(H,2),(H,3),\dots,(T,5),(T,6)\}\)</span></p>
+<p>and <span class="math notranslate nohighlight">\(|S|=|A\times B|=|A||B|=2\cdot 6=12\)</span>.</p>
+<section id="in-dependence">
+<h3>(In)dependence<a class="headerlink" href="#in-dependence" title="Link to this heading">#</a></h3>
+<p>Note that the <em>independence</em> of warmup problem 2 is important. Flipping
+a coin <em>has no impact</em> on the rolling of the dice. Consider a different
+problem:</p>
+<p>\hfill
+There are four orbs labelled <span class="math notranslate nohighlight">\(A,B,C,D\)</span> in an urn. You will draw from the
+urn four times. For each draw, you take a single orb out, write down its
+label, and replace it in the urn. How many possible label sequences
+could you write down?</p>
+<ul class="simple">
+<li><p>Let <span class="math notranslate nohighlight">\(A_1, A_2, A_3,\)</span> and <span class="math notranslate nohighlight">\(A_4\)</span> be the sets of possible draws on draw
+1, 2, 3, and 4 respectively and <span class="math notranslate nohighlight">\(S\)</span> be the set of possible label
+sequences you could write down.</p></li>
+<li><p>Since all four balls in the urn before you draw first,
+<span class="math notranslate nohighlight">\(A_1=\{A,B,C,D\}\)</span>.</p></li>
+<li><p>Moreover, since you placed the orb you drew back into the urn, you
+have a chance to draw any of the four orbs again: <span class="math notranslate nohighlight">\(A_2=\{A,B,C,D\}\)</span>.</p></li>
+<li><p>Likewise with <span class="math notranslate nohighlight">\(A_3\)</span> and <span class="math notranslate nohighlight">\(A_4\)</span>.</p></li>
+<li><p>Thus, the total possible label sequences there are is:
+<span class="math notranslate nohighlight">\(|S|=|A_1\times A_2\times A_3\times A_4|=|A_1||A_2||A_3||A_4|=4^4=256\)</span>.</p></li>
+</ul>
+<p>Consider a small change to your process:</p>
+<p>\hfill
+You really like writing down labels, so you continue with your setup
+from the previous problem. However, this time instead of replacing the
+orb after drawing it, you set it to the side. You then draw another orb
+and set it next to the previously drawn orb. You repeat this process
+until there are no orbs left. Then, you write down the sequence of
+labels you see. How many possible label sequences could you see?</p>
+<p>\hfill</p>
+<ul class="simple">
+<li><p>Let <span class="math notranslate nohighlight">\(B_1, B_2, B_3,\)</span> and <span class="math notranslate nohighlight">\(B_4\)</span> be the sets of possible draws on draw
+1, 2, 3, and 4 respectively and <span class="math notranslate nohighlight">\(T\)</span> be the set of possible label
+sequences you could write down.</p></li>
+<li><p>Since all four balls in the urn before you draw first, <span class="math notranslate nohighlight">\(|B_1|=4\)</span>.</p></li>
+<li><p>Whatever you drew, it stays outside of the urn. Since there are 3
+orbs left, you have 3 options for your next draw: <span class="math notranslate nohighlight">\(|B_2|=3\)</span>.</p></li>
+<li><p>Continuing on, you have taken yet another option for your third draw
+away: <span class="math notranslate nohighlight">\(|B_3|=2\)</span>.</p></li>
+<li><p>Lastly, since you drew one of the two remaining orbs, that leaves
+one left for your final draw <span class="math notranslate nohighlight">\(|B_4|=1\)</span>.</p></li>
+<li><p>Thus,
+<span class="math notranslate nohighlight">\(|T|=|B_1\times B_2\times B_3\times B_4|=|B_1||B_2||B_3||B_4|=4\cdot 3\cdot 2\cdot 1=24\)</span>.</p></li>
+</ul>
+<p>So, replacing the orbs every time gave us a count of 256 while leaving
+them out every time gave us a count of 24. What happened? One way to
+think of this is that by replacing the orbs, you have allowed for
+<em>repetitions</em> to exist in your set <span class="math notranslate nohighlight">\(S\)</span> (e.g. by drawing <span class="math notranslate nohighlight">\(A\)</span> then <span class="math notranslate nohighlight">\(A\)</span>
+then <span class="math notranslate nohighlight">\(C\)</span> then <span class="math notranslate nohighlight">\(A\)</span>). Contrarily, by leaving the orbs out after drawing,
+you remove the ability to have repeats. As such, you remove every
+element in <span class="math notranslate nohighlight">\(S\)</span> that has any repeat labels to obtain a new set <span class="math notranslate nohighlight">\(T\)</span>, the
+set of label sequences with <em>distinct</em> labels.</p>
+<p>\hfill
+Let <span class="math notranslate nohighlight">\(S\)</span> and <span class="math notranslate nohighlight">\(T\)</span> be defined as in the above problem. What is
+<span class="math notranslate nohighlight">\(T^C=S\setminus T\)</span>? How big is <span class="math notranslate nohighlight">\(T^C\)</span> in this case?</p>
+<p>\hfill
+Let <span class="math notranslate nohighlight">\(S\)</span> be defined as in the above problem. How many label sequences
+have only 2 repeats? i.e. sequences like <span class="math notranslate nohighlight">\((A,A,B,C)\)</span> or <span class="math notranslate nohighlight">\((D,A,C,D)\)</span>.</p>
+<p>\hfill
+Consider drawing <span class="math notranslate nohighlight">\(n\)</span> labelled orbs from an urn with replacement. How
+many ways can you do this? Without replacement?</p>
+</section>
+</section>
+<section id="id1">
+<h2>Summary<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<p>What we’ve covered here:</p>
+<ul class="simple">
+<li><p>A function <span class="math notranslate nohighlight">\(f:A\to B\)</span> having an inverse function <span class="math notranslate nohighlight">\(f^{-1}:B\to A\)</span>
+means <span class="math notranslate nohighlight">\(|A|=|B|\)</span>.</p></li>
+<li><p>Set complements, unions, and intersections.</p></li>
+<li><p>Addition principle: the size of a union of disjoint sets is the sum
+of their sizes.</p></li>
+<li><p>Multiplication principle: the size of a product of two sets is the
+product of their sizes.</p></li>
+<li><p>The difference between counting with dependence versus without.</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./content"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Welcome!</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="week2.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Chapter 2: “Counting”</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Chapter 1: What is Combinatorics?</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-s-warmups">Week’s Warmups</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-solving-basics-set-theory">Problem Solving Basics &amp; Set Theory</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simplification">Simplification</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-theory-basics">Set Theory Basics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-counting-techniques">Introduction to counting techniques</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#warmup">Warmup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-set-theory">More Set Theory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#addition-multiplication-principle">Addition &amp; Multiplication Principle</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#in-dependence">(In)dependence</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Summary</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Garrett Kepler
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

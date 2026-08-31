@@ -1,0 +1,1353 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Week 3 Day 2 Lab &#8212; Mathematical Computing (Intro to Python)</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/week3/Week 3 Day 2 Lab';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Mathematical Computing (Intro to Python)</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Welcome!
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 2 Problem Solving Methods</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week2/Week%202%20Day%201.html">Week 2 Day 1</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../week2/Week%202%20Day%202.html">Week 2 Day 2</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/content/week3/Week 3 Day 2 Lab.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Week 3 Day 2 Lab</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1">Problem 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">Problem 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3">Problem 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-4">Problem 4</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="week-3-day-2-lab">
+<h1>Week 3 Day 2 Lab<a class="headerlink" href="#week-3-day-2-lab" title="Link to this heading">#</a></h1>
+<section id="problem-1">
+<h2>Problem 1<a class="headerlink" href="#problem-1" title="Link to this heading">#</a></h2>
+<p>Plot the function <span class="math notranslate nohighlight">\(f(x)=x^2\)</span> for <span class="math notranslate nohighlight">\(x\in [-1,1]\)</span> using <code class="docutils literal notranslate"><span class="pre">np.linspace()</span></code> with 10, 100, 1000 slices. Make sure your plot is as informative as possible.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;matplotlib&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">1000</span><span class="p">]:</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;$x^2$ on [-1,1] with &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39; Slices&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x value&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;$x^2$ value&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> 
+                <span class="n">label</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39; Slices&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/7393caee8e4e5902224721126ef52ba094ec358a97f0b7a26d73daf7f66f9170.png" src="../../_images/7393caee8e4e5902224721126ef52ba094ec358a97f0b7a26d73daf7f66f9170.png" />
+<img alt="../../_images/755b988bfdacd116c795feb670ed2cd986d58f93349691da6ffe6331dd7a587e.png" src="../../_images/755b988bfdacd116c795feb670ed2cd986d58f93349691da6ffe6331dd7a587e.png" />
+<img alt="../../_images/ac4a61e26bb1050e22242e813f69a1e3ffa93b07de85310b28bf4cc20eb53c27.png" src="../../_images/ac4a61e26bb1050e22242e813f69a1e3ffa93b07de85310b28bf4cc20eb53c27.png" />
+</div>
+</div>
+</section>
+<section id="problem-2">
+<h2>Problem 2<a class="headerlink" href="#problem-2" title="Link to this heading">#</a></h2>
+<p>Pick a function <span class="math notranslate nohighlight">\(f(x)\)</span> you like and plot some values using <code class="docutils literal notranslate"><span class="pre">plt.scatter()</span></code>. Make sure your plot is as informative as possible.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">.01</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">x</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Sine over X&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;X Value&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Function Value&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Function Value&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/634b25d08f41d387d9d9dac03edd64f6693c89fe3acc16b04eac33ddd7ca720a.png" src="../../_images/634b25d08f41d387d9d9dac03edd64f6693c89fe3acc16b04eac33ddd7ca720a.png" />
+</div>
+</div>
+</section>
+<section id="problem-3">
+<h2>Problem 3<a class="headerlink" href="#problem-3" title="Link to this heading">#</a></h2>
+<p>Download the “Horses.xlsx” or “Horses.csv” file.</p>
+<ul class="simple">
+<li><p>Read the file in using <code class="docutils literal notranslate"><span class="pre">pandas</span></code></p></li>
+<li><p>Plot the values using whatever plot type you like. Make sure your plot is as informative as possible.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;Datasets/Horses.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Horse</th>
+      <th>Race Finish Time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>A</td>
+      <td>1230</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>B</td>
+      <td>1309</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>C</td>
+      <td>1279</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>D</td>
+      <td>1237</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>E</td>
+      <td>1328</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>F</td>
+      <td>1490</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>G</td>
+      <td>1243</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>H</td>
+      <td>1325</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>I</td>
+      <td>1428</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;Datasets/Horses.csv&quot;</span><span class="p">)</span>
+<span class="n">xdata</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Horse&#39;</span><span class="p">]</span>
+<span class="n">ydata</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Race Finish Time&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="n">ydata</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x21af6178208&gt;
+</pre></div>
+</div>
+<img alt="../../_images/19a4cb468395e16842c2e740124645e2f79aa791d90d8caf3fff70051a4a3a13.png" src="../../_images/19a4cb468395e16842c2e740124645e2f79aa791d90d8caf3fff70051a4a3a13.png" />
+</div>
+</div>
+</section>
+<section id="problem-4">
+<h2>Problem 4<a class="headerlink" href="#problem-4" title="Link to this heading">#</a></h2>
+<p>Download the “WA_County_Boundaries.shp” file.</p>
+<ul class="simple">
+<li><p>Plot the state using <code class="docutils literal notranslate"><span class="pre">name_of_file_read.plot()</span></code></p></li>
+<li><p>Plot some information about the state by extracting two columns of data.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">geopandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gpd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">washington</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;C:\Users\Garrett\Downloads\WA_County_Boundaries\WA_County_Boundaries.shp&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">washington</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>OBJECTID</th>
+      <th>JURISDICT_</th>
+      <th>JURISDIC_1</th>
+      <th>JURISDIC_2</th>
+      <th>JURISDIC_3</th>
+      <th>JURISDIC_4</th>
+      <th>JURISDIC_5</th>
+      <th>JURISDIC_6</th>
+      <th>EDIT_DATE</th>
+      <th>EDIT_STATU</th>
+      <th>EDIT_WHO</th>
+      <th>GLOBALID</th>
+      <th>geometry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2229338</td>
+      <td>25</td>
+      <td>4</td>
+      <td>Grant</td>
+      <td>Grant County</td>
+      <td>13</td>
+      <td>53025</td>
+      <td>None</td>
+      <td>2018-03-15T00:26:49Z</td>
+      <td>1</td>
+      <td>TSTE490</td>
+      <td>{1DF7C3DA-B145-411F-9483-53BEFDA1C019}</td>
+      <td>POLYGON ((-13245041.204 6100462.041, -13245049...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2231411</td>
+      <td>4698174</td>
+      <td>4</td>
+      <td>Pend Oreille</td>
+      <td>Pend Oreille County</td>
+      <td>26</td>
+      <td>53051</td>
+      <td>None</td>
+      <td>2025-11-20T00:40:36Z</td>
+      <td>0</td>
+      <td>TSTE490</td>
+      <td>{7D6E6B7F-1F96-444C-B6FE-F4E29312CA8C}</td>
+      <td>POLYGON ((-13028207.663 6215102.773, -13028213...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2231418</td>
+      <td>4698173</td>
+      <td>4</td>
+      <td>Stevens</td>
+      <td>Stevens County</td>
+      <td>33</td>
+      <td>53065</td>
+      <td>None</td>
+      <td>2025-11-21T22:25:29Z</td>
+      <td>0</td>
+      <td>TSTE490</td>
+      <td>{AE9EAF1C-9552-4656-BC2B-948511BFD986}</td>
+      <td>POLYGON ((-13072259.109 6271668.868, -13072256...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2233491</td>
+      <td>33</td>
+      <td>4</td>
+      <td>Garfield</td>
+      <td>Garfield County</td>
+      <td>12</td>
+      <td>53023</td>
+      <td>None</td>
+      <td>2022-06-23T23:47:50Z</td>
+      <td>1</td>
+      <td>TSTE490</td>
+      <td>{270AA9AE-163D-4CB1-9B9D-9D2D12AD60F9}</td>
+      <td>POLYGON ((-13077215.155 5893282.479, -13076922...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2233852</td>
+      <td>8</td>
+      <td>4</td>
+      <td>Island</td>
+      <td>Island County</td>
+      <td>15</td>
+      <td>53029</td>
+      <td>None</td>
+      <td>2018-03-15T00:26:49Z</td>
+      <td>1</td>
+      <td>TSTE490</td>
+      <td>{ED2D90D3-E3E3-433A-8B6A-B061A1157FFD}</td>
+      <td>POLYGON ((-13645903.473 6175425.382, -13645833...</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>2234461</td>
+      <td>20</td>
+      <td>4</td>
+      <td>Grays Harbor</td>
+      <td>Grays Harbor County</td>
+      <td>14</td>
+      <td>53027</td>
+      <td>None</td>
+      <td>2025-06-18T23:38:53Z</td>
+      <td>1</td>
+      <td>TSTE490</td>
+      <td>{6325153C-E0D2-4EA2-B20A-6F6E8005170C}</td>
+      <td>POLYGON ((-13818358.748 6029600.620, -13817157...</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>2234462</td>
+      <td>4692894</td>
+      <td>4</td>
+      <td>Thurston</td>
+      <td>Thurston County</td>
+      <td>34</td>
+      <td>53067</td>
+      <td>None</td>
+      <td>2025-06-18T23:38:53Z</td>
+      <td>0</td>
+      <td>TSTE490</td>
+      <td>{93DFF6C6-3215-44BF-9AA6-70F3FA577C68}</td>
+      <td>POLYGON ((-13668140.191 5968532.266, -13667828...</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>2234463</td>
+      <td>27</td>
+      <td>4</td>
+      <td>Lewis</td>
+      <td>Lewis County</td>
+      <td>21</td>
+      <td>53041</td>
+      <td>None</td>
+      <td>2025-06-18T23:38:53Z</td>
+      <td>1</td>
+      <td>TSTE490</td>
+      <td>{AB37FD9A-B8E6-4221-BBD8-A323F8F51C11}</td>
+      <td>POLYGON ((-13726667.316 5908398.973, -13724294...</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>2234464</td>
+      <td>4</td>
+      <td>4</td>
+      <td>Skagit</td>
+      <td>Skagit County</td>
+      <td>29</td>
+      <td>53057</td>
+      <td>None</td>
+      <td>2024-12-05T00:36:04Z</td>
+      <td>1</td>
+      <td>TSTE490</td>
+      <td>{A2A98C7C-A90D-4F83-BF87-C9C157E3C367}</td>
+      <td>POLYGON ((-13646976.232 6211587.326, -13646829...</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>2234465</td>
+      <td>4690632</td>
+      <td>4</td>
+      <td>Whatcom</td>
+      <td>Whatcom County</td>
+      <td>37</td>
+      <td>53073</td>
+      <td>None</td>
+      <td>2024-12-05T00:36:04Z</td>
+      <td>0</td>
+      <td>TSTE490</td>
+      <td>{3D96F9DB-5FE1-4993-B998-81BCE43E8F4B}</td>
+      <td>POLYGON ((-13661948.246 6275217.332, -13660730...</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>2234523</td>
+      <td>35</td>
+      <td>4</td>
+      <td>Walla Walla</td>
+      <td>Walla Walla County</td>
+      <td>36</td>
+      <td>53071</td>
+      <td>None</td>
+      <td>2015-10-14T18:25:19Z</td>
+      <td>1</td>
+      <td>JDUG490</td>
+      <td>{92526FBE-D0EB-48CF-9071-909E033888AA}</td>
+      <td>POLYGON ((-13170470.944 5878093.595, -13170220...</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>2234542</td>
+      <td>34</td>
+      <td>4</td>
+      <td>Columbia</td>
+      <td>Columbia County</td>
+      <td>7</td>
+      <td>53013</td>
+      <td>None</td>
+      <td>2015-10-14T18:25:20Z</td>
+      <td>1</td>
+      <td>JDUG490</td>
+      <td>{71736B77-73C3-42D4-AE67-994F97FBF7F1}</td>
+      <td>POLYGON ((-13119277.932 5875313.561, -13119349...</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>2234583</td>
+      <td>32</td>
+      <td>4</td>
+      <td>Asotin</td>
+      <td>Asotin County</td>
+      <td>2</td>
+      <td>53003</td>
+      <td>None</td>
+      <td>2022-10-27T23:48:50Z</td>
+      <td>1</td>
+      <td>TSTE490</td>
+      <td>{A147CF09-9E86-49CF-82AD-272B7862793C}</td>
+      <td>POLYGON ((-13046628.720 5847940.517, -13046278...</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>2234599</td>
+      <td>29</td>
+      <td>4</td>
+      <td>Franklin</td>
+      <td>Franklin County</td>
+      <td>11</td>
+      <td>53021</td>
+      <td>None</td>
+      <td>2015-08-27T19:06:01Z</td>
+      <td>1</td>
+      <td>JDUG490</td>
+      <td>{9A8347AB-BD24-4CEE-ABA5-2A73AD2D0CC6}</td>
+      <td>POLYGON ((-13159766.598 5899385.299, -13159880...</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>2234682</td>
+      <td>17</td>
+      <td>4</td>
+      <td>Douglas</td>
+      <td>Douglas County</td>
+      <td>9</td>
+      <td>53017</td>
+      <td>None</td>
+      <td>2018-01-25T01:26:27Z</td>
+      <td>1</td>
+      <td>TSTE490</td>
+      <td>{3CD1EAC2-FA99-4C03-A6BA-9BDF6F2B634D}</td>
+      <td>POLYGON ((-13257560.068 6129730.973, -13257263...</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>2234717</td>
+      <td>4699352</td>
+      <td>4</td>
+      <td>Snohomish</td>
+      <td>Snohomish County</td>
+      <td>31</td>
+      <td>53061</td>
+      <td>None</td>
+      <td>2022-10-27T23:48:50Z</td>
+      <td>0</td>
+      <td>TSTE490</td>
+      <td>{271DF9A9-D143-4444-B254-E0EDB24F3D15}</td>
+      <td>POLYGON ((-13601415.957 6156455.175, -13601292...</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>2234718</td>
+      <td>9</td>
+      <td>4</td>
+      <td>Ferry</td>
+      <td>Ferry County</td>
+      <td>10</td>
+      <td>53019</td>
+      <td>None</td>
+      <td>2025-11-21T22:25:29Z</td>
+      <td>1</td>
+      <td>TSTE490</td>
+      <td>{0207FDD9-FA91-4EE3-8D7E-89422FEDB036}</td>
+      <td>POLYGON ((-13157667.072 6274864.610, -13157440...</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>2234733</td>
+      <td>12</td>
+      <td>4</td>
+      <td>Jefferson</td>
+      <td>Jefferson County</td>
+      <td>16</td>
+      <td>53031</td>
+      <td>None</td>
+      <td>2025-11-20T00:40:36Z</td>
+      <td>1</td>
+      <td>TSTE490</td>
+      <td>{79A1EB58-6A93-49E1-8A82-1FBACDA1D376}</td>
+      <td>POLYGON ((-13653405.352 6126390.566, -13653235...</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>2234734</td>
+      <td>39</td>
+      <td>4</td>
+      <td>Skamania</td>
+      <td>Skamania County</td>
+      <td>30</td>
+      <td>53059</td>
+      <td>None</td>
+      <td>2025-04-30T23:39:07Z</td>
+      <td>1</td>
+      <td>TSTE490</td>
+      <td>{496F95F8-825D-4C21-9621-312090FE9ADE}</td>
+      <td>POLYGON ((-13593638.701 5842796.230, -13591537...</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>2234735</td>
+      <td>23</td>
+      <td>4</td>
+      <td>Adams</td>
+      <td>Adams County</td>
+      <td>1</td>
+      <td>53001</td>
+      <td>None</td>
+      <td>2018-03-15T00:26:50Z</td>
+      <td>1</td>
+      <td>TSTE490</td>
+      <td>{2B95D238-A290-440E-B7D3-FE3502F076D2}</td>
+      <td>POLYGON ((-13131350.696 5984709.557, -13131339...</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>2234741</td>
+      <td>4692563</td>
+      <td>4</td>
+      <td>Pierce</td>
+      <td>Pierce County</td>
+      <td>27</td>
+      <td>53053</td>
+      <td>None</td>
+      <td>2024-02-16T21:54:53Z</td>
+      <td>0</td>
+      <td>TSTE490</td>
+      <td>{D2B3D908-8FE2-4C39-8299-4709F3FDF8BB}</td>
+      <td>POLYGON ((-13651653.941 6008143.837, -13651640...</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>2234768</td>
+      <td>38</td>
+      <td>4</td>
+      <td>Klickitat</td>
+      <td>Klickitat County</td>
+      <td>20</td>
+      <td>53039</td>
+      <td>None</td>
+      <td>2025-04-30T23:39:07Z</td>
+      <td>1</td>
+      <td>TSTE490</td>
+      <td>{D45A61D0-CF49-4ED9-A9E8-18CBD2CD2D7A}</td>
+      <td>POLYGON ((-13527802.842 5787404.070, -13526218...</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>2234784</td>
+      <td>18</td>
+      <td>4</td>
+      <td>Mason</td>
+      <td>Mason County</td>
+      <td>23</td>
+      <td>53045</td>
+      <td>None</td>
+      <td>2024-04-18T23:04:04Z</td>
+      <td>1</td>
+      <td>TSTE490</td>
+      <td>{CD691A07-96FA-4826-A463-C71A39B70B53}</td>
+      <td>POLYGON ((-13736648.080 6041327.062, -13734265...</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>2234785</td>
+      <td>4698638</td>
+      <td>4</td>
+      <td>Kitsap</td>
+      <td>Kitsap County</td>
+      <td>18</td>
+      <td>53035</td>
+      <td>None</td>
+      <td>2024-04-18T23:04:04Z</td>
+      <td>1</td>
+      <td>TSTE490</td>
+      <td>{F9AE405C-4636-4972-A69F-35671759888C}</td>
+      <td>POLYGON ((-13632070.339 6053935.446, -13632151...</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>2234811</td>
+      <td>30</td>
+      <td>4</td>
+      <td>Wahkiakum</td>
+      <td>Wahkiakum County</td>
+      <td>35</td>
+      <td>53069</td>
+      <td>None</td>
+      <td>2025-05-29T23:33:22Z</td>
+      <td>1</td>
+      <td>TSTE490</td>
+      <td>{978F19B8-270F-41DF-B26C-7707B8C35016}</td>
+      <td>POLYGON ((-13736747.915 5842104.061, -13735718...</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>2234813</td>
+      <td>28</td>
+      <td>4</td>
+      <td>Pacific</td>
+      <td>Pacific County</td>
+      <td>25</td>
+      <td>53049</td>
+      <td>None</td>
+      <td>2025-05-29T23:33:22Z</td>
+      <td>1</td>
+      <td>TSTE490</td>
+      <td>{A269AA46-A954-4292-B1FD-9885E5F6B180}</td>
+      <td>POLYGON ((-13794176.032 5908293.996, -13792142...</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>2234825</td>
+      <td>15</td>
+      <td>4</td>
+      <td>Lincoln</td>
+      <td>Lincoln County</td>
+      <td>22</td>
+      <td>53043</td>
+      <td>None</td>
+      <td>2022-08-10T23:32:00Z</td>
+      <td>1</td>
+      <td>TSTE490</td>
+      <td>{619142C9-6215-4548-92FF-8305ABA6E146}</td>
+      <td>POLYGON ((-13228357.287 6097273.339, -13228274...</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>2234839</td>
+      <td>7</td>
+      <td>4</td>
+      <td>Clallam</td>
+      <td>Clallam County</td>
+      <td>5</td>
+      <td>53009</td>
+      <td>None</td>
+      <td>2025-07-09T23:28:27Z</td>
+      <td>1</td>
+      <td>TSTE490</td>
+      <td>{862ACD84-A28E-4812-A100-433A1C225D26}</td>
+      <td>POLYGON ((-13762933.712 6146044.720, -13752545...</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>2234840</td>
+      <td>36</td>
+      <td>4</td>
+      <td>Cowlitz</td>
+      <td>Cowlitz County</td>
+      <td>8</td>
+      <td>53015</td>
+      <td>None</td>
+      <td>2025-05-21T23:33:31Z</td>
+      <td>1</td>
+      <td>TSTE490</td>
+      <td>{26E4BF37-59D3-43B2-8D11-024719117325}</td>
+      <td>POLYGON ((-13702664.169 5842750.924, -13700419...</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>2234909</td>
+      <td>14</td>
+      <td>4</td>
+      <td>Spokane</td>
+      <td>Spokane County</td>
+      <td>32</td>
+      <td>53063</td>
+      <td>None</td>
+      <td>2023-08-09T23:52:05Z</td>
+      <td>1</td>
+      <td>TSTE490</td>
+      <td>{F258AE34-905B-4680-9EC9-65C7A47E26CB}</td>
+      <td>POLYGON ((-13029073.626 6071491.429, -13029068...</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>2234914</td>
+      <td>4699341</td>
+      <td>4</td>
+      <td>King</td>
+      <td>King County</td>
+      <td>17</td>
+      <td>53033</td>
+      <td>None</td>
+      <td>2025-07-17T23:29:34Z</td>
+      <td>1</td>
+      <td>TSTE490</td>
+      <td>{585DBDD7-7FDC-45D7-9C6E-C19C6523E1C1}</td>
+      <td>POLYGON ((-13593254.964 6069657.588, -13592053...</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>2234916</td>
+      <td>26</td>
+      <td>4</td>
+      <td>Whitman</td>
+      <td>Whitman County</td>
+      <td>38</td>
+      <td>53075</td>
+      <td>None</td>
+      <td>2023-02-02T22:29:05Z</td>
+      <td>1</td>
+      <td>TSTE490</td>
+      <td>{7C686B39-4D16-44D6-89DB-30EA61E98248}</td>
+      <td>POLYGON ((-13028819.631 5984496.998, -13028817...</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>2234920</td>
+      <td>4690635</td>
+      <td>4</td>
+      <td>Okanogan</td>
+      <td>Okanogan County</td>
+      <td>24</td>
+      <td>53047</td>
+      <td>None</td>
+      <td>2024-10-17T23:42:45Z</td>
+      <td>0</td>
+      <td>TSTE490</td>
+      <td>{81732CBA-C327-483A-97FB-5A490F35C6C2}</td>
+      <td>POLYGON ((-13228831.248 6274874.740, -13228837...</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>2234931</td>
+      <td>3</td>
+      <td>4</td>
+      <td>San Juan</td>
+      <td>San Juan County</td>
+      <td>28</td>
+      <td>53055</td>
+      <td>None</td>
+      <td>2026-01-22T00:34:50Z</td>
+      <td>1</td>
+      <td>TSTE490</td>
+      <td>{AF9A89AA-4246-47F6-95B3-43A063EA40CD}</td>
+      <td>POLYGON ((-13678738.782 6239384.542, -13678710...</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>2234934</td>
+      <td>40</td>
+      <td>4</td>
+      <td>Clark</td>
+      <td>Clark County</td>
+      <td>6</td>
+      <td>53011</td>
+      <td>None</td>
+      <td>2023-11-22T23:24:03Z</td>
+      <td>1</td>
+      <td>TSTE490</td>
+      <td>{BF94A0E5-DDEC-41FB-A6F2-C61B3E9B223E}</td>
+      <td>POLYGON ((-13609304.472 5789347.279, -13609297...</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>2234944</td>
+      <td>16</td>
+      <td>4</td>
+      <td>Chelan</td>
+      <td>Chelan County</td>
+      <td>4</td>
+      <td>53007</td>
+      <td>None</td>
+      <td>2026-04-08T23:34:26Z</td>
+      <td>1</td>
+      <td>TSTE490</td>
+      <td>{E98873AD-D724-4986-8C48-48FD197D62EC}</td>
+      <td>POLYGON ((-13451695.289 6198988.419, -13451524...</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>2234945</td>
+      <td>31</td>
+      <td>4</td>
+      <td>Yakima</td>
+      <td>Yakima County</td>
+      <td>39</td>
+      <td>53077</td>
+      <td>None</td>
+      <td>2026-04-08T23:34:26Z</td>
+      <td>1</td>
+      <td>TSTE490</td>
+      <td>{640BD475-5C18-43A0-BAE3-EC7ED5D4DC0B}</td>
+      <td>POLYGON ((-13500270.861 5956159.912, -13500209...</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>2234948</td>
+      <td>37</td>
+      <td>4</td>
+      <td>Benton</td>
+      <td>Benton County</td>
+      <td>3</td>
+      <td>53005</td>
+      <td>None</td>
+      <td>2026-04-08T23:34:26Z</td>
+      <td>1</td>
+      <td>TSTE490</td>
+      <td>{8B5C9F91-656D-46FC-A4FD-313411ABBF88}</td>
+      <td>POLYGON ((-13292341.455 5883579.005, -13292340...</td>
+    </tr>
+    <tr>
+      <th>38</th>
+      <td>2234952</td>
+      <td>4699350</td>
+      <td>4</td>
+      <td>Kittitas</td>
+      <td>Kittitas County</td>
+      <td>19</td>
+      <td>53037</td>
+      <td>None</td>
+      <td>2026-04-08T23:34:26Z</td>
+      <td>0</td>
+      <td>TSTE490</td>
+      <td>{8782BCE7-8CEB-4DC3-BB4F-E85EE8455F71}</td>
+      <td>POLYGON ((-13482428.890 6040101.397, -13482417...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">washington</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;OBJECTID&#39;, &#39;JURISDICT_&#39;, &#39;JURISDIC_1&#39;, &#39;JURISDIC_2&#39;, &#39;JURISDIC_3&#39;,
+       &#39;JURISDIC_4&#39;, &#39;JURISDIC_5&#39;, &#39;JURISDIC_6&#39;, &#39;EDIT_DATE&#39;, &#39;EDIT_STATU&#39;,
+       &#39;EDIT_WHO&#39;, &#39;GLOBALID&#39;, &#39;geometry&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">washington</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;JURISDIC_4&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Jurisdiction Identifier 4&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-13943667.86142592, -12970719.34824518, 5679143.007630255, 6303661.1912448965)
+</pre></div>
+</div>
+<img alt="../../_images/b1bb01ec75eacd13ee0832bdfc89b5f7223958fa532452a4481815a29d765e43.png" src="../../_images/b1bb01ec75eacd13ee0832bdfc89b5f7223958fa532452a4481815a29d765e43.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">washington</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;JURISDIC_5&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Jurisdiction Identifier 5&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-13943667.86142592, -12970719.34824518, 5679143.007630255, 6303661.1912448965)
+</pre></div>
+</div>
+<img alt="../../_images/e02201cec052cdbcb755bda93427a2d2ae2ee423b8c307d422072409a7931826.png" src="../../_images/e02201cec052cdbcb755bda93427a2d2ae2ee423b8c307d422072409a7931826.png" />
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./content\week3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1">Problem 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">Problem 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3">Problem 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-4">Problem 4</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Garrett Kepler
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
