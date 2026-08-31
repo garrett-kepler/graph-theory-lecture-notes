@@ -4,5 +4,5 @@ root: intro
 parts:
   - caption: Week 1--Sets & Basics
     chapters:
-    - file: content/week1/Week 1 Day 1.ipynb
-    
+    - file: content/week1/w1d1.md
+    - file: content/week1/w1d2.md

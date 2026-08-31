@@ -2,4 +2,10 @@ title: Math 453 Lecture Notes
 author: Garrett Kepler
 copyright: ""
 execute:
-  execute_notebooks: "off"
+  execute_notebooks: force
+sphinx:
+  extra_extensions:
+    - sphinx_proof
+parse:
+  myst_enable_extensions:
+    - html_image
