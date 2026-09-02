@@ -382,44 +382,80 @@
 </section>
 <section id="graphs">
 <h2>Graphs<a class="headerlink" href="#graphs" title="Link to this heading">#</a></h2>
+<p>There are two broad categories we will form for this course: <em>graphs</em> and <em>digraphs</em>. Below are the definitions for both.</p>
 <div class="proof definition admonition" id="definition-1">
 <p class="admonition-title"><span class="caption-number">Definition 9 </span> (Graph)</p>
 <section class="definition-content" id="proof-content">
 <p>A <em>graph</em> <span class="math notranslate nohighlight">\(G=(V,E)\)</span> is an ordered pair where <span class="math notranslate nohighlight">\(V\)</span> is a finite, non-empty set of objects called <em>vertices</em> and <span class="math notranslate nohighlight">\(E\)</span> is a possible empty set of unordered pairs of vertices. Objects in <span class="math notranslate nohighlight">\(E\)</span> are called “edges”.</p>
 </section>
-</div><div class="proof definition admonition" id="definition-2">
+</div><figure class="align-default" id="id3">
+<a class="reference internal image-reference" href="../../_images/w1d2drawing.png"><img alt="../../_images/w1d2drawing.png" src="../../_images/w1d2drawing.png" style="height: 250px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 5 </span><span class="caption-text">An example of a graph.</span><a class="headerlink" href="#id3" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="proof definition admonition" id="definition-2">
 <p class="admonition-title"><span class="caption-number">Definition 10 </span> (Digraph)</p>
 <section class="definition-content" id="proof-content">
 <p>A <em>digraph</em> G=(V,E) is an ordered pair where <span class="math notranslate nohighlight">\(V\)</span> is a finite, non-empty set of objects called <em>nodes</em> and E is a possible empty set of ordered pairs of nodes. Objects in E are called “arcs”.</p>
 </section>
-</div><div class="proof definition admonition" id="definition-3">
-<p class="admonition-title"><span class="caption-number">Definition 11 </span> (Self-loop)</p>
+</div><figure class="align-default" id="id4">
+<a class="reference internal image-reference" href="../../_images/w1d2drawing1.png"><img alt="../../_images/w1d2drawing1.png" src="../../_images/w1d2drawing1.png" style="height: 250px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 6 </span><span class="caption-text">An example of a digraph.</span><a class="headerlink" href="#id4" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>We will further classify graphs and digraphs into two categories: <em>simple</em> and <em>not simple</em>. Below is the definition of simple. A <em>self-loop</em> is an edge (arc) between a vertex (node) and itself. <em>Multiple-edges</em> means there is more than one identical edge between a pair of vertices. Likewise with digraphs and multiple-arcs.</p>
+<div class="proof definition admonition" id="definition-3">
+<p class="admonition-title"><span class="caption-number">Definition 11 </span> (Simple)</p>
 <section class="definition-content" id="proof-content">
-<p>A <em>self-loop</em> is an edge (arc) between a vertex (node) and itself.</p>
+<p>A <em>simple</em> graph has no self-loops and no multiple-edges. Likewise with a <em>simple</em> digraph.</p>
 </section>
 </div><div class="proof definition admonition" id="definition-4">
-<p class="admonition-title"><span class="caption-number">Definition 12 </span> (Multiple-edges)</p>
-<section class="definition-content" id="proof-content">
-<p>More than one edge (arc) between a pair of vertices (nodes).</p>
-</section>
-</div><div class="proof definition admonition" id="definition-5">
-<p class="admonition-title"><span class="caption-number">Definition 13 </span> (Simple)</p>
-<section class="definition-content" id="proof-content">
-<p>A simple graph (digraph) has no self-loops and no multiple identical edges.</p>
-</section>
-</div><div class="proof definition admonition" id="definition-6">
-<p class="admonition-title"><span class="caption-number">Definition 14 </span> (Degree)</p>
+<p class="admonition-title"><span class="caption-number">Definition 12 </span> (Degree)</p>
 <section class="definition-content" id="proof-content">
 <p>The number of times a vertex is an endpoint of an edge in a graph.</p>
 </section>
-</div><p>Notationally, we denote the degree of vertex v in graph G <span class="math notranslate nohighlight">\(d_v(G)\)</span>. Note</p>
-<figure class="align-default" id="id3">
+</div><p>Notationally, we denote the degree of vertex v in graph G <span class="math notranslate nohighlight">\(d_G(v)\)</span> (though <span class="math notranslate nohighlight">\(d_v(G)\)</span> will be fine too).</p>
+<figure class="align-default" id="id5">
 <a class="reference internal image-reference" href="../../_images/w1d2complete.png"><img alt="../../_images/w1d2complete.png" src="../../_images/w1d2complete.png" style="height: 250px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 5 </span><span class="caption-text">An example of degree in a graph. Since A is the endpoint 5 times, the degree of A is 5.</span><a class="headerlink" href="#id3" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 7 </span><span class="caption-text">An example of degree in a graph. Since A is the endpoint 5 times, the degree of A is 5.</span><a class="headerlink" href="#id5" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
+<p>With these definitions we can prove our first graph theory result!</p>
+<div class="proof lemma admonition" id="lemma-5">
+<p class="admonition-title"><span class="caption-number">Lemma 1 </span> (The Handshaking Lemma)</p>
+<section class="lemma-content" id="proof-content">
+<p>Let <span class="math notranslate nohighlight">\(G=(V,E)\)</span> be a graph on <span class="math notranslate nohighlight">\(n\)</span> vertices (<span class="math notranslate nohighlight">\(v_1,v_2,\dots, v_n\)</span>) and <span class="math notranslate nohighlight">\(m\)</span> edges. Then,</p>
+<div class="math notranslate nohighlight">
+\[ \sum_{i=1}^n d_G(v_i) = 2m \]</div>
+</section>
+</div><div class="proof admonition" id="proof">
+<p>Proof. If <span class="math notranslate nohighlight">\(G\)</span> has no edges, this is a very boring proof indeed <span class="math notranslate nohighlight">\(\left( \sum\limits_{i=1}^n 0 = 2 (0) \right)\)</span>. So, let us assume there is at least one edge in the graph.</p>
+<ul class="simple">
+<li><p><u>Left hand side:</u> Consider an edge <span class="math notranslate nohighlight">\(\{v_k,v_{\ell}\}\)</span> in <span class="math notranslate nohighlight">\(E\)</span>. Note that each term in the sum, <span class="math notranslate nohighlight">\(d_G(v_i)\)</span>, counts the number of times <span class="math notranslate nohighlight">\(v_i\)</span> is an endpoint of an edge. For an edge <span class="math notranslate nohighlight">\(\{v_k,v_{\ell}\}\)</span>, the first endpoint is counted by <span class="math notranslate nohighlight">\(d_G(v_k)\)</span> and the other is counted by <span class="math notranslate nohighlight">\(d_G(v_{\ell})\)</span>. That is, the edge <span class="math notranslate nohighlight">\(\{v_k,v_{\ell}\}\)</span> is counted twice. So, the left hand side counts each edge twice.</p></li>
+<li><p><u>Right hand side:</u> Since <span class="math notranslate nohighlight">\(m\)</span> is the number of edges, <span class="math notranslate nohighlight">\(2m\)</span> counts each edge twice.</p></li>
+<li><p><u>Conclusion:</u> Since both the left hand side and the right hand side count the same thing, they are equal. Therefore, <span class="math notranslate nohighlight">\( \sum\limits_{i=1}^n d_G(v_i) = 2m\)</span>.</p></li>
+</ul>
+</div>
+<p>An immediate corollary of this fact:</p>
+<div class="proof corollary admonition" id="corollary-6">
+<p class="admonition-title"><span class="caption-number">Corollary 1 </span></p>
+<section class="corollary-content" id="proof-content">
+<p>For a graph <span class="math notranslate nohighlight">\(G\)</span>, there is an even number of odd degree vertices.</p>
+</section>
+</div><div class="proof admonition" id="proof">
+<p>Proof. Let <span class="math notranslate nohighlight">\(G=(V,E)\)</span> have <span class="math notranslate nohighlight">\(n\)</span> vertices and <span class="math notranslate nohighlight">\(m\)</span> edges. Let <span class="math notranslate nohighlight">\(W\)</span> be the set of vertices with even degree and <span class="math notranslate nohighlight">\(U\)</span> be the set of vertices with odd degree. Note that all vertices in <span class="math notranslate nohighlight">\(G\)</span> are in <span class="math notranslate nohighlight">\(W\)</span> or <span class="math notranslate nohighlight">\(U\)</span> not both. By the Handshaking Lemma, <span class="math notranslate nohighlight">\(2m=\sum\limits_{i=1}^nd_G(v_i)\)</span>. We will split the sum in to two parts:</p>
+<p><span class="math notranslate nohighlight">\(\begin{align*}
+2m &amp;=\sum\limits_{i=1}^nd_G(v_i)\\
+ &amp;=\sum\limits_{v_i\in W}d_G(v_i)+\sum\limits_{v_i\in U}d_G(v_i)\\
+\end{align*}\)</span></p>
+<p>For <span class="math notranslate nohighlight">\(v_i\in W\)</span>, <span class="math notranslate nohighlight">\(d_G(v_i)\)</span> is even so <span class="math notranslate nohighlight">\(\sum\limits_{v_i\in W}d_G(v_i)\)</span> is even. Since <span class="math notranslate nohighlight">\(\sum\limits_{v_i\in W}d_G(v_i)\)</span> and <span class="math notranslate nohighlight">\(2m\)</span> are even, <span class="math notranslate nohighlight">\(\sum\limits_{v_i\in U}d_G(v_i)\)</span> must be even (even<span class="math notranslate nohighlight">\(+\)</span>odd<span class="math notranslate nohighlight">\(\neq\)</span>even). For <span class="math notranslate nohighlight">\(v_i\in U\)</span>, <span class="math notranslate nohighlight">\(d_G(v_i)\)</span> is odd. But, <span class="math notranslate nohighlight">\(\sum\limits_{v_i\in W}d_G(v_i)\)</span> is even. This means there must be an even number of <span class="math notranslate nohighlight">\(v_i\in U\)</span> (odd<span class="math notranslate nohighlight">\(+\)</span>odd<span class="math notranslate nohighlight">\(=\)</span>even). Therefore, there are an even number of odd degree vertices.</p>
+</div>
 </section>
 </section>
 
