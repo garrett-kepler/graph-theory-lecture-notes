@@ -6,3 +6,8 @@ parts:
     chapters:
     - file: content/week1/w1d1.md
     - file: content/week1/w1d2.md
+  - caption: Week 2--Isomorphism & Paths
+    chapters:
+    - file: content/week2/w2d1.md
+    - file: content/week2/w2d2.md
+    - file: content/week2/w2d3.md
