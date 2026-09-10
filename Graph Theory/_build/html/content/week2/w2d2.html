@@ -27,8 +27,8 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
@@ -40,10 +40,10 @@
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- So that users can add custom icons -->
-  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
 
     <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
@@ -64,6 +64,7 @@
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'content/week2/w2d2';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Lecture 5: Trails &amp; Walks" href="w2d3.html" />
@@ -71,20 +72,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
   </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
-
+  <body data-default-mode="">
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-
+  
+  
+  
   
   <dialog id="pst-search-dialog">
     
@@ -110,7 +117,51 @@
 </div>
 
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
     </header>
   
 
@@ -297,7 +348,9 @@
 <button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
 </button>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -313,6 +366,15 @@
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#warmup">Warmup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paths-trails-walks">Paths, Trails, &amp; Walks</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -324,25 +386,63 @@
                   
   <section class="tex2jax_ignore mathjax_ignore" id="lecture-4-paths">
 <h1>Lecture 4: Paths<a class="headerlink" href="#lecture-4-paths" title="Link to this heading">#</a></h1>
-<div class="proof question admonition" id="question-0">
-<p class="admonition-title"><span class="caption-number">Question 4 </span></p>
-<section class="question-content" id="proof-content">
-<p>What is the maximum degree for a vertex in a simple graph on <span class="math notranslate nohighlight">\(n\)</span> vertices?</p>
-</section>
-</div><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<p>It is Labor Day weekend. A lot of us will be traveling to the west side of Washington. Consider a network of highways across the state:</p>
+<a class="reference internal image-reference" href="../../_images/fig3.png"><img alt="../../_images/fig3.png" class="align-center" src="../../_images/fig3.png" style="height: 240px;" />
+</a>
+<p>We can represent this structure as a graph:</p>
+<a class="reference internal image-reference" href="../../_images/fig4.png"><img alt="../../_images/fig4.png" class="align-center" src="../../_images/fig4.png" style="height: 240px;" />
+</a>
+<p>Now, cities are vertices. Two vertices share an edge if the cities have a highway between them. Paths in the graph correspond to journeys from city to city.</p>
+<p>Pretend we want to go from Pullman to Tacoma.</p>
+<ol class="arabic simple">
+<li><p>We will start at vertex F and end at vertex B.</p></li>
+<li><p><span class="math notranslate nohighlight">\(P = (\{F,D\}, \{D,C\}, \{C,B\})\)</span> contains vertices <span class="math notranslate nohighlight">\(V_P=(F,D,C,B)\)</span> such that <span class="math notranslate nohighlight">\(F,D,C,\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are distinct and appear as an edge endpoint at most twice.</p></li>
+<li><p>P is a path!</p></li>
+</ol>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="../../_images/fig5.png"><img alt="../../_images/fig5.png" src="../../_images/fig5.png" style="height: 240px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 9 </span><span class="caption-text">An example of a path from vertex F to vertex B representing a journey from Pullman to Tacoma.</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<section id="warmup">
+<h2>Warmup<a class="headerlink" href="#warmup" title="Link to this heading">#</a></h2>
+<a class="reference internal image-reference" href="../../_images/fig4.png"><img alt="../../_images/fig4.png" class="align-center" src="../../_images/fig4.png" style="height: 240px;" />
+</a>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 <span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text"><span class="math notranslate nohighlight">\(n-1\)</span>. Recall that <em>simple</em> means there are no self-loops and at most one edge between any pair of vertices.</p>
-<p class="sd-card-text">We will walk through an example to maximize the degree of a vertex, 1. Consider the case when <span class="math notranslate nohighlight">\(n=2\)</span>:</p>
-<a class="reference internal image-reference" href="../../_images/warm1.png"><img alt="../../_images/warm1.png" class="align-center" src="../../_images/warm1.png" style="width: 200px;" />
-</a>
+<ol class="arabic simple">
+<li><p class="sd-card-text">Yes, there is a path from every vertex to every other vertex.</p></li>
+<li><p class="sd-card-text">We can start at <span class="math notranslate nohighlight">\(A\)</span> and go lexicographically around the graph all the way to <span class="math notranslate nohighlight">\(G\)</span> and return to <span class="math notranslate nohighlight">\(A\)</span>.</p></li>
+<li><p class="sd-card-text">On <span class="math notranslate nohighlight">\(n\)</span> vertices, ideally we would visit <em>every</em> vertex like we did in the second part. This is the “longest” a path can be. Let’s define what we mean by “length” now.</p></li>
+</ol>
 </div>
-</details><a class="reference internal image-reference" href="../../_images/fig3.png"><img alt="../../_images/fig3.png" class="align-center" src="../../_images/fig3.png" style="width: 200px;" />
-</a>
-<a class="reference internal image-reference" href="../../_images/fig4.png"><img alt="../../_images/fig4.png" class="align-center" src="../../_images/fig4.png" style="width: 200px;" />
-</a>
-<a class="reference internal image-reference" href="../../_images/fig5.png"><img alt="../../_images/fig5.png" class="align-center" src="../../_images/fig5.png" style="width: 200px;" />
-</a>
+</details><div class="proof definition admonition" id="definition-0">
+<p class="admonition-title"><span class="caption-number">Definition 16 </span> (Length (Path))</p>
+<section class="definition-content" id="proof-content">
+<p>The length of a path <span class="math notranslate nohighlight">\(P\)</span> is the number of edges in the path.</p>
+</section>
+</div><div class="proof theorem admonition" id="theorem-1">
+<p class="admonition-title"><span class="caption-number">Theorem 3 </span></p>
+<section class="theorem-content" id="proof-content">
+<p>If <span class="math notranslate nohighlight">\(G_1\cong G_2\)</span> and <span class="math notranslate nohighlight">\(G_1\)</span> is connected, then <span class="math notranslate nohighlight">\(G_2\)</span> is connected.</p>
+</section>
+</div><div class="proof lemma admonition" id="lemma-2">
+<p class="admonition-title"><span class="caption-number">Lemma 2 </span></p>
+<section class="lemma-content" id="proof-content">
+<p>Let graphs <span class="math notranslate nohighlight">\(G_1\cong G_2\)</span> have some isomorphism <span class="math notranslate nohighlight">\(\psi\)</span> between them. If <span class="math notranslate nohighlight">\(P\)</span> is a path between <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(v\)</span> in <span class="math notranslate nohighlight">\(G_1\)</span>, then there is a path <span class="math notranslate nohighlight">\(P'\)</span> in <span class="math notranslate nohighlight">\(G_2\)</span> between <span class="math notranslate nohighlight">\(\psi(u)\)</span> and <span class="math notranslate nohighlight">\(\psi(v)\)</span>.</p>
+</section>
+</div><div class="proof theorem admonition" id="theorem-3">
+<p class="admonition-title"><span class="caption-number">Theorem 4 </span></p>
+<section class="theorem-content" id="proof-content">
+<p>If <span class="math notranslate nohighlight">\(G_1\cong G_2\)</span> and <span class="math notranslate nohighlight">\(G_1\)</span> is connected, then <span class="math notranslate nohighlight">\(G_2\)</span> is connected.</p>
+</section>
+</div></section>
+<section id="paths-trails-walks">
+<h2>Paths, Trails, &amp; Walks<a class="headerlink" href="#paths-trails-walks" title="Link to this heading">#</a></h2>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -400,6 +500,24 @@
             
             
               
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#warmup">Warmup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paths-trails-walks">Paths, Trails, &amp; Walks</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
             
           </div>
           <footer class="bd-footer-content">
@@ -436,8 +554,8 @@ By Garrett Kepler
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
 
   <footer class="bd-footer">
   </footer>
