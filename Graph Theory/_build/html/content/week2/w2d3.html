@@ -155,6 +155,10 @@
   
 
   
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
 </div>
 
     </header>
@@ -343,7 +347,9 @@
 <button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
 </button>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -359,6 +365,16 @@
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#warmup">Warmup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paths-trails-walks">Paths, Trails, &amp; Walks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-about-in-digraphs">What about in digraphs?</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -370,22 +386,100 @@
                   
   <section class="tex2jax_ignore mathjax_ignore" id="lecture-5-trails-walks">
 <h1>Lecture 5: Trails &amp; Walks<a class="headerlink" href="#lecture-5-trails-walks" title="Link to this heading">#</a></h1>
-<div class="proof theorem admonition" id="theorem-0">
+<section id="warmup">
+<h2>Warmup<a class="headerlink" href="#warmup" title="Link to this heading">#</a></h2>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">This is more of a question for you to reflect on your own intuition. You may have heard of some path finding algorithms already: BFS, DFS, Dijkstra’s, A*. But, a really naive, straightforward way might be:</p>
+<ol class="arabic simple">
+<li><p class="sd-card-text">Enumerate every path in the graph from a vertex <span class="math notranslate nohighlight">\(u\)</span> to <span class="math notranslate nohighlight">\(v\)</span></p></li>
+<li><p class="sd-card-text">Take the minimum length path</p></li>
+</ol>
+</div>
+</details></section>
+<section id="paths-trails-walks">
+<h2>Paths, Trails, &amp; Walks<a class="headerlink" href="#paths-trails-walks" title="Link to this heading">#</a></h2>
+<p>Recall our definitions of <span class="math notranslate nohighlight">\(uv\)</span>-paths, trails, and walks. We add a new adjective to these.</p>
+<div class="proof definition admonition" id="definition-0">
+<p class="admonition-title"><span class="caption-number">Definition 18 </span> (Open vs. Closed)</p>
+<section class="definition-content" id="proof-content">
+<p>With regard to <span class="math notranslate nohighlight">\(uv\)</span>-paths, trails, and walks, if the starting and ending vertex are the same (<span class="math notranslate nohighlight">\(u=v\)</span>), we say it is <em>closed</em>. If the starting and ending vertex are different (<span class="math notranslate nohighlight">\(u\neq v\)</span>), it is <em>open</em>.</p>
+</section>
+</div><div class="proof definition admonition" id="definition-1">
+<p class="admonition-title"><span class="caption-number">Definition 19 </span> (Cycle vs. Circuit)</p>
+<section class="definition-content" id="proof-content">
+<p>A <em>circuit</em> is a closed <span class="math notranslate nohighlight">\(uv\)</span> trail. A <em>cycle</em> is a closed <span class="math notranslate nohighlight">\(uv\)</span> path.</p>
+</section>
+</div><p>Consider the following:</p>
+<a class="reference internal image-reference" href="../../_images/closedstuffs.png"><img alt="../../_images/closedstuffs.png" class="align-center" src="../../_images/closedstuffs.png" style="height: 240px;" />
+</a>
+<p>On the left, we have a closed <span class="math notranslate nohighlight">\(AA\)</span>-trail: <span class="math notranslate nohighlight">\(T= (\{A,C\}, \{C,D\}, \{D,E\}, \{E,C\}, \{C,B\}, \{B,A\})\)</span>. We call this a circuit. Secondly, on the right, we have a closed <span class="math notranslate nohighlight">\(AA\)</span>-path: <span class="math notranslate nohighlight">\(P=(\{A,B\}, \{B,C\}, \{C,A\})\)</span>. This is what we call a cycle.</p>
+<figure class="align-default" id="id1">
+<img alt="../../_images/giantmindmap.png" src="../../_images/giantmindmap.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 12 </span><span class="caption-text">A summary of the lingo we have recently introduced.</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="proof theorem admonition" id="walkpath">
 <p class="admonition-title"><span class="caption-number">Theorem 5 </span></p>
 <section class="theorem-content" id="proof-content">
 <p>If there is an open <span class="math notranslate nohighlight">\(uv\)</span>-walk, then there is an open <span class="math notranslate nohighlight">\(uv\)</span>-path.</p>
 </section>
-</div><div class="proof corollary admonition" id="corollary-1">
+</div><div class="proof admonition" id="proof">
+<p>Proof. Let <span class="math notranslate nohighlight">\(G=(V,E)\)</span> be a graph with an open <span class="math notranslate nohighlight">\(uv\)</span>-walk <span class="math notranslate nohighlight">\(W=(\{v_1,v_2\},\{v_2,v_3\},\dots)\)</span> on vertices <span class="math notranslate nohighlight">\(V_W=(v_1,v_2,\dots, v_m)\)</span> such that <span class="math notranslate nohighlight">\(W\)</span> is a <em>minimum length</em> out of all the open <span class="math notranslate nohighlight">\(uv\)</span>-walks in <span class="math notranslate nohighlight">\(G\)</span>. If <span class="math notranslate nohighlight">\(W\)</span> is already a path, then we are done. So, assume <span class="math notranslate nohighlight">\(W\)</span> is not a path.</p>
+<p>Since <span class="math notranslate nohighlight">\(W\)</span> is not a path, there is a repeated vertex. Consider the repeated vertex. Let <span class="math notranslate nohighlight">\(v_i=v_j\)</span> for <span class="math notranslate nohighlight">\(v_i\)</span> and <span class="math notranslate nohighlight">\(v_j\)</span> in <span class="math notranslate nohighlight">\(V_W\)</span> (<span class="math notranslate nohighlight">\(1\leq i&lt;j\leq m\)</span>). Remove every edge in between <span class="math notranslate nohighlight">\(\{v_{i-1}, v_i\}\)</span> and <span class="math notranslate nohighlight">\(\{v_j=v_i, v_{j+1}\}\)</span> from <span class="math notranslate nohighlight">\(W\)</span>. Call this new open <span class="math notranslate nohighlight">\(uv\)</span>-walk <span class="math notranslate nohighlight">\(W'\)</span> and note <span class="math notranslate nohighlight">\(W'=(\{v_1,v_2\},\{v_2,v_3\}, \dots, \{v_{i-1},v_i\},\{v_j=v_i,v_{j+1}\},\dots)\)</span>.</p>
+<p>If <span class="math notranslate nohighlight">\(W'\)</span> is a path, great! We are done.</p>
+<p>If <span class="math notranslate nohighlight">\(W'\)</span> is <strong>not</strong> a path, then <span class="math notranslate nohighlight">\(W'\)</span> is an open <span class="math notranslate nohighlight">\(uv\)</span>-walk of shorter length than <span class="math notranslate nohighlight">\(W\)</span>. This contradicts the assumption that <span class="math notranslate nohighlight">\(W\)</span> is of minimum length.</p>
+<p>Therefore, there is an open <span class="math notranslate nohighlight">\(uv\)</span>-path when there is an open <span class="math notranslate nohighlight">\(uv\)</span>-walk.</p>
+</div>
+<p>There is a simple explanation of what we’re doing. Firstly, we are taking a some minimum walk from <span class="math notranslate nohighlight">\(u\)</span> to <span class="math notranslate nohighlight">\(v\)</span>:</p>
+<a class="reference internal image-reference" href="../../_images/fig6.png"><img alt="../../_images/fig6.png" class="align-center" src="../../_images/fig6.png" style="width: 450px;" />
+</a>
+<p>We are removing the extra dilly-dally:</p>
+<a class="reference internal image-reference" href="../../_images/fig7.png"><img alt="../../_images/fig7.png" class="align-center" src="../../_images/fig7.png" style="width: 450px;" />
+</a>
+<p>And considering a more direct route:</p>
+<a class="reference internal image-reference" href="../../_images/fig8.png"><img alt="../../_images/fig8.png" class="align-center" src="../../_images/fig8.png" style="width: 450px;" />
+</a>
+<p>Either this new route is a path or we’ve violated the assumptions we’ve made.</p>
+<p>A nice corollary to this theorem relates to connectedness:</p>
+<div class="proof corollary admonition" id="corollary-3">
 <p class="admonition-title"><span class="caption-number">Corollary 2 </span></p>
 <section class="corollary-content" id="proof-content">
 <p>If there exists an open <span class="math notranslate nohighlight">\(uv\)</span>-walk from every pair of vertices in a graph <span class="math notranslate nohighlight">\(G\)</span>, <span class="math notranslate nohighlight">\(G\)</span> is connected.</p>
 </section>
-</div><a class="reference internal image-reference" href="../../_images/fig6.png"><img alt="../../_images/fig6.png" class="align-center" src="../../_images/fig6.png" style="width: 400px;" />
+</div><div class="proof admonition" id="proof">
+<p>Proof. We just proved every open in <a class="reference internal" href="#walkpath">Theorem 5</a> that if there is an open <span class="math notranslate nohighlight">\(uv\)</span>-walk then there is an open <span class="math notranslate nohighlight">\(uv\)</span>-path. So, if there exists an open <span class="math notranslate nohighlight">\(uv\)</span>-walk from every pair of vertices in a graph <span class="math notranslate nohighlight">\(G\)</span>, there is an open <span class="math notranslate nohighlight">\(uv\)</span>-path between them too and <span class="math notranslate nohighlight">\(G\)</span> is connected.</p>
+</div>
+</section>
+<section id="what-about-in-digraphs">
+<h2>What about in digraphs?<a class="headerlink" href="#what-about-in-digraphs" title="Link to this heading">#</a></h2>
+<p>These ideas of connectedness also extend to digraphs with some tweaking.</p>
+<div class="proof definition admonition" id="definition-4">
+<p class="admonition-title"><span class="caption-number">Definition 20 </span> (Directed Paths, Trails, &amp; Walks)</p>
+<section class="definition-content" id="proof-content">
+<p>A <em>directed path</em> is a sequence of arcs <span class="math notranslate nohighlight">\(\mathcal{P}=((v_1,v_2), (v_2,v_3), \dots, (v_{m-1},v_m))\)</span> containing a sequence of distinct nodes <span class="math notranslate nohighlight">\(\mathcal{V}_{\mathcal{P}}=(v_1, v_2, \dots, v_m)\)</span> such that each node <span class="math notranslate nohighlight">\(v_i\in \mathcal{V}_{\mathcal{P}}\)</span> in at most two arcs of <span class="math notranslate nohighlight">\(P\)</span>. We call <span class="math notranslate nohighlight">\(v_1\in \mathcal{V}_{\mathcal{P}}\)</span> the starting node and <span class="math notranslate nohighlight">\(v_m\in \mathcal{V}_{\mathcal{P}}\)</span> the ending node.</p>
+<p>A <em>directed trail</em> is a directed path, but nodes may be repeated.</p>
+<p>A <em>directed walk</em> is a directed path, but we can repeat nodes and arcs.</p>
+<p>A directed <em>uv</em>-path, trail, or walk means the starting node is <span class="math notranslate nohighlight">\(u\)</span> and the ending node is <span class="math notranslate nohighlight">\(v\)</span>.</p>
+<p><em>Open</em> and <em>closed</em> mean the same as before: <span class="math notranslate nohighlight">\(u\neq v\)</span> for the former and <span class="math notranslate nohighlight">\(u=v\)</span> for the latter.</p>
+</section>
+</div><p>While these definitions extend nicely, connectedness in digraph is broadly defined in two categories: <em>weak</em> connectivity and <em>strong</em> connectivity.</p>
+<div class="proof definition admonition" id="definition-5">
+<p class="admonition-title"><span class="caption-number">Definition 21 </span> (Weak vs. Strong Connectedness)</p>
+<section class="definition-content" id="proof-content">
+<p>A digraph is <em>strongly connected</em> if for every pair of distinct nodes <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(v\)</span>, there is a <span class="math notranslate nohighlight">\(uv\)</span>-directed path and a <span class="math notranslate nohighlight">\(vu\)</span>-directed path.</p>
+<p>A digraph is <em>weakly connected</em> if by replacing every arc with an edge, we obtain a connected graph.</p>
+</section>
+</div><figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="../../_images/strongvsweakconnected.png"><img alt="../../_images/strongvsweakconnected.png" src="../../_images/strongvsweakconnected.png" style="height: 240px;" />
 </a>
-<a class="reference internal image-reference" href="../../_images/fig7.png"><img alt="../../_images/fig7.png" class="align-center" src="../../_images/fig7.png" style="width: 400px;" />
-</a>
-<a class="reference internal image-reference" href="../../_images/fig8.png"><img alt="../../_images/fig8.png" class="align-center" src="../../_images/fig8.png" style="width: 400px;" />
-</a>
+<figcaption>
+<p><span class="caption-number">Fig. 13 </span><span class="caption-text">On left, a strongly connected digraph. On right, a weakly connected digraph.</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -433,6 +527,25 @@
             </div>
             
             
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#warmup">Warmup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paths-trails-walks">Paths, Trails, &amp; Walks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-about-in-digraphs">What about in digraphs?</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

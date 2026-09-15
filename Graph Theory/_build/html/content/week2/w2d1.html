@@ -424,7 +424,15 @@
 </div><p>Really, drawing your own isomorphic graphs is straightforward: draw the same graph, but change the labels. For example, the following graphs from class.</p>
 <a class="reference internal image-reference" href="../../_images/fig2.png"><img alt="../../_images/fig2.png" class="align-center" src="../../_images/fig2.png" style="width: 600px;" />
 </a>
-<p>Notice, we did not change anything about the <em>structure</em> of the graph. Merely the labels. Keep that in mind when trying to prove the following.</p>
+<p>Notice, we did not change anything about the <em>structure</em> of the graph. Merely the labels. If <span class="math notranslate nohighlight">\(G_1=(V_1,E_1)\)</span> and <span class="math notranslate nohighlight">\(G_2=(V_2,E_2)\)</span>, then the following function <span class="math notranslate nohighlight">\(f:V_1\to V_2\)</span> is an isomorphism between <span class="math notranslate nohighlight">\(G_1\)</span> and <span class="math notranslate nohighlight">\(G_2\)</span>:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(f(A)=e\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(f(B)=b\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(f(C)=c\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(f(D)=a\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(f(E)=d\)</span></p></li>
+</ul>
+<p>This functions simply changes the labels. Keep that in mind when trying to prove the following.</p>
 <div class="proof theorem admonition" id="theorem-1">
 <p class="admonition-title"><span class="caption-number">Theorem 2 </span></p>
 <section class="theorem-content" id="proof-content">
@@ -436,7 +444,8 @@
 </ul>
 </section>
 </div><div class="proof admonition" id="proof">
-<p>Proof. Homework problems!</p>
+<p>Proof. The first two are homework problems!</p>
+<p>To prove the last, consider what the isomorphism <span class="math notranslate nohighlight">\(\psi:V_1\to V_2\)</span> does to edges containing a vertex <span class="math notranslate nohighlight">\(v\in V_1\)</span>. By the definition of isomorphism, <span class="math notranslate nohighlight">\(\{v,u\}\)</span> exists in <span class="math notranslate nohighlight">\(E_1\)</span> if and only if <span class="math notranslate nohighlight">\(\{\psi(v), \psi(u)\}\)</span> exists in <span class="math notranslate nohighlight">\(E_2\)</span>. Since <span class="math notranslate nohighlight">\(\psi\)</span> is a bijection, the vertices <span class="math notranslate nohighlight">\(v\)</span> and <span class="math notranslate nohighlight">\(u\)</span> in some edge <span class="math notranslate nohighlight">\(\{v,u\}\in E_1\)</span> get mapped uniquely to vertices <span class="math notranslate nohighlight">\(\psi(v)\)</span> and <span class="math notranslate nohighlight">\(\psi(u)\)</span> in some edge <span class="math notranslate nohighlight">\(\{\psi(v),\psi(u)\}\in E_2\)</span>. So, the edge <span class="math notranslate nohighlight">\(\{v,u\}\in E_1\)</span> also gets mapped uniquely to an edge <span class="math notranslate nohighlight">\(\{\psi(v),\psi(u)\}\in E_2\)</span>. Therefore, the number of times <span class="math notranslate nohighlight">\(v\in V_1\)</span> appears as an endpoint in <span class="math notranslate nohighlight">\(G_1\)</span> , <span class="math notranslate nohighlight">\(d_{G_1}(v)\)</span> , equals the number of times <span class="math notranslate nohighlight">\(\psi(v)\in V_2\)</span> appears as an endpoint in <span class="math notranslate nohighlight">\(G_2\)</span> , <span class="math notranslate nohighlight">\(d_{G_2}(\psi(v))\)</span>.</p>
 </div>
 </section>
 <section id="paths-connectedness">
