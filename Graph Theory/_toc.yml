@@ -11,3 +11,7 @@ parts:
     - file: content/week2/w2d1.md
     - file: content/week2/w2d2.md
     - file: content/week2/w2d3.md
+  - caption: Week 3--Subgraphs & Graph Parameters
+    chapters:
+    - file: content/week3/w3d1.md
+    - file: content/week3/w3d2.md
