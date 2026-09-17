@@ -356,13 +356,25 @@
 <summary class="sd-summary-title sd-card-header">
 <span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
 <ol class="arabic simple">
-<li><p class="sd-card-text">Well, if we do not restrict to being simple… there could be infinitely many edges! But, if the graph is simple, the maximum is <span class="math notranslate nohighlight">\(\binom{n}{2}\)</span>.</p></li>
+<li><p class="sd-card-text">Well, if we do not restrict to being simple… there could be infinitely many edges! Take 2 vertices and add an edge.</p></li>
 </ol>
+<img alt="../../_images/first.png" src="../../_images/first.png" />
+<p class="sd-card-text">Then, add another</p>
+<img alt="../../_images/second.png" src="../../_images/second.png" />
+<p class="sd-card-text">And, add another</p>
+<img alt="../../_images/third.png" src="../../_images/third.png" />
+<p class="sd-card-text">And so on forever. But, if the graph is simple, the maximum is <span class="math notranslate nohighlight">\(\binom{n}{2}\)</span>.</p>
 <p class="sd-card-text">Think about the definition of simple: no self-loops and no multiple-edges. If we add one edge between each pair of distinct vertices, end up with <span class="math notranslate nohighlight">\(\binom{n}{2}\)</span> vertices. “No multiple-edges” means we cannot add another edge between these vertices. “No self-loops” means we cannot add an edge between a vertex and itself. So, we have no more edges we can add. This graph has a special name: <em>the complete graph</em>.</p>
+<img alt="../../_images/first.png" src="../../_images/first.png" />
+<img alt="content/photos/week3/secondcomp.png" src="content/photos/week3/secondcomp.png" />
+<img alt="../../_images/fourth.png" src="../../_images/fourth.png" />
 <ol class="arabic simple" start="2">
 <li><p class="sd-card-text">If we don’t restrict to being connected… there could be no edges! That is, we have just a set of vertices with no edges between them. This is still a graph and it has a special name as well: <em>the empty graph</em>. But, the empty graph is not a connected one.</p></li>
 </ol>
 <p class="sd-card-text">We will prove this later, but the minimum edges we need for a graph to be connected is actually <span class="math notranslate nohighlight">\(n-1\)</span>. A great example of this is the graph obtained by adding edges to successive vertices. That is, if <span class="math notranslate nohighlight">\(V=\{v_1,v_2,\dots, v_n\}\)</span> are the vertices, then the edges are <span class="math notranslate nohighlight">\(E=\{\{v_1,v_2\},\{v_2,v_3\},\dots,\{v_{n-1}, v_n\}\}\)</span>. This graph is called <em>the path graph</em>, <span class="math notranslate nohighlight">\(P_n\)</span>.</p>
+<img alt="../../_images/firstpath.png" src="../../_images/firstpath.png" />
+<img alt="../../_images/secondpath.png" src="../../_images/secondpath.png" />
+<img alt="../../_images/thirdpath.png" src="../../_images/thirdpath.png" />
 </div>
 </details><div class="proof definition admonition" id="definition-1">
 <p class="admonition-title"><span class="caption-number">Definition 22 </span> (The Complete, Empty, &amp; Path Graphs)</p>
@@ -375,12 +387,20 @@
 </div></section>
 <section id="subgraph-definitions">
 <h2>Subgraph Definitions<a class="headerlink" href="#subgraph-definitions" title="Link to this heading">#</a></h2>
+<img alt="../../_images/subgraph2.png" src="../../_images/subgraph2.png" />
+<img alt="../../_images/subgraph1.png" src="../../_images/subgraph1.png" />
+<img alt="../../_images/subgraph3.png" src="../../_images/subgraph3.png" />
+<img alt="../../_images/subgraph4.png" src="../../_images/subgraph4.png" />
 <div class="proof definition admonition" id="definition-2">
 <p class="admonition-title"><span class="caption-number">Definition 23 </span> (Induced Subgraphs)</p>
 <section class="definition-content" id="proof-content">
 <p>Let <span class="math notranslate nohighlight">\(G=(V,E)\)</span> and <span class="math notranslate nohighlight">\(W\subseteq V\)</span>. The graph <span class="math notranslate nohighlight">\(G(W)=(W,E(W))\)</span> where <span class="math notranslate nohighlight">\(E(W)=\{\{u,v\}|u,v\in W\}\)</span> is an <em>induced</em> subgraph.</p>
 </section>
-</div><div class="proof definition admonition" id="definition-3">
+</div><img alt="../../_images/subgraph5.png" src="../../_images/subgraph5.png" />
+<img alt="../../_images/subgraph6.png" src="../../_images/subgraph6.png" />
+<img alt="../../_images/subgraph7.png" src="../../_images/subgraph7.png" />
+<img alt="../../_images/subgraph8.png" src="../../_images/subgraph8.png" />
+<div class="proof definition admonition" id="definition-3">
 <p class="admonition-title"><span class="caption-number">Definition 24 </span> (Cliques &amp; Independent Sets)</p>
 <section class="definition-content" id="proof-content">
 <p>A <em>clique</em> is an induced subgraph that is a complete graph. We call the maximum size of a clique in <span class="math notranslate nohighlight">\(G\)</span> the <em>clique number of G</em> and it is denoted <span class="math notranslate nohighlight">\(\omega(G)\)</span>.</p>
@@ -410,10 +430,27 @@
 <section class="definition-content" id="proof-content">
 <p>Let <span class="math notranslate nohighlight">\(G=(V,E)\)</span> be a simple graph. The <em>complement</em> of <span class="math notranslate nohighlight">\(G\)</span> is the graph <span class="math notranslate nohighlight">\(G^C=(V,E^C)\)</span> where <span class="math notranslate nohighlight">\(E^C=\{\{u,v\}|u\neq v \text{ and } \{u,v\}\notin E\}\)</span>.</p>
 </section>
-</div></section>
+</div><p>For example, if we have the following graph <span class="math notranslate nohighlight">\(G\)</span>,</p>
+<img alt="../../_images/subgraph13.png" src="../../_images/subgraph13.png" />
+<p>then <span class="math notranslate nohighlight">\(G^C\)</span> is the graph below.</p>
+<img alt="../../_images/subgraph14.png" src="../../_images/subgraph14.png" />
+<p>Another example graph:</p>
+<img alt="../../_images/subgraph9.png" src="../../_images/subgraph9.png" />
+<p>And its complement:</p>
+<img alt="../../_images/subgraph11.png" src="../../_images/subgraph11.png" />
+<p>Note a
+<img alt="../../_images/subgraph10.png" src="../../_images/subgraph10.png" />
+<img alt="../../_images/subgraph12.png" src="../../_images/subgraph12.png" /></p>
+</section>
 <section id="coloring">
 <h2>Coloring<a class="headerlink" href="#coloring" title="Link to this heading">#</a></h2>
 <p>Recall the committee problem from the first week of classes: <span class="xref std std-ref">committeeexample</span>. What we wanted was to color the complete graph such that no edge had two of the same colored vertex. This is what we will define as <em>vertex coloring</em>.</p>
+<figure class="align-default" id="id1">
+<img alt="../../_images/w1d2warm5.png" src="../../_images/w1d2warm5.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 14 </span><span class="caption-text">The committee example from the first week.</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
 <div class="proof definition admonition" id="definition-7">
 <p class="admonition-title"><span class="caption-number">Definition 26 </span> (<span class="math notranslate nohighlight">\(k\)</span>-Vertex Coloring)</p>
 <section class="definition-content" id="proof-content">
@@ -425,7 +462,15 @@
 <section class="definition-content" id="proof-content">
 <p>A graph <span class="math notranslate nohighlight">\(G\)</span> is <em>k-colorable</em> if there exists a <span class="math notranslate nohighlight">\(k\)</span>-coloring of <span class="math notranslate nohighlight">\(G\)</span>. The <em>chromatic number of G</em> is the minimum <span class="math notranslate nohighlight">\(k\)</span> such that <span class="math notranslate nohighlight">\(G\)</span> is <span class="math notranslate nohighlight">\(k\)</span>-colorable. We denote the chromatic number of <span class="math notranslate nohighlight">\(G\)</span> as <span class="math notranslate nohighlight">\(\chi(G)\)</span>.</p>
 </section>
-</div><div class="proof question admonition" id="question-9">
+</div><p>For example, we consider the following graph.</p>
+<img alt="../../_images/coloring1.png" src="../../_images/coloring1.png" />
+<p>We can color each vertex its own color:</p>
+<img alt="../../_images/coloring2.png" src="../../_images/coloring2.png" />
+<p>Since no edge contains two vertices with the same color and we used 3 colors to do so, this graph is 3-colorable.</p>
+<p>However, we could have used just 2 colors if we like:</p>
+<img alt="../../_images/coloring3.png" src="../../_images/coloring3.png" />
+<p>This is also a valid coloring and it uses the minimum number of colors! This means that the chromatic number of the graph is 2.</p>
+<div class="proof question admonition" id="question-9">
 <p class="admonition-title"><span class="caption-number">Question 7 </span> (To Ponder)</p>
 <section class="question-content" id="proof-content">
 <p>What is <span class="math notranslate nohighlight">\(\chi(K_n)\)</span>?  <span class="math notranslate nohighlight">\(\chi(K_n^C)\)</span>?  <span class="math notranslate nohighlight">\(\chi(P_n)\)</span>?</p>
