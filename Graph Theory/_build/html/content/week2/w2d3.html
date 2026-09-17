@@ -27,8 +27,8 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
@@ -40,10 +40,10 @@
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- So that users can add custom icons -->
-  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
 
     <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
@@ -64,6 +64,7 @@
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'content/week2/w2d3';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Lecture 6: Subgraphs &amp; Colorings" href="../week3/w3d1.html" />
@@ -71,20 +72,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
   </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
-
+  <body data-default-mode="">
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-
+  
+  
+  
   
   <dialog id="pst-search-dialog">
     
@@ -110,7 +117,51 @@
 </div>
 
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
     </header>
   
 
@@ -324,7 +375,7 @@
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#warmup">Warmup</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paths-trails-walks">Paths, Trails, &amp; Walks</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-about-in-digraphs">What about in digraphs?</a></li>
@@ -343,14 +394,7 @@
 <h1>Lecture 5: Trails &amp; Walks<a class="headerlink" href="#lecture-5-trails-walks" title="Link to this heading">#</a></h1>
 <section id="warmup">
 <h2>Warmup<a class="headerlink" href="#warmup" title="Link to this heading">#</a></h2>
-<div class="proof question admonition" id="question-0">
-<p class="admonition-title"><span class="caption-number">Question 5 </span></p>
-<section class="question-content" id="proof-content">
-<p>Given a graph <span class="math notranslate nohighlight">\(G=(V,E)\)</span>, devise some methods of finding the shortest path in <span class="math notranslate nohighlight">\(G\)</span> between vertices <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(v\)</span> in the graph. For example, how would you find the shortest path between <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(D\)</span> in the following graph?</p>
-<a class="reference internal image-reference" href="../../_images/pathexample.png"><img alt="../../_images/pathexample.png" class="align-center" src="../../_images/pathexample.png" style="height: 240px;" />
-</a>
-</section>
-</div><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 <span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
 <p class="sd-card-text">This is more of a question for you to reflect on your own intuition. You may have heard of some path finding algorithms already: BFS, DFS, Dijkstra’s, A*. But, a really naive, straightforward way might be:</p>
@@ -363,12 +407,12 @@
 <section id="paths-trails-walks">
 <h2>Paths, Trails, &amp; Walks<a class="headerlink" href="#paths-trails-walks" title="Link to this heading">#</a></h2>
 <p>Recall our definitions of <span class="math notranslate nohighlight">\(uv\)</span>-paths, trails, and walks. We add a new adjective to these.</p>
-<div class="proof definition admonition" id="definition-1">
+<div class="proof definition admonition" id="definition-0">
 <p class="admonition-title"><span class="caption-number">Definition 18 </span> (Open vs. Closed)</p>
 <section class="definition-content" id="proof-content">
 <p>With regard to <span class="math notranslate nohighlight">\(uv\)</span>-paths, trails, and walks, if the starting and ending vertex are the same (<span class="math notranslate nohighlight">\(u=v\)</span>), we say it is <em>closed</em>. If the starting and ending vertex are different (<span class="math notranslate nohighlight">\(u\neq v\)</span>), it is <em>open</em>.</p>
 </section>
-</div><div class="proof definition admonition" id="definition-2">
+</div><div class="proof definition admonition" id="definition-1">
 <p class="admonition-title"><span class="caption-number">Definition 19 </span> (Cycle vs. Circuit)</p>
 <section class="definition-content" id="proof-content">
 <p>A <em>circuit</em> is a closed <span class="math notranslate nohighlight">\(uv\)</span> trail. A <em>cycle</em> is a closed <span class="math notranslate nohighlight">\(uv\)</span> path.</p>
@@ -406,7 +450,7 @@
 </a>
 <p>Either this new route is a path or we’ve violated the assumptions we’ve made.</p>
 <p>A nice corollary to this theorem relates to connectedness:</p>
-<div class="proof corollary admonition" id="corollary-4">
+<div class="proof corollary admonition" id="corollary-3">
 <p class="admonition-title"><span class="caption-number">Corollary 2 </span></p>
 <section class="corollary-content" id="proof-content">
 <p>If there exists an open <span class="math notranslate nohighlight">\(uv\)</span>-walk from every pair of vertices in a graph <span class="math notranslate nohighlight">\(G\)</span>, <span class="math notranslate nohighlight">\(G\)</span> is connected.</p>
@@ -418,7 +462,7 @@
 <section id="what-about-in-digraphs">
 <h2>What about in digraphs?<a class="headerlink" href="#what-about-in-digraphs" title="Link to this heading">#</a></h2>
 <p>These ideas of connectedness also extend to digraphs with some tweaking.</p>
-<div class="proof definition admonition" id="definition-5">
+<div class="proof definition admonition" id="definition-4">
 <p class="admonition-title"><span class="caption-number">Definition 20 </span> (Directed Paths, Trails, &amp; Walks)</p>
 <section class="definition-content" id="proof-content">
 <p>A <em>directed path</em> is a sequence of arcs <span class="math notranslate nohighlight">\(\mathcal{P}=((v_1,v_2), (v_2,v_3), \dots, (v_{m-1},v_m))\)</span> containing a sequence of distinct nodes <span class="math notranslate nohighlight">\(\mathcal{V}_{\mathcal{P}}=(v_1, v_2, \dots, v_m)\)</span> such that each node <span class="math notranslate nohighlight">\(v_i\in \mathcal{V}_{\mathcal{P}}\)</span> in at most two arcs of <span class="math notranslate nohighlight">\(P\)</span>. We call <span class="math notranslate nohighlight">\(v_1\in \mathcal{V}_{\mathcal{P}}\)</span> the starting node and <span class="math notranslate nohighlight">\(v_m\in \mathcal{V}_{\mathcal{P}}\)</span> the ending node.</p>
@@ -428,7 +472,7 @@
 <p><em>Open</em> and <em>closed</em> mean the same as before: <span class="math notranslate nohighlight">\(u\neq v\)</span> for the former and <span class="math notranslate nohighlight">\(u=v\)</span> for the latter.</p>
 </section>
 </div><p>While these definitions extend nicely, connectedness in digraph is broadly defined in two categories: <em>weak</em> connectivity and <em>strong</em> connectivity.</p>
-<div class="proof definition admonition" id="definition-6">
+<div class="proof definition admonition" id="definition-5">
 <p class="admonition-title"><span class="caption-number">Definition 21 </span> (Weak vs. Strong Connectedness)</p>
 <section class="definition-content" id="proof-content">
 <p>A digraph is <em>strongly connected</em> if for every pair of distinct nodes <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(v\)</span>, there is a <span class="math notranslate nohighlight">\(uv\)</span>-directed path and a <span class="math notranslate nohighlight">\(vu\)</span>-directed path.</p>
@@ -509,7 +553,7 @@
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="visible nav section-nav flex-column">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#warmup">Warmup</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paths-trails-walks">Paths, Trails, &amp; Walks</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-about-in-digraphs">What about in digraphs?</a></li>
@@ -554,8 +598,8 @@ By Garrett Kepler
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
 
   <footer class="bd-footer">
   </footer>
