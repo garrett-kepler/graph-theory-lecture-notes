@@ -343,7 +343,7 @@
 <section id="warmup">
 <h2>Warmup<a class="headerlink" href="#warmup" title="Link to this heading">#</a></h2>
 <div class="proof question admonition" id="question-0">
-<p class="admonition-title"><span class="caption-number">Question 8 </span></p>
+<p class="admonition-title"><span class="caption-number">Question 9 </span></p>
 <section class="question-content" id="proof-content">
 <p>We want to avoid radio interference in a given region. If 2 transmitters are within 10 miles of each other, we will ensure they use different frequencies. To do so, we will form a graph, <span class="math notranslate nohighlight">\(G\)</span>, with vertices as transmitters and edges will exist only between vertices whose transmitters are within 10 miles of each other.</p>
 <p>How many frequencies are required for a given region (in terms of <span class="math notranslate nohighlight">\(G\)</span>)?</p>
@@ -355,15 +355,21 @@
 </div>
 </details><p>Recall that a graph is <em>k-colorable</em> if we can assign vertices one of <span class="math notranslate nohighlight">\(k\)</span> colors such that no edge has 2 with vertices with the same color.</p>
 <div class="proof question admonition" id="question-1">
-<p class="admonition-title"><span class="caption-number">Question 9 </span></p>
+<p class="admonition-title"><span class="caption-number">Question 10 </span></p>
 <section class="question-content" id="proof-content">
 <p>Is the following graph 2-colorable? How do you know?</p>
+<a class="reference internal image-reference" href="../../_images/colorablegraph.png"><img alt="../../_images/colorablegraph.png" class="align-center" src="../../_images/colorablegraph.png" style="height: 200px;" />
+</a>
 </section>
 </div><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 <span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">It is! Try 2-coloring it.</p>
-<p class="sd-card-text">The way Garrett chose this graph is by tne fun result we’ll prove later: “A graph is 2-colorable if and only if it has no odd-cycles”. You can verify this graph has no odd-cycles (and so it is 2-colorable).</p>
+<p class="sd-card-text">It is! Try 2-coloring it. Here’s a 2-coloring using red and blue:</p>
+<a class="reference internal image-reference" href="../../_images/colorablegraph2.png"><img alt="../../_images/colorablegraph2.png" class="align-center" src="../../_images/colorablegraph2.png" style="height: 200px;" />
+</a>
+<p class="sd-card-text">But, what you might do is think about how you tried 2-coloring the graph. You likely did not have every color all at once for every vertex. Rather, you assigned one vertex a color. Then, you likely looked at the vertices that share an edge with the vertex and assigned them the opposite color. Then, you likely repeated the process on these new vertices.</p>
+<p class="sd-card-text">This is an <em>algorithmic</em> way of thinking about the graph coloring problem. This is a great example of what we will be covering in the “Graph Algorithm” section of the class.</p>
+<p class="sd-card-text">For the curious, the way Garrett chose this graph is by the fun result we’ll prove later: “A graph is 2-colorable if and only if it has no odd-cycles”. You can verify this graph has no odd-cycles (and so it is 2-colorable).</p>
 </div>
 </details></section>
 <section id="pigeonhole-principle">
@@ -376,14 +382,26 @@
 </div><div class="proof admonition" id="proof">
 <p>Proof. Consider the first <span class="math notranslate nohighlight">\(n\)</span> pigeons. Each is placed. If there is already 2 pigeons in 1 pigeonhole, the proof is done. So, assume there is not yet 2 pigeons in 1 pigeonhole. Since there are only <span class="math notranslate nohighlight">\(n\)</span> pigeonholes, each of the <span class="math notranslate nohighlight">\(n\)</span> pigeons has its own and there is no pigeonhole left empty. The <span class="math notranslate nohighlight">\(n+1\)</span>-st pigeon will have to placed into one of them. So, there will be 2 in one pigeonhole.</p>
 </div>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="../../_images/pigeon.png"><img alt="../../_images/pigeon.png" src="../../_images/pigeon.png" style="height: 240px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 15 </span><span class="caption-text">Too many pigeons, not enough places to put them.</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
 <p>In the following version of the pigeonhole principle, we use <span class="math notranslate nohighlight">\(\lfloor x\rfloor\)</span> to mean the greatest integer less than <span class="math notranslate nohighlight">\(x\)</span> (rounding down). For example, <span class="math notranslate nohighlight">\(\lfloor 2.5 \rfloor = 2\)</span> and <span class="math notranslate nohighlight">\(\lfloor \pi \rfloor = 3\)</span>. We will exclude the proof of the following since the argument is so similar to above.</p>
 <div class="proof theorem admonition" id="theorem-3">
 <p class="admonition-title"><span class="caption-number">Theorem 9 </span> (Another Pigeonhole Principle)</p>
 <section class="theorem-content" id="proof-content">
 <p>If <span class="math notranslate nohighlight">\(m\)</span> pigeons are placed in <span class="math notranslate nohighlight">\(n\)</span> pigeonholes, at least 1 pigeonhole has <span class="math notranslate nohighlight">\(\lfloor \frac{m-1}{n}\rfloor\)</span> pigeons.</p>
 </section>
-</div><div class="proof question admonition" id="question-4">
-<p class="admonition-title"><span class="caption-number">Question 10 </span> (To Ponder)</p>
+</div><p>2 great examples of these in action:</p>
+<ul class="simple">
+<li><p>Show that at least 2 people in our class share a birth-week.</p></li>
+<li><p>Show that at least 6 people in our class share a birth-month.</p></li>
+</ul>
+<div class="proof question admonition" id="question-4">
+<p class="admonition-title"><span class="caption-number">Question 11 </span> (To Ponder)</p>
 <section class="question-content" id="proof-content">
 <p>Show that for a graph <span class="math notranslate nohighlight">\(G\)</span> on <span class="math notranslate nohighlight">\(n\)</span> vertices and <span class="math notranslate nohighlight">\(\binom{n}{2}+1\)</span> edges, the graph <span class="math notranslate nohighlight">\(G\)</span> is not simple. (You can use P.H.P.)</p>
 </section>
@@ -406,7 +424,7 @@
 <p>Let <span class="math notranslate nohighlight">\(G=(V,E)\)</span> be a graph. Then, <span class="math notranslate nohighlight">\(\alpha(G)\geq \frac{|V|}{\chi(G)}\)</span>.</p>
 </section>
 </div><div class="proof admonition" id="proof">
-<p>Proof. Let us consider a <span class="math notranslate nohighlight">\(\chi(G)\)</span>-coloring. Since we have a coloring, all the vertices of a single color form an independent set. That is, for each color <span class="math notranslate nohighlight">\(i=1,2,\dots, \chi(G)\)</span>, it must be the case that no edge has two vertices of the color <span class="math notranslate nohighlight">\(i\)</span>. Since there are <span class="math notranslate nohighlight">\(|V|\)</span> vertices in the graph, the average size of these color-based independent sets is <span class="math notranslate nohighlight">\(\frac{|V|}{\chi(G)}\)</span>. By P.H.P., there must be an independent set at least as big as <span class="math notranslate nohighlight">\(\frac{|V|}{\chi(G)}\)</span>. So, the maximum of the independent set sizes, <span class="math notranslate nohighlight">\(\alpha(G)\)</span>, has to be at least as big as <span class="math notranslate nohighlight">\(\frac{|V|}{\chi(G)}\)</span> (<span class="math notranslate nohighlight">\(\alpha(G)\geq \frac{|V|}{\chi(G)}\)</span>).</p>
+<p>Proof. Let us consider a <span class="math notranslate nohighlight">\(\chi(G)\)</span>-coloring. Since we have a coloring, all the vertices of a single color form an independent set. That is, for each color <span class="math notranslate nohighlight">\(i=1,2,\dots, \chi(G)\)</span>, it must be the case that no edge has two vertices of the color <span class="math notranslate nohighlight">\(i\)</span>. Since there are <span class="math notranslate nohighlight">\(|V|\)</span> vertices in the graph, the average size of these color-based independent sets is <span class="math notranslate nohighlight">\(\frac{|V|}{\chi(G)}\)</span>. By P.H.P., there must be an independent set at least as big as <span class="math notranslate nohighlight">\(\frac{|V|}{\chi(G)}\)</span>. So, the maximum of the independent set sizes, <span class="math notranslate nohighlight">\(\alpha(G)\)</span>, has to be at least as big as <span class="math notranslate nohighlight">\(\frac{|V|}{\chi(G)}\)</span> \left(<span class="math notranslate nohighlight">\(\alpha(G)\geq \frac{|V|}{\chi(G)}\)</span>\right).</p>
 </div>
 </section>
 </section>
