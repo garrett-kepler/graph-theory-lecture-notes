@@ -27,8 +27,8 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
@@ -40,10 +40,10 @@
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- So that users can add custom icons -->
-  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
@@ -64,33 +64,26 @@
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'content/week3/w3d2';</script>
-    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="prev" title="Lecture 6: Subgraphs &amp; Colorings" href="w3d1.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
-  
-    
-    <script src="../../_static/searchtools.js"></script>
-    <script src="../../_static/language_data.js"></script>
-    <script src="../../searchindex.js"></script>
-  
   </head>
-  <body data-default-mode="">
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
-
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-  
-  
-  
+
   
   <dialog id="pst-search-dialog">
     
@@ -116,51 +109,7 @@
 </div>
 
   
-    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
-<div class="bd-header__inner bd-page-width">
-  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
-    <span class="fa-solid fa-bars"></span>
-  </button>
-  
-  
-  <div class="col-lg-9 navbar-header-items">
-    
-    
-    <div class="navbar-header-items__end">
-      
-        <div class="navbar-item navbar-persistent--container">
-          
-
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button>
-        </div>
-      
-      
-    </div>
-    
-  </div>
-  
-  
-    <div class="navbar-persistent--mobile">
-
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button>
-    </div>
-  
-
-  
-    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
-      <span class="fa-solid fa-outdent"></span>
-    </button>
-  
-</div>
-
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
     </header>
   
 
@@ -374,7 +323,7 @@
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="pst-show_toc_level nav section-nav flex-column">
+                <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#warmup">Warmup</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pigeonhole-principle">Pigeonhole Principle</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applying-pigeonhole-principle">Applying Pigeonhole Principle</a></li>
@@ -393,13 +342,26 @@
 <h1>Lecture 7: Pigeonhole Principle &amp; Its Applications<a class="headerlink" href="#lecture-7-pigeonhole-principle-its-applications" title="Link to this heading">#</a></h1>
 <section id="warmup">
 <h2>Warmup<a class="headerlink" href="#warmup" title="Link to this heading">#</a></h2>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<div class="proof question admonition" id="question-0">
+<p class="admonition-title"><span class="caption-number">Question 9 </span></p>
+<section class="question-content" id="proof-content">
+<p>We want to avoid radio interference in a given region. If 2 transmitters are within 10 miles of each other, we will ensure they use different frequencies. To do so, we will form a graph, <span class="math notranslate nohighlight">\(G\)</span>, with vertices as transmitters and edges will exist only between vertices whose transmitters are within 10 miles of each other.</p>
+<p>How many frequencies are required for a given region (in terms of <span class="math notranslate nohighlight">\(G\)</span>)?</p>
+</section>
+</div><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 <span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
 <p class="sd-card-text">A potential answer is <span class="math notranslate nohighlight">\(\chi(G)\)</span>. We can use graph coloring!</p>
 </div>
 </details><p>Recall that a graph is <em>k-colorable</em> if we can assign vertices one of <span class="math notranslate nohighlight">\(k\)</span> colors such that no edge has 2 with vertices with the same color.</p>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<div class="proof question admonition" id="question-1">
+<p class="admonition-title"><span class="caption-number">Question 10 </span></p>
+<section class="question-content" id="proof-content">
+<p>Is the following graph 2-colorable? How do you know?</p>
+<a class="reference internal image-reference" href="../../_images/colorablegraph.png"><img alt="../../_images/colorablegraph.png" class="align-center" src="../../_images/colorablegraph.png" style="height: 200px;" />
+</a>
+</section>
+</div><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 <span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
 <p class="sd-card-text">It is! Try 2-coloring it. Here’s a 2-coloring using red and blue:</p>
@@ -412,7 +374,7 @@
 </details></section>
 <section id="pigeonhole-principle">
 <h2>Pigeonhole Principle<a class="headerlink" href="#pigeonhole-principle" title="Link to this heading">#</a></h2>
-<div class="proof theorem admonition" id="theorem-0">
+<div class="proof theorem admonition" id="theorem-2">
 <p class="admonition-title"><span class="caption-number">Theorem 8 </span> (Pigeonhole Principle (P.H.P.))</p>
 <section class="theorem-content" id="proof-content">
 <p>If <span class="math notranslate nohighlight">\(n+1\)</span> pigeons are placed in <span class="math notranslate nohighlight">\(n\)</span> pigeonholes, there is at least 1 pigeonhole with at least 2 pigeons.</p>
@@ -428,7 +390,7 @@
 </figcaption>
 </figure>
 <p>In the following version of the pigeonhole principle, we use <span class="math notranslate nohighlight">\(\lfloor x\rfloor\)</span> to mean the greatest integer less than <span class="math notranslate nohighlight">\(x\)</span> (rounding down). For example, <span class="math notranslate nohighlight">\(\lfloor 2.5 \rfloor = 2\)</span> and <span class="math notranslate nohighlight">\(\lfloor \pi \rfloor = 3\)</span>. We will exclude the proof of the following since the argument is so similar to above.</p>
-<div class="proof theorem admonition" id="theorem-1">
+<div class="proof theorem admonition" id="theorem-3">
 <p class="admonition-title"><span class="caption-number">Theorem 9 </span> (Another Pigeonhole Principle)</p>
 <section class="theorem-content" id="proof-content">
 <p>If <span class="math notranslate nohighlight">\(m\)</span> pigeons are placed in <span class="math notranslate nohighlight">\(n\)</span> pigeonholes, at least 1 pigeonhole has <span class="math notranslate nohighlight">\(\lfloor \frac{m-1}{n}\rfloor\)</span> pigeons.</p>
@@ -438,10 +400,15 @@
 <li><p>Show that at least 2 people in our class share a birth-week.</p></li>
 <li><p>Show that at least 6 people in our class share a birth-month.</p></li>
 </ul>
+<div class="proof question admonition" id="question-4">
+<p class="admonition-title"><span class="caption-number">Question 11 </span> (To Ponder)</p>
+<section class="question-content" id="proof-content">
+<p>Show that for a graph <span class="math notranslate nohighlight">\(G\)</span> on <span class="math notranslate nohighlight">\(n\)</span> vertices and <span class="math notranslate nohighlight">\(\binom{n}{2}+1\)</span> edges, the graph <span class="math notranslate nohighlight">\(G\)</span> is not simple. (You can use P.H.P.)</p>
 </section>
+</div></section>
 <section id="applying-pigeonhole-principle">
 <h2>Applying Pigeonhole Principle<a class="headerlink" href="#applying-pigeonhole-principle" title="Link to this heading">#</a></h2>
-<div class="proof theorem admonition" id="theorem-2">
+<div class="proof theorem admonition" id="theorem-5">
 <p class="admonition-title"><span class="caption-number">Theorem 10 </span></p>
 <section class="theorem-content" id="proof-content">
 <p>For a graph <span class="math notranslate nohighlight">\(G\)</span>, <span class="math notranslate nohighlight">\(\chi(G)\geq \omega(G)\)</span>.</p>
@@ -451,13 +418,13 @@
 <p>Note that for a clique, every vertex is connected to every other vertex. So, if two pigeons are in one pigeonhole, the edge that the vertices share will have two of the same color. This is not a valid coloring.</p>
 <p>Assume <span class="math notranslate nohighlight">\(\chi(G)&lt;\omega(G)\)</span>. By P.H.P., there must be two vertices assigned the same color. This is not a valid coloring. So, it must be the case that <span class="math notranslate nohighlight">\(\chi(G)\geq \omega(G)\)</span>.</p>
 </div>
-<div class="proof theorem admonition" id="theorem-3">
+<div class="proof theorem admonition" id="theorem-6">
 <p class="admonition-title"><span class="caption-number">Theorem 11 </span></p>
 <section class="theorem-content" id="proof-content">
 <p>Let <span class="math notranslate nohighlight">\(G=(V,E)\)</span> be a graph. Then, <span class="math notranslate nohighlight">\(\alpha(G)\geq \frac{|V|}{\chi(G)}\)</span>.</p>
 </section>
 </div><div class="proof admonition" id="proof">
-<p>Proof. Let us consider a <span class="math notranslate nohighlight">\(\chi(G)\)</span>-coloring. Since we have a coloring, all the vertices of a single color form an independent set. That is, for each color <span class="math notranslate nohighlight">\(i=1,2,\dots, \chi(G)\)</span>, it must be the case that no edge has two vertices of the color <span class="math notranslate nohighlight">\(i\)</span>. Since there are <span class="math notranslate nohighlight">\(|V|\)</span> vertices in the graph, the average size of these color-based independent sets is <span class="math notranslate nohighlight">\(\frac{|V|}{\chi(G)}\)</span>. By P.H.P., there must be an independent set at least as big as <span class="math notranslate nohighlight">\(\frac{|V|}{\chi(G)}\)</span>. So, the maximum of the independent set sizes, <span class="math notranslate nohighlight">\(\alpha(G)\)</span>, has to be at least as big as <span class="math notranslate nohighlight">\(\frac{|V|}{\chi(G)}\)</span> (<span class="math notranslate nohighlight">\(\alpha(G)\geq \frac{|V|}{\chi(G)}\)</span>).</p>
+<p>Proof. Let us consider a <span class="math notranslate nohighlight">\(\chi(G)\)</span>-coloring. Since we have a coloring, all the vertices of a single color form an independent set. That is, for each color <span class="math notranslate nohighlight">\(i=1,2,\dots, \chi(G)\)</span>, it must be the case that no edge has two vertices of the color <span class="math notranslate nohighlight">\(i\)</span>. Since there are <span class="math notranslate nohighlight">\(|V|\)</span> vertices in the graph, the average size of these color-based independent sets is <span class="math notranslate nohighlight">\(\frac{|V|}{\chi(G)}\)</span>. By P.H.P., there must be an independent set at least as big as <span class="math notranslate nohighlight">\(\frac{|V|}{\chi(G)}\)</span>. So, the maximum of the independent set sizes, <span class="math notranslate nohighlight">\(\alpha(G)\)</span>, has to be at least as big as <span class="math notranslate nohighlight">\(\frac{|V|}{\chi(G)}\)</span> <span class="math notranslate nohighlight">\(\left(\alpha(G)\geq \frac{|V|}{\chi(G)}\right)\)</span>.</p>
 </div>
 </section>
 </section>
@@ -518,7 +485,7 @@
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="pst-show_toc_level nav section-nav flex-column">
+    <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#warmup">Warmup</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pigeonhole-principle">Pigeonhole Principle</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applying-pigeonhole-principle">Applying Pigeonhole Principle</a></li>
@@ -563,8 +530,8 @@ By Garrett Kepler
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
-<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>
