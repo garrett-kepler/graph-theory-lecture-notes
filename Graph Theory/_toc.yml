@@ -15,3 +15,11 @@ parts:
     chapters:
     - file: content/week3/w3d1.md
     - file: content/week3/w3d2.md
+  - caption: Week 4--Connectivity
+    chapters:
+    - file: content/week4/w4d1.md
+    - file: content/week4/w4d2.md
+    - file: content/week4/w4d3.md
+  - caption: Week 5--Trees
+    chapters:
+    - file: content/week5/w5d1.md
