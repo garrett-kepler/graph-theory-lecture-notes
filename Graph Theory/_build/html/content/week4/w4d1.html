@@ -406,6 +406,42 @@
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 <span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<ol class="arabic simple">
+<li><p class="sd-card-text">Let us consider <span class="math notranslate nohighlight">\(G_1\)</span>:</p></li>
+</ol>
+<a class="reference internal image-reference" href="../../_images/w4d1.6.png"><img alt="../../_images/w4d1.6.png" class="align-center" src="../../_images/w4d1.6.png" style="height: 240px;" />
+</a>
+<p class="sd-card-text">We can split this graph into two pieces in many different ways. For example, consider removing cutting the edges between <span class="math notranslate nohighlight">\(C\)</span> with <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>:</p>
+<a class="reference internal image-reference" href="../../_images/w4d1.2.png"><img alt="../../_images/w4d1.2.png" class="align-center" src="../../_images/w4d1.2.png" style="height: 240px;" />
+</a>
+<p class="sd-card-text">Indeed, if we remove these edges, there will be two disconnected pieces: <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> then <span class="math notranslate nohighlight">\(C,D,E,\)</span> and <span class="math notranslate nohighlight">\(F\)</span>. But, we can actually use <em>less</em> effort with our edge-cutting scissors by cutting the middle edge:</p>
+<a class="reference internal image-reference" href="../../_images/w4d1.3.png"><img alt="../../_images/w4d1.3.png" class="align-center" src="../../_images/w4d1.3.png" style="height: 240px;" />
+</a>
+<p class="sd-card-text">Notice that we have two disconnected pieces by removing just one edge! Compare this then with <span class="math notranslate nohighlight">\(G_2\)</span>:</p>
+<a class="reference internal image-reference" href="../../_images/w4d1.extra.png"><img alt="../../_images/w4d1.extra.png" class="align-center" src="../../_images/w4d1.extra.png" style="height: 240px;" />
+</a>
+<p class="sd-card-text">Clearly, removing one edge will not be enough to disconnect this graph. With some trial and error/guess and check you might find that the least amount of edges you can remove is 5. For example, if I remove any egde with <span class="math notranslate nohighlight">\(A\)</span> in it, I end up disconnecting the graph:</p>
+<a class="reference internal image-reference" href="../../_images/w4d1.4.png"><img alt="../../_images/w4d1.4.png" class="align-center" src="../../_images/w4d1.4.png" style="height: 240px;" />
+</a>
+<p class="sd-card-text">In some sense, it is <em>easier</em> to disconnect <span class="math notranslate nohighlight">\(G_1\)</span> than <span class="math notranslate nohighlight">\(G_2\)</span>. Is <span class="math notranslate nohighlight">\(G_1\)</span> some how <em>less</em> connected than <span class="math notranslate nohighlight">\(G_2\)</span>?</p>
+<ol class="arabic simple" start="2">
+<li><p class="sd-card-text">Consider <span class="math notranslate nohighlight">\(G_1\)</span> again.</p></li>
+</ol>
+<a class="reference internal image-reference" href="../../_images/w4d1.extra2.png"><img alt="../../_images/w4d1.extra2.png" class="align-center" src="../../_images/w4d1.extra2.png" style="height: 240px;" />
+</a>
+<p class="sd-card-text">Note that any path you would take from <span class="math notranslate nohighlight">\(A\)</span> to <span class="math notranslate nohighlight">\(F\)</span>, you must traverse the edge between <span class="math notranslate nohighlight">\(C\)</span> and <span class="math notranslate nohighlight">\(D\)</span>. For example, take the path</p>
+<a class="reference internal image-reference" href="../../_images/w4d1.path1.png"><img alt="../../_images/w4d1.path1.png" class="align-center" src="../../_images/w4d1.path1.png" style="height: 240px;" />
+</a>
+<p class="sd-card-text">or maybe the path</p>
+<a class="reference internal image-reference" href="../../_images/w4d1.path2.png"><img alt="../../_images/w4d1.path2.png" class="align-center" src="../../_images/w4d1.path2.png" style="height: 240px;" />
+</a>
+<p class="sd-card-text">No matter what, the edge <span class="math notranslate nohighlight">\(\{C, D\}\)</span> is present! Now, consider <span class="math notranslate nohighlight">\(G_2\)</span>:</p>
+<a class="reference internal image-reference" href="../../_images/w4d1.extra.png"><img alt="../../_images/w4d1.extra.png" class="align-center" src="../../_images/w4d1.extra.png" style="height: 240px;" />
+</a>
+<p class="sd-card-text">Taking a path from <span class="math notranslate nohighlight">\(A\)</span> to <span class="math notranslate nohighlight">\(F\)</span> definitely does <u>not</u> pass through one edge every time. In some sense, <span class="math notranslate nohighlight">\(G_1\)</span> is more bottlenecked than <span class="math notranslate nohighlight">\(G_2\)</span>. Is <span class="math notranslate nohighlight">\(G_1\)</span> somehow <em>less</em> connected than <span class="math notranslate nohighlight">\(G_2\)</span>?</p>
+<ol class="arabic simple" start="3">
+<li><p class="sd-card-text">Secret question 3 is what is the difference between small edge-cuts and bottlenecking? What we will prove later is Menger’s Theorem and the Min-Max Theorem which answers this question: they are essentially the same thing.</p></li>
+</ol>
 </div>
 </details></section>
 <section id="connectivity">
@@ -415,14 +451,23 @@
 <section class="definition-content" id="proof-content">
 <p>The <em>edge-connectivity</em> of a graph <span class="math notranslate nohighlight">\(G\)</span>, <span class="math notranslate nohighlight">\(\epsilon(G)\)</span>, is the minimum number of edges we need to remove to disconnect the graph. Equivalently, if <span class="math notranslate nohighlight">\(G=(V,E)\)</span> is a graph, then <span class="math notranslate nohighlight">\(\epsilon(G)\)</span> is the size of smallest set <span class="math notranslate nohighlight">\(F\subseteq E\)</span> such that <span class="math notranslate nohighlight">\(G-E\)</span> is disconnected.</p>
 </section>
-</div><p><u>Remarks</u>:</p>
+</div><p>For example, from our warmup problem, <span class="math notranslate nohighlight">\(G_1\)</span> has <span class="math notranslate nohighlight">\(\epsilon(G)=1\)</span> since removing <span class="math notranslate nohighlight">\(\{C,D\}\)</span> disconnected the graph.</p>
+<p><u>Remarks</u>:</p>
 <ol class="arabic simple">
 <li><p>If <span class="math notranslate nohighlight">\(\epsilon(G)=0\)</span>, then <span class="math notranslate nohighlight">\(G\)</span> is disconnected.</p></li>
 <li><p>If <span class="math notranslate nohighlight">\(\epsilon(G)&gt;0\)</span>, then <span class="math notranslate nohighlight">\(G\)</span> is connected.</p></li>
 <li><p>By convention, <span class="math notranslate nohighlight">\(\epsilon(K_1)=0\)</span> (i.e. the graph with one vertex and no edges is disconnected).</p></li>
 <li><p>If <span class="math notranslate nohighlight">\(\epsilon(G)=1\)</span>, the removing some edge will disconnect the graph.</p></li>
 </ol>
-<div class="proof theorem admonition" id="theorem-1">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Here is an example:</p>
+<a class="reference internal image-reference" href="../../_images/w4d1.5.png"><img alt="../../_images/w4d1.5.png" class="align-center" src="../../_images/w4d1.5.png" style="height: 240px;" />
+</a>
+<p class="sd-card-text">These types of objects are called <em>trees</em>. We will discuss them soon.</p>
+</div>
+</details><div class="proof theorem admonition" id="theorem-1">
 <p class="admonition-title"><span class="caption-number">Theorem 12 </span></p>
 <section class="theorem-content" id="proof-content">
 <p>For a graph <span class="math notranslate nohighlight">\(G\)</span>, <span class="math notranslate nohighlight">\(\delta(G)\geq \epsilon(G)\)</span>.</p>
@@ -435,7 +480,15 @@
 <section class="definition-content" id="proof-content">
 <p>An edge that disconnects a graph is called a <em>cut-edge</em> or <em>bridge</em>. Equivalently, <span class="math notranslate nohighlight">\(\{u,v\}\)</span> in some connected graph <span class="math notranslate nohighlight">\(G\)</span> is a cut-edge if <span class="math notranslate nohighlight">\(G-\{u,v\}\)</span> is a disconnected graph.</p>
 </section>
-</div><div class="proof theorem admonition" id="theorem-3">
+</div><p>For example, consider the graph</p>
+<a class="reference internal image-reference" href="../../_images/w4d1.6.png"><img alt="../../_images/w4d1.6.png" class="align-center" src="../../_images/w4d1.6.png" style="height: 240px;" />
+</a>
+<p>By removing either <span class="math notranslate nohighlight">\(\{C,D\}\)</span> or <span class="math notranslate nohighlight">\(\{D,E\}\)</span> or <span class="math notranslate nohighlight">\(\{E,F\}\)</span>, we disconnect the graph. These edges are called cut-edges.</p>
+<p>Consider what a graph with a cut-edge looks like. There is one edge that disconnects the graph into two pieces. Vaguely, they look something like</p>
+<a class="reference internal image-reference" href="../../_images/w4d1.7.png"><img alt="../../_images/w4d1.7.png" class="align-center" src="../../_images/w4d1.7.png" style="height: 240px;" />
+</a>
+<p>This intuition leads to the proof of the following theorem.</p>
+<div class="proof theorem admonition" id="theorem-3">
 <p class="admonition-title"><span class="caption-number">Theorem 13 </span></p>
 <section class="theorem-content" id="proof-content">
 <p>Let <span class="math notranslate nohighlight">\(G\)</span> be a connected graph. Let <span class="math notranslate nohighlight">\(\{u,v\}\)</span> be some cut-edge of <span class="math notranslate nohighlight">\(G\)</span>. Then, <span class="math notranslate nohighlight">\(P=(\{u,v\})\)</span> is the only path from <span class="math notranslate nohighlight">\(u\)</span> to <span class="math notranslate nohighlight">\(v\)</span>.</p>

@@ -406,6 +406,20 @@
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 <span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<ol class="arabic simple">
+<li><p class="sd-card-text">Again, intuitively, we have only one edge that we’ll remove to create a disconnected graph.</p></li>
+</ol>
+<a class="reference internal image-reference" href="../../_images/w4d1.7.png"><img alt="../../_images/w4d1.7.png" class="align-center" src="../../_images/w4d1.7.png" style="height: 240px;" />
+</a>
+<p class="sd-card-text">We’ll use this intuition to prove the result. One way to prove the result follows:</p>
+<p class="sd-card-text">“Let <span class="math notranslate nohighlight">\(G\)</span> be a connected graph. Assume <span class="math notranslate nohighlight">\(P=(\{u,v\})\)</span> is the only path from <span class="math notranslate nohighlight">\(u\)</span> to <span class="math notranslate nohighlight">\(v\)</span>. Consider removing <span class="math notranslate nohighlight">\(\{u,v\}\)</span> to obtain <span class="math notranslate nohighlight">\(G-\{u,v\}\)</span>. Since we have removed the only path from <span class="math notranslate nohighlight">\(u\)</span> to <span class="math notranslate nohighlight">\(v\)</span>, there is no path from <span class="math notranslate nohighlight">\(u\)</span> to <span class="math notranslate nohighlight">\(v\)</span> in <span class="math notranslate nohighlight">\(G-\{u,v\}\)</span>. So, <span class="math notranslate nohighlight">\(G-\{u,v\}\)</span> is disconnected. Therefore, <span class="math notranslate nohighlight">\(\{u,v\}\)</span> is a cut-edge.”</p>
+<p class="sd-card-text">This is a classic proof technique. Say we want to prove “A if and only B”. What we might do is prove first that “If A, then B”. Second, we prove “If B, then A”. This means “A if and only B” holds.</p>
+<p class="sd-card-text">Since we did this, we know the following:</p>
+<p class="sd-card-text">“Let <span class="math notranslate nohighlight">\(G\)</span> be a connected graph. <span class="math notranslate nohighlight">\(\{u,v\}\)</span> is some cut-edge of <span class="math notranslate nohighlight">\(G\)</span> if and only if <span class="math notranslate nohighlight">\(P=(\{u,v\})\)</span> is the only path from <span class="math notranslate nohighlight">\(u\)</span> to <span class="math notranslate nohighlight">\(v\)</span>.”</p>
+<ol class="arabic simple" start="2">
+<li><p class="sd-card-text">For a graph like above, what is <span class="math notranslate nohighlight">\(\epsilon(G)\)</span>? Well, we only need to remove a single edge to disconnect the graph. So, <span class="math notranslate nohighlight">\(\epsilon(G)=1\)</span>.</p></li>
+<li><p class="sd-card-text">“Vertex-connectivity” might involve disconnecting a graph by removing vertices. This is what we’ll discuss today.</p></li>
+</ol>
 </div>
 </details></section>
 <section id="connectivity">
@@ -415,7 +429,14 @@
 <section class="definition-content" id="proof-content">
 <p>The <em>vertex-connectivity</em> of a graph <span class="math notranslate nohighlight">\(G\)</span>, <span class="math notranslate nohighlight">\(\kappa(G)\)</span>, is the minimum number of vertices whose removal (and the edges that contain them) disconnects the graph <span class="math notranslate nohighlight">\(G\)</span>. Equivalently, if <span class="math notranslate nohighlight">\(G=(V,E)\)</span> is a graph, <span class="math notranslate nohighlight">\(\kappa(G)\)</span> is the size of the smallest set <span class="math notranslate nohighlight">\(W\subseteq V\)</span> such that <span class="math notranslate nohighlight">\(G\)</span> without vertices in <span class="math notranslate nohighlight">\(W\)</span> and the edges that contain them is disconnected.</p>
 </section>
-</div><div class="proof theorem admonition" id="theorem-1">
+</div><p>For example, the following graph needs only <span class="math notranslate nohighlight">\(A\)</span> and its edges to be removed to disconnect the graph:</p>
+<a class="reference internal image-reference" href="../../_images/w4d2.1.png"><img alt="../../_images/w4d2.1.png" class="align-center" src="../../_images/w4d2.1.png" style="height: 240px;" />
+</a>
+<p>So, the vertex-connectivity of the graph is only 1. But, pretend we had added a vertex with no edges:</p>
+<a class="reference internal image-reference" href="../../_images/w4d2.2.png"><img alt="../../_images/w4d2.2.png" class="align-center" src="../../_images/w4d2.2.png" style="height: 240px;" />
+</a>
+<p>Since <span class="math notranslate nohighlight">\(G_2\)</span> is already disconnected, we don’t need to remove any vertices to disconnect it. This intuition leads to the following theorem.</p>
+<div class="proof theorem admonition" id="theorem-1">
 <p class="admonition-title"><span class="caption-number">Theorem 14 </span></p>
 <section class="theorem-content" id="proof-content">
 <p><span class="math notranslate nohighlight">\(\epsilon(G)=0\)</span> if and only if <span class="math notranslate nohighlight">\(\kappa(G)=0\)</span></p>
@@ -426,9 +447,26 @@
 <p><span class="math notranslate nohighlight">\(\leftarrow\)</span> Assume <span class="math notranslate nohighlight">\(\kappa(G)=0\)</span> Then, <span class="math notranslate nohighlight">\(G\)</span> is disconnected and no edges are needed to disconnect it. Therefore, <span class="math notranslate nohighlight">\(\epsilon(G)=0\)</span>.</p>
 <p>Therefore, we have our result.</p>
 </div>
-<p>Answer here</p>
-<p>Intuition here</p>
-<div class="proof theorem admonition" id="theorem-2">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Well, if <span class="math notranslate nohighlight">\(\epsilon(G)=1\)</span>, we only need to remove a single edge to disconnect the graph. The graph would vaguely look something like the following:</p>
+<a class="reference internal image-reference" href="../../_images/w4d1.7.png"><img alt="../../_images/w4d1.7.png" class="align-center" src="../../_images/w4d1.7.png" style="height: 240px;" />
+</a>
+<p class="sd-card-text">If a single edge disconnects the graph, we can definitely remove one of the endpoints to disconnect the graph too! That is, we could take <span class="math notranslate nohighlight">\(u\)</span> off the graph to disconnect it (likewise, <span class="math notranslate nohighlight">\(v\)</span>). So, <span class="math notranslate nohighlight">\(\kappa(G)=1\)</span>.</p>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Well, it might be the case that there is only one pair of vertices for each edge:</p>
+<a class="reference internal image-reference" href="../../_images/w4d2.3.png"><img alt="../../_images/w4d2.3.png" class="align-center" src="../../_images/w4d2.3.png" style="height: 240px;" />
+</a>
+<p class="sd-card-text">In this case, we can remove the <span class="math notranslate nohighlight">\(k\)</span> vertices on the left and disconnect the graph. But, maybe some edges share vertices:</p>
+<a class="reference internal image-reference" href="../../_images/w4d2.4.png"><img alt="../../_images/w4d2.4.png" class="align-center" src="../../_images/w4d2.4.png" style="height: 240px;" />
+</a>
+<p class="sd-card-text">In this case we could remove <span class="math notranslate nohighlight">\(k-1\)</span> vertices on the right and disconnect the graph. But, either way, we could remove <span class="math notranslate nohighlight">\(k\)</span> vertices and still be fine! This intuition leads to the following theorem.</p>
+</div>
+</details><div class="proof theorem admonition" id="theorem-2">
 <p class="admonition-title"><span class="caption-number">Theorem 15 </span></p>
 <section class="theorem-content" id="proof-content">
 <p>For a graph <span class="math notranslate nohighlight">\(G\)</span>, <span class="math notranslate nohighlight">\(\kappa(G)\leq \epsilon(G)\)</span>.</p>

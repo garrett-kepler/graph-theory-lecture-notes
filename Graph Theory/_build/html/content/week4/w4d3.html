@@ -406,10 +406,17 @@
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 <span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">Recall that <span class="math notranslate nohighlight">\(\epsilon(G)=0\)</span> if and only if <span class="math notranslate nohighlight">\(\kappa(G)=0\)</span>. So, we know this holds for that case. Assume then that <span class="math notranslate nohighlight">\(\epsilon(G)&gt;0\)</span>.</p>
+<p class="sd-card-text">Again, some intuition that might be helpful is that removing vertices often does <em>more work</em> than removing edges. For example, if no edges share vertices in a graph with <span class="math notranslate nohighlight">\(\epsilon(G)=k\)</span>, we have something like:</p>
+<a class="reference internal image-reference" href="../../_images/w4d2.3.png"><img alt="../../_images/w4d2.3.png" class="align-center" src="../../_images/w4d2.3.png" style="height: 240px;" />
+</a>
+<p class="sd-card-text">If exactly two edges share a vertex, we have something like:</p>
+<a class="reference internal image-reference" href="../../_images/w4d2.4.png"><img alt="../../_images/w4d2.4.png" class="align-center" src="../../_images/w4d2.4.png" style="height: 240px;" />
+</a>
+<p class="sd-card-text">In any case, we know that if we carefully remove <span class="math notranslate nohighlight">\(k\)</span> vertices, we’ll end up removing the <span class="math notranslate nohighlight">\(k\)</span> edges. This leads to the proof of the statement:</p>
+<p class="sd-card-text">“Recall that <span class="math notranslate nohighlight">\(\epsilon(G)=0\)</span> if and only if <span class="math notranslate nohighlight">\(\kappa(G)=0\)</span>. So, we know this holds for that case. Assume then that <span class="math notranslate nohighlight">\(\epsilon(G)&gt;0\)</span>.</p>
 <p class="sd-card-text">Let <span class="math notranslate nohighlight">\(S\subseteq E\)</span> be a set of edges such that <span class="math notranslate nohighlight">\(G-S\)</span> is disconnected and <span class="math notranslate nohighlight">\(|S|=\epsilon(G)\)</span>. Note that since removing an endpoint also removes the edge, there exists <span class="math notranslate nohighlight">\(T\subseteq V\)</span> such that <span class="math notranslate nohighlight">\(|T|=|S|\)</span> and removing the vertices in <span class="math notranslate nohighlight">\(T\)</span> disconnects <span class="math notranslate nohighlight">\(G\)</span> as well.</p>
 <p class="sd-card-text">Either <span class="math notranslate nohighlight">\(T\)</span> is the minimum size (and so <span class="math notranslate nohighlight">\(|T|=\kappa(G)\)</span>) <u>or</u> its not (and so <span class="math notranslate nohighlight">\(|T|&gt;\kappa(G)\)</span>).</p>
-<p class="sd-card-text">So, <span class="math notranslate nohighlight">\(\kappa(G)\leq |T|=|S|=\epsilon(G)\)</span>.</p>
+<p class="sd-card-text">So, <span class="math notranslate nohighlight">\(\kappa(G)\leq |T|=|S|=\epsilon(G)\)</span>.”</p>
 </div>
 </details><p>Two lectures ago, we proved that <span class="math notranslate nohighlight">\(\epsilon(G)\leq \delta(G)\)</span>. So, we also know the following:</p>
 <div class="proof corollary admonition" id="corollary-0">
@@ -417,9 +424,21 @@
 <section class="corollary-content" id="proof-content">
 <p>For a graph <span class="math notranslate nohighlight">\(G\)</span>, <span class="math notranslate nohighlight">\(\kappa(G)\leq \epsilon(G)\leq \delta(G)\)</span>.</p>
 </section>
-</div></section>
+</div><p>Consider, for example, the following graph:</p>
+<a class="reference internal image-reference" href="../../_images/w4d3.1.png"><img alt="../../_images/w4d3.1.png" class="align-center" src="../../_images/w4d3.1.png" style="height: 240px;" />
+</a>
+<p><span class="math notranslate nohighlight">\(C\)</span> above has the least amount of edges, so <span class="math notranslate nohighlight">\(\delta(G)=2\)</span>. Likewise, the least amount of edges to disconnect the graph are 2 (remove <span class="math notranslate nohighlight">\(C\)</span>’s edges). So, <span class="math notranslate nohighlight">\(\epsilon(G)=2\)</span>. Lastly, well… removing any single vertex leaves the graph connected. But, removing either <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(C\)</span> or <span class="math notranslate nohighlight">\(B\)</span> and <span class="math notranslate nohighlight">\(D\)</span> creates a disconnected graph. So, <span class="math notranslate nohighlight">\(\kappa(G)=2\)</span>.</p>
+<p>If we make a small perturbation to the above graph, we end up with the following graph:</p>
+<a class="reference internal image-reference" href="../../_images/w4d3.2.png"><img alt="../../_images/w4d3.2.png" class="align-center" src="../../_images/w4d3.2.png" style="height: 240px;" />
+</a>
+<p>You can verify for yourself that this small perturbation results in a graph with <span class="math notranslate nohighlight">\(\delta(G)=2\)</span> and <span class="math notranslate nohighlight">\(\epsilon(G)=2\)</span> but <span class="math notranslate nohighlight">\(\kappa(G)=2\)</span>.</p>
+</section>
 <section id="trees-forests">
 <h2>Trees &amp; Forests<a class="headerlink" href="#trees-forests" title="Link to this heading">#</a></h2>
+<p>Consider the following graph, <span class="math notranslate nohighlight">\(G\)</span>:</p>
+<a class="reference internal image-reference" href="../../_images/w4d3.3.png"><img alt="../../_images/w4d3.3.png" class="align-center" src="../../_images/w4d3.3.png" style="height: 240px;" />
+</a>
+<p>While this graph is not connected, there are <em>parts</em> of the graph that are connected. As graph theorists, this might be important to note.</p>
 <div class="proof definition admonition" id="definition-1">
 <p class="admonition-title"><span class="caption-number">Definition 31 </span> (Connected Components/Components)</p>
 <section class="definition-content" id="proof-content">
@@ -430,28 +449,57 @@
 </ol>
 <p>Put simply, a component of <span class="math notranslate nohighlight">\(G\)</span> is a connected piece of <span class="math notranslate nohighlight">\(G\)</span> that isn’t part of a larger connected piece of <span class="math notranslate nohighlight">\(G\)</span>.</p>
 </section>
-</div><div class="proof definition admonition" id="definition-2">
+</div><p>For example, the graph <span class="math notranslate nohighlight">\(G\)</span> above has a connected piece:</p>
+<a class="reference internal image-reference" href="../../_images/w4d3.4.png"><img alt="../../_images/w4d3.4.png" class="align-center" src="../../_images/w4d3.4.png" style="height: 240px;" />
+</a>
+<p>If we consider more vertices of <span class="math notranslate nohighlight">\(G\)</span>, we end up with a disconnected graph:</p>
+<a class="reference internal image-reference" href="../../_images/w4d3.5.png"><img alt="../../_images/w4d3.5.png" class="align-center" src="../../_images/w4d3.5.png" style="height: 240px;" />
+</a>
+<p>These two properties make <span class="math notranslate nohighlight">\(G(\{5,6,7\})\)</span> a <em>component</em>.</p>
+<div class="proof definition admonition" id="definition-2">
 <p class="admonition-title"><span class="caption-number">Definition 32 </span> (Tree)</p>
 <section class="definition-content" id="proof-content">
 <p>A connected graph with no cycles is called a <em>tree</em></p>
 </section>
-</div><div class="proof definition admonition" id="definition-3">
+</div><p>Luckily, these lectures are thought through. So, <span class="math notranslate nohighlight">\(G\)</span> above has some trees in it. For example:</p>
+<a class="reference internal image-reference" href="../../_images/w4d3.6.png"><img alt="../../_images/w4d3.6.png" class="align-center" src="../../_images/w4d3.6.png" style="height: 240px;" />
+</a>
+<p>Note that <span class="math notranslate nohighlight">\(G(\{1,2,3,4\})\)</span> is connected and has no cycles. This makes <span class="math notranslate nohighlight">\(G(\{1,2,3,4\})\)</span> a tree!</p>
+<p>If we add an edge to the graph, we end up with a cycle:</p>
+<a class="reference internal image-reference" href="../../_images/w4d3.7.png"><img alt="../../_images/w4d3.7.png" class="align-center" src="../../_images/w4d3.7.png" style="height: 240px;" />
+</a>
+<p>Note that <span class="math notranslate nohighlight">\(H\)</span> is connected. But, since there is a cycle on the vertices 2, 3, and 4 on <span class="math notranslate nohighlight">\(H\)</span>, we cannot call <span class="math notranslate nohighlight">\(H\)</span> a tree.</p>
+<div class="proof definition admonition" id="definition-3">
 <p class="admonition-title"><span class="caption-number">Definition 33 </span> (Forest)</p>
 <section class="definition-content" id="proof-content">
 <p>A <em>forest</em> is a graph whose components are trees.</p>
 </section>
-</div><p>While a tree is technically a forest with 1 component, we typically say forest when there are more than 2 components.</p>
+</div><p>While a tree is technically a forest with 1 component, we typically say forest when there are more than 2 components. A good example of a forest is <span class="math notranslate nohighlight">\(G\)</span> from above!</p>
 <div class="proof definition admonition" id="definition-4">
 <p class="admonition-title"><span class="caption-number">Definition 34 </span> (Spanning Subgraph)</p>
 <section class="definition-content" id="proof-content">
-<p>A subgraph <span class="math notranslate nohighlight">\(H=(W,F)\)</span> of <span class="math notranslate nohighlight">\(G=(V,E)\)</span> is a spanning subgraph if <span class="math notranslate nohighlight">\(W=V\)</span>.</p>
+<p>A subgraph <span class="math notranslate nohighlight">\(H=(W,F)\)</span> of <span class="math notranslate nohighlight">\(G=(V,E)\)</span> is a <em>spanning subgraph</em> if <span class="math notranslate nohighlight">\(W=V\)</span>.</p>
 </section>
 </div><div class="proof definition admonition" id="definition-5">
 <p class="admonition-title"><span class="caption-number">Definition 35 </span> (Spanning Tree)</p>
 <section class="definition-content" id="proof-content">
-<p>Spanning subgraph who is also a tree.</p>
+<p>A <em>spanning tree</em> is a spanning subgraph who is also a tree.</p>
 </section>
-</div></section>
+</div><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Here is one:</p>
+<a class="reference internal image-reference" href="../../_images/w4d3.9.png"><img alt="../../_images/w4d3.9.png" class="align-center" src="../../_images/w4d3.9.png" style="height: 240px;" />
+</a>
+<p class="sd-card-text">Another:</p>
+<a class="reference internal image-reference" href="../../_images/w4d3.10.png"><img alt="../../_images/w4d3.10.png" class="align-center" src="../../_images/w4d3.10.png" style="height: 240px;" />
+</a>
+<p class="sd-card-text">Another:</p>
+<a class="reference internal image-reference" href="../../_images/w4d3.11.png"><img alt="../../_images/w4d3.11.png" class="align-center" src="../../_images/w4d3.11.png" style="height: 240px;" />
+</a>
+<p class="sd-card-text">You might think about what it means if a graph has <em>lots</em> of spanning trees versus <em>few</em> spanning trees.</p>
+</div>
+</details></section>
 </section>
 
     <script type="text/x-thebe-config">
