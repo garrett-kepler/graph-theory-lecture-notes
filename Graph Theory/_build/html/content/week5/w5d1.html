@@ -27,8 +27,8 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
@@ -40,10 +40,10 @@
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- So that users can add custom icons -->
-  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
@@ -64,33 +64,26 @@
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'content/week5/w5d1';</script>
-    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="prev" title="Lecture 10: Trees, Forests, &amp; Connectivity" href="../week4/w4d3.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
-  
-    
-    <script src="../../_static/searchtools.js"></script>
-    <script src="../../_static/language_data.js"></script>
-    <script src="../../searchindex.js"></script>
-  
   </head>
-  <body data-default-mode="">
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
-
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-  
-  
-  
+
   
   <dialog id="pst-search-dialog">
     
@@ -116,51 +109,7 @@
 </div>
 
   
-    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
-<div class="bd-header__inner bd-page-width">
-  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
-    <span class="fa-solid fa-bars"></span>
-  </button>
-  
-  
-  <div class="col-lg-9 navbar-header-items">
-    
-    
-    <div class="navbar-header-items__end">
-      
-        <div class="navbar-item navbar-persistent--container">
-          
-
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button>
-        </div>
-      
-      
-    </div>
-    
-  </div>
-  
-  
-    <div class="navbar-persistent--mobile">
-
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button>
-    </div>
-  
-
-  
-    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
-      <span class="fa-solid fa-outdent"></span>
-    </button>
-  
-</div>
-
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
     </header>
   
 
@@ -384,7 +333,7 @@
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="pst-show_toc_level nav section-nav flex-column">
+                <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#warmup">Warmup</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trees">Trees</a></li>
 </ul>
@@ -402,14 +351,23 @@
 <h1>Lecture 11: More on Trees<a class="headerlink" href="#lecture-11-more-on-trees" title="Link to this heading">#</a></h1>
 <section id="warmup">
 <h2>Warmup<a class="headerlink" href="#warmup" title="Link to this heading">#</a></h2>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<div class="proof question admonition" id="question-0">
+<p class="admonition-title"><span class="caption-number">Question 20 </span></p>
+<section class="question-content" id="proof-content">
+<p>On Friday, we started to prove the following:</p>
+<p>“A graph <span class="math notranslate nohighlight">\(G\)</span> is connected if and only if it has a spanning tree.”</p>
+<p>We proved that if <span class="math notranslate nohighlight">\(G\)</span> has a spanning tree, then <span class="math notranslate nohighlight">\(G\)</span> is connected.</p>
+<p>Try proving “If <span class="math notranslate nohighlight">\(G\)</span> is connected, then it has a spanning tree”.</p>
+</section>
+</div><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 <span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
 <p class="sd-card-text">Let <span class="math notranslate nohighlight">\(G=(V,E)\)</span> be a connected graph. Then, there exists some connected spanning subgraph <span class="math notranslate nohighlight">\(H\)</span> such that <span class="math notranslate nohighlight">\(H\)</span> has the minimum number of edges.</p>
 <p class="sd-card-text">Note that <span class="math notranslate nohighlight">\(H\)</span> cannot have any cycles since edge removal along the cycle would still leave <span class="math notranslate nohighlight">\(H\)</span> connected. This is impossible to do if <span class="math notranslate nohighlight">\(H\)</span> has the minimum number of edges possible.</p>
 <p class="sd-card-text">So, <span class="math notranslate nohighlight">\(H\)</span> has no cycles and it is a connected, spanning subgraph. Thus, <span class="math notranslate nohighlight">\(H\)</span> is a spanning tree. So, the result.</p>
 </div>
-</details><div class="proof theorem admonition" id="theorem-0">
+</details><p>Since we proved “If <span class="math notranslate nohighlight">\(G\)</span> is connected, then it has a spanning tree” and “If <span class="math notranslate nohighlight">\(G\)</span> has a spanning tree, then it is connected”, we can say the following:</p>
+<div class="proof theorem admonition" id="theorem-1">
 <p class="admonition-title"><span class="caption-number">Theorem 16 </span></p>
 <section class="theorem-content" id="proof-content">
 <p>A graph <span class="math notranslate nohighlight">\(G\)</span> is connected if and only if <span class="math notranslate nohighlight">\(G\)</span> has a spanning tree.</p>
@@ -417,7 +375,8 @@
 </div></section>
 <section id="trees">
 <h2>Trees<a class="headerlink" href="#trees" title="Link to this heading">#</a></h2>
-<div class="proof theorem admonition" id="theorem-1">
+<p>Let’s go through a couple results about trees.</p>
+<div class="proof theorem admonition" id="theorem-2">
 <p class="admonition-title"><span class="caption-number">Theorem 17 </span></p>
 <section class="theorem-content" id="proof-content">
 <p>If <span class="math notranslate nohighlight">\(T\)</span> is a tree on <span class="math notranslate nohighlight">\(n\)</span> vertices, then it has <span class="math notranslate nohighlight">\(n-1\)</span> edges.</p>
@@ -431,7 +390,7 @@
 <p>So, we know that <span class="math notranslate nohighlight">\(T_{k+1}\)</span> has <span class="math notranslate nohighlight">\(r-1\)</span> edges from <span class="math notranslate nohighlight">\(T_r\)</span> and <span class="math notranslate nohighlight">\(k+1-r-1\)</span> edges from <span class="math notranslate nohighlight">\(T_{k+1-r}\)</span>. Including the removed edge <span class="math notranslate nohighlight">\(\{u,v\}\)</span>, we know <span class="math notranslate nohighlight">\(T_{k+1}\)</span> has <span class="math notranslate nohighlight">\(1+(r-1)+(k+1-r-1)=k\)</span> edges total. Thus, <span class="math notranslate nohighlight">\(T_{k+1}\)</span> has <span class="math notranslate nohighlight">\(k\)</span> edges.</p>
 <p>Therefore, <span class="math notranslate nohighlight">\(T_n\)</span> has <span class="math notranslate nohighlight">\(n-1\)</span> edges for all <span class="math notranslate nohighlight">\(n\geq 2\)</span>.</p>
 </div>
-<div class="proof theorem admonition" id="theorem-2">
+<div class="proof theorem admonition" id="theorem-3">
 <p class="admonition-title"><span class="caption-number">Theorem 18 </span></p>
 <section class="theorem-content" id="proof-content">
 <p>Let <span class="math notranslate nohighlight">\(T\)</span> be a tree. Then, there is exactly one path between every pair of distinct vertices.</p>
@@ -500,7 +459,7 @@
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="pst-show_toc_level nav section-nav flex-column">
+    <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#warmup">Warmup</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trees">Trees</a></li>
 </ul>
@@ -544,8 +503,8 @@ By Garrett Kepler
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
-<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>
