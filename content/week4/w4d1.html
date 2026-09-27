@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Lecture 7: Pigeonhole Principle &amp; Its Applications &#8212; Math 453 Lecture Notes</title>
+    <title>Lecture 8: Introduction to Connectivity &#8212; Math 453 Lecture Notes</title>
   
   
   
@@ -63,11 +63,11 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'content/week3/w3d2';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/week4/w4d1';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Lecture 8: Introduction to Connectivity" href="../week4/w4d1.html" />
-    <link rel="prev" title="Lecture 6: Subgraphs &amp; Colorings" href="w3d1.html" />
+    <link rel="next" title="Lecture 9: More Connectivity" href="w4d2.html" />
+    <link rel="prev" title="Lecture 7: Pigeonhole Principle &amp; Its Applications" href="../week3/w3d2.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -177,15 +177,15 @@
 <li class="toctree-l1"><a class="reference internal" href="../week2/w2d3.html">Lecture 5: Trails &amp; Walks</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 3--Subgraphs &amp; Graph Parameters</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="w3d1.html">Lecture 6: Subgraphs &amp; Colorings</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lecture 7: Pigeonhole Principle &amp; Its Applications</a></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week3/w3d1.html">Lecture 6: Subgraphs &amp; Colorings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week3/w3d2.html">Lecture 7: Pigeonhole Principle &amp; Its Applications</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 4--Connectivity</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../week4/w4d1.html">Lecture 8: Introduction to Connectivity</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../week4/w4d2.html">Lecture 9: More Connectivity</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../week4/w4d3.html">Lecture 10: Trees, Forests, &amp; Connectivity</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lecture 8: Introduction to Connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="w4d2.html">Lecture 9: More Connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="w4d3.html">Lecture 10: Trees, Forests, &amp; Connectivity</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 5--Trees</span></p>
 <ul class="nav bd-sidenav">
@@ -249,7 +249,7 @@
       
       
       
-      <li><a href="../../_sources/content/week3/w3d2.md" target="_blank"
+      <li><a href="../../_sources/content/week4/w4d1.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -325,7 +325,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Lecture 7: Pigeonhole Principle & Its Applications</h1>
+    <h1>Lecture 8: Introduction to Connectivity</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -336,8 +336,7 @@
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#warmup">Warmup</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pigeonhole-principle">Pigeonhole Principle</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applying-pigeonhole-principle">Applying Pigeonhole Principle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connectivity">Connectivity</a></li>
 </ul>
             </nav>
         </div>
@@ -349,93 +348,122 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="lecture-7-pigeonhole-principle-its-applications">
-<h1>Lecture 7: Pigeonhole Principle &amp; Its Applications<a class="headerlink" href="#lecture-7-pigeonhole-principle-its-applications" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="lecture-8-introduction-to-connectivity">
+<h1>Lecture 8: Introduction to Connectivity<a class="headerlink" href="#lecture-8-introduction-to-connectivity" title="Link to this heading">#</a></h1>
 <section id="warmup">
 <h2>Warmup<a class="headerlink" href="#warmup" title="Link to this heading">#</a></h2>
 <div class="proof question admonition" id="question-0">
-<p class="admonition-title"><span class="caption-number">Question 9 </span></p>
+<p class="admonition-title"><span class="caption-number">Question 12 </span></p>
 <section class="question-content" id="proof-content">
-<p>We want to avoid radio interference in a given region. If 2 transmitters are within 10 miles of each other, we will ensure they use different frequencies. To do so, we will form a graph, <span class="math notranslate nohighlight">\(G\)</span>, with vertices as transmitters and edges will exist only between vertices whose transmitters are within 10 miles of each other.</p>
-<p>How many frequencies are required for a given region (in terms of <span class="math notranslate nohighlight">\(G\)</span>)?</p>
+<p>Consider the following graphs.</p>
+<a class="reference internal image-reference" href="../../_images/w4d1.1.png"><img alt="../../_images/w4d1.1.png" class="align-center" src="../../_images/w4d1.1.png" style="height: 240px;" />
+</a>
+<ol class="arabic simple">
+<li><p>You want to break up these graphs into 2 connected pieces. You’ll use edge-cutting scissors. Being lazy, you want to use as little effort as possible. Which edge(s) would you cut in <span class="math notranslate nohighlight">\(G_1\)</span>? In G_2?</p></li>
+<li><p>You want to map out every path from <span class="math notranslate nohighlight">\(A\)</span> to <span class="math notranslate nohighlight">\(F\)</span>. Which edge(s) are visited most often in <span class="math notranslate nohighlight">\(G_1\)</span>? In $G_2?</p></li>
+</ol>
 </section>
 </div><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 <span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">A potential answer is <span class="math notranslate nohighlight">\(\chi(G)\)</span>. We can use graph coloring!</p>
-</div>
-</details><p>Recall that a graph is <em>k-colorable</em> if we can assign vertices one of <span class="math notranslate nohighlight">\(k\)</span> colors such that no edge has 2 with vertices with the same color.</p>
-<div class="proof question admonition" id="question-1">
-<p class="admonition-title"><span class="caption-number">Question 10 </span></p>
-<section class="question-content" id="proof-content">
-<p>Is the following graph 2-colorable? How do you know?</p>
-<a class="reference internal image-reference" href="../../_images/colorablegraph.png"><img alt="../../_images/colorablegraph.png" class="align-center" src="../../_images/colorablegraph.png" style="height: 200px;" />
+<ol class="arabic simple">
+<li><p class="sd-card-text">Let us consider <span class="math notranslate nohighlight">\(G_1\)</span>:</p></li>
+</ol>
+<a class="reference internal image-reference" href="../../_images/w4d1.6.png"><img alt="../../_images/w4d1.6.png" class="align-center" src="../../_images/w4d1.6.png" style="height: 240px;" />
 </a>
-</section>
-</div><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
-<summary class="sd-summary-title sd-card-header">
-<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">It is! Try 2-coloring it. Here’s a 2-coloring using red and blue:</p>
-<a class="reference internal image-reference" href="../../_images/colorablegraph2.png"><img alt="../../_images/colorablegraph2.png" class="align-center" src="../../_images/colorablegraph2.png" style="height: 200px;" />
+<p class="sd-card-text">We can split this graph into two pieces in many different ways. For example, consider removing cutting the edges between <span class="math notranslate nohighlight">\(C\)</span> with <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>:</p>
+<a class="reference internal image-reference" href="../../_images/w4d1.2.png"><img alt="../../_images/w4d1.2.png" class="align-center" src="../../_images/w4d1.2.png" style="height: 240px;" />
 </a>
-<p class="sd-card-text">But, what you might do is think about how you tried 2-coloring the graph. You likely did not have every color all at once for every vertex. Rather, you assigned one vertex a color. Then, you likely looked at the vertices that share an edge with the vertex and assigned them the opposite color. Then, you likely repeated the process on these new vertices.</p>
-<p class="sd-card-text">This is an <em>algorithmic</em> way of thinking about the graph coloring problem. This is a great example of what we will be covering in the “Graph Algorithm” section of the class.</p>
-<p class="sd-card-text">For the curious, the way Garrett chose this graph is by the fun result we’ll prove later: “A graph is 2-colorable if and only if it has no odd-cycles”. You can verify this graph has no odd-cycles (and so it is 2-colorable).</p>
+<p class="sd-card-text">Indeed, if we remove these edges, there will be two disconnected pieces: <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> then <span class="math notranslate nohighlight">\(C,D,E,\)</span> and <span class="math notranslate nohighlight">\(F\)</span>. But, we can actually use <em>less</em> effort with our edge-cutting scissors by cutting the middle edge:</p>
+<a class="reference internal image-reference" href="../../_images/w4d1.3.png"><img alt="../../_images/w4d1.3.png" class="align-center" src="../../_images/w4d1.3.png" style="height: 240px;" />
+</a>
+<p class="sd-card-text">Notice that we have two disconnected pieces by removing just one edge! Compare this then with <span class="math notranslate nohighlight">\(G_2\)</span>:</p>
+<a class="reference internal image-reference" href="../../_images/w4d1.extra.png"><img alt="../../_images/w4d1.extra.png" class="align-center" src="../../_images/w4d1.extra.png" style="height: 240px;" />
+</a>
+<p class="sd-card-text">Clearly, removing one edge will not be enough to disconnect this graph. With some trial and error/guess and check you might find that the least amount of edges you can remove is 5. For example, if I remove any egde with <span class="math notranslate nohighlight">\(A\)</span> in it, I end up disconnecting the graph:</p>
+<a class="reference internal image-reference" href="../../_images/w4d1.4.png"><img alt="../../_images/w4d1.4.png" class="align-center" src="../../_images/w4d1.4.png" style="height: 240px;" />
+</a>
+<p class="sd-card-text">In some sense, it is <em>easier</em> to disconnect <span class="math notranslate nohighlight">\(G_1\)</span> than <span class="math notranslate nohighlight">\(G_2\)</span>. Is <span class="math notranslate nohighlight">\(G_1\)</span> some how <em>less</em> connected than <span class="math notranslate nohighlight">\(G_2\)</span>?</p>
+<ol class="arabic simple" start="2">
+<li><p class="sd-card-text">Consider <span class="math notranslate nohighlight">\(G_1\)</span> again.</p></li>
+</ol>
+<a class="reference internal image-reference" href="../../_images/w4d1.extra2.png"><img alt="../../_images/w4d1.extra2.png" class="align-center" src="../../_images/w4d1.extra2.png" style="height: 240px;" />
+</a>
+<p class="sd-card-text">Note that any path you would take from <span class="math notranslate nohighlight">\(A\)</span> to <span class="math notranslate nohighlight">\(F\)</span>, you must traverse the edge between <span class="math notranslate nohighlight">\(C\)</span> and <span class="math notranslate nohighlight">\(D\)</span>. For example, take the path</p>
+<a class="reference internal image-reference" href="../../_images/w4d1.path1.png"><img alt="../../_images/w4d1.path1.png" class="align-center" src="../../_images/w4d1.path1.png" style="height: 240px;" />
+</a>
+<p class="sd-card-text">or maybe the path</p>
+<a class="reference internal image-reference" href="../../_images/w4d1.path2.png"><img alt="../../_images/w4d1.path2.png" class="align-center" src="../../_images/w4d1.path2.png" style="height: 240px;" />
+</a>
+<p class="sd-card-text">No matter what, the edge <span class="math notranslate nohighlight">\(\{C, D\}\)</span> is present! Now, consider <span class="math notranslate nohighlight">\(G_2\)</span>:</p>
+<a class="reference internal image-reference" href="../../_images/w4d1.extra.png"><img alt="../../_images/w4d1.extra.png" class="align-center" src="../../_images/w4d1.extra.png" style="height: 240px;" />
+</a>
+<p class="sd-card-text">Taking a path from <span class="math notranslate nohighlight">\(A\)</span> to <span class="math notranslate nohighlight">\(F\)</span> definitely does <u>not</u> pass through one edge every time. In some sense, <span class="math notranslate nohighlight">\(G_1\)</span> is more bottlenecked than <span class="math notranslate nohighlight">\(G_2\)</span>. Is <span class="math notranslate nohighlight">\(G_1\)</span> somehow <em>less</em> connected than <span class="math notranslate nohighlight">\(G_2\)</span>?</p>
+<ol class="arabic simple" start="3">
+<li><p class="sd-card-text">Secret question 3 is what is the difference between small edge-cuts and bottlenecking? What we will prove later is Menger’s Theorem and the Min-Max Theorem which answers this question: they are essentially the same thing.</p></li>
+</ol>
 </div>
 </details></section>
-<section id="pigeonhole-principle">
-<h2>Pigeonhole Principle<a class="headerlink" href="#pigeonhole-principle" title="Link to this heading">#</a></h2>
-<div class="proof theorem admonition" id="theorem-2">
-<p class="admonition-title"><span class="caption-number">Theorem 8 </span> (Pigeonhole Principle (P.H.P.))</p>
-<section class="theorem-content" id="proof-content">
-<p>If <span class="math notranslate nohighlight">\(n+1\)</span> pigeons are placed in <span class="math notranslate nohighlight">\(n\)</span> pigeonholes, there is at least 1 pigeonhole with at least 2 pigeons.</p>
+<section id="connectivity">
+<h2>Connectivity<a class="headerlink" href="#connectivity" title="Link to this heading">#</a></h2>
+<div class="proof definition admonition" id="definition-1">
+<p class="admonition-title"><span class="caption-number">Definition 28 </span> (Edge-Connectivity)</p>
+<section class="definition-content" id="proof-content">
+<p>The <em>edge-connectivity</em> of a graph <span class="math notranslate nohighlight">\(G\)</span>, <span class="math notranslate nohighlight">\(\epsilon(G)\)</span>, is the minimum number of edges we need to remove to disconnect the graph. Equivalently, if <span class="math notranslate nohighlight">\(G=(V,E)\)</span> is a graph, then <span class="math notranslate nohighlight">\(\epsilon(G)\)</span> is the size of smallest set <span class="math notranslate nohighlight">\(F\subseteq E\)</span> such that <span class="math notranslate nohighlight">\(G-E\)</span> is disconnected.</p>
 </section>
-</div><div class="proof admonition" id="proof">
-<p>Proof. Consider the first <span class="math notranslate nohighlight">\(n\)</span> pigeons. Each is placed. If there is already 2 pigeons in 1 pigeonhole, the proof is done. So, assume there is not yet 2 pigeons in 1 pigeonhole. Since there are only <span class="math notranslate nohighlight">\(n\)</span> pigeonholes, each of the <span class="math notranslate nohighlight">\(n\)</span> pigeons has its own and there is no pigeonhole left empty. The <span class="math notranslate nohighlight">\(n+1\)</span>-st pigeon will have to placed into one of them. So, there will be 2 in one pigeonhole.</p>
-</div>
-<figure class="align-default" id="id1">
-<a class="reference internal image-reference" href="../../_images/pigeon.png"><img alt="../../_images/pigeon.png" src="../../_images/pigeon.png" style="height: 240px;" />
-</a>
-<figcaption>
-<p><span class="caption-number">Fig. 15 </span><span class="caption-text">Too many pigeons, not enough places to put them.</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
-</figcaption>
-</figure>
-<p>In the following version of the pigeonhole principle, we use <span class="math notranslate nohighlight">\(\lfloor x\rfloor\)</span> to mean the greatest integer less than <span class="math notranslate nohighlight">\(x\)</span> (rounding down). For example, <span class="math notranslate nohighlight">\(\lfloor 2.5 \rfloor = 2\)</span> and <span class="math notranslate nohighlight">\(\lfloor \pi \rfloor = 3\)</span>. We will exclude the proof of the following since the argument is so similar to above.</p>
-<div class="proof theorem admonition" id="theorem-3">
-<p class="admonition-title"><span class="caption-number">Theorem 9 </span> (Another Pigeonhole Principle)</p>
-<section class="theorem-content" id="proof-content">
-<p>If <span class="math notranslate nohighlight">\(m\)</span> pigeons are placed in <span class="math notranslate nohighlight">\(n\)</span> pigeonholes, at least 1 pigeonhole has <span class="math notranslate nohighlight">\(\lfloor \frac{m-1}{n}\rfloor\)</span> pigeons.</p>
-</section>
-</div><p>2 great examples of these in action:</p>
-<ul class="simple">
-<li><p>Show that at least 2 people in our class share a birth-week.</p></li>
-<li><p>Show that at least 6 people in our class share a birth-month.</p></li>
-</ul>
-<div class="proof question admonition" id="question-4">
-<p class="admonition-title"><span class="caption-number">Question 11 </span> (To Ponder)</p>
+</div><p>For example, from our warmup problem, <span class="math notranslate nohighlight">\(G_1\)</span> has <span class="math notranslate nohighlight">\(\epsilon(G)=1\)</span> since removing <span class="math notranslate nohighlight">\(\{C,D\}\)</span> disconnected the graph.</p>
+<p><u>Remarks</u>:</p>
+<ol class="arabic simple">
+<li><p>If <span class="math notranslate nohighlight">\(\epsilon(G)=0\)</span>, then <span class="math notranslate nohighlight">\(G\)</span> is disconnected.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(\epsilon(G)&gt;0\)</span>, then <span class="math notranslate nohighlight">\(G\)</span> is connected.</p></li>
+<li><p>By convention, <span class="math notranslate nohighlight">\(\epsilon(K_1)=0\)</span> (i.e. the graph with one vertex and no edges is disconnected).</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(\epsilon(G)=1\)</span>, the removing some edge will disconnect the graph.</p></li>
+</ol>
+<div class="proof question admonition" id="question-2">
+<p class="admonition-title"><span class="caption-number">Question 13 </span> (To Ponder)</p>
 <section class="question-content" id="proof-content">
-<p>Show that for a graph <span class="math notranslate nohighlight">\(G\)</span> on <span class="math notranslate nohighlight">\(n\)</span> vertices and <span class="math notranslate nohighlight">\(\binom{n}{2}+1\)</span> edges, the graph <span class="math notranslate nohighlight">\(G\)</span> is not simple. (You can use P.H.P.)</p>
+<p>Draw me a graph where <u>every</u> edge disconnects the graph upon removal.</p>
 </section>
-</div></section>
-<section id="applying-pigeonhole-principle">
-<h2>Applying Pigeonhole Principle<a class="headerlink" href="#applying-pigeonhole-principle" title="Link to this heading">#</a></h2>
-<div class="proof theorem admonition" id="theorem-5">
-<p class="admonition-title"><span class="caption-number">Theorem 10 </span></p>
-<section class="theorem-content" id="proof-content">
-<p>For a graph <span class="math notranslate nohighlight">\(G\)</span>, <span class="math notranslate nohighlight">\(\chi(G)\geq \omega(G)\)</span>.</p>
-</section>
-</div><div class="proof admonition" id="proof">
-<p>Proof. Let <span class="math notranslate nohighlight">\(G\)</span> have a clique of size <span class="math notranslate nohighlight">\(\omega(G)\)</span> and a <span class="math notranslate nohighlight">\(\chi(G)\)</span>-coloring. Let the vertices in the clique be the pigeons. Let the colors <span class="math notranslate nohighlight">\(\{1,2,3,\dots, \chi(G)\}\)</span> in the <span class="math notranslate nohighlight">\(\chi(G)\)</span>-coloring be the pigeonholes. By placing pigeons in pigeonholes, we are assigning the vertices of the clique to colors.</p>
-<p>Note that for a clique, every vertex is connected to every other vertex. So, if two pigeons are in one pigeonhole, the edge that the vertices share will have two of the same color. This is not a valid coloring.</p>
-<p>Assume <span class="math notranslate nohighlight">\(\chi(G)&lt;\omega(G)\)</span>. By P.H.P., there must be two vertices assigned the same color. This is not a valid coloring. So, it must be the case that <span class="math notranslate nohighlight">\(\chi(G)\geq \omega(G)\)</span>.</p>
+</div><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Here is an example:</p>
+<a class="reference internal image-reference" href="../../_images/w4d1.5.png"><img alt="../../_images/w4d1.5.png" class="align-center" src="../../_images/w4d1.5.png" style="height: 240px;" />
+</a>
+<p class="sd-card-text">These types of objects are called <em>trees</em>. We will discuss them soon.</p>
 </div>
-<div class="proof theorem admonition" id="theorem-6">
-<p class="admonition-title"><span class="caption-number">Theorem 11 </span></p>
+</details><div class="proof theorem admonition" id="theorem-3">
+<p class="admonition-title"><span class="caption-number">Theorem 12 </span></p>
 <section class="theorem-content" id="proof-content">
-<p>Let <span class="math notranslate nohighlight">\(G=(V,E)\)</span> be a graph. Then, <span class="math notranslate nohighlight">\(\alpha(G)\geq \frac{|V|}{\chi(G)}\)</span>.</p>
+<p>For a graph <span class="math notranslate nohighlight">\(G\)</span>, <span class="math notranslate nohighlight">\(\delta(G)\geq \epsilon(G)\)</span>.</p>
 </section>
 </div><div class="proof admonition" id="proof">
-<p>Proof. Let us consider a <span class="math notranslate nohighlight">\(\chi(G)\)</span>-coloring. Since we have a coloring, all the vertices of a single color form an independent set. That is, for each color <span class="math notranslate nohighlight">\(i=1,2,\dots, \chi(G)\)</span>, it must be the case that no edge has two vertices of the color <span class="math notranslate nohighlight">\(i\)</span>. Since there are <span class="math notranslate nohighlight">\(|V|\)</span> vertices in the graph, the average size of these color-based independent sets is <span class="math notranslate nohighlight">\(\frac{|V|}{\chi(G)}\)</span>. By P.H.P., there must be an independent set at least as big as <span class="math notranslate nohighlight">\(\frac{|V|}{\chi(G)}\)</span>. So, the maximum of the independent set sizes, <span class="math notranslate nohighlight">\(\alpha(G)\)</span>, has to be at least as big as <span class="math notranslate nohighlight">\(\frac{|V|}{\chi(G)}\)</span> <span class="math notranslate nohighlight">\(\left(\alpha(G)\geq \frac{|V|}{\chi(G)}\right)\)</span>.</p>
+<p>Proof. Let <span class="math notranslate nohighlight">\(G=(V,E)\)</span> be some graph with <span class="math notranslate nohighlight">\(v_0\in V\)</span> obtaining the minimum degree of <span class="math notranslate nohighlight">\(G\)</span>. That is, the degree of <span class="math notranslate nohighlight">\(v_0\)</span> is <span class="math notranslate nohighlight">\(\delta(G)\)</span>, <span class="math notranslate nohighlight">\(d_{G}(v_0)=\delta(G)\)</span>. Let <span class="math notranslate nohighlight">\(E_{v_0}\)</span> be the set of edges that contain <span class="math notranslate nohighlight">\(v_0\)</span>, <span class="math notranslate nohighlight">\(E_{v_0}=\{\{v_0,u\}|\{v_0,u\}\in E\}\)</span>. Note that <span class="math notranslate nohighlight">\(|E_{v_0}|=\delta(G)\)</span>. Also note that removing these edges will leave <span class="math notranslate nohighlight">\(v_0\)</span> with no edges and <span class="math notranslate nohighlight">\(G\)</span> will be disconnected. So, to disconnect <span class="math notranslate nohighlight">\(G\)</span>, will at most have to remove these edges (i.e. <span class="math notranslate nohighlight">\(|E_{v_0}|\geq \epsilon(G)\)</span> which means <span class="math notranslate nohighlight">\(\delta(G)\geq \epsilon(G)\)</span>).</p>
+</div>
+<div class="proof definition admonition" id="definition-4">
+<p class="admonition-title"><span class="caption-number">Definition 29 </span> (Cut-Edge/Bridge)</p>
+<section class="definition-content" id="proof-content">
+<p>An edge that disconnects a graph is called a <em>cut-edge</em> or <em>bridge</em>. Equivalently, <span class="math notranslate nohighlight">\(\{u,v\}\)</span> in some connected graph <span class="math notranslate nohighlight">\(G\)</span> is a cut-edge if <span class="math notranslate nohighlight">\(G-\{u,v\}\)</span> is a disconnected graph.</p>
+</section>
+</div><p>For example, consider the graph</p>
+<a class="reference internal image-reference" href="../../_images/w4d1.6.png"><img alt="../../_images/w4d1.6.png" class="align-center" src="../../_images/w4d1.6.png" style="height: 240px;" />
+</a>
+<p>By removing either <span class="math notranslate nohighlight">\(\{C,D\}\)</span> or <span class="math notranslate nohighlight">\(\{D,E\}\)</span> or <span class="math notranslate nohighlight">\(\{E,F\}\)</span>, we disconnect the graph. These edges are called cut-edges.</p>
+<p>Consider what a graph with a cut-edge looks like. There is one edge that disconnects the graph into two pieces. Vaguely, they look something like</p>
+<a class="reference internal image-reference" href="../../_images/w4d1.7.png"><img alt="../../_images/w4d1.7.png" class="align-center" src="../../_images/w4d1.7.png" style="height: 240px;" />
+</a>
+<p>This intuition leads to the proof of the following theorem.</p>
+<div class="proof theorem admonition" id="theorem-5">
+<p class="admonition-title"><span class="caption-number">Theorem 13 </span></p>
+<section class="theorem-content" id="proof-content">
+<p>Let <span class="math notranslate nohighlight">\(G\)</span> be a connected graph. Let <span class="math notranslate nohighlight">\(\{u,v\}\)</span> be some cut-edge of <span class="math notranslate nohighlight">\(G\)</span>. Then, <span class="math notranslate nohighlight">\(P=(\{u,v\})\)</span> is the only path from <span class="math notranslate nohighlight">\(u\)</span> to <span class="math notranslate nohighlight">\(v\)</span>.</p>
+</section>
+</div><div class="proof admonition" id="proof">
+<p>Proof. Let <span class="math notranslate nohighlight">\(G=(V,E)\)</span> be some connected graph with a cut-edge <span class="math notranslate nohighlight">\(\{u,v\}\in E\)</span>. Consider removing <span class="math notranslate nohighlight">\(\{u,v\}\)</span> to obtain <span class="math notranslate nohighlight">\(G-\{u,v\}\)</span>. Without loss of generality, assume <span class="math notranslate nohighlight">\(H_1\)</span> and <span class="math notranslate nohighlight">\(H_2\)</span> are the resulting pieces of <span class="math notranslate nohighlight">\(G-\{u,v\}\)</span> and that <span class="math notranslate nohighlight">\(u\in H_1\)</span>.</p>
+<p>Since <span class="math notranslate nohighlight">\(G\)</span> is connected and <span class="math notranslate nohighlight">\(G-\{u,v\}\)</span> is not, there is a path <span class="math notranslate nohighlight">\(P=(\{u, x_1\}, \{x_1,x_2\}, \dots, \{x_{m-1}, x_m\})\)</span> that is no longer a path in <span class="math notranslate nohighlight">\(G-\{u,v\}\)</span>. So, <span class="math notranslate nohighlight">\(\{u,v\}\)</span> must be in <span class="math notranslate nohighlight">\(P\)</span>. But, <span class="math notranslate nohighlight">\(P\)</span> is a path. So, each vertex is distinct. That means <span class="math notranslate nohighlight">\(\{u,x_1\}=\{u,v\}\)</span> otherwise <span class="math notranslate nohighlight">\(v\)</span> would be repeated on <span class="math notranslate nohighlight">\(P\)</span> wouldn’t be a path! Now, when we remove <span class="math notranslate nohighlight">\(\{u,v\}\)</span>, <span class="math notranslate nohighlight">\(P\)</span> becomes <span class="math notranslate nohighlight">\(P'=(\{x_1=v,x_2\},\{x_2,x_3\},\dots, \{x_{m-1},x_m\})\)</span>.</p>
+<p>If <span class="math notranslate nohighlight">\(x_m\in H_1\)</span>, then the graph did not end up being disconnected! So, <span class="math notranslate nohighlight">\(\{u,v\}\)</span> wouldn’t be a cut-edge.</p>
+<p>If <span class="math notranslate nohighlight">\(x_m\in H_2\)</span>, then <span class="math notranslate nohighlight">\(v\)</span> has a path to all vertices in <span class="math notranslate nohighlight">\(H_2\)</span>. So, <span class="math notranslate nohighlight">\(v\in H_2\)</span>.</p>
+<p>So, <span class="math notranslate nohighlight">\(u\in H_1\)</span> and <span class="math notranslate nohighlight">\(v\in H_2\)</span>. Every path must contain <span class="math notranslate nohighlight">\(\{u,v\}\)</span>. Since each path has distinct vertices, they must start with <span class="math notranslate nohighlight">\(\{u,v\}\)</span>. This means the path must be <span class="math notranslate nohighlight">\(\{u,v\}\)</span>. Therefore, <span class="math notranslate nohighlight">\(P=(\{u,v\})\)</span> must be the only path from <span class="math notranslate nohighlight">\(u\)</span> to <span class="math notranslate nohighlight">\(v\)</span>.</p>
 </div>
 </section>
 </section>
@@ -453,7 +481,7 @@
         },
         kernelOptions: {
             name: "python3",
-            path: "./content\week3"
+            path: "./content\week4"
         },
         predefinedOutput: true
     }
@@ -471,20 +499,20 @@
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="w3d1.html"
+       href="../week3/w3d2.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Lecture 6: Subgraphs &amp; Colorings</p>
+        <p class="prev-next-title">Lecture 7: Pigeonhole Principle &amp; Its Applications</p>
       </div>
     </a>
     <a class="right-next"
-       href="../week4/w4d1.html"
+       href="w4d2.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Lecture 8: Introduction to Connectivity</p>
+        <p class="prev-next-title">Lecture 9: More Connectivity</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -507,8 +535,7 @@
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#warmup">Warmup</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pigeonhole-principle">Pigeonhole Principle</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applying-pigeonhole-principle">Applying Pigeonhole Principle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connectivity">Connectivity</a></li>
 </ul>
   </nav></div>
 

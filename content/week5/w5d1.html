@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Lecture 5: Trails &amp; Walks &#8212; Math 453 Lecture Notes</title>
+    <title>Lecture 11: More on Trees &#8212; Math 453 Lecture Notes</title>
   
   
   
@@ -63,11 +63,10 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'content/week2/w2d3';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/week5/w5d1';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Lecture 6: Subgraphs &amp; Colorings" href="../week3/w3d1.html" />
-    <link rel="prev" title="Lecture 4: Paths" href="w2d2.html" />
+    <link rel="prev" title="Lecture 10: Trees, Forests, &amp; Connectivity" href="../week4/w4d3.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -171,10 +170,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../week1/w1d2.html">Lecture 2: Basics of Graphs</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 2--Isomorphism &amp; Paths</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="w2d1.html">Lecture 3: Isomorphism and Connectedness</a></li>
-<li class="toctree-l1"><a class="reference internal" href="w2d2.html">Lecture 4: Paths</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lecture 5: Trails &amp; Walks</a></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week2/w2d1.html">Lecture 3: Isomorphism and Connectedness</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week2/w2d2.html">Lecture 4: Paths</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week2/w2d3.html">Lecture 5: Trails &amp; Walks</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 3--Subgraphs &amp; Graph Parameters</span></p>
 <ul class="nav bd-sidenav">
@@ -188,8 +187,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../week4/w4d3.html">Lecture 10: Trees, Forests, &amp; Connectivity</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 5--Trees</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../week5/w5d1.html">Lecture 11: More on Trees</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lecture 11: More on Trees</a></li>
 </ul>
 
     </div>
@@ -249,7 +248,7 @@
       
       
       
-      <li><a href="../../_sources/content/week2/w2d3.md" target="_blank"
+      <li><a href="../../_sources/content/week5/w5d1.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -325,7 +324,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Lecture 5: Trails & Walks</h1>
+    <h1>Lecture 11: More on Trees</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -336,8 +335,7 @@
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#warmup">Warmup</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paths-trails-walks">Paths, Trails, &amp; Walks</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-about-in-digraphs">What about in digraphs?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trees">Trees</a></li>
 </ul>
             </nav>
         </div>
@@ -349,108 +347,59 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="lecture-5-trails-walks">
-<h1>Lecture 5: Trails &amp; Walks<a class="headerlink" href="#lecture-5-trails-walks" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="lecture-11-more-on-trees">
+<h1>Lecture 11: More on Trees<a class="headerlink" href="#lecture-11-more-on-trees" title="Link to this heading">#</a></h1>
 <section id="warmup">
 <h2>Warmup<a class="headerlink" href="#warmup" title="Link to this heading">#</a></h2>
 <div class="proof question admonition" id="question-0">
-<p class="admonition-title"><span class="caption-number">Question 5 </span></p>
+<p class="admonition-title"><span class="caption-number">Question 20 </span></p>
 <section class="question-content" id="proof-content">
-<p>Given a graph <span class="math notranslate nohighlight">\(G=(V,E)\)</span>, devise some methods of finding the shortest path in <span class="math notranslate nohighlight">\(G\)</span> between vertices <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(v\)</span> in the graph. For example, how would you find the shortest path between <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(D\)</span> in the following graph?</p>
-<a class="reference internal image-reference" href="../../_images/pathexample.png"><img alt="../../_images/pathexample.png" class="align-center" src="../../_images/pathexample.png" style="height: 240px;" />
-</a>
+<p>On Friday, we started to prove the following:</p>
+<p>“A graph <span class="math notranslate nohighlight">\(G\)</span> is connected if and only if it has a spanning tree.”</p>
+<p>We proved that if <span class="math notranslate nohighlight">\(G\)</span> has a spanning tree, then <span class="math notranslate nohighlight">\(G\)</span> is connected.</p>
+<p>Try proving “If <span class="math notranslate nohighlight">\(G\)</span> is connected, then it has a spanning tree”.</p>
 </section>
 </div><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 <span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">This is more of a question for you to reflect on your own intuition. You may have heard of some path finding algorithms already: BFS, DFS, Dijkstra’s, A*. But, a really naive, straightforward way might be:</p>
-<ol class="arabic simple">
-<li><p class="sd-card-text">Enumerate every path in the graph from a vertex <span class="math notranslate nohighlight">\(u\)</span> to <span class="math notranslate nohighlight">\(v\)</span></p></li>
-<li><p class="sd-card-text">Take the minimum length path</p></li>
-</ol>
+<p class="sd-card-text">Let <span class="math notranslate nohighlight">\(G=(V,E)\)</span> be a connected graph. Then, there exists some connected spanning subgraph <span class="math notranslate nohighlight">\(H\)</span> such that <span class="math notranslate nohighlight">\(H\)</span> has the minimum number of edges.</p>
+<p class="sd-card-text">Note that <span class="math notranslate nohighlight">\(H\)</span> cannot have any cycles since edge removal along the cycle would still leave <span class="math notranslate nohighlight">\(H\)</span> connected. This is impossible to do if <span class="math notranslate nohighlight">\(H\)</span> has the minimum number of edges possible.</p>
+<p class="sd-card-text">So, <span class="math notranslate nohighlight">\(H\)</span> has no cycles and it is a connected, spanning subgraph. Thus, <span class="math notranslate nohighlight">\(H\)</span> is a spanning tree. So, the result.</p>
 </div>
-</details></section>
-<section id="paths-trails-walks">
-<h2>Paths, Trails, &amp; Walks<a class="headerlink" href="#paths-trails-walks" title="Link to this heading">#</a></h2>
-<p>Recall our definitions of <span class="math notranslate nohighlight">\(uv\)</span>-paths, trails, and walks. We add a new adjective to these.</p>
-<div class="proof definition admonition" id="definition-1">
-<p class="admonition-title"><span class="caption-number">Definition 18 </span> (Open vs. Closed)</p>
-<section class="definition-content" id="proof-content">
-<p>With regard to <span class="math notranslate nohighlight">\(uv\)</span>-paths, trails, and walks, if the starting and ending vertex are the same (<span class="math notranslate nohighlight">\(u=v\)</span>), we say it is <em>closed</em>. If the starting and ending vertex are different (<span class="math notranslate nohighlight">\(u\neq v\)</span>), it is <em>open</em>.</p>
-</section>
-</div><div class="proof definition admonition" id="definition-2">
-<p class="admonition-title"><span class="caption-number">Definition 19 </span> (Cycle vs. Circuit)</p>
-<section class="definition-content" id="proof-content">
-<p>A <em>circuit</em> is a closed <span class="math notranslate nohighlight">\(uv\)</span> trail. A <em>cycle</em> is a closed <span class="math notranslate nohighlight">\(uv\)</span> path.</p>
-</section>
-</div><p>Consider the following:</p>
-<a class="reference internal image-reference" href="../../_images/closedstuffs.png"><img alt="../../_images/closedstuffs.png" class="align-center" src="../../_images/closedstuffs.png" style="height: 240px;" />
-</a>
-<p>On the left, we have a closed <span class="math notranslate nohighlight">\(AA\)</span>-trail: <span class="math notranslate nohighlight">\(T= (\{A,C\}, \{C,D\}, \{D,E\}, \{E,C\}, \{C,B\}, \{B,A\})\)</span>. We call this a circuit. Secondly, on the right, we have a closed <span class="math notranslate nohighlight">\(AA\)</span>-path: <span class="math notranslate nohighlight">\(P=(\{A,B\}, \{B,C\}, \{C,A\})\)</span>. This is what we call a cycle.</p>
-<figure class="align-default" id="id1">
-<img alt="../../_images/giantmindmap.png" src="../../_images/giantmindmap.png" />
-<figcaption>
-<p><span class="caption-number">Fig. 12 </span><span class="caption-text">A summary of the lingo we have recently introduced.</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
-</figcaption>
-</figure>
-<div class="proof theorem admonition" id="walkpath">
-<p class="admonition-title"><span class="caption-number">Theorem 5 </span></p>
+</details><p>Since we proved “If <span class="math notranslate nohighlight">\(G\)</span> is connected, then it has a spanning tree” and “If <span class="math notranslate nohighlight">\(G\)</span> has a spanning tree, then it is connected”, we can say the following:</p>
+<div class="proof theorem admonition" id="theorem-1">
+<p class="admonition-title"><span class="caption-number">Theorem 16 </span></p>
 <section class="theorem-content" id="proof-content">
-<p>If there is an open <span class="math notranslate nohighlight">\(uv\)</span>-walk, then there is an open <span class="math notranslate nohighlight">\(uv\)</span>-path.</p>
+<p>A graph <span class="math notranslate nohighlight">\(G\)</span> is connected if and only if <span class="math notranslate nohighlight">\(G\)</span> has a spanning tree.</p>
+</section>
+</div></section>
+<section id="trees">
+<h2>Trees<a class="headerlink" href="#trees" title="Link to this heading">#</a></h2>
+<p>Let’s go through a couple results about trees.</p>
+<div class="proof theorem admonition" id="theorem-2">
+<p class="admonition-title"><span class="caption-number">Theorem 17 </span></p>
+<section class="theorem-content" id="proof-content">
+<p>If <span class="math notranslate nohighlight">\(T\)</span> is a tree on <span class="math notranslate nohighlight">\(n\)</span> vertices, then it has <span class="math notranslate nohighlight">\(n-1\)</span> edges.</p>
 </section>
 </div><div class="proof admonition" id="proof">
-<p>Proof. Let <span class="math notranslate nohighlight">\(G=(V,E)\)</span> be a graph with an open <span class="math notranslate nohighlight">\(uv\)</span>-walk <span class="math notranslate nohighlight">\(W=(\{v_1,v_2\},\{v_2,v_3\},\dots)\)</span> on vertices <span class="math notranslate nohighlight">\(V_W=(v_1,v_2,\dots, v_m)\)</span> such that <span class="math notranslate nohighlight">\(W\)</span> is a <em>minimum length</em> out of all the open <span class="math notranslate nohighlight">\(uv\)</span>-walks in <span class="math notranslate nohighlight">\(G\)</span>. If <span class="math notranslate nohighlight">\(W\)</span> is already a path, then we are done. So, assume <span class="math notranslate nohighlight">\(W\)</span> is not a path.</p>
-<p>Since <span class="math notranslate nohighlight">\(W\)</span> is not a path, there is a repeated vertex. Consider the repeated vertex. Let <span class="math notranslate nohighlight">\(v_i=v_j\)</span> for <span class="math notranslate nohighlight">\(v_i\)</span> and <span class="math notranslate nohighlight">\(v_j\)</span> in <span class="math notranslate nohighlight">\(V_W\)</span> (<span class="math notranslate nohighlight">\(1\leq i&lt;j\leq m\)</span>). Remove every edge in between <span class="math notranslate nohighlight">\(\{v_{i-1}, v_i\}\)</span> and <span class="math notranslate nohighlight">\(\{v_j=v_i, v_{j+1}\}\)</span> from <span class="math notranslate nohighlight">\(W\)</span>. Call this new open <span class="math notranslate nohighlight">\(uv\)</span>-walk <span class="math notranslate nohighlight">\(W'\)</span> and note <span class="math notranslate nohighlight">\(W'=(\{v_1,v_2\},\{v_2,v_3\}, \dots, \{v_{i-1},v_i\},\{v_j=v_i,v_{j+1}\},\dots)\)</span>.</p>
-<p>If <span class="math notranslate nohighlight">\(W'\)</span> is a path, great! We are done.</p>
-<p>If <span class="math notranslate nohighlight">\(W'\)</span> is <strong>not</strong> a path, then <span class="math notranslate nohighlight">\(W'\)</span> is an open <span class="math notranslate nohighlight">\(uv\)</span>-walk of shorter length than <span class="math notranslate nohighlight">\(W\)</span>. This contradicts the assumption that <span class="math notranslate nohighlight">\(W\)</span> is of minimum length.</p>
-<p>Therefore, there is an open <span class="math notranslate nohighlight">\(uv\)</span>-path when there is an open <span class="math notranslate nohighlight">\(uv\)</span>-walk.</p>
+<p>Proof. Let <span class="math notranslate nohighlight">\(T_n=(V,E)\)</span> be a tree such that <span class="math notranslate nohighlight">\(|V|=n\)</span>.</p>
+<p><u>Base Case</u>: Let <span class="math notranslate nohighlight">\(n=2\)</span>. Then, we have a graph on 2 vertices with a single edge. That is, the tree has <span class="math notranslate nohighlight">\(n=2\)</span> vertices and <span class="math notranslate nohighlight">\(n-1=1\)</span> edges. So, the statement holds for <span class="math notranslate nohighlight">\(n=2\)</span>.</p>
+<p><u>Inductive Hypothesis</u>: Assume the statement holds for <span class="math notranslate nohighlight">\(n\leq k\)</span>. That is, for all trees on <span class="math notranslate nohighlight">\(n\leq k\)</span> vertices, then there are <span class="math notranslate nohighlight">\(n-1\)</span> edges.</p>
+<p><u>Induct</u>: Let <span class="math notranslate nohighlight">\(T_{k+1}\)</span> be a tree. Consider removing some edge <span class="math notranslate nohighlight">\(\{u,v\}\)</span> that results in 2 components <span class="math notranslate nohighlight">\(T_r\)</span> and <span class="math notranslate nohighlight">\(T_{k+1-r}\)</span> (<span class="math notranslate nohighlight">\(2\leq r\leq k-2\)</span> so that we have edges in either component). Note that <span class="math notranslate nohighlight">\(T_r\)</span> and <span class="math notranslate nohighlight">\(T_{k+1-r}\)</span> are still connected and have no cycles so they are also trees.</p>
+<p>Since <span class="math notranslate nohighlight">\(r\leq k\)</span> and <span class="math notranslate nohighlight">\(k+1-r\leq k\)</span>, the inductive hypothesis applies to <span class="math notranslate nohighlight">\(T_r\)</span> and <span class="math notranslate nohighlight">\(T_{k+1-r}\)</span>. That is, we know <span class="math notranslate nohighlight">\(T_r\)</span> has <span class="math notranslate nohighlight">\(r-1\)</span> edges and <span class="math notranslate nohighlight">\(T_{k+1-r}\)</span> has <span class="math notranslate nohighlight">\(k+1-r-1\)</span> edges.</p>
+<p>So, we know that <span class="math notranslate nohighlight">\(T_{k+1}\)</span> has <span class="math notranslate nohighlight">\(r-1\)</span> edges from <span class="math notranslate nohighlight">\(T_r\)</span> and <span class="math notranslate nohighlight">\(k+1-r-1\)</span> edges from <span class="math notranslate nohighlight">\(T_{k+1-r}\)</span>. Including the removed edge <span class="math notranslate nohighlight">\(\{u,v\}\)</span>, we know <span class="math notranslate nohighlight">\(T_{k+1}\)</span> has <span class="math notranslate nohighlight">\(1+(r-1)+(k+1-r-1)=k\)</span> edges total. Thus, <span class="math notranslate nohighlight">\(T_{k+1}\)</span> has <span class="math notranslate nohighlight">\(k\)</span> edges.</p>
+<p>Therefore, <span class="math notranslate nohighlight">\(T_n\)</span> has <span class="math notranslate nohighlight">\(n-1\)</span> edges for all <span class="math notranslate nohighlight">\(n\geq 2\)</span>.</p>
 </div>
-<p>There is a simple explanation of what we’re doing. Firstly, we are taking a some minimum walk from <span class="math notranslate nohighlight">\(u\)</span> to <span class="math notranslate nohighlight">\(v\)</span>:</p>
-<a class="reference internal image-reference" href="../../_images/fig6.png"><img alt="../../_images/fig6.png" class="align-center" src="../../_images/fig6.png" style="width: 450px;" />
-</a>
-<p>We are removing the extra dilly-dally:</p>
-<a class="reference internal image-reference" href="../../_images/fig7.png"><img alt="../../_images/fig7.png" class="align-center" src="../../_images/fig7.png" style="width: 450px;" />
-</a>
-<p>And considering a more direct route:</p>
-<a class="reference internal image-reference" href="../../_images/fig8.png"><img alt="../../_images/fig8.png" class="align-center" src="../../_images/fig8.png" style="width: 450px;" />
-</a>
-<p>Either this new route is a path or we’ve violated the assumptions we’ve made.</p>
-<p>A nice corollary to this theorem relates to connectedness:</p>
-<div class="proof corollary admonition" id="corollary-4">
-<p class="admonition-title"><span class="caption-number">Corollary 2 </span></p>
-<section class="corollary-content" id="proof-content">
-<p>If there exists an open <span class="math notranslate nohighlight">\(uv\)</span>-walk from every pair of vertices in a graph <span class="math notranslate nohighlight">\(G\)</span>, <span class="math notranslate nohighlight">\(G\)</span> is connected.</p>
+<div class="proof theorem admonition" id="theorem-3">
+<p class="admonition-title"><span class="caption-number">Theorem 18 </span></p>
+<section class="theorem-content" id="proof-content">
+<p>Let <span class="math notranslate nohighlight">\(T\)</span> be a tree. Then, there is exactly one path between every pair of distinct vertices.</p>
 </section>
 </div><div class="proof admonition" id="proof">
-<p>Proof. We just proved every open in <a class="reference internal" href="#walkpath">Theorem 5</a> that if there is an open <span class="math notranslate nohighlight">\(uv\)</span>-walk then there is an open <span class="math notranslate nohighlight">\(uv\)</span>-path. So, if there exists an open <span class="math notranslate nohighlight">\(uv\)</span>-walk from every pair of vertices in a graph <span class="math notranslate nohighlight">\(G\)</span>, there is an open <span class="math notranslate nohighlight">\(uv\)</span>-path between them too and <span class="math notranslate nohighlight">\(G\)</span> is connected.</p>
+<p>Proof. Let <span class="math notranslate nohighlight">\(T=(V,E)\)</span> be a tree. Assume <span class="math notranslate nohighlight">\(T\)</span> has more than one <span class="math notranslate nohighlight">\(uv\)</span>-path for some distinct vertices <span class="math notranslate nohighlight">\(u,v\in V\)</span>. Consider two of these paths, <span class="math notranslate nohighlight">\(P_1\)</span> and <span class="math notranslate nohighlight">\(P_2\)</span>.</p>
+<p>At some point in <span class="math notranslate nohighlight">\(P_1\)</span> and <span class="math notranslate nohighlight">\(P_2\)</span>, there are a pair of vertices <span class="math notranslate nohighlight">\(x_i\)</span> and <span class="math notranslate nohighlight">\(x_j\)</span> that exist in <u>both</u> <span class="math notranslate nohighlight">\(P_1\)</span> and <span class="math notranslate nohighlight">\(P_2\)</span>. Then, there is an <span class="math notranslate nohighlight">\(x_ix_j\)</span>-path in <span class="math notranslate nohighlight">\(P_1\)</span> and an <span class="math notranslate nohighlight">\(x_ix_j\)</span>-path in <span class="math notranslate nohighlight">\(P_2\)</span>. By taking the edges of each of the <span class="math notranslate nohighlight">\(x_ix_j\)</span>-paths, we have a cycle (an <span class="math notranslate nohighlight">\(x_ix_i\)</span>-path).</p>
+<p>Therefore, <span class="math notranslate nohighlight">\(T\)</span> has exactly one path from <span class="math notranslate nohighlight">\(u\)</span> to <span class="math notranslate nohighlight">\(v\)</span>.</p>
 </div>
-</section>
-<section id="what-about-in-digraphs">
-<h2>What about in digraphs?<a class="headerlink" href="#what-about-in-digraphs" title="Link to this heading">#</a></h2>
-<p>These ideas of connectedness also extend to digraphs with some tweaking.</p>
-<div class="proof definition admonition" id="definition-5">
-<p class="admonition-title"><span class="caption-number">Definition 20 </span> (Directed Paths, Trails, &amp; Walks)</p>
-<section class="definition-content" id="proof-content">
-<p>A <em>directed path</em> is a sequence of arcs <span class="math notranslate nohighlight">\(\mathcal{P}=((v_1,v_2), (v_2,v_3), \dots, (v_{m-1},v_m))\)</span> containing a sequence of distinct nodes <span class="math notranslate nohighlight">\(\mathcal{V}_{\mathcal{P}}=(v_1, v_2, \dots, v_m)\)</span> such that each node <span class="math notranslate nohighlight">\(v_i\in \mathcal{V}_{\mathcal{P}}\)</span> in at most two arcs of <span class="math notranslate nohighlight">\(P\)</span>. We call <span class="math notranslate nohighlight">\(v_1\in \mathcal{V}_{\mathcal{P}}\)</span> the starting node and <span class="math notranslate nohighlight">\(v_m\in \mathcal{V}_{\mathcal{P}}\)</span> the ending node.</p>
-<p>A <em>directed trail</em> is a directed path, but nodes may be repeated.</p>
-<p>A <em>directed walk</em> is a directed path, but we can repeat nodes and arcs.</p>
-<p>A directed <em>uv</em>-path, trail, or walk means the starting node is <span class="math notranslate nohighlight">\(u\)</span> and the ending node is <span class="math notranslate nohighlight">\(v\)</span>.</p>
-<p><em>Open</em> and <em>closed</em> mean the same as before: <span class="math notranslate nohighlight">\(u\neq v\)</span> for the former and <span class="math notranslate nohighlight">\(u=v\)</span> for the latter.</p>
-</section>
-</div><p>While these definitions extend nicely, connectedness in digraph is broadly defined in two categories: <em>weak</em> connectivity and <em>strong</em> connectivity.</p>
-<div class="proof definition admonition" id="definition-6">
-<p class="admonition-title"><span class="caption-number">Definition 21 </span> (Weak vs. Strong Connectedness)</p>
-<section class="definition-content" id="proof-content">
-<p>A digraph is <em>strongly connected</em> if for every pair of distinct nodes <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(v\)</span>, there is a <span class="math notranslate nohighlight">\(uv\)</span>-directed path and a <span class="math notranslate nohighlight">\(vu\)</span>-directed path.</p>
-<p>A digraph is <em>weakly connected</em> if by replacing every arc with an edge, we obtain a connected graph.</p>
-</section>
-</div><figure class="align-default" id="id2">
-<a class="reference internal image-reference" href="../../_images/strongvsweakconnected.png"><img alt="../../_images/strongvsweakconnected.png" src="../../_images/strongvsweakconnected.png" style="height: 240px;" />
-</a>
-<figcaption>
-<p><span class="caption-number">Fig. 13 </span><span class="caption-text">On left, a strongly connected digraph. On right, a weakly connected digraph.</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
-</figcaption>
-</figure>
 </section>
 </section>
 
@@ -467,7 +416,7 @@
         },
         kernelOptions: {
             name: "python3",
-            path: "./content\week2"
+            path: "./content\week5"
         },
         predefinedOutput: true
     }
@@ -485,22 +434,13 @@
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="w2d2.html"
+       href="../week4/w4d3.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Lecture 4: Paths</p>
+        <p class="prev-next-title">Lecture 10: Trees, Forests, &amp; Connectivity</p>
       </div>
-    </a>
-    <a class="right-next"
-       href="../week3/w3d1.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Lecture 6: Subgraphs &amp; Colorings</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -521,8 +461,7 @@
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#warmup">Warmup</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paths-trails-walks">Paths, Trails, &amp; Walks</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-about-in-digraphs">What about in digraphs?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trees">Trees</a></li>
 </ul>
   </nav></div>
 
