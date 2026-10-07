@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Lecture 12: Bipartite Graphs &#8212; Math 453 Lecture Notes</title>
+    <title>Lecture 12: Menger’s Theorem &amp; Proof Technique &#8212; Math 453 Lecture Notes</title>
   
   
   
@@ -244,7 +244,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 6--Bipartiteness &amp; Menger's Theorem</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="w6d1.html">Lecture 12: Bipartite Graphs</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lecture 12: Bipartite Graphs</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lecture 12: Menger’s Theorem &amp; Proof Technique</a></li>
 </ul>
 
     </div>
@@ -380,7 +380,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Lecture 12: Bipartite Graphs</h1>
+    <h1>Lecture 12: Menger’s Theorem & Proof Technique</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -403,8 +403,8 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="lecture-12-bipartite-graphs">
-<h1>Lecture 12: Bipartite Graphs<a class="headerlink" href="#lecture-12-bipartite-graphs" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="lecture-12-menger-s-theorem-proof-technique">
+<h1>Lecture 12: Menger’s Theorem &amp; Proof Technique<a class="headerlink" href="#lecture-12-menger-s-theorem-proof-technique" title="Link to this heading">#</a></h1>
 <section id="warmup">
 <h2>Warmup<a class="headerlink" href="#warmup" title="Link to this heading">#</a></h2>
 <div class="proof theorem admonition" id="theorem-0">
@@ -424,6 +424,41 @@
 </div></section>
 <section id="method-of-proof-for-menger-s">
 <h2>Method of Proof for Menger’s<a class="headerlink" href="#method-of-proof-for-menger-s" title="Link to this heading">#</a></h2>
+<p>We have gone through so many proofs this semester. Let’s use some lingo to discuss proof techniques we will use for Menger’s (and refresh on proof techniques in general!).</p>
+<p>The way we will prove Menger’s theorem is by <em>induction</em>. A proof by induction proceeds as follows:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Prove a claim is true for a simple case</p></li>
+<li><p>Assume the claim is true for all <span class="math notranslate nohighlight">\(n\leq k\)</span></p></li>
+<li><p>Prove that the claim being true for <span class="math notranslate nohighlight">\(n\leq k\)</span> means the claim is \emph{also} true for <span class="math notranslate nohighlight">\(n=k+1\)</span>.</p></li>
+</ol>
+</div></blockquote>
+<p>My personal intuition is: “<em>I took a step. I could have been walking for a while. If I have been, I’m capable of taking another step.</em>” A great example of this proof technique in action:</p>
+<div class="proof theorem admonition" id="theorem-2">
+<p class="admonition-title"><span class="caption-number">Theorem 23 </span></p>
+<section class="theorem-content" id="proof-content">
+<p><span class="math notranslate nohighlight">\(1+2+3+\cdots+n=\frac{n(n+1)}{2}\)</span> for all whole numbers <span class="math notranslate nohighlight">\(n\geq 1\)</span>.</p>
+</section>
+</div><div class="proof admonition" id="proof">
+<p>Proof. We will show this equality holds by using induction.</p>
+<p><u><strong>Base case</strong></u> Let <span class="math notranslate nohighlight">\(n=1\)</span>. Well, the left hand side of the equality would be <span class="math notranslate nohighlight">\(1\)</span>. The right hand side would be <span class="math notranslate nohighlight">\(\frac{1(1+1)}{2}=\frac{1(2)}{2}=1\)</span>. The left hand side equals the right hand side. So, this claim holds for <span class="math notranslate nohighlight">\(n=1\)</span>. Great!</p>
+<p><u><strong>Hypothesis</strong></u> Assume <span class="math notranslate nohighlight">\(1+2+3+\cdots+n=\frac{n(n+1)}{2}\)</span> when <span class="math notranslate nohighlight">\(n\leq k\)</span> for some whole number <span class="math notranslate nohighlight">\(k&gt;1\)</span>.</p>
+<p><u><strong>Induct</strong></u> Consider the case when <span class="math notranslate nohighlight">\(n=k+1\)</span>. Well, the left hand side would be:
+[1+2+3+\cdots+(k-1)+k+(k+1)]
+From our hypothesis, we know that up to <span class="math notranslate nohighlight">\(n=k\)</span>, we have a nice formula. So, let’s use it:
+<span class="math notranslate nohighlight">\(\begin{align*}
+1+2+3+\cdots+(k-1)+k+(k+1)&amp;= \frac{k(k+1)}{2}+(k+1)
+\end{align*}\)</span>
+Let’s simplify the sum a little:</p>
+<p><span class="math notranslate nohighlight">\(\begin{align*}
+1+2+3+\cdots+(k-1)+k+(k+1)&amp;= \frac{k(k+1)}{2}+(k+1)\\
+&amp;= \frac{k(k+1)}{2}+\frac{2(k+1)}{2}\\
+&amp;= \frac{k(k+1)+2(k+1)}{2}\\
+&amp;= \frac{(k+2)(k+1)}{2}\\
+\end{align*}\)</span></p>
+<p>So, using the inductive hypothesis above, we have that the left hand side equals <span class="math notranslate nohighlight">\(\frac{(k+2)(k+1)}{2}\)</span>. Plugging <span class="math notranslate nohighlight">\(n=k+1\)</span> to the right hand side of the claim gives <span class="math notranslate nohighlight">\(\frac{n(n+1)}{2}=\frac{(k+2)(k+1)}{2}\)</span>. Great! The left hand side equals the right hand side.</p>
+<p>Thus, we know <span class="math notranslate nohighlight">\(1+2+\cdots+n=\frac{n(n+1)}{2}\)</span> holds for not just <span class="math notranslate nohighlight">\(n\leq k\)</span> but <em>all</em> whole numbers <span class="math notranslate nohighlight">\(n&gt;1\)</span>.</p>
+</div>
 </section>
 </section>
 
