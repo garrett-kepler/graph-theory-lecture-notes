@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Lecture 3: Isomorphism and Connectedness &#8212; Math 453 Lecture Notes</title>
+    <title>Lecture 12: Bipartite Graphs &#8212; Math 453 Lecture Notes</title>
   
   
   
@@ -63,12 +63,11 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'content/week2/w2d1';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/week6/w6d2';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Lecture 4: Paths" href="w2d2.html" />
-    <link rel="prev" title="Lecture 2: Basics of Graphs" href="../week1/w1d2.html" />
+    <link rel="prev" title="Lecture 12: Bipartite Graphs" href="w6d1.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -222,10 +221,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../week1/w1d2.html">Lecture 2: Basics of Graphs</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 2--Isomorphism &amp; Paths</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lecture 3: Isomorphism and Connectedness</a></li>
-<li class="toctree-l1"><a class="reference internal" href="w2d2.html">Lecture 4: Paths</a></li>
-<li class="toctree-l1"><a class="reference internal" href="w2d3.html">Lecture 5: Trails &amp; Walks</a></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week2/w2d1.html">Lecture 3: Isomorphism and Connectedness</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week2/w2d2.html">Lecture 4: Paths</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week2/w2d3.html">Lecture 5: Trails &amp; Walks</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 3--Subgraphs &amp; Graph Parameters</span></p>
 <ul class="nav bd-sidenav">
@@ -243,9 +242,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../week5/w5d1.html">Lecture 11: More on Trees</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 6--Bipartiteness &amp; Menger's Theorem</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../week6/w6d1.html">Lecture 12: Bipartite Graphs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../week6/w6d2.html">Lecture 12: Bipartite Graphs</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="w6d1.html">Lecture 12: Bipartite Graphs</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lecture 12: Bipartite Graphs</a></li>
 </ul>
 
     </div>
@@ -305,7 +304,7 @@
       
       
       
-      <li><a href="../../_sources/content/week2/w2d1.md" target="_blank"
+      <li><a href="../../_sources/content/week6/w6d2.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -381,7 +380,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Lecture 3: Isomorphism and Connectedness</h1>
+    <h1>Lecture 12: Bipartite Graphs</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -391,8 +390,8 @@
             </div>
             <nav aria-label="Page">
                 <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#isomorphisms">Isomorphisms</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paths-connectedness">Paths &amp; Connectedness</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#warmup">Warmup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method-of-proof-for-menger-s">Method of Proof for Menger’s</a></li>
 </ul>
             </nav>
         </div>
@@ -404,97 +403,27 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="lecture-3-isomorphism-and-connectedness">
-<h1>Lecture 3: Isomorphism and Connectedness<a class="headerlink" href="#lecture-3-isomorphism-and-connectedness" title="Link to this heading">#</a></h1>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
-<summary class="sd-summary-title sd-card-header">
-<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text"><span class="math notranslate nohighlight">\(n-1\)</span>. Recall that <em>simple</em> means there are no self-loops and at most one edge between any pair of vertices.</p>
-<p class="sd-card-text">We will walk through an example to maximize the degree of a vertex, 1. Consider the case when <span class="math notranslate nohighlight">\(n=2\)</span>:</p>
-<a class="reference internal image-reference" href="../../_images/warm1.png"><img alt="../../_images/warm1.png" class="align-center" src="../../_images/warm1.png" style="width: 200px;" />
-</a>
-<p class="sd-card-text">Since self-loops are not allowed in a simple graph, we cannot make an edge between 1 and itself. Likewise with 2 and itself. We must add an edge between 1 and 2:</p>
-<a class="reference internal image-reference" href="../../_images/warm2.png"><img alt="../../_images/warm2.png" class="align-center" src="../../_images/warm2.png" style="width: 200px;" />
-</a>
-<p class="sd-card-text">Now that <span class="math notranslate nohighlight">\(\{1,2\}\)</span> is in the graph, we cannot add another edge between 1 and 2 otherwise the graph will not be simple. So, the maximum degree when <span class="math notranslate nohighlight">\(n=2\)</span> is 1.</p>
-<p class="sd-card-text">Considering <span class="math notranslate nohighlight">\(n=3\)</span>:</p>
-<a class="reference internal image-reference" href="../../_images/warm3.png"><img alt="../../_images/warm3.png" class="align-center" src="../../_images/warm3.png" style="width: 200px;" />
-</a>
-<p class="sd-card-text">Again, we cannot add any more edges between 1 and the other vertices. Likewise, we cannot add edges between the vertices and themselves. So, the maximum degree when <span class="math notranslate nohighlight">\(n=3\)</span> is 2.</p>
-<p class="sd-card-text">Think about what is going on:</p>
-<a class="reference internal image-reference" href="../../_images/warm4.png"><img alt="../../_images/warm4.png" class="align-center" src="../../_images/warm4.png" style="width: 200px;" />
-</a>
-<p class="sd-card-text">We are adding an edge between one vertex and <em>all of the other vertices in the graph</em>. There are <span class="math notranslate nohighlight">\(n-1\)</span> other vertices when we consider a given vertex. So, the maximum degree for this vertex in a simple graph is <span class="math notranslate nohighlight">\(n-1\)</span>.</p>
-</div>
-</details><section id="isomorphisms">
-<h2>Isomorphisms<a class="headerlink" href="#isomorphisms" title="Link to this heading">#</a></h2>
-<p>Consider the following graphs. While the edge set of the graph on the left is different form the edge set of the graph on the right, the graphs are <em>essentially</em> the same. The only difference is the labelling. This motivates the concept of an <em>isomorphism</em> in graph theory.</p>
-<figure class="align-default" id="id1">
-<a class="reference internal image-reference" href="../../_images/fig1.png"><img alt="../../_images/fig1.png" src="../../_images/fig1.png" style="width: 600px;" />
-</a>
-<figcaption>
-<p><span class="caption-number">Fig. 8 </span><span class="caption-text">Two graphs, <span class="math notranslate nohighlight">\(G_1\)</span> and <span class="math notranslate nohighlight">\(G_2\)</span>, that are structurally the same if we ignore vertex labels.</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
-</figcaption>
-</figure>
-<div class="proof definition admonition" id="definition-0">
-<p class="admonition-title"><span class="caption-number">Definition 13 </span> (Isomorphic)</p>
-<section class="definition-content" id="proof-content">
-<p>Let <span class="math notranslate nohighlight">\(G_1=(V_1,E_1)\)</span> and <span class="math notranslate nohighlight">\(G_2=(V_2,E_2)\)</span>. We say <span class="math notranslate nohighlight">\(G_1\)</span> is <em>isomorphic</em> to <span class="math notranslate nohighlight">\(G_2\)</span> if there exists a bijection <span class="math notranslate nohighlight">\(\psi:V_1\to V_2\)</span> such that <span class="math notranslate nohighlight">\(\{u,v\}\in E_1\)</span> if and only if <span class="math notranslate nohighlight">\(\{\psi(u), \psi(v)\}\in E_2\)</span>. We write <span class="math notranslate nohighlight">\(G_1\cong G_2\)</span> in this case.</p>
-</section>
-</div><p>Really, drawing your own isomorphic graphs is straightforward: draw the same graph, but change the labels. For example, the following graphs from class.</p>
-<a class="reference internal image-reference" href="../../_images/fig2.png"><img alt="../../_images/fig2.png" class="align-center" src="../../_images/fig2.png" style="width: 600px;" />
-</a>
-<p>Notice, we did not change anything about the <em>structure</em> of the graph. Merely the labels. If <span class="math notranslate nohighlight">\(G_1=(V_1,E_1)\)</span> and <span class="math notranslate nohighlight">\(G_2=(V_2,E_2)\)</span>, then the following function <span class="math notranslate nohighlight">\(f:V_1\to V_2\)</span> is an isomorphism between <span class="math notranslate nohighlight">\(G_1\)</span> and <span class="math notranslate nohighlight">\(G_2\)</span>:</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(f(A)=e\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(f(B)=b\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(f(C)=c\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(f(D)=a\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(f(E)=d\)</span></p></li>
-</ul>
-<p>This functions simply changes the labels. Keep that in mind when trying to prove the following.</p>
-<div class="proof theorem admonition" id="theorem-1">
-<p class="admonition-title"><span class="caption-number">Theorem 2 </span></p>
+  <section class="tex2jax_ignore mathjax_ignore" id="lecture-12-bipartite-graphs">
+<h1>Lecture 12: Bipartite Graphs<a class="headerlink" href="#lecture-12-bipartite-graphs" title="Link to this heading">#</a></h1>
+<section id="warmup">
+<h2>Warmup<a class="headerlink" href="#warmup" title="Link to this heading">#</a></h2>
+<div class="proof theorem admonition" id="theorem-0">
+<p class="admonition-title"><span class="caption-number">Theorem 22 </span> (Menger’s Theorem)</p>
 <section class="theorem-content" id="proof-content">
-<p>Let <span class="math notranslate nohighlight">\(G_1=(V_1,E_1)\)</span> and <span class="math notranslate nohighlight">\(G_2=(V_2,E_2)\)</span> be graphs. If <span class="math notranslate nohighlight">\(G_1\cong G_2\)</span> with some isomorphism <span class="math notranslate nohighlight">\(\psi:V_1\to V_2\)</span>, then</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(|V_1|=|V_2|\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(|E_1|=|E_2|\)</span></p></li>
-<li><p>If <span class="math notranslate nohighlight">\(v\in V_1\)</span> such that <span class="math notranslate nohighlight">\(\psi(v)=v'\in V_2\)</span>, then <span class="math notranslate nohighlight">\(d_{G_1}(v)=d_{G_2}(v')\)</span>.</p></li>
-</ul>
+<p>Let <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(v\)</span> be distinct vertices in <span class="math notranslate nohighlight">\(G\)</span> with \underline{no edge} between them. Then, the minimum number of vertices in a <span class="math notranslate nohighlight">\(uv\)</span>-separating set is exactly the maximum number of internally disjoint <span class="math notranslate nohighlight">\(uv\)</span>-paths (i.e. <span class="math notranslate nohighlight">\(\psi_G(u,v)=\kappa_G(u,v)\)</span>).</p>
 </section>
-</div><div class="proof admonition" id="proof">
-<p>Proof. The first two are homework problems!</p>
-<p>To prove the last, consider what the isomorphism <span class="math notranslate nohighlight">\(\psi:V_1\to V_2\)</span> does to edges containing a vertex <span class="math notranslate nohighlight">\(v\in V_1\)</span>. By the definition of isomorphism, <span class="math notranslate nohighlight">\(\{v,u\}\)</span> exists in <span class="math notranslate nohighlight">\(E_1\)</span> if and only if <span class="math notranslate nohighlight">\(\{\psi(v), \psi(u)\}\)</span> exists in <span class="math notranslate nohighlight">\(E_2\)</span>. Since <span class="math notranslate nohighlight">\(\psi\)</span> is a bijection, the vertices <span class="math notranslate nohighlight">\(v\)</span> and <span class="math notranslate nohighlight">\(u\)</span> in some edge <span class="math notranslate nohighlight">\(\{v,u\}\in E_1\)</span> get mapped uniquely to vertices <span class="math notranslate nohighlight">\(\psi(v)\)</span> and <span class="math notranslate nohighlight">\(\psi(u)\)</span> in some edge <span class="math notranslate nohighlight">\(\{\psi(v),\psi(u)\}\in E_2\)</span>. So, the edge <span class="math notranslate nohighlight">\(\{v,u\}\in E_1\)</span> also gets mapped uniquely to an edge <span class="math notranslate nohighlight">\(\{\psi(v),\psi(u)\}\in E_2\)</span>. Therefore, the number of times <span class="math notranslate nohighlight">\(v\in V_1\)</span> appears as an endpoint in <span class="math notranslate nohighlight">\(G_1\)</span> , <span class="math notranslate nohighlight">\(d_{G_1}(v)\)</span> , equals the number of times <span class="math notranslate nohighlight">\(\psi(v)\in V_2\)</span> appears as an endpoint in <span class="math notranslate nohighlight">\(G_2\)</span> , <span class="math notranslate nohighlight">\(d_{G_2}(\psi(v))\)</span>.</p>
-</div>
-</section>
-<section id="paths-connectedness">
-<h2>Paths &amp; Connectedness<a class="headerlink" href="#paths-connectedness" title="Link to this heading">#</a></h2>
-<div class="proof definition admonition" id="definition-2">
-<p class="admonition-title"><span class="caption-number">Definition 14 </span> (Path)</p>
+</div><div class="proof definition admonition" id="definition-1">
+<p class="admonition-title"><span class="caption-number">Definition 38 </span></p>
 <section class="definition-content" id="proof-content">
-<p>A sequence of edges <span class="math notranslate nohighlight">\(P=(\{v_1,v_2\}, \{v_2,v_3\}, \dots, \{v_{m-1},v_m\})\)</span> containing a sequence of distinct vertices <span class="math notranslate nohighlight">\(V_P=(v_1, v_2, \dots, v_m)\)</span> such that each vertex <span class="math notranslate nohighlight">\(v_i\in V_P\)</span> appears as an endpoint in at most two edges of <span class="math notranslate nohighlight">\(P\)</span>. We call <span class="math notranslate nohighlight">\(v_1\in V_P\)</span> the starting vertex and <span class="math notranslate nohighlight">\(v_m\in V_P\)</span> the ending vertex.</p>
+<p>Let <span class="math notranslate nohighlight">\(G\)</span> be a graph with vertices <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(v\)</span> but not the edge <span class="math notranslate nohighlight">\(\{u,v\}\)</span>. Then,</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(S\subseteq V\)</span> is a <em>uv-separating set</em> if there is no <span class="math notranslate nohighlight">\(uv\)</span>-path in <span class="math notranslate nohighlight">\(G-S\)</span>. The minimum size of these sets will be denoted <span class="math notranslate nohighlight">\(\kappa_G(u,v)\)</span>.</p></li>
+<li><p>Two <span class="math notranslate nohighlight">\(uv\)</span>-paths in <span class="math notranslate nohighlight">\(G\)</span> are <em>internally disjoint uv-paths</em> if they only have the vertices <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(v\)</span> in common. The maximimum number of these for a graph <span class="math notranslate nohighlight">\(G\)</span> will be denoted <span class="math notranslate nohighlight">\(\psi_G(u,v)\)</span>.</p></li>
+</ol>
 </section>
-</div><figure class="align-default" id="id2">
-<a class="reference internal image-reference" href="../../_images/path1.png"><img alt="../../_images/path1.png" src="../../_images/path1.png" style="height: 240px;" />
-</a>
-<figcaption>
-<p><span class="caption-number">Fig. 9 </span><span class="caption-text">Two examples of paths between vertices <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(C\)</span>. The difference being <span class="math notranslate nohighlight">\(V_{P_1}=(A,B,C)\)</span> while <span class="math notranslate nohighlight">\(V_{P_2}=(A,C)\)</span>.</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
-</figcaption>
-</figure>
-<div class="proof definition admonition" id="definition-3">
-<p class="admonition-title"><span class="caption-number">Definition 15 </span> (Connectedness)</p>
-<section class="definition-content" id="proof-content">
-<p>A graph is connected if there is a path between every pair of distinct vertices.</p>
-</section>
-</div><p>Take, for example, the following graphs. On one, there is a path between all the vertices in the graph. On the other, there is a piece of the graph that cannot be reached by a path.</p>
-<figure class="align-default" id="id3">
-<a class="reference internal image-reference" href="../../_images/connected.png"><img alt="../../_images/connected.png" src="../../_images/connected.png" style="width: 600px;" />
-</a>
-<figcaption>
-<p><span class="caption-number">Fig. 10 </span><span class="caption-text">Connected vs. disconnected</span><a class="headerlink" href="#id3" title="Link to this image">#</a></p>
-</figcaption>
-</figure>
+</div></section>
+<section id="method-of-proof-for-menger-s">
+<h2>Method of Proof for Menger’s<a class="headerlink" href="#method-of-proof-for-menger-s" title="Link to this heading">#</a></h2>
 </section>
 </section>
 
@@ -511,7 +440,7 @@
         },
         kernelOptions: {
             name: "python3",
-            path: "./content\week2"
+            path: "./content\week6"
         },
         predefinedOutput: true
     }
@@ -529,22 +458,13 @@
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../week1/w1d2.html"
+       href="w6d1.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Lecture 2: Basics of Graphs</p>
+        <p class="prev-next-title">Lecture 12: Bipartite Graphs</p>
       </div>
-    </a>
-    <a class="right-next"
-       href="w2d2.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Lecture 4: Paths</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -564,8 +484,8 @@
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#isomorphisms">Isomorphisms</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paths-connectedness">Paths &amp; Connectedness</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#warmup">Warmup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method-of-proof-for-menger-s">Method of Proof for Menger’s</a></li>
 </ul>
   </nav></div>
 

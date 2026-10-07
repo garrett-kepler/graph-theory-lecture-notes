@@ -23,3 +23,7 @@ parts:
   - caption: Week 5--Trees
     chapters:
     - file: content/week5/w5d1.md
+  - caption: Week 6--Bipartiteness & Menger's Theorem
+    chapters:
+    - file: content/week6/w6d1.md
+    - file: content/week6/w6d2.md
