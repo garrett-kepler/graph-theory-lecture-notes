@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Lecture 9: More Connectivity &#8212; Math 453 Lecture Notes</title>
+    <title>Lecture 12: Bipartite Graphs &#8212; Math 453 Lecture Notes</title>
   
   
   
@@ -63,11 +63,11 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'content/week4/w4d2';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/week6/w6d1';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Lecture 10: Trees, Forests, &amp; Connectivity" href="w4d3.html" />
-    <link rel="prev" title="Lecture 8: Introduction to Connectivity" href="w4d1.html" />
+    <link rel="next" title="Lecture 13: Menger’s Theorem &amp; Proof Technique" href="w6d2.html" />
+    <link rel="prev" title="Lecture 11: More on Trees" href="../week5/w5d1.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -182,20 +182,20 @@
 <li class="toctree-l1"><a class="reference internal" href="../week3/w3d2.html">Lecture 7: Pigeonhole Principle &amp; Its Applications</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 4--Connectivity</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="w4d1.html">Lecture 8: Introduction to Connectivity</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lecture 9: More Connectivity</a></li>
-<li class="toctree-l1"><a class="reference internal" href="w4d3.html">Lecture 10: Trees, Forests, &amp; Connectivity</a></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week4/w4d1.html">Lecture 8: Introduction to Connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week4/w4d2.html">Lecture 9: More Connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week4/w4d3.html">Lecture 10: Trees, Forests, &amp; Connectivity</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 5--Trees</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../week5/w5d1.html">Lecture 11: More on Trees</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 6--Bipartiteness &amp; Menger's Theorem</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../week6/w6d1.html">Lecture 12: Bipartite Graphs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../week6/w6d2.html">Lecture 13: Menger’s Theorem &amp; Proof Technique</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../week6/w6d3.html">Lecture 14: Menger’s Theorem &amp; Proof</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lecture 12: Bipartite Graphs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="w6d2.html">Lecture 13: Menger’s Theorem &amp; Proof Technique</a></li>
+<li class="toctree-l1"><a class="reference internal" href="w6d3.html">Lecture 14: Menger’s Theorem &amp; Proof</a></li>
 </ul>
 
     </div>
@@ -255,7 +255,7 @@
       
       
       
-      <li><a href="../../_sources/content/week4/w4d2.md" target="_blank"
+      <li><a href="../../_sources/content/week6/w6d1.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -331,7 +331,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Lecture 9: More Connectivity</h1>
+    <h1>Lecture 12: Bipartite Graphs</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -342,7 +342,8 @@
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#warmup">Warmup</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connectivity">Connectivity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distance">Distance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bipartite">Bipartite</a></li>
 </ul>
             </nav>
         </div>
@@ -354,101 +355,94 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="lecture-9-more-connectivity">
-<h1>Lecture 9: More Connectivity<a class="headerlink" href="#lecture-9-more-connectivity" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="lecture-12-bipartite-graphs">
+<h1>Lecture 12: Bipartite Graphs<a class="headerlink" href="#lecture-12-bipartite-graphs" title="Link to this heading">#</a></h1>
 <section id="warmup">
 <h2>Warmup<a class="headerlink" href="#warmup" title="Link to this heading">#</a></h2>
 <div class="proof question admonition" id="question-0">
-<p class="admonition-title"><span class="caption-number">Question 14 </span></p>
+<p class="admonition-title"><span class="caption-number">Question 21 </span></p>
 <section class="question-content" id="proof-content">
-<p>Recall that in the previous lecture we proved the following:</p>
-<p>“Let <span class="math notranslate nohighlight">\(G\)</span> be a connected graph. If <span class="math notranslate nohighlight">\(\{u,v\}\)</span> is some cut-edge of <span class="math notranslate nohighlight">\(G\)</span>, then <span class="math notranslate nohighlight">\(P=(\{u,v\})\)</span> is the only path from <span class="math notranslate nohighlight">\(u\)</span> to <span class="math notranslate nohighlight">\(v\)</span>.”</p>
+<p>Mail in the U.S. typically has a 5 digit number at the end of addresses called “ZIP Codes”.</p>
 <ol class="arabic simple">
-<li><p>Let <span class="math notranslate nohighlight">\(G\)</span> be a connected graph. Prove that if <span class="math notranslate nohighlight">\(P=(\{u,v\})\)</span> is the only path from <span class="math notranslate nohighlight">\(u\)</span> to <span class="math notranslate nohighlight">\(v\)</span>, then <span class="math notranslate nohighlight">\(\{u,v\}\)</span> is a cut-edge of <span class="math notranslate nohighlight">\(G\)</span>.</p></li>
-<li><p>What is <span class="math notranslate nohighlight">\(\epsilon(G)\)</span> for the graphs of the type described above?</p></li>
-<li><p>Recall “edge-connectivity” is the minimum number of edges we need to remove to disconnect the graph. What might “vertex-connectivity” mean?</p></li>
+<li><p>If you were going to sort mail by ZIP codes algorithmically, what would you do?</p></li>
+<li><p>How would you represent this using graphs?</p></li>
 </ol>
 </section>
-</div><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
-<summary class="sd-summary-title sd-card-header">
-<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
-<ol class="arabic simple">
-<li><p class="sd-card-text">Again, intuitively, we have only one edge that we’ll remove to create a disconnected graph.</p></li>
-</ol>
-<a class="reference internal image-reference" href="../../_images/w4d1.7.png"><img alt="../../_images/w4d1.7.png" class="align-center" src="../../_images/w4d1.7.png" style="height: 240px;" />
-</a>
-<p class="sd-card-text">We’ll use this intuition to prove the result. One way to prove the result follows:</p>
-<p class="sd-card-text">“Let <span class="math notranslate nohighlight">\(G\)</span> be a connected graph. Assume <span class="math notranslate nohighlight">\(P=(\{u,v\})\)</span> is the only path from <span class="math notranslate nohighlight">\(u\)</span> to <span class="math notranslate nohighlight">\(v\)</span>. Consider removing <span class="math notranslate nohighlight">\(\{u,v\}\)</span> to obtain <span class="math notranslate nohighlight">\(G-\{u,v\}\)</span>. Since we have removed the only path from <span class="math notranslate nohighlight">\(u\)</span> to <span class="math notranslate nohighlight">\(v\)</span>, there is no path from <span class="math notranslate nohighlight">\(u\)</span> to <span class="math notranslate nohighlight">\(v\)</span> in <span class="math notranslate nohighlight">\(G-\{u,v\}\)</span>. So, <span class="math notranslate nohighlight">\(G-\{u,v\}\)</span> is disconnected. Therefore, <span class="math notranslate nohighlight">\(\{u,v\}\)</span> is a cut-edge.”</p>
-<p class="sd-card-text">This is a classic proof technique. Say we want to prove “A if and only B”. What we might do is prove first that “If A, then B”. Second, we prove “If B, then A”. This means “A if and only B” holds.</p>
-<p class="sd-card-text">Since we did this, we know the following:</p>
-<p class="sd-card-text">“Let <span class="math notranslate nohighlight">\(G\)</span> be a connected graph. <span class="math notranslate nohighlight">\(\{u,v\}\)</span> is some cut-edge of <span class="math notranslate nohighlight">\(G\)</span> if and only if <span class="math notranslate nohighlight">\(P=(\{u,v\})\)</span> is the only path from <span class="math notranslate nohighlight">\(u\)</span> to <span class="math notranslate nohighlight">\(v\)</span>.”</p>
-<ol class="arabic simple" start="2">
-<li><p class="sd-card-text">For a graph like above, what is <span class="math notranslate nohighlight">\(\epsilon(G)\)</span>? Well, we only need to remove a single edge to disconnect the graph. So, <span class="math notranslate nohighlight">\(\epsilon(G)=1\)</span>.</p></li>
-<li><p class="sd-card-text">“Vertex-connectivity” might involve disconnecting a graph by removing vertices. This is what we’ll discuss today.</p></li>
-</ol>
-</div>
-</details></section>
-<section id="connectivity">
-<h2>Connectivity<a class="headerlink" href="#connectivity" title="Link to this heading">#</a></h2>
+</div></section>
+<section id="distance">
+<h2>Distance<a class="headerlink" href="#distance" title="Link to this heading">#</a></h2>
 <div class="proof definition admonition" id="definition-1">
-<p class="admonition-title"><span class="caption-number">Definition 30 </span> (Vertex-Connectivity)</p>
+<p class="admonition-title"><span class="caption-number">Definition 36 </span> (Distance)</p>
 <section class="definition-content" id="proof-content">
-<p>The <em>vertex-connectivity</em> of a graph <span class="math notranslate nohighlight">\(G\)</span>, <span class="math notranslate nohighlight">\(\kappa(G)\)</span>, is the minimum number of vertices whose removal (and the edges that contain them) disconnects the graph <span class="math notranslate nohighlight">\(G\)</span>. Equivalently, if <span class="math notranslate nohighlight">\(G=(V,E)\)</span> is a graph, <span class="math notranslate nohighlight">\(\kappa(G)\)</span> is the size of the smallest set <span class="math notranslate nohighlight">\(W\subseteq V\)</span> such that <span class="math notranslate nohighlight">\(G\)</span> without vertices in <span class="math notranslate nohighlight">\(W\)</span> and the edges that contain them is disconnected.</p>
+<p>The <em>distance</em> between two vertices <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(v\)</span> in a graph <span class="math notranslate nohighlight">\(G\)</span> is the length of the shortest <span class="math notranslate nohighlight">\(uv\)</span>-path in <span class="math notranslate nohighlight">\(G\)</span>. We typically denote this <span class="math notranslate nohighlight">\(\text{dist}_G(u,v)\)</span> or simply <span class="math notranslate nohighlight">\(\text{dist}(u,v)\)</span> when the graph we are talking about is clear.</p>
 </section>
-</div><p>For example, the following graph needs only <span class="math notranslate nohighlight">\(A\)</span> and its edges to be removed to disconnect the graph:</p>
-<a class="reference internal image-reference" href="../../_images/w4d2.1.png"><img alt="../../_images/w4d2.1.png" class="align-center" src="../../_images/w4d2.1.png" style="height: 240px;" />
-</a>
-<p>So, the vertex-connectivity of the graph is only 1. But, pretend we had added a vertex with no edges:</p>
-<a class="reference internal image-reference" href="../../_images/w4d2.2.png"><img alt="../../_images/w4d2.2.png" class="align-center" src="../../_images/w4d2.2.png" style="height: 240px;" />
-</a>
-<p>Since <span class="math notranslate nohighlight">\(G_2\)</span> is already disconnected, we don’t need to remove any vertices to disconnect it. This intuition leads to the following theorem.</p>
+</div><p>Some conventions regarding distance:</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(\text{dist}(u,u)=\begin{cases}
+ &amp;0~~\text{if there is no self-loop}\\
+ &amp;1~~\text{if there is a self-loop}
+ \end{cases}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\text{dist}(u,v)=\infty\)</span> for vertices with no path between them</p></li>
+</ol>
 <div class="proof theorem admonition" id="theorem-2">
-<p class="admonition-title"><span class="caption-number">Theorem 14 </span></p>
+<p class="admonition-title"><span class="caption-number">Theorem 19 </span></p>
 <section class="theorem-content" id="proof-content">
-<p><span class="math notranslate nohighlight">\(\epsilon(G)=0\)</span> if and only if <span class="math notranslate nohighlight">\(\kappa(G)=0\)</span></p>
+<p>Let <span class="math notranslate nohighlight">\(T\)</span> be a tree. There are at least two vertices of degree 1 in <span class="math notranslate nohighlight">\(T\)</span>.</p>
 </section>
 </div><div class="proof admonition" id="proof">
-<p>Proof. Note that if <span class="math notranslate nohighlight">\(\epsilon(G)=0\)</span> or <span class="math notranslate nohighlight">\(\kappa(G)=0\)</span>, the graph <span class="math notranslate nohighlight">\(G\)</span> is disconnected (since we don’t need to remove anything to disconnect the graph!).</p>
-<p><span class="math notranslate nohighlight">\(\rightarrow\)</span> Assume <span class="math notranslate nohighlight">\(\epsilon(G)=0\)</span> Then, <span class="math notranslate nohighlight">\(G\)</span> is disconnected and no vertices are needed to disconnect it. Therefore, <span class="math notranslate nohighlight">\(\kappa(G)=0\)</span>.</p>
-<p><span class="math notranslate nohighlight">\(\leftarrow\)</span> Assume <span class="math notranslate nohighlight">\(\kappa(G)=0\)</span> Then, <span class="math notranslate nohighlight">\(G\)</span> is disconnected and no edges are needed to disconnect it. Therefore, <span class="math notranslate nohighlight">\(\epsilon(G)=0\)</span>.</p>
-<p>Therefore, we have our result.</p>
+<p>Proof. Let <span class="math notranslate nohighlight">\(T=(V,E)\)</span> be a tree. Let <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(v\)</span> be two vertices such that <span class="math notranslate nohighlight">\(\text{dist}(u,v)\)</span> is the largest in <span class="math notranslate nohighlight">\(T\)</span>. Recall there is only one path between vertices in trees. So, assume that one of these vertices, say <span class="math notranslate nohighlight">\(u\)</span>, has degree larger than one (i.e. <span class="math notranslate nohighlight">\(d_T(u)&gt;1\)</span>).</p>
+<p>Then, there exists an edge <span class="math notranslate nohighlight">\(\{u,w\}\)</span> <u>not</u> on the path from <span class="math notranslate nohighlight">\(u\)</span> to <span class="math notranslate nohighlight">\(v\)</span>. This makes the <span class="math notranslate nohighlight">\(vw\)</span>-path formed by the <span class="math notranslate nohighlight">\(uv\)</span>-path and the edge <span class="math notranslate nohighlight">\(\{u,w\}\)</span> <u>longer</u> than <span class="math notranslate nohighlight">\(\text{dist}(u,v)\)</span>. This is impossible since <span class="math notranslate nohighlight">\(\text{dist}(u, w)\)</span> cannot be larger than <span class="math notranslate nohighlight">\(\text{dist}(u,v)\)</span> by assumption. So, this extra edge <span class="math notranslate nohighlight">\(\{u,w\}\)</span> does not exist and <span class="math notranslate nohighlight">\(d_T(u)\leq 1\)</span>. If <span class="math notranslate nohighlight">\(d_T(u)&lt;1\)</span>, then the tree would be disconnect. So, <span class="math notranslate nohighlight">\(d_T(u)=1\)</span>.</p>
+<p>Since this same argument applies to <span class="math notranslate nohighlight">\(v\)</span>, we know at least <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(v\)</span> will have degree 1.</p>
 </div>
-<div class="proof question admonition" id="question-3">
-<p class="admonition-title"><span class="caption-number">Question 15 </span></p>
+</section>
+<section id="bipartite">
+<h2>Bipartite<a class="headerlink" href="#bipartite" title="Link to this heading">#</a></h2>
+<div class="proof definition admonition" id="definition-3">
+<p class="admonition-title"><span class="caption-number">Definition 37 </span> (Bipartite Graphs)</p>
+<section class="definition-content" id="proof-content">
+<p>A graph <span class="math notranslate nohighlight">\(G=(V,E)\)</span> is bipartite if each vertex in <span class="math notranslate nohighlight">\(V\)</span> can be placed into two disjoint, <span class="math notranslate nohighlight">\(U\)</span> and <span class="math notranslate nohighlight">\(W\)</span>, such that no vertex in <span class="math notranslate nohighlight">\(U\)</span> shares an edge with a vertex in <span class="math notranslate nohighlight">\(U\)</span> and likewise with <span class="math notranslate nohighlight">\(W\)</span>. We sometimes call <span class="math notranslate nohighlight">\(U\)</span> and <span class="math notranslate nohighlight">\(W\)</span> <em>partitioning sets</em> or a <em>bipartition</em>.</p>
+</section>
+</div><p>Another way to think of bipartite graphs: two disjoint independent sets with (potentially) edges between them.</p>
+<div class="proof question admonition" id="question-4">
+<p class="admonition-title"><span class="caption-number">Question 22 </span></p>
 <section class="question-content" id="proof-content">
-<p>If <span class="math notranslate nohighlight">\(\epsilon(G)=1\)</span>, what is <span class="math notranslate nohighlight">\(\kappa(G)\)</span>?</p>
+<p>What about graphs with self-loops?</p>
 </section>
 </div><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 <span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">Well, if <span class="math notranslate nohighlight">\(\epsilon(G)=1\)</span>, we only need to remove a single edge to disconnect the graph. The graph would vaguely look something like the following:</p>
-<a class="reference internal image-reference" href="../../_images/w4d1.7.png"><img alt="../../_images/w4d1.7.png" class="align-center" src="../../_images/w4d1.7.png" style="height: 240px;" />
-</a>
-<p class="sd-card-text">If a single edge disconnects the graph, we can definitely remove one of the endpoints to disconnect the graph too! That is, we could take <span class="math notranslate nohighlight">\(u\)</span> off the graph to disconnect it (likewise, <span class="math notranslate nohighlight">\(v\)</span>). So, <span class="math notranslate nohighlight">\(\kappa(G)=1\)</span>.</p>
+<p class="sd-card-text">Well, if a vertex has an edge with itself, then you could never have an independent set with this vertex present! So, if a graph has a self-loop, this graph is <u>not</u> bipartite.</p>
 </div>
-</details><div class="proof question admonition" id="question-4">
-<p class="admonition-title"><span class="caption-number">Question 16 </span></p>
+</details><div class="proof question admonition" id="question-5">
+<p class="admonition-title"><span class="caption-number">Question 23 </span></p>
 <section class="question-content" id="proof-content">
-<p>What about if <span class="math notranslate nohighlight">\(\epsilon(G)=k\)</span>? What will <span class="math notranslate nohighlight">\(\kappa(G)\)</span> be then?</p>
+<p>Draw a bipartite graph. Try 2-coloring it.</p>
 </section>
-</div><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
-<summary class="sd-summary-title sd-card-header">
-<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">Well, it might be the case that there is only one pair of vertices for each edge:</p>
-<a class="reference internal image-reference" href="../../_images/w4d2.3.png"><img alt="../../_images/w4d2.3.png" class="align-center" src="../../_images/w4d2.3.png" style="height: 240px;" />
-</a>
-<p class="sd-card-text">In this case, we can remove the <span class="math notranslate nohighlight">\(k\)</span> vertices on the left and disconnect the graph. But, maybe some edges share vertices:</p>
-<a class="reference internal image-reference" href="../../_images/w4d2.4.png"><img alt="../../_images/w4d2.4.png" class="align-center" src="../../_images/w4d2.4.png" style="height: 240px;" />
-</a>
-<p class="sd-card-text">In this case we could remove <span class="math notranslate nohighlight">\(k-1\)</span> vertices on the right and disconnect the graph. But, either way, we could remove <span class="math notranslate nohighlight">\(k\)</span> vertices and still be fine! This intuition leads to the following theorem.</p>
-</div>
-</details><div class="proof theorem admonition" id="theorem-5">
-<p class="admonition-title"><span class="caption-number">Theorem 15 </span></p>
+</div><div class="proof theorem admonition" id="theorem-6">
+<p class="admonition-title"><span class="caption-number">Theorem 20 </span></p>
 <section class="theorem-content" id="proof-content">
-<p>For a graph <span class="math notranslate nohighlight">\(G\)</span>, <span class="math notranslate nohighlight">\(\kappa(G)\leq \epsilon(G)\)</span>.</p>
+<p>A graph <span class="math notranslate nohighlight">\(G\)</span> is bipartite if and only if <span class="math notranslate nohighlight">\(\chi(G)\leq 2\)</span>.</p>
 </section>
 </div><div class="proof admonition" id="proof">
-<p>Proof. Try proving yourself before next lecture!</p>
+<p>Proof. Let <span class="math notranslate nohighlight">\(G=(V,E)\)</span> be a graph.</p>
+<p><span class="math notranslate nohighlight">\(\rightarrow\)</span> Assume <span class="math notranslate nohighlight">\(G\)</span> is bipartite with partitioning sets <span class="math notranslate nohighlight">\(U,W\subseteq V\)</span>.</p>
+<p>If <span class="math notranslate nohighlight">\(G\)</span> has no edges, <span class="math notranslate nohighlight">\(\chi(G)=1\)</span> since there are no edges anyway!</p>
+<p>Otherwise, color <span class="math notranslate nohighlight">\(U\)</span> blue and <span class="math notranslate nohighlight">\(W\)</span> red. Since <span class="math notranslate nohighlight">\(U\)</span> and <span class="math notranslate nohighlight">\(W\)</span> are independent sets by definition, no edge has two vertices of the same color. That is, <span class="math notranslate nohighlight">\(\chi(G)=2\)</span>. So, <span class="math notranslate nohighlight">\(\chi(G)\leq 2\)</span> in general.</p>
+<p><span class="math notranslate nohighlight">\(\leftarrow\)</span> Assume <span class="math notranslate nohighlight">\(\chi(G)\leq 2\)</span>.</p>
+<p>If <span class="math notranslate nohighlight">\(\chi(G)=1\)</span>, then every vertex has no edges with any other vertex (i.e. <span class="math notranslate nohighlight">\(G\)</span> is the empty graph!). The empty graph is bipartite!</p>
+<p>If <span class="math notranslate nohighlight">\(\chi(G)=2\)</span>, then there is some 2-coloring of <span class="math notranslate nohighlight">\(G\)</span> such that <span class="math notranslate nohighlight">\(U,W\subseteq V\)</span> are independent sets colored different colors. So, these independent sets <span class="math notranslate nohighlight">\(U\)</span> and <span class="math notranslate nohighlight">\(W\)</span> are also a bipartioning.</p>
+<p>Thus, <span class="math notranslate nohighlight">\(G\)</span> is bipartite if and only if <span class="math notranslate nohighlight">\(\chi(G)\leq 2\)</span>.</p>
+</div>
+<div class="proof theorem admonition" id="theorem-7">
+<p class="admonition-title"><span class="caption-number">Theorem 21 </span></p>
+<section class="theorem-content" id="proof-content">
+<p>Trees are bipartite.</p>
+</section>
+</div><div class="proof admonition" id="proof">
+<p>Proof. Let <span class="math notranslate nohighlight">\(T=(V,E)\)</span> be a tree. Take <span class="math notranslate nohighlight">\(v_0\in V\)</span>. We have shown there is a unique path from <span class="math notranslate nohighlight">\(v_0\)</span> to every other vertex.</p>
+<p>Let <span class="math notranslate nohighlight">\(U\)</span> be the vertices <span class="math notranslate nohighlight">\(u\in V\)</span> such that <span class="math notranslate nohighlight">\(\text{dist}(v_0,u)\)</span> is even. Let <span class="math notranslate nohighlight">\(W\)</span> be the vertices <span class="math notranslate nohighlight">\(w\in V\)</span> such that <span class="math notranslate nohighlight">\(\text{dist}(v_0,w)\)</span> is odd.</p>
+<p>Assume <span class="math notranslate nohighlight">\(v_1\)</span> and <span class="math notranslate nohighlight">\(v_2\)</span> are both in <span class="math notranslate nohighlight">\(U\)</span> or both in <span class="math notranslate nohighlight">\(W\)</span> and the edge <span class="math notranslate nohighlight">\(\{v_1,v_2\}\)</span> exists. Again, there is a unique <span class="math notranslate nohighlight">\(v_0v_1\)</span>-path since <span class="math notranslate nohighlight">\(T\)</span> is a tree. Note that taking this <span class="math notranslate nohighlight">\(v_0v_1\)</span>-path and then the edge <span class="math notranslate nohighlight">\(\{v_1,v_2\}\)</span> forms a <span class="math notranslate nohighlight">\(v_0v_2\)</span>-path. Again, this <span class="math notranslate nohighlight">\(v_0v_2\)</span>-path must be unique. So, we know <span class="math notranslate nohighlight">\(\text{dist}(v_0,v_2)=\text{dist}(v_0,v_1)+1\)</span>. So, these distances can’t be both even or both odd. So, <span class="math notranslate nohighlight">\(\{v_1,v_2\}\)</span> doesn’t exist or these vertices are not in the same set.</p>
+<p>Thus, <span class="math notranslate nohighlight">\(T\)</span> is bipartite.</p>
 </div>
 </section>
 </section>
@@ -466,7 +460,7 @@
         },
         kernelOptions: {
             name: "python3",
-            path: "./content\week4"
+            path: "./content\week6"
         },
         predefinedOutput: true
     }
@@ -484,20 +478,20 @@
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="w4d1.html"
+       href="../week5/w5d1.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Lecture 8: Introduction to Connectivity</p>
+        <p class="prev-next-title">Lecture 11: More on Trees</p>
       </div>
     </a>
     <a class="right-next"
-       href="w4d3.html"
+       href="w6d2.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Lecture 10: Trees, Forests, &amp; Connectivity</p>
+        <p class="prev-next-title">Lecture 13: Menger’s Theorem &amp; Proof Technique</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -520,7 +514,8 @@
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#warmup">Warmup</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connectivity">Connectivity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distance">Distance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bipartite">Bipartite</a></li>
 </ul>
   </nav></div>
 

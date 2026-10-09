@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Lecture 9: More Connectivity &#8212; Math 453 Lecture Notes</title>
+    <title>Lecture 14: Menger’s Theorem &amp; Proof &#8212; Math 453 Lecture Notes</title>
   
   
   
@@ -63,11 +63,10 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'content/week4/w4d2';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/week6/w6d3';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Lecture 10: Trees, Forests, &amp; Connectivity" href="w4d3.html" />
-    <link rel="prev" title="Lecture 8: Introduction to Connectivity" href="w4d1.html" />
+    <link rel="prev" title="Lecture 13: Menger’s Theorem &amp; Proof Technique" href="w6d2.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -182,20 +181,20 @@
 <li class="toctree-l1"><a class="reference internal" href="../week3/w3d2.html">Lecture 7: Pigeonhole Principle &amp; Its Applications</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 4--Connectivity</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="w4d1.html">Lecture 8: Introduction to Connectivity</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lecture 9: More Connectivity</a></li>
-<li class="toctree-l1"><a class="reference internal" href="w4d3.html">Lecture 10: Trees, Forests, &amp; Connectivity</a></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week4/w4d1.html">Lecture 8: Introduction to Connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week4/w4d2.html">Lecture 9: More Connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week4/w4d3.html">Lecture 10: Trees, Forests, &amp; Connectivity</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 5--Trees</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../week5/w5d1.html">Lecture 11: More on Trees</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 6--Bipartiteness &amp; Menger's Theorem</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../week6/w6d1.html">Lecture 12: Bipartite Graphs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../week6/w6d2.html">Lecture 13: Menger’s Theorem &amp; Proof Technique</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../week6/w6d3.html">Lecture 14: Menger’s Theorem &amp; Proof</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="w6d1.html">Lecture 12: Bipartite Graphs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="w6d2.html">Lecture 13: Menger’s Theorem &amp; Proof Technique</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lecture 14: Menger’s Theorem &amp; Proof</a></li>
 </ul>
 
     </div>
@@ -255,7 +254,7 @@
       
       
       
-      <li><a href="../../_sources/content/week4/w4d2.md" target="_blank"
+      <li><a href="../../_sources/content/week6/w6d3.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -331,7 +330,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Lecture 9: More Connectivity</h1>
+    <h1>Lecture 14: Menger’s Theorem & Proof</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -341,8 +340,9 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#warmup">Warmup</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connectivity">Connectivity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assumptions">Assumptions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subproblems">Subproblems</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proof-of-menger-s-theorem">Proof of Menger’s Theorem</a></li>
 </ul>
             </nav>
         </div>
@@ -354,101 +354,59 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="lecture-9-more-connectivity">
-<h1>Lecture 9: More Connectivity<a class="headerlink" href="#lecture-9-more-connectivity" title="Link to this heading">#</a></h1>
-<section id="warmup">
-<h2>Warmup<a class="headerlink" href="#warmup" title="Link to this heading">#</a></h2>
-<div class="proof question admonition" id="question-0">
-<p class="admonition-title"><span class="caption-number">Question 14 </span></p>
-<section class="question-content" id="proof-content">
-<p>Recall that in the previous lecture we proved the following:</p>
-<p>“Let <span class="math notranslate nohighlight">\(G\)</span> be a connected graph. If <span class="math notranslate nohighlight">\(\{u,v\}\)</span> is some cut-edge of <span class="math notranslate nohighlight">\(G\)</span>, then <span class="math notranslate nohighlight">\(P=(\{u,v\})\)</span> is the only path from <span class="math notranslate nohighlight">\(u\)</span> to <span class="math notranslate nohighlight">\(v\)</span>.”</p>
-<ol class="arabic simple">
-<li><p>Let <span class="math notranslate nohighlight">\(G\)</span> be a connected graph. Prove that if <span class="math notranslate nohighlight">\(P=(\{u,v\})\)</span> is the only path from <span class="math notranslate nohighlight">\(u\)</span> to <span class="math notranslate nohighlight">\(v\)</span>, then <span class="math notranslate nohighlight">\(\{u,v\}\)</span> is a cut-edge of <span class="math notranslate nohighlight">\(G\)</span>.</p></li>
-<li><p>What is <span class="math notranslate nohighlight">\(\epsilon(G)\)</span> for the graphs of the type described above?</p></li>
-<li><p>Recall “edge-connectivity” is the minimum number of edges we need to remove to disconnect the graph. What might “vertex-connectivity” mean?</p></li>
-</ol>
+  <section class="tex2jax_ignore mathjax_ignore" id="lecture-14-menger-s-theorem-proof">
+<h1>Lecture 14: Menger’s Theorem &amp; Proof<a class="headerlink" href="#lecture-14-menger-s-theorem-proof" title="Link to this heading">#</a></h1>
+<p>We are going to prove Menger’s Theorem in this lecture:</p>
+<div class="proof theorem admonition" id="theorem-0">
+<p class="admonition-title"><span class="caption-number">Theorem 25 </span> (Menger’s Theorem)</p>
+<section class="theorem-content" id="proof-content">
+<p>Let <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(v\)</span> be distinct vertices in <span class="math notranslate nohighlight">\(G\)</span> with <u>no edge</u> between them. Then, the minimum number of vertices in a <span class="math notranslate nohighlight">\(uv\)</span>-separating set is exactly the maximum number of internally disjoint <span class="math notranslate nohighlight">\(uv\)</span>-paths (i.e. <span class="math notranslate nohighlight">\(\psi_G(u,v)=\kappa_G(u,v)\)</span>).</p>
 </section>
-</div><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
-<summary class="sd-summary-title sd-card-header">
-<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+</div><section id="assumptions">
+<h2>Assumptions<a class="headerlink" href="#assumptions" title="Link to this heading">#</a></h2>
+<p>For the rest of lecture we will assume <span class="math notranslate nohighlight">\(G=(V,E)\)</span> has two distinct vertices <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(v\)</span> with no edge between them in <span class="math notranslate nohighlight">\(G\)</span>.</p>
+</section>
+<section id="subproblems">
+<h2>Subproblems<a class="headerlink" href="#subproblems" title="Link to this heading">#</a></h2>
+<p>We will use a couple results in the proof of Menger’s Theorem. Let’s prove these first.</p>
+<div class="proof lemma admonition" id="lemma-1">
+<p class="admonition-title"><span class="caption-number">Lemma 3 </span> (Problem 1)</p>
+<section class="lemma-content" id="proof-content">
+<p>Menger’s theorem holds for graphs with no edges.</p>
+</section>
+</div><div class="proof lemma admonition" id="lemma-2">
+<p class="admonition-title"><span class="caption-number">Lemma 4 </span> (Problem 2)</p>
+<section class="lemma-content" id="proof-content">
+<p><span class="math notranslate nohighlight">\(\psi_G(u,v)\leq \kappa_G(u,v)\)</span></p>
+</section>
+</div><div class="proof lemma admonition" id="lemma-3">
+<p class="admonition-title"><span class="caption-number">Lemma 5 </span> (Problem 3)</p>
+<section class="lemma-content" id="proof-content">
+<p>If <span class="math notranslate nohighlight">\(P=(\{u,x_1\},\{x_1,x_2\}, \dots, \{x_t,v\})\)</span> is some shortest <span class="math notranslate nohighlight">\(uv\)</span>-path, then <u>every</u> minimum <span class="math notranslate nohighlight">\(uv\)</span>-separating set in the graph without the edge <span class="math notranslate nohighlight">\(\{x_1,x_2\}\)</span>, <span class="math notranslate nohighlight">\(G-\{x_1,x_2\}\)</span>, contains <span class="math notranslate nohighlight">\(\geq \kappa_G(u,v)-1\)</span> vertices.</p>
+</section>
+</div></section>
+<section id="proof-of-menger-s-theorem">
+<h2>Proof of Menger’s Theorem<a class="headerlink" href="#proof-of-menger-s-theorem" title="Link to this heading">#</a></h2>
+<p>We are going to prove this theorem by induction on the number of edges. Recall the assumptions above about <span class="math notranslate nohighlight">\(G=(V,E)\)</span>.</p>
+<div class="proof admonition" id="proof">
+<p>Proof. <u><strong>Base Case</strong></u>: Let <span class="math notranslate nohighlight">\(|E|=0\)</span></p>
+<p>See problem 1!</p>
+<p><u><strong>Hypothesis</strong></u>: Assume Menger’s holds for all graphs on <span class="math notranslate nohighlight">\(|E|\leq m-1\)</span> edges.</p>
+<p><u><strong>Induct</strong></u>: We need to show that this implies Menger’s holds for all graphs on <span class="math notranslate nohighlight">\(m\)</span> edges now.</p>
+<p>By Problem 2, we know <span class="math notranslate nohighlight">\(\psi_G(u,v)\leq \kappa_G(u,v)\)</span>.</p>
+<p>Note that if <span class="math notranslate nohighlight">\(\kappa_G(u,v)=0\)</span>, we need to remove zero vertices to ensure no <span class="math notranslate nohighlight">\(uv\)</span>-paths. Then, there’s already no <span class="math notranslate nohighlight">\(uv\)</span>-paths and so <span class="math notranslate nohighlight">\(\psi_G(u,v)=0\)</span>. If <span class="math notranslate nohighlight">\(\kappa_G(u,v)=1\)</span>, then we need to remove one vertex to ensure there’s no <span class="math notranslate nohighlight">\(uv\)</span>-path. It may be the case that multiple paths go through this vertex, but there is definitely only internally disjoint <span class="math notranslate nohighlight">\(uv\)</span>-path (i.e. a path that goes through this removal vertex cannot be disjoint from another path that goes through this removal vertex). So, <span class="math notranslate nohighlight">\(\psi_G(u,v)=1\)</span>. Therefore, for values 0 and 1, we have <span class="math notranslate nohighlight">\(\kappa_G(u,v)=\psi_G(u,v)\)</span>. So, we can consider the cases when <span class="math notranslate nohighlight">\(\kappa_G(u,v)\geq 2\)</span>. There are three cases we will consider.</p>
 <ol class="arabic simple">
-<li><p class="sd-card-text">Again, intuitively, we have only one edge that we’ll remove to create a disconnected graph.</p></li>
+<li><p><em>There is a minimum <span class="math notranslate nohighlight">\(uv\)</span>-separating set <span class="math notranslate nohighlight">\(W\subseteq V\)</span> containing a vertex <span class="math notranslate nohighlight">\(x\)</span> such that <span class="math notranslate nohighlight">\(x\)</span> shares and edge with both <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(v\)</span>.</em></p></li>
 </ol>
-<a class="reference internal image-reference" href="../../_images/w4d1.7.png"><img alt="../../_images/w4d1.7.png" class="align-center" src="../../_images/w4d1.7.png" style="height: 240px;" />
-</a>
-<p class="sd-card-text">We’ll use this intuition to prove the result. One way to prove the result follows:</p>
-<p class="sd-card-text">“Let <span class="math notranslate nohighlight">\(G\)</span> be a connected graph. Assume <span class="math notranslate nohighlight">\(P=(\{u,v\})\)</span> is the only path from <span class="math notranslate nohighlight">\(u\)</span> to <span class="math notranslate nohighlight">\(v\)</span>. Consider removing <span class="math notranslate nohighlight">\(\{u,v\}\)</span> to obtain <span class="math notranslate nohighlight">\(G-\{u,v\}\)</span>. Since we have removed the only path from <span class="math notranslate nohighlight">\(u\)</span> to <span class="math notranslate nohighlight">\(v\)</span>, there is no path from <span class="math notranslate nohighlight">\(u\)</span> to <span class="math notranslate nohighlight">\(v\)</span> in <span class="math notranslate nohighlight">\(G-\{u,v\}\)</span>. So, <span class="math notranslate nohighlight">\(G-\{u,v\}\)</span> is disconnected. Therefore, <span class="math notranslate nohighlight">\(\{u,v\}\)</span> is a cut-edge.”</p>
-<p class="sd-card-text">This is a classic proof technique. Say we want to prove “A if and only B”. What we might do is prove first that “If A, then B”. Second, we prove “If B, then A”. This means “A if and only B” holds.</p>
-<p class="sd-card-text">Since we did this, we know the following:</p>
-<p class="sd-card-text">“Let <span class="math notranslate nohighlight">\(G\)</span> be a connected graph. <span class="math notranslate nohighlight">\(\{u,v\}\)</span> is some cut-edge of <span class="math notranslate nohighlight">\(G\)</span> if and only if <span class="math notranslate nohighlight">\(P=(\{u,v\})\)</span> is the only path from <span class="math notranslate nohighlight">\(u\)</span> to <span class="math notranslate nohighlight">\(v\)</span>.”</p>
+<p>Proof soon to come.</p>
 <ol class="arabic simple" start="2">
-<li><p class="sd-card-text">For a graph like above, what is <span class="math notranslate nohighlight">\(\epsilon(G)\)</span>? Well, we only need to remove a single edge to disconnect the graph. So, <span class="math notranslate nohighlight">\(\epsilon(G)=1\)</span>.</p></li>
-<li><p class="sd-card-text">“Vertex-connectivity” might involve disconnecting a graph by removing vertices. This is what we’ll discuss today.</p></li>
+<li><p><em>There is a mininum <span class="math notranslate nohighlight">\(uv\)</span>-separating set <span class="math notranslate nohighlight">\(W\subseteq V\)</span> containing a vertex with an edge to <span class="math notranslate nohighlight">\(u\)</span> and <u>not</u> <span class="math notranslate nohighlight">\(v\)</span> and a vertex with an edge to <span class="math notranslate nohighlight">\(v\)</span> and <u>not</u> <span class="math notranslate nohighlight">\(u\)</span>.</em></p></li>
 </ol>
-</div>
-</details></section>
-<section id="connectivity">
-<h2>Connectivity<a class="headerlink" href="#connectivity" title="Link to this heading">#</a></h2>
-<div class="proof definition admonition" id="definition-1">
-<p class="admonition-title"><span class="caption-number">Definition 30 </span> (Vertex-Connectivity)</p>
-<section class="definition-content" id="proof-content">
-<p>The <em>vertex-connectivity</em> of a graph <span class="math notranslate nohighlight">\(G\)</span>, <span class="math notranslate nohighlight">\(\kappa(G)\)</span>, is the minimum number of vertices whose removal (and the edges that contain them) disconnects the graph <span class="math notranslate nohighlight">\(G\)</span>. Equivalently, if <span class="math notranslate nohighlight">\(G=(V,E)\)</span> is a graph, <span class="math notranslate nohighlight">\(\kappa(G)\)</span> is the size of the smallest set <span class="math notranslate nohighlight">\(W\subseteq V\)</span> such that <span class="math notranslate nohighlight">\(G\)</span> without vertices in <span class="math notranslate nohighlight">\(W\)</span> and the edges that contain them is disconnected.</p>
-</section>
-</div><p>For example, the following graph needs only <span class="math notranslate nohighlight">\(A\)</span> and its edges to be removed to disconnect the graph:</p>
-<a class="reference internal image-reference" href="../../_images/w4d2.1.png"><img alt="../../_images/w4d2.1.png" class="align-center" src="../../_images/w4d2.1.png" style="height: 240px;" />
-</a>
-<p>So, the vertex-connectivity of the graph is only 1. But, pretend we had added a vertex with no edges:</p>
-<a class="reference internal image-reference" href="../../_images/w4d2.2.png"><img alt="../../_images/w4d2.2.png" class="align-center" src="../../_images/w4d2.2.png" style="height: 240px;" />
-</a>
-<p>Since <span class="math notranslate nohighlight">\(G_2\)</span> is already disconnected, we don’t need to remove any vertices to disconnect it. This intuition leads to the following theorem.</p>
-<div class="proof theorem admonition" id="theorem-2">
-<p class="admonition-title"><span class="caption-number">Theorem 14 </span></p>
-<section class="theorem-content" id="proof-content">
-<p><span class="math notranslate nohighlight">\(\epsilon(G)=0\)</span> if and only if <span class="math notranslate nohighlight">\(\kappa(G)=0\)</span></p>
-</section>
-</div><div class="proof admonition" id="proof">
-<p>Proof. Note that if <span class="math notranslate nohighlight">\(\epsilon(G)=0\)</span> or <span class="math notranslate nohighlight">\(\kappa(G)=0\)</span>, the graph <span class="math notranslate nohighlight">\(G\)</span> is disconnected (since we don’t need to remove anything to disconnect the graph!).</p>
-<p><span class="math notranslate nohighlight">\(\rightarrow\)</span> Assume <span class="math notranslate nohighlight">\(\epsilon(G)=0\)</span> Then, <span class="math notranslate nohighlight">\(G\)</span> is disconnected and no vertices are needed to disconnect it. Therefore, <span class="math notranslate nohighlight">\(\kappa(G)=0\)</span>.</p>
-<p><span class="math notranslate nohighlight">\(\leftarrow\)</span> Assume <span class="math notranslate nohighlight">\(\kappa(G)=0\)</span> Then, <span class="math notranslate nohighlight">\(G\)</span> is disconnected and no edges are needed to disconnect it. Therefore, <span class="math notranslate nohighlight">\(\epsilon(G)=0\)</span>.</p>
-<p>Therefore, we have our result.</p>
-</div>
-<div class="proof question admonition" id="question-3">
-<p class="admonition-title"><span class="caption-number">Question 15 </span></p>
-<section class="question-content" id="proof-content">
-<p>If <span class="math notranslate nohighlight">\(\epsilon(G)=1\)</span>, what is <span class="math notranslate nohighlight">\(\kappa(G)\)</span>?</p>
-</section>
-</div><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
-<summary class="sd-summary-title sd-card-header">
-<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">Well, if <span class="math notranslate nohighlight">\(\epsilon(G)=1\)</span>, we only need to remove a single edge to disconnect the graph. The graph would vaguely look something like the following:</p>
-<a class="reference internal image-reference" href="../../_images/w4d1.7.png"><img alt="../../_images/w4d1.7.png" class="align-center" src="../../_images/w4d1.7.png" style="height: 240px;" />
-</a>
-<p class="sd-card-text">If a single edge disconnects the graph, we can definitely remove one of the endpoints to disconnect the graph too! That is, we could take <span class="math notranslate nohighlight">\(u\)</span> off the graph to disconnect it (likewise, <span class="math notranslate nohighlight">\(v\)</span>). So, <span class="math notranslate nohighlight">\(\kappa(G)=1\)</span>.</p>
-</div>
-</details><div class="proof question admonition" id="question-4">
-<p class="admonition-title"><span class="caption-number">Question 16 </span></p>
-<section class="question-content" id="proof-content">
-<p>What about if <span class="math notranslate nohighlight">\(\epsilon(G)=k\)</span>? What will <span class="math notranslate nohighlight">\(\kappa(G)\)</span> be then?</p>
-</section>
-</div><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
-<summary class="sd-summary-title sd-card-header">
-<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">Well, it might be the case that there is only one pair of vertices for each edge:</p>
-<a class="reference internal image-reference" href="../../_images/w4d2.3.png"><img alt="../../_images/w4d2.3.png" class="align-center" src="../../_images/w4d2.3.png" style="height: 240px;" />
-</a>
-<p class="sd-card-text">In this case, we can remove the <span class="math notranslate nohighlight">\(k\)</span> vertices on the left and disconnect the graph. But, maybe some edges share vertices:</p>
-<a class="reference internal image-reference" href="../../_images/w4d2.4.png"><img alt="../../_images/w4d2.4.png" class="align-center" src="../../_images/w4d2.4.png" style="height: 240px;" />
-</a>
-<p class="sd-card-text">In this case we could remove <span class="math notranslate nohighlight">\(k-1\)</span> vertices on the right and disconnect the graph. But, either way, we could remove <span class="math notranslate nohighlight">\(k\)</span> vertices and still be fine! This intuition leads to the following theorem.</p>
-</div>
-</details><div class="proof theorem admonition" id="theorem-5">
-<p class="admonition-title"><span class="caption-number">Theorem 15 </span></p>
-<section class="theorem-content" id="proof-content">
-<p>For a graph <span class="math notranslate nohighlight">\(G\)</span>, <span class="math notranslate nohighlight">\(\kappa(G)\leq \epsilon(G)\)</span>.</p>
-</section>
-</div><div class="proof admonition" id="proof">
-<p>Proof. Try proving yourself before next lecture!</p>
+<p>Proof soon to come.</p>
+<ol class="arabic simple" start="3">
+<li><p><em>Every minimum <span class="math notranslate nohighlight">\(uv\)</span>-separating set <span class="math notranslate nohighlight">\(W\subseteq V\)</span> has all vertices sharing an edge with <span class="math notranslate nohighlight">\(u\)</span> and not <span class="math notranslate nohighlight">\(v\)</span> or <span class="math notranslate nohighlight">\(v\)</span> and not <span class="math notranslate nohighlight">\(u\)</span>.</em></p></li>
+</ol>
+<p>Proof soon to come.</p>
 </div>
 </section>
 </section>
@@ -466,7 +424,7 @@
         },
         kernelOptions: {
             name: "python3",
-            path: "./content\week4"
+            path: "./content\week6"
         },
         predefinedOutput: true
     }
@@ -484,22 +442,13 @@
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="w4d1.html"
+       href="w6d2.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Lecture 8: Introduction to Connectivity</p>
+        <p class="prev-next-title">Lecture 13: Menger’s Theorem &amp; Proof Technique</p>
       </div>
-    </a>
-    <a class="right-next"
-       href="w4d3.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Lecture 10: Trees, Forests, &amp; Connectivity</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -519,8 +468,9 @@
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#warmup">Warmup</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connectivity">Connectivity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assumptions">Assumptions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subproblems">Subproblems</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proof-of-menger-s-theorem">Proof of Menger’s Theorem</a></li>
 </ul>
   </nav></div>
 
