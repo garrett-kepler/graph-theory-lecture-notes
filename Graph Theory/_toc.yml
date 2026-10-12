@@ -28,3 +28,7 @@ parts:
     - file: content/week6/w6d1.md
     - file: content/week6/w6d2.md
     - file: content/week6/w6d3.md
+  - caption: Week 7--Introduction to Graph Algorithms
+    chapters:
+    - file: content/week7/w7d1.md
+    - file: content/week7/w7d2.md
