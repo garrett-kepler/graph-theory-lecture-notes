@@ -27,3 +27,4 @@ parts:
     chapters:
     - file: content/week6/w6d1.md
     - file: content/week6/w6d2.md
+    - file: content/week6/w6d3.md

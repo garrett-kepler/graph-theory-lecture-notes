@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Lecture 12: Menger’s Theorem &amp; Proof Technique &#8212; Math 453 Lecture Notes</title>
+    <title>Lecture 13: Menger’s Theorem &amp; Proof Technique &#8212; Math 453 Lecture Notes</title>
   
   
   
@@ -27,8 +27,8 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
@@ -40,10 +40,10 @@
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- So that users can add custom icons -->
-  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
@@ -64,33 +64,27 @@
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'content/week6/w6d2';</script>
-    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Lecture 14: Menger’s Theorem &amp; Proof" href="w6d3.html" />
     <link rel="prev" title="Lecture 12: Bipartite Graphs" href="w6d1.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
-  
-    
-    <script src="../../_static/searchtools.js"></script>
-    <script src="../../_static/language_data.js"></script>
-    <script src="../../searchindex.js"></script>
-  
   </head>
-  <body data-default-mode="">
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
-
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-  
-  
-  
+
   
   <dialog id="pst-search-dialog">
     
@@ -116,51 +110,7 @@
 </div>
 
   
-    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
-<div class="bd-header__inner bd-page-width">
-  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
-    <span class="fa-solid fa-bars"></span>
-  </button>
-  
-  
-  <div class="col-lg-9 navbar-header-items">
-    
-    
-    <div class="navbar-header-items__end">
-      
-        <div class="navbar-item navbar-persistent--container">
-          
-
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button>
-        </div>
-      
-      
-    </div>
-    
-  </div>
-  
-  
-    <div class="navbar-persistent--mobile">
-
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button>
-    </div>
-  
-
-  
-    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
-      <span class="fa-solid fa-outdent"></span>
-    </button>
-  
-</div>
-
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
     </header>
   
 
@@ -244,7 +194,8 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 6--Bipartiteness &amp; Menger's Theorem</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="w6d1.html">Lecture 12: Bipartite Graphs</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lecture 12: Menger’s Theorem &amp; Proof Technique</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lecture 13: Menger’s Theorem &amp; Proof Technique</a></li>
+<li class="toctree-l1"><a class="reference internal" href="w6d3.html">Lecture 14: Menger’s Theorem &amp; Proof</a></li>
 </ul>
 
     </div>
@@ -380,7 +331,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Lecture 12: Menger’s Theorem & Proof Technique</h1>
+    <h1>Lecture 13: Menger’s Theorem & Proof Technique</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -389,7 +340,7 @@
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="pst-show_toc_level nav section-nav flex-column">
+                <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#warmup">Warmup</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method-of-proof-for-menger-s">Method of Proof for Menger’s</a></li>
 </ul>
@@ -403,16 +354,26 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="lecture-12-menger-s-theorem-proof-technique">
-<h1>Lecture 12: Menger’s Theorem &amp; Proof Technique<a class="headerlink" href="#lecture-12-menger-s-theorem-proof-technique" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="lecture-13-menger-s-theorem-proof-technique">
+<h1>Lecture 13: Menger’s Theorem &amp; Proof Technique<a class="headerlink" href="#lecture-13-menger-s-theorem-proof-technique" title="Link to this heading">#</a></h1>
 <section id="warmup">
 <h2>Warmup<a class="headerlink" href="#warmup" title="Link to this heading">#</a></h2>
-<div class="proof theorem admonition" id="theorem-0">
+<div class="proof question admonition" id="question-0">
+<p class="admonition-title"><span class="caption-number">Question 24 </span></p>
+<section class="question-content" id="proof-content">
+<a class="reference internal image-reference" href="../../_images/w6d2graph.png"><img alt="../../_images/w6d2graph.png" src="../../_images/w6d2graph.png" style="height: 240px;" />
+</a>
+<ol class="arabic simple">
+<li><p>Remove some vertices in <span class="math notranslate nohighlight">\(G\)</span> (excluding <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(v\)</span>) to ensure there is no <span class="math notranslate nohighlight">\(uv\)</span>-path. What is the minimum you need to remove to do so?</p></li>
+<li><p>Note that the <span class="math notranslate nohighlight">\(uv\)</span>-paths <span class="math notranslate nohighlight">\(u\)</span> to <span class="math notranslate nohighlight">\(w_3\)</span> to <span class="math notranslate nohighlight">\(w_6\)</span> to <span class="math notranslate nohighlight">\(v\)</span> and <span class="math notranslate nohighlight">\(u\)</span> to <span class="math notranslate nohighlight">\(w_4\)</span> to <span class="math notranslate nohighlight">\(w_5\)</span> to <span class="math notranslate nohighlight">\(v\)</span> <u>only</u> share verties <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(v\)</span>. What is the maximum number of such paths you can find in <span class="math notranslate nohighlight">\(G\)</span>?</p></li>
+</ol>
+</section>
+</div><div class="proof theorem admonition" id="theorem-1">
 <p class="admonition-title"><span class="caption-number">Theorem 22 </span> (Menger’s Theorem)</p>
 <section class="theorem-content" id="proof-content">
-<p>Let <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(v\)</span> be distinct vertices in <span class="math notranslate nohighlight">\(G\)</span> with \underline{no edge} between them. Then, the minimum number of vertices in a <span class="math notranslate nohighlight">\(uv\)</span>-separating set is exactly the maximum number of internally disjoint <span class="math notranslate nohighlight">\(uv\)</span>-paths (i.e. <span class="math notranslate nohighlight">\(\psi_G(u,v)=\kappa_G(u,v)\)</span>).</p>
+<p>Let <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(v\)</span> be distinct vertices in <span class="math notranslate nohighlight">\(G\)</span> with <u>no edge</u> between them. Then, the minimum number of vertices in a <span class="math notranslate nohighlight">\(uv\)</span>-separating set is exactly the maximum number of internally disjoint <span class="math notranslate nohighlight">\(uv\)</span>-paths (i.e. <span class="math notranslate nohighlight">\(\psi_G(u,v)=\kappa_G(u,v)\)</span>).</p>
 </section>
-</div><div class="proof definition admonition" id="definition-1">
+</div><div class="proof definition admonition" id="definition-2">
 <p class="admonition-title"><span class="caption-number">Definition 38 </span></p>
 <section class="definition-content" id="proof-content">
 <p>Let <span class="math notranslate nohighlight">\(G\)</span> be a graph with vertices <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(v\)</span> but not the edge <span class="math notranslate nohighlight">\(\{u,v\}\)</span>. Then,</p>
@@ -434,18 +395,19 @@
 </ol>
 </div></blockquote>
 <p>My personal intuition is: “<em>I took a step. I could have been walking for a while. If I have been, I’m capable of taking another step.</em>” A great example of this proof technique in action:</p>
-<div class="proof theorem admonition" id="theorem-2">
+<div class="proof theorem admonition" id="theorem-3">
 <p class="admonition-title"><span class="caption-number">Theorem 23 </span></p>
 <section class="theorem-content" id="proof-content">
 <p><span class="math notranslate nohighlight">\(1+2+3+\cdots+n=\frac{n(n+1)}{2}\)</span> for all whole numbers <span class="math notranslate nohighlight">\(n\geq 1\)</span>.</p>
 </section>
 </div><div class="proof admonition" id="proof">
 <p>Proof. We will show this equality holds by using induction.</p>
-<p><u><strong>Base case</strong></u> Let <span class="math notranslate nohighlight">\(n=1\)</span>. Well, the left hand side of the equality would be <span class="math notranslate nohighlight">\(1\)</span>. The right hand side would be <span class="math notranslate nohighlight">\(\frac{1(1+1)}{2}=\frac{1(2)}{2}=1\)</span>. The left hand side equals the right hand side. So, this claim holds for <span class="math notranslate nohighlight">\(n=1\)</span>. Great!</p>
-<p><u><strong>Hypothesis</strong></u> Assume <span class="math notranslate nohighlight">\(1+2+3+\cdots+n=\frac{n(n+1)}{2}\)</span> when <span class="math notranslate nohighlight">\(n\leq k\)</span> for some whole number <span class="math notranslate nohighlight">\(k&gt;1\)</span>.</p>
-<p><u><strong>Induct</strong></u> Consider the case when <span class="math notranslate nohighlight">\(n=k+1\)</span>. Well, the left hand side would be:
-[1+2+3+\cdots+(k-1)+k+(k+1)]
-From our hypothesis, we know that up to <span class="math notranslate nohighlight">\(n=k\)</span>, we have a nice formula. So, let’s use it:
+<p><u><strong>Base case</strong></u>: Let <span class="math notranslate nohighlight">\(n=1\)</span>. Well, the left hand side of the equality would be <span class="math notranslate nohighlight">\(1\)</span>. The right hand side would be <span class="math notranslate nohighlight">\(\frac{1(1+1)}{2}=\frac{1(2)}{2}=1\)</span>. The left hand side equals the right hand side. So, this claim holds for <span class="math notranslate nohighlight">\(n=1\)</span>. Great!</p>
+<p><u><strong>Hypothesis</strong></u>: Assume <span class="math notranslate nohighlight">\(1+2+3+\cdots+n=\frac{n(n+1)}{2}\)</span> when <span class="math notranslate nohighlight">\(n\leq k\)</span> for some whole number <span class="math notranslate nohighlight">\(k&gt;1\)</span>.</p>
+<p><u><strong>Induct</strong></u>: Consider the case when <span class="math notranslate nohighlight">\(n=k+1\)</span>. Well, the left hand side would be:</p>
+<div class="math notranslate nohighlight">
+\[1+2+3+\cdots+(k-1)+k+(k+1)\]</div>
+<p>From our hypothesis, we know that up to <span class="math notranslate nohighlight">\(n=k\)</span>, we have a nice formula. So, let’s use it:
 <span class="math notranslate nohighlight">\(\begin{align*}
 1+2+3+\cdots+(k-1)+k+(k+1)&amp;= \frac{k(k+1)}{2}+(k+1)
 \end{align*}\)</span>
@@ -458,6 +420,24 @@ Let’s simplify the sum a little:</p>
 \end{align*}\)</span></p>
 <p>So, using the inductive hypothesis above, we have that the left hand side equals <span class="math notranslate nohighlight">\(\frac{(k+2)(k+1)}{2}\)</span>. Plugging <span class="math notranslate nohighlight">\(n=k+1\)</span> to the right hand side of the claim gives <span class="math notranslate nohighlight">\(\frac{n(n+1)}{2}=\frac{(k+2)(k+1)}{2}\)</span>. Great! The left hand side equals the right hand side.</p>
 <p>Thus, we know <span class="math notranslate nohighlight">\(1+2+\cdots+n=\frac{n(n+1)}{2}\)</span> holds for not just <span class="math notranslate nohighlight">\(n\leq k\)</span> but <em>all</em> whole numbers <span class="math notranslate nohighlight">\(n&gt;1\)</span>.</p>
+</div>
+<p>The other proof technique we will use is <em>contradiction</em>. A proof by contradiction proceeds as follows:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>To prove a claim is true, assume the oppposite of the claim is true.</p></li>
+<li><p>Show that if the opposite of the claim is true, then there’s something wrong (e.g. a false implication, an impossible result, etc.)</p></li>
+<li><p>Conclude that the original claim must be true.</p></li>
+</ol>
+</div></blockquote>
+<p>My intuition for this is: “<em>If the opposite of your claim leads to something ridiculous, then your original claim must be true</em>”.</p>
+<p>Here’s an example from the midterm:</p>
+<div class="proof theorem admonition" id="theorem-4">
+<p class="admonition-title"><span class="caption-number">Theorem 24 </span></p>
+<section class="theorem-content" id="proof-content">
+<p>Prove that <span class="math notranslate nohighlight">\(\delta(G)\geq 1\)</span> for connected graphs <span class="math notranslate nohighlight">\(G\)</span>.</p>
+</section>
+</div><div class="proof admonition" id="proof">
+<p>Proof. Assume not! That is, there is some connected graph with <span class="math notranslate nohighlight">\(\delta(G)&lt;1\)</span>. Call this graph <span class="math notranslate nohighlight">\(G\)</span> and the vertex <span class="math notranslate nohighlight">\(v\)</span> with degree <span class="math notranslate nohighlight">\(&lt;1\)</span> in <span class="math notranslate nohighlight">\(G\)</span>. If the degree of <span class="math notranslate nohighlight">\(v\)</span> is less than 1, then it must be zero! So, no edges for <span class="math notranslate nohighlight">\(v\)</span>. If there are no edges for <span class="math notranslate nohighlight">\(v\)</span>, there can be no paths to <span class="math notranslate nohighlight">\(v\)</span>. So, <span class="math notranslate nohighlight">\(G\)</span> cannot be connected. This contradicts our assumption that <span class="math notranslate nohighlight">\(G\)</span> is connected. So, <span class="math notranslate nohighlight">\(\delta(G)\geq 1\)</span> must be true for connected graphs.</p>
 </div>
 </section>
 </section>
@@ -501,6 +481,15 @@ Let’s simplify the sum a little:</p>
         <p class="prev-next-title">Lecture 12: Bipartite Graphs</p>
       </div>
     </a>
+    <a class="right-next"
+       href="w6d3.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Lecture 14: Menger’s Theorem &amp; Proof</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -518,7 +507,7 @@ Let’s simplify the sum a little:</p>
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="pst-show_toc_level nav section-nav flex-column">
+    <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#warmup">Warmup</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method-of-proof-for-menger-s">Method of Proof for Menger’s</a></li>
 </ul>
@@ -562,8 +551,8 @@ By Garrett Kepler
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
-<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>
