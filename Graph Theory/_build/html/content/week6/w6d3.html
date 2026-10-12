@@ -67,6 +67,7 @@
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Lecture 15: Algorithmic Thinking" href="../week7/w7d1.html" />
     <link rel="prev" title="Lecture 13: Menger’s Theorem &amp; Proof Technique" href="w6d2.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -247,6 +248,11 @@
 <li class="toctree-l1"><a class="reference internal" href="w6d2.html">Lecture 13: Menger’s Theorem &amp; Proof Technique</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Lecture 14: Menger’s Theorem &amp; Proof</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 7--Introduction to Graph Algorithms</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week7/w7d1.html">Lecture 15: Algorithmic Thinking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week7/w7d2.html">Lecture 16: Kruskal’s Algorithm</a></li>
+</ul>
 
     </div>
 </nav></div>
@@ -425,17 +431,27 @@
 <section class="lemma-content" id="proof-content">
 <p>Menger’s theorem holds for graphs with no edges.</p>
 </section>
-</div><div class="proof lemma admonition" id="lemma-2">
+</div><div class="proof admonition" id="proof">
+<p>Proof. No edges means no <span class="math notranslate nohighlight">\(uv\)</span>-paths. So, no internally disjoint paths (<span class="math notranslate nohighlight">\(\psi_G(u,v)=0\)</span>). Removing zero vertices ensures no <span class="math notranslate nohighlight">\(uv\)</span>-paths (<span class="math notranslate nohighlight">\(\kappa_G(u,v)=\)</span>). So, <span class="math notranslate nohighlight">\(\psi_G(u,v)=\kappa_G(u,v)\)</span> for graphs with no edges.</p>
+</div>
+<div class="proof lemma admonition" id="lemma-2">
 <p class="admonition-title"><span class="caption-number">Lemma 4 </span> (Problem 2)</p>
 <section class="lemma-content" id="proof-content">
 <p><span class="math notranslate nohighlight">\(\psi_G(u,v)\leq \kappa_G(u,v)\)</span></p>
 </section>
-</div><div class="proof lemma admonition" id="lemma-3">
+</div><div class="proof admonition" id="proof">
+<p>Proof. Assume not. That is, assume <span class="math notranslate nohighlight">\(\psi_G(u,v)&gt; \kappa_G(u,v)\)</span>. Remove a <span class="math notranslate nohighlight">\(uv\)</span>-separating set of size <span class="math notranslate nohighlight">\(\kappa_G(u,v)\)</span>. Since <span class="math notranslate nohighlight">\(\psi_G(u,v)&gt; \kappa_G(u,v)\)</span>, some internally disjoint path was left untouched. That is, there is still a <span class="math notranslate nohighlight">\(uv\)</span>-path. This contradicts the assumption that we removed a <span class="math notranslate nohighlight">\(uv\)</span>-separating set. Thus, <span class="math notranslate nohighlight">\(\psi_G(u,v)\leq \kappa_G(u,v)\)</span>.</p>
+</div>
+<div class="proof lemma admonition" id="lemma-3">
 <p class="admonition-title"><span class="caption-number">Lemma 5 </span> (Problem 3)</p>
 <section class="lemma-content" id="proof-content">
 <p>If <span class="math notranslate nohighlight">\(P=(\{u,x_1\},\{x_1,x_2\}, \dots, \{x_t,v\})\)</span> is some shortest <span class="math notranslate nohighlight">\(uv\)</span>-path, then <u>every</u> minimum <span class="math notranslate nohighlight">\(uv\)</span>-separating set in the graph without the edge <span class="math notranslate nohighlight">\(\{x_1,x_2\}\)</span>, <span class="math notranslate nohighlight">\(G-\{x_1,x_2\}\)</span>, contains <span class="math notranslate nohighlight">\(\geq \kappa_G(u,v)-1\)</span> vertices.</p>
 </section>
-</div></section>
+</div><div class="proof admonition" id="proof">
+<p>Proof. Assume not. Then, some <span class="math notranslate nohighlight">\(uv\)</span>-separating set in <span class="math notranslate nohighlight">\(G-\{x_1,x_2\}\)</span> has <span class="math notranslate nohighlight">\(\ell&lt;\kappa_G-1\)</span> vertices.</p>
+<p>By removing these <span class="math notranslate nohighlight">\(\ell\)</span> vertices from <span class="math notranslate nohighlight">\(G\)</span> and either <span class="math notranslate nohighlight">\(x_1\)</span> or <span class="math notranslate nohighlight">\(x_2\)</span>, the paths in <span class="math notranslate nohighlight">\(G-\{x_1,x_2\}\)</span> and <span class="math notranslate nohighlight">\(P\)</span> is removed from <span class="math notranslate nohighlight">\(G\)</span>. This is a <span class="math notranslate nohighlight">\(uv\)</span>-separating set in <span class="math notranslate nohighlight">\(G\)</span> of size <span class="math notranslate nohighlight">\(\ell+1&lt;\kappa_G\)</span>. This contradicts <span class="math notranslate nohighlight">\(\kappa_G(u,v)\)</span> being the minimum size for <span class="math notranslate nohighlight">\(uv\)</span>-separating sets. So, every minimum <span class="math notranslate nohighlight">\(uv\)</span>-separating set of <span class="math notranslate nohighlight">\(G-\{x_1,x_2\}\)</span> must have <span class="math notranslate nohighlight">\(\geq \kappa_G(u,v)-1\)</span> vertices.</p>
+</div>
+</section>
 <section id="proof-of-menger-s-theorem">
 <h2>Proof of Menger’s Theorem<a class="headerlink" href="#proof-of-menger-s-theorem" title="Link to this heading">#</a></h2>
 <p>We are going to prove this theorem by induction on the number of edges. Recall the assumptions above about <span class="math notranslate nohighlight">\(G=(V,E)\)</span>.</p>
@@ -449,15 +465,22 @@
 <ol class="arabic simple">
 <li><p><em>There is a minimum <span class="math notranslate nohighlight">\(uv\)</span>-separating set <span class="math notranslate nohighlight">\(W\subseteq V\)</span> containing a vertex <span class="math notranslate nohighlight">\(x\)</span> such that <span class="math notranslate nohighlight">\(x\)</span> shares and edge with both <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(v\)</span>.</em></p></li>
 </ol>
-<p>Proof soon to come.</p>
+<p>Consider <span class="math notranslate nohighlight">\(W-x\)</span> in the graph without <span class="math notranslate nohighlight">\(x\)</span> and its edges, <span class="math notranslate nohighlight">\(G-x\)</span>. If <span class="math notranslate nohighlight">\(W-x\)</span> were not a minimum <span class="math notranslate nohighlight">\(uv\)</span>-separating set in <span class="math notranslate nohighlight">\(G-x\)</span>, <span class="math notranslate nohighlight">\(W\)</span> would not be minimum in <span class="math notranslate nohighlight">\(G\)</span> (i.e. there would be some smaller set than <span class="math notranslate nohighlight">\(W\)</span> that could be used as a <span class="math notranslate nohighlight">\(uv\)</span>-separating set in <span class="math notranslate nohighlight">\(G\)</span>). Note that <span class="math notranslate nohighlight">\(|E(G-x)|&lt;m\)</span>. So, the induction hypothesis applies. Since <span class="math notranslate nohighlight">\(|W-x|=\kappa_G(u,v)-1\)</span>, there is a maximimum of <span class="math notranslate nohighlight">\(\kappa_G(u,v)-1\)</span> internally disjoint <span class="math notranslate nohighlight">\(uv\)</span> paths in <span class="math notranslate nohighlight">\(G-x\)</span>.</p>
+<p>To these <span class="math notranslate nohighlight">\(\kappa_G(u,v)-1\)</span> internally disjoint <span class="math notranslate nohighlight">\(uv\)</span> paths in <span class="math notranslate nohighlight">\(G-x\)</span>, we add one more internally disjoint <span class="math notranslate nohighlight">\(uv\)</span>-path when including <span class="math notranslate nohighlight">\(x\)</span>. So, the maximum number of internally disjoint <span class="math notranslate nohighlight">\(uv\)</span>-paths in <span class="math notranslate nohighlight">\(G\)</span> is <span class="math notranslate nohighlight">\(\kappa_G(u,v)\)</span>.</p>
 <ol class="arabic simple" start="2">
 <li><p><em>There is a mininum <span class="math notranslate nohighlight">\(uv\)</span>-separating set <span class="math notranslate nohighlight">\(W\subseteq V\)</span> containing a vertex with an edge to <span class="math notranslate nohighlight">\(u\)</span> and <u>not</u> <span class="math notranslate nohighlight">\(v\)</span> and a vertex with an edge to <span class="math notranslate nohighlight">\(v\)</span> and <u>not</u> <span class="math notranslate nohighlight">\(u\)</span>.</em></p></li>
 </ol>
-<p>Proof soon to come.</p>
+<p>Let <span class="math notranslate nohighlight">\(W=\{w_1,w_2,\dots, w_{\kappa_G}\}\)</span>. Let <span class="math notranslate nohighlight">\(G_u\)</span> be the subgraph of only paths between <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(w_i\)</span>. Likewise <span class="math notranslate nohighlight">\(G_v\)</span> be only paths between <span class="math notranslate nohighlight">\(w_i\)</span> and <span class="math notranslate nohighlight">\(v\)</span>.</p>
+<p>We are going to take <span class="math notranslate nohighlight">\(G_u\)</span> and add a vertex <span class="math notranslate nohighlight">\(v'\)</span>. <span class="math notranslate nohighlight">\(v'\)</span> will share a single edge with each <span class="math notranslate nohighlight">\(w_i\in W\)</span>. By assumption, we have a <span class="math notranslate nohighlight">\(w_i\in W\)</span> that does not share an edge with <span class="math notranslate nohighlight">\(v\)</span>. This means the path from this <span class="math notranslate nohighlight">\(w_i\)</span> to <span class="math notranslate nohighlight">\(v\)</span> in <span class="math notranslate nohighlight">\(G\)</span> has to be longer than a single edge. So, if <span class="math notranslate nohighlight">\(|E(G)|=m\)</span>, then <span class="math notranslate nohighlight">\(|E(G_u)|&lt;m\)</span>.</p>
+<p>So, the induction hypothesis applies to <span class="math notranslate nohighlight">\(G_u\)</span>. So, there are <span class="math notranslate nohighlight">\(\kappa_G(u,v)\)</span> internally disjoint <span class="math notranslate nohighlight">\(uv\)</span>-paths in <span class="math notranslate nohighlight">\(G_u\)</span>. A similar argument applies to <span class="math notranslate nohighlight">\(G_v\)</span> and adding a vertex <span class="math notranslate nohighlight">\(u'\)</span> to share an edge with each <span class="math notranslate nohighlight">\(w_i\)</span> in <span class="math notranslate nohighlight">\(G_v\)</span>.</p>
+<p>By taking a <span class="math notranslate nohighlight">\(uw_i\)</span>-path from <span class="math notranslate nohighlight">\(G_u\)</span> and <span class="math notranslate nohighlight">\(w_iv\)</span>-path in <span class="math notranslate nohighlight">\(G_v\)</span>, we have an internally disjoint <span class="math notranslate nohighlight">\(uv\)</span>-path in <span class="math notranslate nohighlight">\(G\)</span>. Since there are <span class="math notranslate nohighlight">\(\kappa_G\)</span> such paths in <span class="math notranslate nohighlight">\(G_u\)</span> and <span class="math notranslate nohighlight">\(G_v\)</span>, we have <span class="math notranslate nohighlight">\(\kappa_G\)</span> such paths in <span class="math notranslate nohighlight">\(G\)</span>.</p>
 <ol class="arabic simple" start="3">
 <li><p><em>Every minimum <span class="math notranslate nohighlight">\(uv\)</span>-separating set <span class="math notranslate nohighlight">\(W\subseteq V\)</span> has all vertices sharing an edge with <span class="math notranslate nohighlight">\(u\)</span> and not <span class="math notranslate nohighlight">\(v\)</span> or <span class="math notranslate nohighlight">\(v\)</span> and not <span class="math notranslate nohighlight">\(u\)</span>.</em></p></li>
 </ol>
-<p>Proof soon to come.</p>
+<p>Note that it suffices to show either case implies the result. So, let’s pretend the first case holds (i.e. all vertices in the set share an edge with <span class="math notranslate nohighlight">\(u\)</span> and not <span class="math notranslate nohighlight">\(v\)</span>). Let <span class="math notranslate nohighlight">\(P=(\{u,x_1\},\{x_1,x_2\},\dots,\{x_t,v\})\)</span> be a shortest path in <span class="math notranslate nohighlight">\(G\)</span>. From Problem 3, we know every minimum <span class="math notranslate nohighlight">\(uv\)</span>-separating set in <span class="math notranslate nohighlight">\(G-\{x_1,x_2\}\)</span> contains <span class="math notranslate nohighlight">\(\geq \kappa_G(u,v)-1\)</span> vertices. Suppose every minimum <span class="math notranslate nohighlight">\(uv\)</span>-separating set in <span class="math notranslate nohighlight">\(G-\{u,v\}\)</span> contains exactly <span class="math notranslate nohighlight">\(\kappa_G(u,v)-1\)</span> in this case.</p>
+<p>Let <span class="math notranslate nohighlight">\(S=\{s_1,s_2,\dots, s_{\kappa_G-1}\}\)</span> be such a set in <span class="math notranslate nohighlight">\(G-\{x_1,x_2\}\)</span>. Note that <span class="math notranslate nohighlight">\(S\)</span> with <span class="math notranslate nohighlight">\(x_1\)</span> will be a minimum <span class="math notranslate nohighlight">\(uv\)</span>-separating set since removing the vertex <span class="math notranslate nohighlight">\(x_1\)</span> will also delete edge <span class="math notranslate nohighlight">\(\{x_1,x_2\}\)</span>. Since <span class="math notranslate nohighlight">\(S\)</span> with <span class="math notranslate nohighlight">\(x_1\)</span> is a minimum <span class="math notranslate nohighlight">\(uv\)</span>-separating set in <span class="math notranslate nohighlight">\(G\)</span>, by assumption, each of the vertices in <span class="math notranslate nohighlight">\(S\)</span> with <span class="math notranslate nohighlight">\(x_1\)</span> will share an edge with <span class="math notranslate nohighlight">\(u\)</span>. But, removing the vertex <span class="math notranslate nohighlight">\(x_2\)</span> also deletes the edge <span class="math notranslate nohighlight">\(\{x_1,x_2\}\)</span>, so <span class="math notranslate nohighlight">\(S\)</span> with <span class="math notranslate nohighlight">\(x_2\)</span> is also a minimum <span class="math notranslate nohighlight">\(uv\)</span>-separating set in <span class="math notranslate nohighlight">\(G\)</span>. So, that must means <span class="math notranslate nohighlight">\(x_2\)</span> also shares an edge with <span class="math notranslate nohighlight">\(u\)</span> by assumption. This means the path <span class="math notranslate nohighlight">\(P'=(\{u,x_2\},\{x_2,x_3\},\dots, \{x_t, v\})\)</span> is one edge shorter than <span class="math notranslate nohighlight">\(P\)</span>. This contradicts the assumption that <span class="math notranslate nohighlight">\(P\)</span> is shortest length. So, there must be <span class="math notranslate nohighlight">\(\geq \kappa_G(u,v)\)</span> vertices in a minimum <span class="math notranslate nohighlight">\(uv\)</span>-separating set in <span class="math notranslate nohighlight">\(G-\{x_1,x_2\}\)</span>. Note that <span class="math notranslate nohighlight">\(G-\{x_1,x_2\}\)</span> is a subgraph of <span class="math notranslate nohighlight">\(G\)</span>. So, if <span class="math notranslate nohighlight">\(\kappa_G(u,v)\)</span> is the minimum size of <span class="math notranslate nohighlight">\(uv\)</span>-separating set, this set must also be a <span class="math notranslate nohighlight">\(uv\)</span>-separating set in <span class="math notranslate nohighlight">\(G-\{x_1,x_2\}\)</span>. So, the minimum size of a <span class="math notranslate nohighlight">\(uv\)</span>-separating set in <span class="math notranslate nohighlight">\(G-\{x_1,x_2\}\)</span> is <span class="math notranslate nohighlight">\(\kappa_G(u,v)\)</span>.</p>
+<p>Finally, note that <span class="math notranslate nohighlight">\(|E(G-\{x_1,x_2\})|&lt;m\)</span>. So, the induction hypothesis applies and the maximum number of internally disjoint <span class="math notranslate nohighlight">\(uv\)</span>-paths in <span class="math notranslate nohighlight">\(G-\{x_1,x_2\}\)</span> is <span class="math notranslate nohighlight">\(\kappa_G(u,v)\)</span>. These paths will also be internally disjoint <span class="math notranslate nohighlight">\(uv\)</span>-paths in <span class="math notranslate nohighlight">\(G\)</span>. By Problem 2, <span class="math notranslate nohighlight">\(\psi_G(u,v)\leq \kappa_G(u,v)\)</span>. So, <span class="math notranslate nohighlight">\(\psi_G(u,v)=\kappa_G(u,v)\)</span>.</p>
+<p>Therefore, Menger’s theorem holds for graphs with <span class="math notranslate nohighlight">\(m=0,1,2,3,\dots\)</span> edges.</p>
 </div>
 </section>
 </section>
@@ -500,6 +523,15 @@
         <p class="prev-next-subtitle">previous</p>
         <p class="prev-next-title">Lecture 13: Menger’s Theorem &amp; Proof Technique</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="../week7/w7d1.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Lecture 15: Algorithmic Thinking</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
