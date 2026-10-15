@@ -61,6 +61,8 @@
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'content/week7/w7d2';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -344,6 +346,7 @@
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#warmup">Warmup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proof-of-correctness">Proof of “Correctness”</a></li>
 </ul>
             </nav>
         </div>
@@ -359,10 +362,73 @@
 <h1>Lecture 16: Kruskal’s Algorithm<a class="headerlink" href="#lecture-16-kruskal-s-algorithm" title="Link to this heading">#</a></h1>
 <section id="warmup">
 <h2>Warmup<a class="headerlink" href="#warmup" title="Link to this heading">#</a></h2>
-<a class="reference internal image-reference" href="../../_images/warm11.png"><img alt="../../_images/warm11.png" src="../../_images/warm11.png" style="height: 240px;" />
+<div class="proof question admonition" id="question-0">
+<p class="admonition-title"><span class="caption-number">Question 28 </span></p>
+<section class="question-content" id="proof-content">
+<p>Consider the following graph:</p>
+<a class="reference internal image-reference" href="../../_images/warm11.png"><img alt="../../_images/warm11.png" class="align-center" src="../../_images/warm11.png" style="height: 240px;" />
 </a>
-<a class="reference internal image-reference" href="../../_images/warm21.png"><img alt="../../_images/warm21.png" src="../../_images/warm21.png" style="height: 240px;" />
+<ol class="arabic simple">
+<li><p>Find a minimum spanning tree using Kruskal’s Algorithm.</p></li>
+<li><p>How might you show Kruskal’s Algo generates a spanning tree? Why minimum?</p></li>
+</ol>
+</section>
+</div><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The resulting graph you should end up with is:</p>
+<a class="reference internal image-reference" href="../../_images/warm21.png"><img alt="../../_images/warm21.png" class="align-center" src="../../_images/warm21.png" style="height: 240px;" />
 </a>
+<p class="sd-card-text">The question is, how do you know the resulting graph is a spanning tree? Moreover, how do you know this tree’s edge numbers sum to the minimum of all such spanning trees?</p>
+<p class="sd-card-text">For example, the warmup example graph has more than one spanning tree (you can verify this for yourself). But, if we look at the generated tree,
+the edge weights of this tree sum to a number less than or equal to every other spanning tree (the trick will be proving the process generates such a tree).</p>
+</div>
+</details></section>
+<section id="proof-of-correctness">
+<h2>Proof of “Correctness”<a class="headerlink" href="#proof-of-correctness" title="Link to this heading">#</a></h2>
+<p>We will proceed to prove the <u>correctness</u> of Kruskal’s Algo. By proving correctness, we show that indeed Kruskal’s Algo generates the output that it claims to generate: a minimum spanning tree.</p>
+<p>First, recall Kruskal’s Algo:</p>
+<div class="proof definition admonition" id="definition-1">
+<p class="admonition-title"><span class="caption-number">Definition 42 </span> (Kruskal’s Algorithm)</p>
+<section class="definition-content" id="proof-content">
+<ul>
+<li><p>Input: A connected graph <span class="math notranslate nohighlight">\(G=(V,E)\)</span></p></li>
+<li><p>Body: Build a minimum spanning tree <span class="math notranslate nohighlight">\(T\)</span></p>
+<ul>
+<li><ol class="arabic simple">
+<li><p>Initialize a graph <span class="math notranslate nohighlight">\(T\)</span> on vertices <span class="math notranslate nohighlight">\(V\)</span> with <span class="math notranslate nohighlight">\(m=0\)</span> edges</p></li>
+</ol>
+</li>
+<li><ol class="arabic simple" start="2">
+<li><p>While <span class="math notranslate nohighlight">\(m&lt;n-1\)</span>:</p></li>
+</ol>
+<ul class="simple">
+<li><ol class="arabic simple">
+<li><p>Remove edge with minimum weight <span class="math notranslate nohighlight">\(e\in E\)</span></p></li>
+</ol>
+</li>
+<li><ol class="arabic simple" start="2">
+<li><p>If adding <span class="math notranslate nohighlight">\(e\)</span> to <span class="math notranslate nohighlight">\(T\)</span> creates a cycle, do not add it. Otherwise, do.</p></li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Output: A minimum spanning tree <span class="math notranslate nohighlight">\(T\)</span> of <span class="math notranslate nohighlight">\(G\)</span></p></li>
+</ul>
+</section>
+</div><div class="proof admonition" id="proof">
+<p>Proof. Let <span class="math notranslate nohighlight">\(G=(V,E)\)</span> be a weighted, connected graph. Let <span class="math notranslate nohighlight">\(T\)</span> be the output from Kruskal’s Algo. We will first show <span class="math notranslate nohighlight">\(T\)</span> is a spanning tree.</p>
+<p><strong>Spanning Tree</strong>: Since we initialize <span class="math notranslate nohighlight">\(T\)</span> with all of the vertices of <span class="math notranslate nohighlight">\(G\)</span>, <span class="math notranslate nohighlight">\(T\)</span> is already a spanning subgraph of <span class="math notranslate nohighlight">\(G\)</span>. By not adding edges that create cycles, <span class="math notranslate nohighlight">\(T\)</span> has no cycles. The only thing left to prove is that <span class="math notranslate nohighlight">\(T\)</span> is connected.</p>
+<p>So, assume <span class="math notranslate nohighlight">\(T\)</span> is not connected. Then, there are at least two vertices <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(v\)</span> in <span class="math notranslate nohighlight">\(T\)</span> with no <span class="math notranslate nohighlight">\(uv\)</span>-path between them. That is, <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(v\)</span> are in different components of <span class="math notranslate nohighlight">\(T\)</span>. Call the component <span class="math notranslate nohighlight">\(u\)</span> is in <span class="math notranslate nohighlight">\(T_1\)</span> and the component <span class="math notranslate nohighlight">\(v\)</span> is in <span class="math notranslate nohighlight">\(T_2\)</span>. Note that <span class="math notranslate nohighlight">\(T_1\)</span> and <span class="math notranslate nohighlight">\(T_2\)</span> must also be cycle-less. Since <span class="math notranslate nohighlight">\(G\)</span> is connected, there must have been edges between <span class="math notranslate nohighlight">\(T_1\)</span> and <span class="math notranslate nohighlight">\(T_2\)</span> that Kruskal’s Algo considered. The only way to create a cycle by adding one of these edges is if there were already a path between the endpoints of that edge. Since this is not the case for a vertex in <span class="math notranslate nohighlight">\(T_1\)</span> and a vertex in <span class="math notranslate nohighlight">\(T_2\)</span>, Kruskal’s Algo would have added an edge between them since at some point this edge is minimum and no cycle is created.</p>
+<p><strong>Minimum</strong>: Think about it for next lecture (Monday)!</p>
+<p>Try:</p>
+<ol class="arabic simple">
+<li><p>Induction?</p></li>
+<li><p>Contradiction?</p></li>
+</ol>
+</div>
 </section>
 </section>
 
@@ -424,6 +490,7 @@
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#warmup">Warmup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proof-of-correctness">Proof of “Correctness”</a></li>
 </ul>
   </nav></div>
 
