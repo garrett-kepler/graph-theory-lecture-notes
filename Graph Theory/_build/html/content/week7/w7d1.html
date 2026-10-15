@@ -417,51 +417,51 @@
 <p>For the second question, you might try and do the following:</p>
 <ol> 
 <li> Start by forming a graph $T$ on these vertices with no edges. 
-<li> For each edge $e$ in $G$:
-<ol type="a"><li>Remove the edge from $G$.
-<li> If adding the edge $e$ to $T$ creates a cycle in $T$, ignore this edge.
+<li> For each edge <i>e</i> in <i>G</i>:
+<ol type="a"><li>Remove the edge from <i>G</i>.
+<li> If adding the edge <i>e</i> to <i>T</i> creates a cycle in <i>T</i>, ignore this edge.
 <li> Otherwise, add the edge!
 </ol></ol>
 <p>Let’s actually do this. Take the graph <span class="math notranslate nohighlight">\(G\)</span>. Form <span class="math notranslate nohighlight">\(T\)</span> to have the same vertices and no edges.</p>
-<a class="reference internal image-reference" href="../../_images/span2.png"><img alt="../../_images/span2.png" src="../../_images/span2.png" style="height: 240px;" />
+<a class="reference internal image-reference" href="../../_images/span2.png"><img alt="../../_images/span2.png" class="align-center" src="../../_images/span2.png" style="height: 450px;" />
 </a>
 <p>Consider some edge in <span class="math notranslate nohighlight">\(G\)</span>, say the Colfax Sunnyside Park edge:</p>
-<a class="reference internal image-reference" href="../../_images/span1.png"><img alt="../../_images/span1.png" src="../../_images/span1.png" style="height: 240px;" />
+<a class="reference internal image-reference" href="../../_images/span1.png"><img alt="../../_images/span1.png" class="align-center" src="../../_images/span1.png" style="height: 450px;" />
 </a>
 <p>This definitely does not form a cycle in <span class="math notranslate nohighlight">\(T\)</span>, so we’ll add it:</p>
-<a class="reference internal image-reference" href="../../_images/span3.png"><img alt="../../_images/span3.png" src="../../_images/span3.png" style="height: 240px;" />
+<a class="reference internal image-reference" href="../../_images/span3.png"><img alt="../../_images/span3.png" class="align-center" src="../../_images/span3.png" style="height: 450px;" />
 </a>
 <p>Continuing on, adding Colfax Rosauers does not create a cycle so we’ll add that:</p>
-<a class="reference internal image-reference" href="../../_images/span4.png"><img alt="../../_images/span4.png" src="../../_images/span4.png" style="height: 240px;" />
+<a class="reference internal image-reference" href="../../_images/span4.png"><img alt="../../_images/span4.png" class="align-center" src="../../_images/span4.png" style="height: 450px;" />
 </a>
 <p>Same with Rosauers to Walmart:</p>
-<a class="reference internal image-reference" href="../../_images/span5.png"><img alt="../../_images/span5.png" src="../../_images/span5.png" style="height: 240px;" />
+<a class="reference internal image-reference" href="../../_images/span5.png"><img alt="../../_images/span5.png" class="align-center" src="../../_images/span5.png" style="height: 450px;" />
 </a>
 <p>We’ll consider Walmart Sunnyside Park road, but we end up with a cycle so we don’t add it!</p>
-<a class="reference internal image-reference" href="../../_images/span6.png"><img alt="../../_images/span6.png" src="../../_images/span6.png" style="height: 240px;" />
+<a class="reference internal image-reference" href="../../_images/span6.png"><img alt="../../_images/span6.png" class="align-center" src="../../_images/span6.png" style="height: 450px;" />
 </a>
 <p>So, we move on and repeat this process until we have removed every edge from <span class="math notranslate nohighlight">\(G\)</span>.</p>
-<a class="reference internal image-reference" href="../../_images/span7.png"><img alt="../../_images/span7.png" src="../../_images/span7.png" style="height: 240px;" />
+<a class="reference internal image-reference" href="../../_images/span7.png"><img alt="../../_images/span7.png" class="align-center" src="../../_images/span7.png" style="height: 450px;" />
 </a>
-<a class="reference internal image-reference" href="../../_images/pullman2.png"><img alt="../../_images/pullman2.png" src="../../_images/pullman2.png" style="height: 240px;" />
+<a class="reference internal image-reference" href="../../_images/pullman2.png"><img alt="../../_images/pullman2.png" class="align-center" src="../../_images/pullman2.png" style="height: 450px;" />
 </a>
-<a class="reference internal image-reference" href="../../_images/kruskal1.png"><img alt="../../_images/kruskal1.png" src="../../_images/kruskal1.png" style="height: 240px;" />
+<a class="reference internal image-reference" href="../../_images/kruskal1.png"><img alt="../../_images/kruskal1.png" class="align-center" src="../../_images/kruskal1.png" style="height: 450px;" />
 </a>
-<a class="reference internal image-reference" href="../../_images/kruskal2.png"><img alt="../../_images/kruskal2.png" src="../../_images/kruskal2.png" style="height: 240px;" />
+<a class="reference internal image-reference" href="../../_images/kruskal2.png"><img alt="../../_images/kruskal2.png" class="align-center" src="../../_images/kruskal2.png" style="height: 450px;" />
 </a>
-<a class="reference internal image-reference" href="../../_images/kruskal3.png"><img alt="../../_images/kruskal3.png" src="../../_images/kruskal3.png" style="height: 240px;" />
+<a class="reference internal image-reference" href="../../_images/kruskal3.png"><img alt="../../_images/kruskal3.png" class="align-center" src="../../_images/kruskal3.png" style="height: 450px;" />
 </a>
-<a class="reference internal image-reference" href="../../_images/kruskal4.png"><img alt="../../_images/kruskal4.png" src="../../_images/kruskal4.png" style="height: 240px;" />
+<a class="reference internal image-reference" href="../../_images/kruskal4.png"><img alt="../../_images/kruskal4.png" class="align-center" src="../../_images/kruskal4.png" style="height: 450px;" />
 </a>
-<a class="reference internal image-reference" href="../../_images/kruskal5.png"><img alt="../../_images/kruskal5.png" src="../../_images/kruskal5.png" style="height: 240px;" />
+<a class="reference internal image-reference" href="../../_images/kruskal5.png"><img alt="../../_images/kruskal5.png" class="align-center" src="../../_images/kruskal5.png" style="height: 450px;" />
 </a>
-<a class="reference internal image-reference" href="../../_images/kruskal6.png"><img alt="../../_images/kruskal6.png" src="../../_images/kruskal6.png" style="height: 240px;" />
+<a class="reference internal image-reference" href="../../_images/kruskal6.png"><img alt="../../_images/kruskal6.png" class="align-center" src="../../_images/kruskal6.png" style="height: 450px;" />
 </a>
-<a class="reference internal image-reference" href="../../_images/kruskal7.png"><img alt="../../_images/kruskal7.png" src="../../_images/kruskal7.png" style="height: 240px;" />
+<a class="reference internal image-reference" href="../../_images/kruskal7.png"><img alt="../../_images/kruskal7.png" class="align-center" src="../../_images/kruskal7.png" style="height: 450px;" />
 </a>
-<a class="reference internal image-reference" href="../../_images/kruskals8.png"><img alt="../../_images/kruskals8.png" src="../../_images/kruskals8.png" style="height: 240px;" />
+<a class="reference internal image-reference" href="../../_images/kruskals8.png"><img alt="../../_images/kruskals8.png" class="align-center" src="../../_images/kruskals8.png" style="height: 450px;" />
 </a>
-<a class="reference internal image-reference" href="../../_images/kruskals9.png"><img alt="../../_images/kruskals9.png" src="../../_images/kruskals9.png" style="height: 240px;" />
+<a class="reference internal image-reference" href="../../_images/kruskals9.png"><img alt="../../_images/kruskals9.png" class="align-center" src="../../_images/kruskals9.png" style="height: 450px;" />
 </a>
 </section>
 </section>
