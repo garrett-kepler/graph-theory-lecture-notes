@@ -398,6 +398,8 @@
             <nav aria-label="Page">
                 <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#warmup">Warmup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-about-mileage-kruskal-s-algorithm">What about mileage? “Kruskal’s Algorithm”</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kruskal-s-algorithm">Kruskal’s Algorithm</a></li>
 </ul>
             </nav>
         </div>
@@ -416,54 +418,191 @@
 <p>For the first question, we’re looking for a spanning tree!</p>
 <p>For the second question, you might try and do the following:</p>
 <ol> 
-<li> Start by forming a graph $T$ on these vertices with no edges. 
+<li> Start by forming a graph <i>T</i> on these vertices with no edges. 
 <li> For each edge <i>e</i> in <i>G</i>:
 <ol type="a"><li>Remove the edge from <i>G</i>.
 <li> If adding the edge <i>e</i> to <i>T</i> creates a cycle in <i>T</i>, ignore this edge.
 <li> Otherwise, add the edge!
 </ol></ol>
-<p>Let’s actually do this. Take the graph <span class="math notranslate nohighlight">\(G\)</span>. Form <span class="math notranslate nohighlight">\(T\)</span> to have the same vertices and no edges.</p>
+<p>Let’s actually do this. Take the graph <span class="math notranslate nohighlight">\(G\)</span>. Form <span class="math notranslate nohighlight">\(T\)</span> to have the same vertices and no edges.
+<br>
+<br></p>
 <a class="reference internal image-reference" href="../../_images/span2.png"><img alt="../../_images/span2.png" class="align-center" src="../../_images/span2.png" style="height: 450px;" />
 </a>
-<p>Consider some edge in <span class="math notranslate nohighlight">\(G\)</span>, say the Colfax Sunnyside Park edge:</p>
+<br>
+<br>
+<p>Consider some edge in <span class="math notranslate nohighlight">\(G\)</span>, say the Colfax Sunnyside Park edge:
+<br>
+<br></p>
 <a class="reference internal image-reference" href="../../_images/span1.png"><img alt="../../_images/span1.png" class="align-center" src="../../_images/span1.png" style="height: 450px;" />
 </a>
-<p>This definitely does not form a cycle in <span class="math notranslate nohighlight">\(T\)</span>, so we’ll add it:</p>
+<br>
+<br>
+<p>This definitely does not form a cycle in <span class="math notranslate nohighlight">\(T\)</span>, so we’ll add it:
+<br>
+<br></p>
 <a class="reference internal image-reference" href="../../_images/span3.png"><img alt="../../_images/span3.png" class="align-center" src="../../_images/span3.png" style="height: 450px;" />
 </a>
-<p>Continuing on, adding Colfax Rosauers does not create a cycle so we’ll add that:</p>
+<br>
+<br>
+<p>Continuing on, adding Colfax Rosauers does not create a cycle so we’ll add that:
+<br>
+<br></p>
 <a class="reference internal image-reference" href="../../_images/span4.png"><img alt="../../_images/span4.png" class="align-center" src="../../_images/span4.png" style="height: 450px;" />
 </a>
-<p>Same with Rosauers to Walmart:</p>
+<br>
+<br>
+<p>Same with Rosauers to Walmart:
+<br>
+<br></p>
 <a class="reference internal image-reference" href="../../_images/span5.png"><img alt="../../_images/span5.png" class="align-center" src="../../_images/span5.png" style="height: 450px;" />
 </a>
-<p>We’ll consider Walmart Sunnyside Park road, but we end up with a cycle so we don’t add it!</p>
+<br>
+<br>
+<p>We’ll consider Walmart Sunnyside Park road, but we end up with a cycle so we don’t add it!
+<br>
+<br></p>
 <a class="reference internal image-reference" href="../../_images/span6.png"><img alt="../../_images/span6.png" class="align-center" src="../../_images/span6.png" style="height: 450px;" />
 </a>
-<p>So, we move on and repeat this process until we have removed every edge from <span class="math notranslate nohighlight">\(G\)</span>.</p>
+<br>
+<br>
+<p>So, we move on and repeat this process until we have removed every edge from <span class="math notranslate nohighlight">\(G\)</span> to obtain the following:
+<br>
+<br></p>
 <a class="reference internal image-reference" href="../../_images/span7.png"><img alt="../../_images/span7.png" class="align-center" src="../../_images/span7.png" style="height: 450px;" />
 </a>
-<a class="reference internal image-reference" href="../../_images/pullman2.png"><img alt="../../_images/pullman2.png" class="align-center" src="../../_images/pullman2.png" style="height: 450px;" />
+<br>
+<br>
+</section>
+<section id="what-about-mileage-kruskal-s-algorithm">
+<h2>What about mileage? “Kruskal’s Algorithm”<a class="headerlink" href="#what-about-mileage-kruskal-s-algorithm" title="Link to this heading">#</a></h2>
+<p>The Pullman transportation folks come back to you and say: “Great! But, some of these roads are longer than others. Could you do the same, but favor low mileage?”</p>
+<p>They show you the map with the miles each road consists of:
+<br>
+<br></p>
+<a class="reference internal image-reference" href="../../_images/pullman2.png"><img alt="../../_images/pullman2.png" class="align-center" src="../../_images/pullman2.png" style="height: 240px;" />
 </a>
+<br>
+<br>
+<p>This graph now has extra information. Each edge now has a mileage.</p>
+<p>The problem is now this:</p>
+<ol class="arabic simple">
+<li><p>Find a spanning tree.</p></li>
+<li><p>Ensure this specific spanning tree has the <i>lowest total amount of miles possible</i>.</p></li>
+</ol>
+<p>We will repeat the process from above to find a spanning tree. We will consider adding an edge to see if it creates a cycle. If so, we won’t add it to <span class="math notranslate nohighlight">\(T\)</span>. But, <u>we will consider edges with the least miles first</u>.</p>
+<p>That is, we will take the edge with the smallest mileage off <span class="math notranslate nohighlight">\(G\)</span>, determine whether this will create a cycle in <span class="math notranslate nohighlight">\(T\)</span>, and add the edge to <span class="math notranslate nohighlight">\(T\)</span> if no cycle is created.</p>
+<p>Consider the graph we are given and <span class="math notranslate nohighlight">\(T\)</span> that we will form:
+<br>
+<br></p>
 <a class="reference internal image-reference" href="../../_images/kruskal1.png"><img alt="../../_images/kruskal1.png" class="align-center" src="../../_images/kruskal1.png" style="height: 450px;" />
 </a>
+<br>
+<br>
+<p>Looking at the edges, we can see there is one edge with the lowest miles used: Downtown Pullman to Sunnyside Park.</p>
+<br>
+<br>
 <a class="reference internal image-reference" href="../../_images/kruskal2.png"><img alt="../../_images/kruskal2.png" class="align-center" src="../../_images/kruskal2.png" style="height: 450px;" />
 </a>
+<br>
+<br>
+<p>Let’s add this edge to <span class="math notranslate nohighlight">\(T\)</span> first.</p>
+<br>
+<br>
 <a class="reference internal image-reference" href="../../_images/kruskal3.png"><img alt="../../_images/kruskal3.png" class="align-center" src="../../_images/kruskal3.png" style="height: 450px;" />
 </a>
+<br>
+<br>
+<p>Now that we have added this edge, let’s add the new lowest: Downtown Pullman to Walmart.</p>
+<br>
+<br>
 <a class="reference internal image-reference" href="../../_images/kruskal4.png"><img alt="../../_images/kruskal4.png" class="align-center" src="../../_images/kruskal4.png" style="height: 450px;" />
 </a>
+<br>
+<br>
+<p>Then, comes an issue. If we add the edge Sunnyside to Walmart, we’ll make a cycle! We want a tree so don’t add this edge.</p>
+<br>
+<br>
 <a class="reference internal image-reference" href="../../_images/kruskal5.png"><img alt="../../_images/kruskal5.png" class="align-center" src="../../_images/kruskal5.png" style="height: 450px;" />
 </a>
+<br>
+<br>
+<p>But, Campus to Moscow is fine.</p>
+<br>
+<br>
 <a class="reference internal image-reference" href="../../_images/kruskal6.png"><img alt="../../_images/kruskal6.png" class="align-center" src="../../_images/kruskal6.png" style="height: 450px;" />
 </a>
+<br>
+<br>
+<p>Continue on with Walmart to Campus:</p>
+<br>
+<br>
 <a class="reference internal image-reference" href="../../_images/kruskal7.png"><img alt="../../_images/kruskal7.png" class="align-center" src="../../_images/kruskal7.png" style="height: 450px;" />
 </a>
+<br>
+<br>
+<p>Again, avoid Sunnyside Park to Campus since that will create a cycle:</p>
+<br>
+<br>
 <a class="reference internal image-reference" href="../../_images/kruskals8.png"><img alt="../../_images/kruskals8.png" class="align-center" src="../../_images/kruskals8.png" style="height: 450px;" />
 </a>
+<br>
+<br>
+<p>We’ll continue on with this process and end up with the following object:</p>
+<br>
+<br>
 <a class="reference internal image-reference" href="../../_images/kruskals9.png"><img alt="../../_images/kruskals9.png" class="align-center" src="../../_images/kruskals9.png" style="height: 450px;" />
 </a>
+<br>
+<br>
+<p>This step-by-step process is what we call “Kruskal’s Algorithm”.</p>
 </section>
+<section id="kruskal-s-algorithm">
+<h2>Kruskal’s Algorithm<a class="headerlink" href="#kruskal-s-algorithm" title="Link to this heading">#</a></h2>
+<p>What we have discussed is an introduction to the next section of the class: <i>graph algorithms</i>. The first algorithm we will cover is exactly what we have performed on this graph. First, some lingo.</p>
+<div class="proof definition admonition" id="definition-0">
+<p class="admonition-title"><span class="caption-number">Definition 39 </span> (Weighted Graphs)</p>
+<section class="definition-content" id="proof-content">
+<p>A <i>weighted graph</i> is some graph <span class="math notranslate nohighlight">\(G=(V,E)\)</span> where each edge <span class="math notranslate nohighlight">\(e\in E\)</span> is assigned some positive number we call a <i>weight</i>. On the contrary, an <i>unweighted graph</i> does not have such assignments.</p>
+</section>
+</div><p><u>Note:</u> Lots of applications can benefit from edges being allowed to be negative or zero. For our purposes, the above definition will actually make things easier.</p>
+<div class="proof definition admonition" id="definition-1">
+<p class="admonition-title"><span class="caption-number">Definition 40 </span> (Minimum Spanning Tree)</p>
+<section class="definition-content" id="proof-content">
+<p>A <i>minimum spanning tree</i> of some weighted, connected graph <span class="math notranslate nohighlight">\(G\)</span> is a spanning tree such that the sum of all the edge weights is less than or equal to every other spanning tree in <span class="math notranslate nohighlight">\(G\)</span>.</p>
+</section>
+</div><p>Formalizing the process we have been performing, we introduce the following algorithm:</p>
+<div class="proof definition admonition" id="definition-2">
+<p class="admonition-title"><span class="caption-number">Definition 41 </span> (Kruskal’s Algorithm)</p>
+<section class="definition-content" id="proof-content">
+<ul>
+<li><p>Input: A connected graph <span class="math notranslate nohighlight">\(G=(V,E)\)</span></p></li>
+<li><p>Body: Build a minimum spanning tree <span class="math notranslate nohighlight">\(T\)</span></p>
+<ul>
+<li><ol class="arabic simple">
+<li><p>Initialize a graph <span class="math notranslate nohighlight">\(T\)</span> on vertices <span class="math notranslate nohighlight">\(V\)</span> with <span class="math notranslate nohighlight">\(m=0\)</span> edges</p></li>
+</ol>
+</li>
+<li><ol class="arabic simple" start="2">
+<li><p>While <span class="math notranslate nohighlight">\(m&lt;n-1\)</span>:</p></li>
+</ol>
+<ul class="simple">
+<li><ol class="arabic simple">
+<li><p>Remove edge with minimum weight <span class="math notranslate nohighlight">\(e\in E\)</span></p></li>
+</ol>
+</li>
+<li><ol class="arabic simple" start="2">
+<li><p>If adding <span class="math notranslate nohighlight">\(e\)</span> to <span class="math notranslate nohighlight">\(T\)</span> creates a cycle, do not add it. Otherwise, do.</p></li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Output: A minimum spanning tree <span class="math notranslate nohighlight">\(T\)</span> of <span class="math notranslate nohighlight">\(G\)</span></p></li>
+</ul>
+</section>
+</div></section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -533,6 +672,8 @@
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#warmup">Warmup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-about-mileage-kruskal-s-algorithm">What about mileage? “Kruskal’s Algorithm”</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kruskal-s-algorithm">Kruskal’s Algorithm</a></li>
 </ul>
   </nav></div>
 
