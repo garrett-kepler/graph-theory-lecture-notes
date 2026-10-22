@@ -67,6 +67,7 @@
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Lecture 16: Breadth-First Search" href="w8d2.html" />
     <link rel="prev" title="Lecture 16: Kruskal’s Algorithm" href="../week7/w7d2.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -255,6 +256,8 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 8--Breadth-First &amp; Depth-First Search</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Lecture 15: Kruskal’s &amp; Breadth-First Search</a></li>
+<li class="toctree-l1"><a class="reference internal" href="w8d2.html">Lecture 16: Breadth-First Search</a></li>
+<li class="toctree-l1"><a class="reference internal" href="w8d3.html">Lecture 17: Depth-First Search</a></li>
 </ul>
 
     </div>
@@ -427,7 +430,7 @@
 <p>Proof. <strong>Spanning Tree</strong>: See last lecture!</p>
 <p><strong>Minimum Weight</strong>: We’ll use a proof by contradiction!</p>
 <p>Consider inputting a connected, weighted graph <span class="math notranslate nohighlight">\(G=(V,E)\)</span> into Kruskal’s algorithm and receiving a weighted spanning tree <span class="math notranslate nohighlight">\(T\)</span>. We will assume that there is some minimum spanning tree <span class="math notranslate nohighlight">\(T_1\)</span> different than <span class="math notranslate nohighlight">\(T\)</span> and show that <span class="math notranslate nohighlight">\(T\)</span> and <span class="math notranslate nohighlight">\(T_1\)</span> must be the same.</p>
-<p>So, let <span class="math notranslate nohighlight">\(T_1\)</span> be a minimum weight spanning tree that shares the maximum number of shared edges with <span class="math notranslate nohighlight">\(T\)</span> (<span class="math notranslate nohighlight">\(T\neq T_1\)</span>). So, <span class="math notranslate nohighlight">\(T\)</span> and <span class="math notranslate nohighlight">\(T_1\)</span> differ by at least one edge. Say <span class="math notranslate nohighlight">\(e\in E(T)\)</span> such that <span class="math notranslate nohighlight">\(e\notin E(T_1)\)</span>. Add this edge to <span class="math notranslate nohighlight">\(T_1\)</span>. <span class="math notranslate nohighlight">\(T_1\)</span> must now have a cycle. There is some edge in this cycle that is not in <span class="math notranslate nohighlight">\(T\)</span>. Say <span class="math notranslate nohighlight">\(e'\in E(T_1)\)</span> such that <span class="math notranslate nohighlight">\(e'\notin E(T)\)</span>. Remove this edge from <span class="math notranslate nohighlight">\(T_1\)</span>. Call this new graph with <span class="math notranslate nohighlight">\(e\)</span> and not <span class="math notranslate nohighlight">\(e'\)</span> <span class="math notranslate nohighlight">\(T_2\)</span>. That is, <span class="math notranslate nohighlight">\(T_2\)</span> will have the same edges as <span class="math notranslate nohighlight">\(T_1\)</span> without <span class="math notranslate nohighlight">\(e'\)</span> and with <span class="math notranslate nohighlight">\(e\)</span> added.</p>
+<p>So, let <span class="math notranslate nohighlight">\(T_1\)</span> be a minimum weight spanning tree that shares the maximum number of shared edges with <span class="math notranslate nohighlight">\(T\)</span> (<span class="math notranslate nohighlight">\(T\neq T_1\)</span>). So, <span class="math notranslate nohighlight">\(T\)</span> and <span class="math notranslate nohighlight">\(T_1\)</span> differ by at least one edge. Say <span class="math notranslate nohighlight">\(e\in E(T)\)</span> such that <span class="math notranslate nohighlight">\(e\notin E(T_1)\)</span>. Add this edge to <span class="math notranslate nohighlight">\(T_1~\)</span>. <span class="math notranslate nohighlight">\(~T_1\)</span> must now have a cycle. There is some edge in this cycle that is not in <span class="math notranslate nohighlight">\(T\)</span>. Say <span class="math notranslate nohighlight">\(e'\in E(T_1)\)</span> such that <span class="math notranslate nohighlight">\(e'\notin E(T)\)</span>. Remove this edge from <span class="math notranslate nohighlight">\(T_1~\)</span>. Call this new graph with <span class="math notranslate nohighlight">\(e\)</span> and not <span class="math notranslate nohighlight">\(e'\)</span> <span class="math notranslate nohighlight">\(T_2~\)</span>. Note that we removed the cycle we added such that <span class="math notranslate nohighlight">\(T_2\)</span> is also has no cycles. Moreover, removing an edge in a cycle does not disconnect a graph so <span class="math notranslate nohighlight">\(T_2\)</span> is connected. That is, <span class="math notranslate nohighlight">\(T_2\)</span> will be a tree and have the same edges as <span class="math notranslate nohighlight">\(T_1\)</span> without <span class="math notranslate nohighlight">\(e'\)</span> and with <span class="math notranslate nohighlight">\(e\)</span> added.</p>
 <p>Denote the sum of the weights in <span class="math notranslate nohighlight">\(T\)</span> as <span class="math notranslate nohighlight">\(w(T)\)</span> (likewise with every other edge set or graph). What is <span class="math notranslate nohighlight">\(w(T_2)\)</span>? Well, we have the weight of <span class="math notranslate nohighlight">\(T_1\)</span>, plus the weight of <span class="math notranslate nohighlight">\(e\)</span>, and minus the weight of <span class="math notranslate nohighlight">\(e'\)</span>. That is,</p>
 <p><span class="math notranslate nohighlight">\(\begin{align*}
 w(T_2)=w(T_1)+w(e)-w(e')
@@ -444,7 +447,7 @@ w(T_2)&amp;=w(T_1)+w(e)-w(e')\\
 <h2>Breadth-First Search<a class="headerlink" href="#breadth-first-search" title="Link to this heading">#</a></h2>
 <p>Another very useful graph algorithm is a <it>search</it> algorithm that also finds trees in graphs:</p>
 <div class="proof definition admonition" id="definition-1">
-<p class="admonition-title"><span class="caption-number">Definition 43 </span> (Breadth-First Search)</p>
+<p class="admonition-title"><span class="caption-number">Definition 43 </span> (Breadth-First Search (graph))</p>
 <section class="definition-content" id="proof-content">
 <ul class="simple">
 <li><p>Input: A graph <span class="math notranslate nohighlight">\(G=(V,E)\)</span> and a starting vertex “<span class="math notranslate nohighlight">\(root\)</span>”</p></li>
@@ -515,6 +518,15 @@ w(T_2)&amp;=w(T_1)+w(e)-w(e')\\
         <p class="prev-next-subtitle">previous</p>
         <p class="prev-next-title">Lecture 16: Kruskal’s Algorithm</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="w8d2.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Lecture 16: Breadth-First Search</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>

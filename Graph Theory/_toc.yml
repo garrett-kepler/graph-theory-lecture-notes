@@ -35,3 +35,5 @@ parts:
   - caption: Week 8--Breadth-First & Depth-First Search
     chapters:
     - file: content/week8/w8d1.md
+    - file: content/week8/w8d2.md
+    - file: content/week8/w8d3.md
