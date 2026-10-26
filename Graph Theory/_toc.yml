@@ -37,3 +37,8 @@ parts:
     - file: content/week8/w8d1.md
     - file: content/week8/w8d2.md
     - file: content/week8/w8d3.md
+  - caption: Week 9--Dijkstra's
+    chapters:
+    - file: content/week9/w9d1.md
+    - file: content/week9/w9d2.md
+    - file: content/week9/w9d3.md

@@ -27,8 +27,8 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
@@ -40,10 +40,10 @@
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- So that users can add custom icons -->
-  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
 
     <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
@@ -64,6 +64,7 @@
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'content/week8/w8d1';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Lecture 16: Breadth-First Search" href="w8d2.html" />
@@ -71,20 +72,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
   </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
-
+  <body data-default-mode="">
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-
+  
+  
+  
   
   <dialog id="pst-search-dialog">
     
@@ -110,7 +117,51 @@
 </div>
 
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
     </header>
   
 
@@ -207,6 +258,10 @@
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Lecture 15: Kruskal’s &amp; Breadth-First Search</a></li>
 <li class="toctree-l1"><a class="reference internal" href="w8d2.html">Lecture 16: Breadth-First Search</a></li>
 <li class="toctree-l1"><a class="reference internal" href="w8d3.html">Lecture 17: Depth-First Search</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 9--Dijkstra's</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week9/w9d1.html">Lecture 18: Introduction to Dijkstra’s Algorithm</a></li>
 </ul>
 
     </div>
@@ -351,7 +406,7 @@
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finishing-up-proof-for-kruskal-s">Finishing up proof for Kruskal’s</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#breadth-first-search">Breadth-First Search</a></li>
 </ul>
@@ -391,16 +446,18 @@ w(T_2)&amp;=w(T_1)+w(e)-w(e')\\
 \end{align*}\)</span></p>
 <p>Recall that <span class="math notranslate nohighlight">\(T_1\)</span> is assumed to be a minimum spanning tree with the <it>maximum number of edges shared with <span class="math notranslate nohighlight">\(T\)</span></it>. Note that since <span class="math notranslate nohighlight">\(T_2\)</span> has every edge that <span class="math notranslate nohighlight">\(T_1\)</span> shares with <span class="math notranslate nohighlight">\(T\)</span> <u>and</u> <span class="math notranslate nohighlight">\(e\)</span>. That means <span class="math notranslate nohighlight">\(T_2\)</span> has <u>more</u> shared edges with <span class="math notranslate nohighlight">\(T\)</span> than <span class="math notranslate nohighlight">\(T_2\)</span>. And, since <span class="math notranslate nohighlight">\(w(T_2)\leq w(T_1)\)</span> we have a minimum spanning tree with more shared edges than <span class="math notranslate nohighlight">\(T_1\)</span>. This contradicts the assumption that <span class="math notranslate nohighlight">\(T_1\)</span> is the minimum spanning tree with the maximum number of shared edges. So, <span class="math notranslate nohighlight">\(T\)</span> and <span class="math notranslate nohighlight">\(T_1\)</span> must be the same by contradiction.</p>
 </div>
-<div class="proof question admonition" id="question-1">
-<p class="admonition-title"><span class="caption-number">Question 29 </span></p>
-<section class="question-content" id="proof-content">
-<p>Draw a graph with more than one minimum spanning tree</p>
-</section>
-</div></section>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Here’s an example from class! Consider the graph <span class="math notranslate nohighlight">\(G\)</span>:</p>
+<a class="reference internal image-reference" href="../../_images/idea15.png"><img alt="../../_images/idea15.png" class="align-center" src="../../_images/idea15.png" style="height: 240px;" />
+</a>
+</div>
+</details></section>
 <section id="breadth-first-search">
 <h2>Breadth-First Search<a class="headerlink" href="#breadth-first-search" title="Link to this heading">#</a></h2>
 <p>Another very useful graph algorithm is a <it>search</it> algorithm that also finds trees in graphs:</p>
-<div class="proof definition admonition" id="definition-2">
+<div class="proof definition admonition" id="definition-1">
 <p class="admonition-title"><span class="caption-number">Definition 43 </span> (Breadth-First Search (graph))</p>
 <section class="definition-content" id="proof-content">
 <ul class="simple">
@@ -431,12 +488,96 @@ w(T_2)&amp;=w(T_1)+w(e)-w(e')\\
 <li><p>Output: A tree <span class="math notranslate nohighlight">\(T\)</span> from <span class="math notranslate nohighlight">\(G\)</span></p></li>
 </ul>
 </section>
-</div><div class="proof question admonition" id="question-3">
-<p class="admonition-title"><span class="caption-number">Question 30 </span></p>
-<section class="question-content" id="proof-content">
-<p>When is the output from Breadth-First Search (graph) a spanning tree?</p>
-</section>
-</div></section>
+</div><p>Let’s work through an example together on the following graph:</p>
+<br>
+<br>
+<a class="reference internal image-reference" href="../../_images/bfs1.png"><img alt="../../_images/bfs1.png" class="align-center" src="../../_images/bfs1.png" style="height: 240px;" />
+</a>
+<br>
+<br>
+<p>We’ll initialize <span class="math notranslate nohighlight">\(T\)</span> with all the vertices of the graph, no edges, and the root vertex being <span class="math notranslate nohighlight">\(B\)</span>.</p>
+<br>
+<br>
+<a class="reference internal image-reference" href="../../_images/bfs2.png"><img alt="../../_images/bfs2.png" class="align-center" src="../../_images/bfs2.png" style="height: 240px;" />
+</a>
+<br>
+<br>
+<p>Steps 2 and 3 of BFS dictate we label <span class="math notranslate nohighlight">\(B\)</span> explored and add it to the ordered list <span class="math notranslate nohighlight">\(Q\)</span>:</p>
+<br>
+<br>
+<a class="reference internal image-reference" href="../../_images/bfs3.png"><img alt="../../_images/bfs3.png" class="align-center" src="../../_images/bfs3.png" style="height: 240px;" />
+</a>
+<br>
+<br>
+<p>Step 4 dictates we remove the first element of <span class="math notranslate nohighlight">\(Q\)</span>, <span class="math notranslate nohighlight">\(B\)</span>, and consider the edges that contain <span class="math notranslate nohighlight">\(B\)</span>. First, <span class="math notranslate nohighlight">\(\{A,B\}\)</span>:</p>
+<br>
+<br>
+<a class="reference internal image-reference" href="../../_images/bfs4.png"><img alt="../../_images/bfs4.png" class="align-center" src="../../_images/bfs4.png" style="height: 240px;" />
+</a>
+<br>
+<br>
+<p>Since <span class="math notranslate nohighlight">\(A\)</span> is unexplored, we label it explored, add the edge <span class="math notranslate nohighlight">\(\{A,B\}\)</span>, and add <span class="math notranslate nohighlight">\(A\)</span> to the end of <span class="math notranslate nohighlight">\(Q\)</span>.</p>
+<br>
+<br>
+<a class="reference internal image-reference" href="../../_images/bfs5.png"><img alt="../../_images/bfs5.png" class="align-center" src="../../_images/bfs5.png" style="height: 240px;" />
+</a>
+<br>
+<br>
+<p>We still aren’t done considering the edges of <span class="math notranslate nohighlight">\(B\)</span>. There is <span class="math notranslate nohighlight">\(\{B,D\}\)</span>:</p>
+<br>
+<br>
+<a class="reference internal image-reference" href="../../_images/bfs6.png"><img alt="../../_images/bfs6.png" class="align-center" src="../../_images/bfs6.png" style="height: 240px;" />
+</a>
+<br>
+<br>
+<p>Since <span class="math notranslate nohighlight">\(D\)</span> is unexplored, we label it explored, add the edge <span class="math notranslate nohighlight">\(\{D,B\}\)</span>, and add <span class="math notranslate nohighlight">\(D\)</span> to the end of <span class="math notranslate nohighlight">\(Q\)</span>.</p>
+<br>
+<br>
+<a class="reference internal image-reference" href="../../_images/bfs7.png"><img alt="../../_images/bfs7.png" class="align-center" src="../../_images/bfs7.png" style="height: 240px;" />
+</a>
+<br>
+<br>
+<p>Now, we have considered all edges of <span class="math notranslate nohighlight">\(B\)</span>. Moreover, <span class="math notranslate nohighlight">\(Q\)</span> is not empty. So, we remove the first element of <span class="math notranslate nohighlight">\(Q\)</span>, <span class="math notranslate nohighlight">\(A\)</span>, and repeat our process. First, we consider <span class="math notranslate nohighlight">\(\{A,B\}\)</span>, but <span class="math notranslate nohighlight">\(B\)</span> is explored. So, we ignore <span class="math notranslate nohighlight">\(B\)</span>. We move to <span class="math notranslate nohighlight">\(\{A,C\}\)</span>:</p>
+<br>
+<br>
+<a class="reference internal image-reference" href="../../_images/bfs8.png"><img alt="../../_images/bfs8.png" class="align-center" src="../../_images/bfs8.png" style="height: 240px;" />
+</a>
+<br>
+<br>
+<p>Since <span class="math notranslate nohighlight">\(C\)</span> is unexplored, we label it explored, add the edge <span class="math notranslate nohighlight">\(\{A,C\}\)</span>, and add <span class="math notranslate nohighlight">\(C\)</span> to the end of <span class="math notranslate nohighlight">\(Q\)</span>:</p>
+<br>
+<br>
+<a class="reference internal image-reference" href="../../_images/bfs9.png"><img alt="../../_images/bfs9.png" class="align-center" src="../../_images/bfs9.png" style="height: 240px;" />
+</a>
+<br>
+<br>
+<p>We repeat with <span class="math notranslate nohighlight">\(D\)</span>, but there is nothing to do:</p>
+<br>
+<br>
+<a class="reference internal image-reference" href="../../_images/bfs10.png"><img alt="../../_images/bfs10.png" class="align-center" src="../../_images/bfs10.png" style="height: 240px;" />
+</a>
+<br>
+<br>
+<p>We repeat our process with <span class="math notranslate nohighlight">\(C\)</span>:</p>
+<br>
+<br>
+<a class="reference internal image-reference" href="../../_images/bfs11.png"><img alt="../../_images/bfs11.png" class="align-center" src="../../_images/bfs11.png" style="height: 240px;" />
+</a>
+<br>
+<br>
+<p>And, since we have labelled all the vertices, we are done! The output of BFS in this case is:</p>
+<br>
+<br>
+<a class="reference internal image-reference" href="../../_images/bfsoutput.png"><img alt="../../_images/bfsoutput.png" class="align-center" src="../../_images/bfsoutput.png" style="height: 240px;" />
+</a>
+<br>
+<br>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">When the input graph is connected! Try proving this.</p>
+</div>
+</details></section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -504,7 +645,7 @@ w(T_2)&amp;=w(T_1)+w(e)-w(e')\\
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="visible nav section-nav flex-column">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finishing-up-proof-for-kruskal-s">Finishing up proof for Kruskal’s</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#breadth-first-search">Breadth-First Search</a></li>
 </ul>
@@ -548,8 +689,8 @@ By Garrett Kepler
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
 
   <footer class="bd-footer">
   </footer>
