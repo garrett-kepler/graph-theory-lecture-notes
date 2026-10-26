@@ -208,6 +208,11 @@
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Lecture 16: Breadth-First Search</a></li>
 <li class="toctree-l1"><a class="reference internal" href="w8d3.html">Lecture 17: Depth-First Search</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 9--Dijkstra's</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week9/w9d1.html">Lecture 18: Introduction to Dijkstra’s Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week9/w9d2.html">Lecture : Dijkstra’s Algorithm Works</a></li>
+</ul>
 
     </div>
 </nav></div>
@@ -352,6 +357,7 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#warmup">Warmup</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-spanning-tree">Generating Spanning Tree</a></li>
 </ul>
             </nav>
@@ -366,6 +372,8 @@
                   
   <section class="tex2jax_ignore mathjax_ignore" id="lecture-16-breadth-first-search">
 <h1>Lecture 16: Breadth-First Search<a class="headerlink" href="#lecture-16-breadth-first-search" title="Link to this heading">#</a></h1>
+<section id="warmup">
+<h2>Warmup<a class="headerlink" href="#warmup" title="Link to this heading">#</a></h2>
 <p>First, recall BFS from last class:</p>
 <div class="proof definition admonition" id="definition-0">
 <p class="admonition-title"><span class="caption-number">Definition 44 </span> (Breadth-First Search (graph))</p>
@@ -398,9 +406,24 @@
 <li><p>Output: A tree <span class="math notranslate nohighlight">\(T\)</span> from <span class="math notranslate nohighlight">\(G\)</span></p></li>
 </ul>
 </section>
-</div><section id="generating-spanning-tree">
+</div><div class="proof question admonition" id="question-1">
+<p class="admonition-title"><span class="caption-number">Question 31 </span></p>
+<section class="question-content" id="proof-content">
+<p>Do BFS on the following graph using <span class="math notranslate nohighlight">\(A\)</span> as the root. Why is the output a tree? Why a spanning tree?</p>
+<a class="reference internal image-reference" href="../../_images/warm12.png"><img alt="../../_images/warm12.png" class="align-center" src="../../_images/warm12.png" style="height: 240px;" />
+</a>
+</section>
+</div><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">What you should end up with is the following. Today we’ll discuss why this algorithm produces a spanning tree when a connected graph is inputted!</p>
+<a class="reference internal image-reference" href="../../_images/warm22.png"><img alt="../../_images/warm22.png" class="align-center" src="../../_images/warm22.png" style="height: 240px;" />
+</a>
+</div>
+</details></section>
+<section id="generating-spanning-tree">
 <h2>Generating Spanning Tree<a class="headerlink" href="#generating-spanning-tree" title="Link to this heading">#</a></h2>
-<div class="proof theorem admonition" id="theorem-1">
+<div class="proof theorem admonition" id="theorem-2">
 <p class="admonition-title"><span class="caption-number">Theorem 27 </span></p>
 <section class="theorem-content" id="proof-content">
 <p>If a connected graph is inputted into B.F.S. (graph), the output will be a spanning tree.</p>
@@ -492,6 +515,7 @@
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#warmup">Warmup</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-spanning-tree">Generating Spanning Tree</a></li>
 </ul>
   </nav></div>

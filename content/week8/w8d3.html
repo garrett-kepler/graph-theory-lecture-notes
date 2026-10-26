@@ -66,6 +66,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'content/week8/w8d3';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Lecture 18: Introduction to Dijkstra’s Algorithm" href="../week9/w9d1.html" />
     <link rel="prev" title="Lecture 16: Breadth-First Search" href="w8d2.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -206,6 +207,11 @@
 <li class="toctree-l1"><a class="reference internal" href="w8d1.html">Lecture 15: Kruskal’s &amp; Breadth-First Search</a></li>
 <li class="toctree-l1"><a class="reference internal" href="w8d2.html">Lecture 16: Breadth-First Search</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Lecture 17: Depth-First Search</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 9--Dijkstra's</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week9/w9d1.html">Lecture 18: Introduction to Dijkstra’s Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week9/w9d2.html">Lecture : Dijkstra’s Algorithm Works</a></li>
 </ul>
 
     </div>
@@ -398,12 +404,112 @@
 <li><p>Output: A tree <span class="math notranslate nohighlight">\(T\)</span> from <span class="math notranslate nohighlight">\(G\)</span></p></li>
 </ul>
 </section>
-</div><div class="proof question admonition" id="question-1">
-<p class="admonition-title"><span class="caption-number">Question 31 </span></p>
+</div><p>DFS works by repeating the function visit() <it>everytime a new vertex is added to <span class="math notranslate nohighlight">\(T\)</span></it>. When we add this new vertex, we run visit() until its done then <it>go back</it> to finish a previous visit() we had not completed.</p>
+<p>Let’s go through an example together using the following graph:</p>
+<br>
+<br>
+<a class="reference internal image-reference" href="../../_images/dfs1.png"><img alt="../../_images/dfs1.png" class="align-center" src="../../_images/dfs1.png" style="height: 240px;" />
+</a>
+<br>
+<br>
+<p>We will use <span class="math notranslate nohighlight">\(A\)</span> as the root vertex and begin our initilization of <span class="math notranslate nohighlight">\(T\)</span>:</p>
+<br>
+<br>
+<a class="reference internal image-reference" href="../../_images/dfs2.png"><img alt="../../_images/dfs2.png" class="align-center" src="../../_images/dfs2.png" style="height: 240px;" />
+</a>
+<br>
+<br>
+<p>We start with visit(<span class="math notranslate nohighlight">\(A\)</span>):</p>
+<br>
+<br>
+<a class="reference internal image-reference" href="../../_images/dfs3.png"><img alt="../../_images/dfs3.png" class="align-center" src="../../_images/dfs3.png" style="height: 240px;" />
+</a>
+<br>
+<br>
+<p>The first step of visit(<span class="math notranslate nohighlight">\(A\)</span>) dictates we visit each edge of <span class="math notranslate nohighlight">\(A\)</span>. Starting with <span class="math notranslate nohighlight">\(\{A,B\}\)</span>:</p>
+<br>
+<br>
+<a class="reference internal image-reference" href="../../_images/dfs4.png"><img alt="../../_images/dfs4.png" class="align-center" src="../../_images/dfs4.png" style="height: 240px;" />
+</a>
+<br>
+<br>
+<p>Since <span class="math notranslate nohighlight">\(B\)</span> is not in <span class="math notranslate nohighlight">\(T\)</span> yet, we add <span class="math notranslate nohighlight">\(B\)</span> and the edge <span class="math notranslate nohighlight">\(\{A,B\}\)</span> to <span class="math notranslate nohighlight">\(T\)</span>:</p>
+<br>
+<br>
+<a class="reference internal image-reference" href="../../_images/dfs5.png"><img alt="../../_images/dfs5.png" class="align-center" src="../../_images/dfs5.png" style="height: 240px;" />
+</a>
+<br>
+<br>
+<p>Now that we’ve added <span class="math notranslate nohighlight">\(B\)</span>, we have to start visit(<span class="math notranslate nohighlight">\(B\)</span>). Note that <u>we are not done with visit(<span class="math notranslate nohighlight">\(A\)</span>)</u>. We are simply starting visit(<span class="math notranslate nohighlight">\(B\)</span>).</p>
+<br>
+<br>
+<a class="reference internal image-reference" href="../../_images/dfs6.png"><img alt="../../_images/dfs6.png" class="align-center" src="../../_images/dfs6.png" style="height: 240px;" />
+</a>
+<br>
+<br>
+<p>We consider the edge <span class="math notranslate nohighlight">\(\{B,A\}\)</span>, but <span class="math notranslate nohighlight">\(A\)</span> is already in <span class="math notranslate nohighlight">\(T\)</span> so we ignore it. We consider the edge <span class="math notranslate nohighlight">\(\{B,C\}\)</span>:</p>
+<br>
+<br>
+<a class="reference internal image-reference" href="../../_images/dfs7.png"><img alt="../../_images/dfs7.png" class="align-center" src="../../_images/dfs7.png" style="height: 240px;" />
+</a>
+<br>
+<br>
+<p>Since <span class="math notranslate nohighlight">\(C\)</span> is not in <span class="math notranslate nohighlight">\(T\)</span>, we add <span class="math notranslate nohighlight">\(C\)</span> and the edge <span class="math notranslate nohighlight">\(\{B,C\}\)</span> to <span class="math notranslate nohighlight">\(T\)</span>. Again, when we add this new vertex, we start visit() on it. So, we start visit(<span class="math notranslate nohighlight">\(C\)</span>):</p>
+<br>
+<br>
+<a class="reference internal image-reference" href="../../_images/dfs8.png"><img alt="../../_images/dfs8.png" class="align-center" src="../../_images/dfs8.png" style="height: 240px;" />
+</a>
+<br>
+<br>
+<p>We consider the edge <span class="math notranslate nohighlight">\(\{C,A\}\)</span>, but <span class="math notranslate nohighlight">\(A\)</span> is already in <span class="math notranslate nohighlight">\(T\)</span> so we ignore it. Likewise, we consider <span class="math notranslate nohighlight">\(\{C,B\}\)</span>, but <span class="math notranslate nohighlight">\(B\)</span> is already in <span class="math notranslate nohighlight">\(T\)</span> so we ignore it. Now, we have finished visit(<span class="math notranslate nohighlight">\(C\)</span>)! We go back to <span class="math notranslate nohighlight">\(B\)</span> to finish visit(<span class="math notranslate nohighlight">\(B\)</span>):</p>
+<br>
+<br>
+<a class="reference internal image-reference" href="../../_images/dfs9.png"><img alt="../../_images/dfs9.png" class="align-center" src="../../_images/dfs9.png" style="height: 240px;" />
+</a>
+<br>
+<br>
+<p>The last edge we need to consider for <span class="math notranslate nohighlight">\(B\)</span> is <span class="math notranslate nohighlight">\(\{B,E\}\)</span>. <span class="math notranslate nohighlight">\(E\)</span> is not in <span class="math notranslate nohighlight">\(T\)</span>, so we add <span class="math notranslate nohighlight">\(E\)</span> and <span class="math notranslate nohighlight">\(\{B,E\}\)</span> to <span class="math notranslate nohighlight">\(T\)</span> and proceed with visit(<span class="math notranslate nohighlight">\(E\)</span>):</p>
+<br>
+<br>
+<a class="reference internal image-reference" href="../../_images/dfs10.png"><img alt="../../_images/dfs10.png" class="align-center" src="../../_images/dfs10.png" style="height: 240px;" />
+</a>
+<br>
+<br>
+<p>We consider <span class="math notranslate nohighlight">\(\{E,B\}\)</span>, but <span class="math notranslate nohighlight">\(B\)</span> is in <span class="math notranslate nohighlight">\(T\)</span> so we ignore it. We consider <span class="math notranslate nohighlight">\(\{E,D\}\)</span>, notice its not in <span class="math notranslate nohighlight">\(T\)</span>, and repeat the process:</p>
+<br>
+<br>
+<a class="reference internal image-reference" href="../../_images/dfs11.png"><img alt="../../_images/dfs11.png" class="align-center" src="../../_images/dfs11.png" style="height: 240px;" />
+</a>
+<br>
+<br>
+<p><span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(E\)</span> are in <span class="math notranslate nohighlight">\(T\)</span>, so we ignore them. But, <span class="math notranslate nohighlight">\(F\)</span> is not, so we repeat with <span class="math notranslate nohighlight">\(F\)</span>. We notice both edges for <span class="math notranslate nohighlight">\(F\)</span> are shared with vertices already in <span class="math notranslate nohighlight">\(T\)</span>, so we do nothing:</p>
+<br>
+<br>
+<a class="reference internal image-reference" href="../../_images/dfs13.png"><img alt="../../_images/dfs13.png" class="align-center" src="../../_images/dfs13.png" style="height: 240px;" />
+</a>
+<br>
+<br>
+<p>Now that each vertex is in <span class="math notranslate nohighlight">\(T\)</span>, we know we are done! The output of DFS for this graph is:</p>
+<br>
+<br>
+<a class="reference internal image-reference" href="../../_images/dfs14.png"><img alt="../../_images/dfs14.png" class="align-center" src="../../_images/dfs14.png" style="height: 240px;" />
+</a>
+<br>
+<br>
+<p>Again, notice that the output for this algorithm is a tree just like BFS. Also, we inputted a connected graph that resulted in a spanning tree just like BFS. So, one interesting question:</p>
+<div class="proof question admonition" id="question-1">
+<p class="admonition-title"><span class="caption-number">Question 32 </span></p>
 <section class="question-content" id="proof-content">
 <p>When do BFS and DFS produce different trees?</p>
 </section>
-</div></section>
+</div><p>For example, our previous graph ends up with two different trees:</p>
+<br>
+<br>
+<a class="reference internal image-reference" href="../../_images/dfs15.png"><img alt="../../_images/dfs15.png" class="align-center" src="../../_images/dfs15.png" style="height: 340px;" />
+</a>
+<br>
+<br>
+</section>
 <section id="generating-a-spanning-tree">
 <h2>Generating a Spanning Tree<a class="headerlink" href="#generating-a-spanning-tree" title="Link to this heading">#</a></h2>
 <div class="proof theorem admonition" id="theorem-2">
@@ -426,9 +532,9 @@
 <p>Therefore, <span class="math notranslate nohighlight">\(T\)</span> is spanning, connected (left to you to prove), and has no cycles. Thus, <span class="math notranslate nohighlight">\(T\)</span> is a spanning tree of <span class="math notranslate nohighlight">\(G\)</span>.</p>
 </div>
 <div class="proof question admonition" id="question-3">
-<p class="admonition-title"><span class="caption-number">Question 32 </span></p>
+<p class="admonition-title"><span class="caption-number">Question 33 </span></p>
 <section class="question-content" id="proof-content">
-<p>If we convert BFS (graph) and DFS (graph) to be about digraph/weighted graphs/weighted digraphs/etc., how would these theorems change?</p>
+<p>We have proven theorems that say connected graphs result in spanning tree for BFS and DFS. If we convert BFS (graph) and DFS (graph) to be about digraph/weighted graphs/weighted digraphs/etc., how would these theorems change?</p>
 </section>
 </div></section>
 </section>
@@ -471,6 +577,15 @@
         <p class="prev-next-subtitle">previous</p>
         <p class="prev-next-title">Lecture 16: Breadth-First Search</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="../week9/w9d1.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Lecture 18: Introduction to Dijkstra’s Algorithm</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>

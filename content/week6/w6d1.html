@@ -208,6 +208,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../week8/w8d2.html">Lecture 16: Breadth-First Search</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../week8/w8d3.html">Lecture 17: Depth-First Search</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 9--Dijkstra's</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week9/w9d1.html">Lecture 18: Introduction to Dijkstra’s Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week9/w9d2.html">Lecture : Dijkstra’s Algorithm Works</a></li>
+</ul>
 
     </div>
 </nav></div>
@@ -379,7 +384,18 @@
 <li><p>How would you represent this using graphs?</p></li>
 </ol>
 </section>
-</div></section>
+</div><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Maybe what you do is create 100,000 boxes and put each piece of mail in one of the 100,000 boxes. Your graph might look something like this:</p>
+<a class="reference internal image-reference" href="../../_images/zipcode1.png"><img alt="../../_images/zipcode1.png" class="align-center" src="../../_images/zipcode1.png" style="height: 240px;" />
+</a>
+<p class="sd-card-text">A more common approach might be sorting by each <it>digit</it> in the code. For example, you could put all zipcodes starting with 0 in one box, starting with 1 in one box, starting with 2 in one box, and so on. After this, we could further sort them by the 2nd digit in the code. Then, the 3rd digit. And so on. Your graph might look something like this:</p>
+<a class="reference internal image-reference" href="../../_images/zipcode2.png"><img alt="../../_images/zipcode2.png" class="align-center" src="../../_images/zipcode2.png" style="height: 300px;" />
+</a>
+<p class="sd-card-text">This <it>algorithmic thinking</it> is exactly what we will need in the upcoming classes. A couple things you might notice about the above graphs: they are connected and they have no cycles. These graphs are trees!</p>
+</div>
+</details></section>
 <section id="distance">
 <h2>Distance<a class="headerlink" href="#distance" title="Link to this heading">#</a></h2>
 <div class="proof definition admonition" id="definition-1">
@@ -387,7 +403,10 @@
 <section class="definition-content" id="proof-content">
 <p>The <em>distance</em> between two vertices <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(v\)</span> in a graph <span class="math notranslate nohighlight">\(G\)</span> is the length of the shortest <span class="math notranslate nohighlight">\(uv\)</span>-path in <span class="math notranslate nohighlight">\(G\)</span>. We typically denote this <span class="math notranslate nohighlight">\(\text{dist}_G(u,v)\)</span> or simply <span class="math notranslate nohighlight">\(\text{dist}(u,v)\)</span> when the graph we are talking about is clear.</p>
 </section>
-</div><p>Some conventions regarding distance:</p>
+</div><p>For example, the distance between 1 and 5 in the following graph is 3 (i.e. dist(1,5)=3):</p>
+<a class="reference internal image-reference" href="../../_images/dist1.png"><img alt="../../_images/dist1.png" class="align-center" src="../../_images/dist1.png" style="height: 240px;" />
+</a>
+<p>Some conventions regarding distance:</p>
 <ol class="arabic simple">
 <li><p><span class="math notranslate nohighlight">\(\text{dist}(u,u)=\begin{cases}
  &amp;0~~\text{if there is no self-loop}\\
@@ -408,12 +427,16 @@
 </section>
 <section id="bipartite">
 <h2>Bipartite<a class="headerlink" href="#bipartite" title="Link to this heading">#</a></h2>
+<p>In short, a bipartite graph is one we can “split in two”. We can put vertices in two sets so that edges don’t exists <it>within</it> the sets but can exist <it>between</it> sets.</p>
 <div class="proof definition admonition" id="definition-3">
 <p class="admonition-title"><span class="caption-number">Definition 37 </span> (Bipartite Graphs)</p>
 <section class="definition-content" id="proof-content">
 <p>A graph <span class="math notranslate nohighlight">\(G=(V,E)\)</span> is bipartite if each vertex in <span class="math notranslate nohighlight">\(V\)</span> can be placed into two disjoint, <span class="math notranslate nohighlight">\(U\)</span> and <span class="math notranslate nohighlight">\(W\)</span>, such that no vertex in <span class="math notranslate nohighlight">\(U\)</span> shares an edge with a vertex in <span class="math notranslate nohighlight">\(U\)</span> and likewise with <span class="math notranslate nohighlight">\(W\)</span>. We sometimes call <span class="math notranslate nohighlight">\(U\)</span> and <span class="math notranslate nohighlight">\(W\)</span> <em>partitioning sets</em> or a <em>bipartition</em>.</p>
 </section>
 </div><p>Another way to think of bipartite graphs: two disjoint independent sets with (potentially) edges between them.</p>
+<p>Consider the following graph. This graph is bipartite:</p>
+<a class="reference internal image-reference" href="../../_images/bipartite1.png"><img alt="../../_images/bipartite1.png" class="align-center" src="../../_images/bipartite1.png" style="height: 240px;" />
+</a>
 <div class="proof question admonition" id="question-4">
 <p class="admonition-title"><span class="caption-number">Question 22 </span></p>
 <section class="question-content" id="proof-content">
@@ -422,14 +445,33 @@
 </div><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 <span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">Well, if a vertex has an edge with itself, then you could never have an independent set with this vertex present! So, if a graph has a self-loop, this graph is <u>not</u> bipartite.</p>
+<p class="sd-card-text">Well, if a vertex has an edge with itself, then you could never have an independent set with this vertex present! So, if a graph has a self-loop, this graph is <u>not</u> bipartite. Consider adding a self-loop to the previous graph:</p>
+<a class="reference internal image-reference" href="../../_images/bipartite2.png"><img alt="../../_images/bipartite2.png" class="align-center" src="../../_images/bipartite2.png" style="height: 240px;" />
+</a>
 </div>
 </details><div class="proof question admonition" id="question-5">
 <p class="admonition-title"><span class="caption-number">Question 23 </span></p>
 <section class="question-content" id="proof-content">
 <p>Draw a bipartite graph. Try 2-coloring it.</p>
 </section>
-</div><div class="proof theorem admonition" id="theorem-6">
+</div><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">There are lots. But, consider a tree!</p>
+<a class="reference internal image-reference" href="../../_images/bipartite3.png"><img alt="../../_images/bipartite3.png" class="align-center" src="../../_images/bipartite3.png" style="height: 240px;" />
+</a>
+<p class="sd-card-text">If we color a vertex blue:</p>
+<a class="reference internal image-reference" href="../../_images/bipartite4.png"><img alt="../../_images/bipartite4.png" class="align-center" src="../../_images/bipartite4.png" style="height: 240px;" />
+</a>
+<p class="sd-card-text">then we can color the vertices that share an edge with it red:</p>
+<a class="reference internal image-reference" href="../../_images/bipartite5.png"><img alt="../../_images/bipartite5.png" class="align-center" src="../../_images/bipartite5.png" style="height: 240px;" />
+</a>
+<p class="sd-card-text">Again, a tree has no cycles, so we know these red vertices do not share an edge. Lastly, we can color the vertices that share an edge with these red vertices blue:</p>
+<a class="reference internal image-reference" href="../../_images/bipartite6.png"><img alt="../../_images/bipartite6.png" class="align-center" src="../../_images/bipartite6.png" style="height: 240px;" />
+</a>
+<p class="sd-card-text">We again know these don’t share an edge because the tree has no cycles. We’ll prove this is the following theorem!</p>
+</div>
+</details><div class="proof theorem admonition" id="theorem-6">
 <p class="admonition-title"><span class="caption-number">Theorem 20 </span></p>
 <section class="theorem-content" id="proof-content">
 <p>A graph <span class="math notranslate nohighlight">\(G\)</span> is bipartite if and only if <span class="math notranslate nohighlight">\(\chi(G)\leq 2\)</span>.</p>

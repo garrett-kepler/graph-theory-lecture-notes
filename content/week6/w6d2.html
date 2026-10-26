@@ -208,6 +208,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../week8/w8d2.html">Lecture 16: Breadth-First Search</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../week8/w8d3.html">Lecture 17: Depth-First Search</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 9--Dijkstra's</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week9/w9d1.html">Lecture 18: Introduction to Dijkstra’s Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week9/w9d2.html">Lecture : Dijkstra’s Algorithm Works</a></li>
+</ul>
 
     </div>
 </nav></div>
@@ -372,19 +377,47 @@
 <div class="proof question admonition" id="question-0">
 <p class="admonition-title"><span class="caption-number">Question 24 </span></p>
 <section class="question-content" id="proof-content">
-<a class="reference internal image-reference" href="../../_images/w6d2graph.png"><img alt="../../_images/w6d2graph.png" src="../../_images/w6d2graph.png" style="height: 240px;" />
+<a class="reference internal image-reference" href="../../_images/w6d2graph.png"><img alt="../../_images/w6d2graph.png" class="align-center" src="../../_images/w6d2graph.png" style="height: 240px;" />
 </a>
 <ol class="arabic simple">
 <li><p>Remove some vertices in <span class="math notranslate nohighlight">\(G\)</span> (excluding <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(v\)</span>) to ensure there is no <span class="math notranslate nohighlight">\(uv\)</span>-path. What is the minimum you need to remove to do so?</p></li>
 <li><p>Note that the <span class="math notranslate nohighlight">\(uv\)</span>-paths <span class="math notranslate nohighlight">\(u\)</span> to <span class="math notranslate nohighlight">\(w_3\)</span> to <span class="math notranslate nohighlight">\(w_6\)</span> to <span class="math notranslate nohighlight">\(v\)</span> and <span class="math notranslate nohighlight">\(u\)</span> to <span class="math notranslate nohighlight">\(w_4\)</span> to <span class="math notranslate nohighlight">\(w_5\)</span> to <span class="math notranslate nohighlight">\(v\)</span> <u>only</u> share verties <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(v\)</span>. What is the maximum number of such paths you can find in <span class="math notranslate nohighlight">\(G\)</span>?</p></li>
 </ol>
 </section>
-</div><div class="proof theorem admonition" id="theorem-1">
+</div><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<a class="reference internal image-reference" href="../../_images/separatingset1.png"><img alt="../../_images/separatingset1.png" class="align-center" src="../../_images/separatingset1.png" style="height: 240px;" />
+</a>
+<ol class="arabic simple">
+<li><p class="sd-card-text">Take a second to verify this, but you’ll find the minimum is 3. We will denote this quantity <span class="math notranslate nohighlight">\(\kappa_G(u,v)=3\)</span>. An example of vertices you could remove:</p></li>
+</ol>
+<a class="reference internal image-reference" href="../../_images/separatingset2.png"><img alt="../../_images/separatingset2.png" class="align-center" src="../../_images/separatingset2.png" style="height: 240px;" />
+</a>
+<ol class="arabic simple" start="2">
+<li><p class="sd-card-text">Again, take a second to verify this, but you’ll find the maximum is 3. We will denote this quantity <span class="math notranslate nohighlight">\(\psi_G(u,v)\)</span>. An example of some paths:</p></li>
+</ol>
+<a class="reference internal image-reference" href="../../_images/paths1.png"><img alt="../../_images/paths1.png" class="align-center" src="../../_images/paths1.png" style="height: 240px;" />
+</a>
+<p class="sd-card-text">Notice that <span class="math notranslate nohighlight">\(\kappa_G(u,v)=3=\psi_G(u,v)\)</span>. Think about what we are saying: “The minimum number of vertices we need to remove is the maximum number of disjoint paths between those vertices”. Intuitively, this makes some sense! Our graph has 3 disjoint paths. We would need to remove a vertex from of each of those to ensure there is no path between the vertices. Vaguely, our graph looks like this:</p>
+<a class="reference internal image-reference" href="../../_images/idea1.png"><img alt="../../_images/idea1.png" class="align-center" src="../../_images/idea1.png" style="height: 240px;" />
+</a>
+<p class="sd-card-text">Along each disjoint path, there is a vertex we need to remove. So, the minimum number of vertices to remove is the maximum number of disjoint paths! If there were more disjoint paths, we would need to remove more vertices:</p>
+<a class="reference internal image-reference" href="../../_images/idea2.png"><img alt="../../_images/idea2.png" class="align-center" src="../../_images/idea2.png" style="height: 240px;" />
+</a>
+<p class="sd-card-text">What could be the problem? Well, what happens if a path between <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(v\)</span> has no vertex on it? That is, what happens if <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(v\)</span> share an edge?</p>
+<a class="reference internal image-reference" href="../../_images/idea3.png"><img alt="../../_images/idea3.png" class="align-center" src="../../_images/idea3.png" style="height: 240px;" />
+</a>
+<p class="sd-card-text">In this case, we would have to remove <span class="math notranslate nohighlight">\(u\)</span> or <span class="math notranslate nohighlight">\(v\)</span> to get rid of that edge! This will motivate our assumptions in <u>Menger’s Theorem</u>.</p>
+</div>
+</details><p>We will take a couple lectures to prove the following profound result:</p>
+<div class="proof theorem admonition" id="theorem-1">
 <p class="admonition-title"><span class="caption-number">Theorem 22 </span> (Menger’s Theorem)</p>
 <section class="theorem-content" id="proof-content">
 <p>Let <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(v\)</span> be distinct vertices in <span class="math notranslate nohighlight">\(G\)</span> with <u>no edge</u> between them. Then, the minimum number of vertices in a <span class="math notranslate nohighlight">\(uv\)</span>-separating set is exactly the maximum number of internally disjoint <span class="math notranslate nohighlight">\(uv\)</span>-paths (i.e. <span class="math notranslate nohighlight">\(\psi_G(u,v)=\kappa_G(u,v)\)</span>).</p>
 </section>
-</div><div class="proof definition admonition" id="definition-2">
+</div><p>Why do we assume <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(v\)</span> share no edge? For the reason discussed in the warm-up. The important part of Menger’s Theorem: “… <it><u>is exactly</u></it>…”. This is a strong statement to prove! First, some definitions:</p>
+<div class="proof definition admonition" id="definition-2">
 <p class="admonition-title"><span class="caption-number">Definition 38 </span></p>
 <section class="definition-content" id="proof-content">
 <p>Let <span class="math notranslate nohighlight">\(G\)</span> be a graph with vertices <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(v\)</span> but not the edge <span class="math notranslate nohighlight">\(\{u,v\}\)</span>. Then,</p>
