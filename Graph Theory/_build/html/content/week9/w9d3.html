@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>&lt;no title&gt; &#8212; Math 453 Lecture Notes</title>
+    <title>Lecture 20: Dijkstra’s Algorithm Works (continued) &#8212; Math 453 Lecture Notes</title>
   
   
   
@@ -27,8 +27,8 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
@@ -40,10 +40,10 @@
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- So that users can add custom icons -->
-  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
@@ -61,34 +61,29 @@
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'content/week9/w9d3';</script>
-    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="prev" title="&lt;no title&gt;" href="w9d2.html" />
+    <link rel="prev" title="Lecture 19: Dijkstra’s Algorithm Works" href="w9d2.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
-  
-    
-    <script src="../../_static/searchtools.js"></script>
-    <script src="../../_static/language_data.js"></script>
-    <script src="../../searchindex.js"></script>
-  
   </head>
-  <body data-default-mode="">
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
-
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-  
-  
-  
+
   
   <dialog id="pst-search-dialog">
     
@@ -114,51 +109,7 @@
 </div>
 
   
-    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
-<div class="bd-header__inner bd-page-width">
-  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
-    <span class="fa-solid fa-bars"></span>
-  </button>
-  
-  
-  <div class="col-lg-9 navbar-header-items">
-    
-    
-    <div class="navbar-header-items__end">
-      
-        <div class="navbar-item navbar-persistent--container">
-          
-
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button>
-        </div>
-      
-      
-    </div>
-    
-  </div>
-  
-  
-    <div class="navbar-persistent--mobile">
-
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button>
-    </div>
-  
-
-  
-    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
-      <span class="fa-solid fa-outdent"></span>
-    </button>
-  
-</div>
-
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
     </header>
   
 
@@ -257,8 +208,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../week8/w8d3.html">Lecture 17: Depth-First Search</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 9--Dijkstra's</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="w9d1.html">Lecture 18: Introduction to Dijkstra’s Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="w9d2.html">Lecture 19: Dijkstra’s Algorithm Works</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lecture 20: Dijkstra’s Algorithm Works (continued)</a></li>
 </ul>
 
     </div>
@@ -394,7 +347,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1><no title></h1>
+    <h1>Lecture 20: Dijkstra’s Algorithm Works (continued)</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -403,9 +356,10 @@
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="simple pst-show_toc_level nav section-nav flex-column">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#warmup">Warmup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proof-of-correctness-continued">Proof of Correctness (continued)</a></li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -416,7 +370,68 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  
+  <section class="tex2jax_ignore mathjax_ignore" id="lecture-20-dijkstra-s-algorithm-works-continued">
+<h1>Lecture 20: Dijkstra’s Algorithm Works (continued)<a class="headerlink" href="#lecture-20-dijkstra-s-algorithm-works-continued" title="Link to this heading">#</a></h1>
+<section id="warmup">
+<h2>Warmup<a class="headerlink" href="#warmup" title="Link to this heading">#</a></h2>
+<p>Again, for the rest of lecture assume <span class="math notranslate nohighlight">\(G=(V,E)\)</span> is a connected, simple, positively weighted graph.</p>
+<p>Last class, we proved the following result.</p>
+<div class="proof lemma admonition" id="lemma-0">
+<p class="admonition-title"><span class="caption-number">Lemma 7 </span></p>
+<section class="lemma-content" id="proof-content">
+<p>For all <span class="math notranslate nohighlight">\(v\in V\)</span>, at any time <span class="math notranslate nohighlight">\(d[v]\geq d(s,v)\)</span> where <span class="math notranslate nohighlight">\(d[v]\)</span> is the current distance label under Dijkstra’s and <span class="math notranslate nohighlight">\(d(s,v)\)</span> is the shortest distance between <span class="math notranslate nohighlight">\(v\)</span> and <span class="math notranslate nohighlight">\(s\)</span>.</p>
+</section>
+</div><div class="proof question admonition" id="question-1">
+<p class="admonition-title"><span class="caption-number">Question 36 </span></p>
+<section class="question-content" id="proof-content">
+<p>Try proving that a subpath of some shortest path is also a shortest path.</p>
+</section>
+</div></section>
+<section id="proof-of-correctness-continued">
+<h2>Proof of Correctness (continued)<a class="headerlink" href="#proof-of-correctness-continued" title="Link to this heading">#</a></h2>
+<p>We prove another result before finalizing our proof of correctness for Dijkstra’s.</p>
+<div class="proof lemma admonition" id="lemma-2">
+<p class="admonition-title"><span class="caption-number">Lemma 8 </span></p>
+<section class="lemma-content" id="proof-content">
+<p>Let <span class="math notranslate nohighlight">\(P\)</span> be a shortest path from <span class="math notranslate nohighlight">\(u\)</span> to <span class="math notranslate nohighlight">\(v\)</span> with some vertex <span class="math notranslate nohighlight">\(w\)</span> in <span class="math notranslate nohighlight">\(P\)</span>. The path <span class="math notranslate nohighlight">\(Q\)</span> from <span class="math notranslate nohighlight">\(u\)</span> to <span class="math notranslate nohighlight">\(w\)</span> along <span class="math notranslate nohighlight">\(P\)</span> is also a shortest path (from <span class="math notranslate nohighlight">\(u\)</span> to <span class="math notranslate nohighlight">\(w\)</span>).</p>
+</section>
+</div><div class="proof admonition" id="proof">
+<p>Proof. Let <span class="math notranslate nohighlight">\(Q\)</span> be the subpath from <span class="math notranslate nohighlight">\(u\)</span> to <span class="math notranslate nohighlight">\(w\)</span> along <span class="math notranslate nohighlight">\(P\)</span>. Let <span class="math notranslate nohighlight">\(P_1\)</span> be the subpath from <span class="math notranslate nohighlight">\(w\)</span> to <span class="math notranslate nohighlight">\(v\)</span> along <span class="math notranslate nohighlight">\(P\)</span>. Assume there is some shortest <span class="math notranslate nohighlight">\(uw\)</span>-path <span class="math notranslate nohighlight">\(Q'\)</span>.</p>
+<p>Note that <span class="math notranslate nohighlight">\(Q\)</span> with <span class="math notranslate nohighlight">\(P_1\)</span> is the <span class="math notranslate nohighlight">\(uv\)</span>-path <span class="math notranslate nohighlight">\(P\)</span> and <span class="math notranslate nohighlight">\(Q'\)</span> with <span class="math notranslate nohighlight">\(P_1\)</span> is some <span class="math notranslate nohighlight">\(uv\)</span>-path <span class="math notranslate nohighlight">\(R\)</span>. Since <span class="math notranslate nohighlight">\(Q'\)</span> is a shortest <span class="math notranslate nohighlight">\(uw\)</span>-path, <span class="math notranslate nohighlight">\(w(Q')\leq w(Q)\)</span>. Likewise, since <span class="math notranslate nohighlight">\(P\)</span> is a shortest <span class="math notranslate nohighlight">\(uv\)</span>-path, <span class="math notranslate nohighlight">\(w(R)\leq w(P)\)</span>. Since <span class="math notranslate nohighlight">\(w(Q)+w(P_1)=w(P)\)</span> and <span class="math notranslate nohighlight">\(w(Q')+w(P_1)=w(R)\)</span>, we can substitute into this inequality:</p>
+<p><span class="math notranslate nohighlight">\(\begin{align*}
+w(R)\leq w(P) &amp;\implies w(Q')+w(P_1)\leq w(Q)+w(P_1)\\
+&amp;\implies w(Q')\leq w(Q)
+\end{align*}\)</span></p>
+<p>So, <span class="math notranslate nohighlight">\(w(Q')\leq w(Q)\)</span> and <span class="math notranslate nohighlight">\(w(Q)\leq w(Q')\)</span> meaning <span class="math notranslate nohighlight">\(w(Q')=w(Q)\)</span>. Thus, <span class="math notranslate nohighlight">\(Q\)</span> is a shortest <span class="math notranslate nohighlight">\(uw\)</span>-path.</p>
+</div>
+<p>Our final result will show that Dijkstra’s indeed finds the shortest distances:</p>
+<div class="proof theorem admonition" id="theorem-3">
+<p class="admonition-title"><span class="caption-number">Theorem 30 </span></p>
+<section class="theorem-content" id="proof-content">
+<p>Let <span class="math notranslate nohighlight">\(u\in V\)</span>. When <span class="math notranslate nohighlight">\(u\)</span> is placed into the set <span class="math notranslate nohighlight">\(D\)</span>, <span class="math notranslate nohighlight">\(d[u]=d(s,u)\)</span>.</p>
+</section>
+</div><div class="proof admonition" id="proof">
+<p>Proof. Consider the point where we add <span class="math notranslate nohighlight">\(u\)</span> to <span class="math notranslate nohighlight">\(D\)</span>.</p>
+<p>First, note that <span class="math notranslate nohighlight">\(d[u]\leq d[v]\)</span> for all <span class="math notranslate nohighlight">\(v\in F\)</span> by Step 3a.</p>
+<p>Second, note that <span class="math notranslate nohighlight">\(d[u]\)</span> is not changed after adding <span class="math notranslate nohighlight">\(u\)</span> to <span class="math notranslate nohighlight">\(D\)</span>. The only way <span class="math notranslate nohighlight">\(d[u]\)</span> could be changed is if there were some <span class="math notranslate nohighlight">\(v\in F\)</span> such that Step 3b results in <span class="math notranslate nohighlight">\(d[u]=\min\{d[u],d[v]+w(\{u,v\})\}=d[v]+w(\{u,v\})\)</span>. This is impossible since <span class="math notranslate nohighlight">\(d[u]\leq d[v]\)</span> by Step 3a and <span class="math notranslate nohighlight">\(w(\{u,v\})&gt;0\)</span> by assumption.</p>
+<p>We will proceed with induction on the number of vertices in <span class="math notranslate nohighlight">\(D\)</span>.</p>
+<p><strong>Base Case</strong>: The first vertex to be put in <span class="math notranslate nohighlight">\(D\)</span> is <span class="math notranslate nohighlight">\(s\)</span>! Since <span class="math notranslate nohighlight">\(G\)</span> is simple, <span class="math notranslate nohighlight">\(d(s,s)=0\)</span>. By Step 1 of Dijkstra’s, <span class="math notranslate nohighlight">\(d[s]=0\)</span> when <span class="math notranslate nohighlight">\(s\)</span> is added to <span class="math notranslate nohighlight">\(D\)</span>. So, the claim holds for the first vertex added to <span class="math notranslate nohighlight">\(D\)</span>.</p>
+<p><strong>Inductive Hypothesis</strong>: Assume <span class="math notranslate nohighlight">\(d[u]=d(s,u)\)</span> for the first <span class="math notranslate nohighlight">\(k\)</span> vertices added to <span class="math notranslate nohighlight">\(D\)</span>.</p>
+<p><strong>Induct</strong>: Let <span class="math notranslate nohighlight">\(\{x_1=s,x_2,x_3,\dots,x_k\}\)</span> be the first <span class="math notranslate nohighlight">\(k\)</span> vertices added to <span class="math notranslate nohighlight">\(D\)</span> and <span class="math notranslate nohighlight">\(x_{k+1}\)</span> be the next vertex to be added (i.e. <span class="math notranslate nohighlight">\(d[x_{k+1}]\)</span> is minimum in <span class="math notranslate nohighlight">\(F\)</span>). Let <span class="math notranslate nohighlight">\(P\)</span> be a shortest path between <span class="math notranslate nohighlight">\(s\)</span> and <span class="math notranslate nohighlight">\(x_{k+1}\)</span>.</p>
+<p>Assume <span class="math notranslate nohighlight">\(y\in V\)</span> is the closest vertex in <span class="math notranslate nohighlight">\(P\)</span> to <span class="math notranslate nohighlight">\(x_{k+1}\)</span> such that <span class="math notranslate nohighlight">\(d[y]=d(s,y)\)</span>. By assumption, any vertex <span class="math notranslate nohighlight">\(v\in V\)</span> between <span class="math notranslate nohighlight">\(y\)</span> and <span class="math notranslate nohighlight">\(x_{k+1}\)</span> along <span class="math notranslate nohighlight">\(P\)</span> must have <span class="math notranslate nohighlight">\(d[v]&gt;d(s,v)\)</span>.</p>
+<ul class="simple">
+<li><p>Case 1: <span class="math notranslate nohighlight">\(y=x_{k+1}\)</span>. Then, <span class="math notranslate nohighlight">\(d[x_{k+1}]=d(s,x_{k+1})\)</span> and we are done.</p></li>
+<li><p>Case 2: <span class="math notranslate nohighlight">\(y\neq x_{k+1}\)</span>. Then, there is some vertex <span class="math notranslate nohighlight">\(y'\)</span> after <span class="math notranslate nohighlight">\(y\)</span> on <span class="math notranslate nohighlight">\(P\)</span>. We know <span class="math notranslate nohighlight">\(d[y]=d(s,y)\leq d(s,x_{k+1})\leq d[x_{k+1}]\)</span> by our lemmas above and the fact that edgeweights are positive in <span class="math notranslate nohighlight">\(G\)</span>. If <span class="math notranslate nohighlight">\(d[y]=d[x_{k+1}]\)</span>, we have our result. So, assume <span class="math notranslate nohighlight">\(d[y]&lt;d[x_{k+1}]\)</span>. By the choice of <span class="math notranslate nohighlight">\(x_{k+1}\)</span>, <span class="math notranslate nohighlight">\(d[x_{k+1}]\)</span> was minimum in <span class="math notranslate nohighlight">\(F\)</span> so <span class="math notranslate nohighlight">\(y\)</span> must have been in <span class="math notranslate nohighlight">\(D\)</span> at this point. In particular, <span class="math notranslate nohighlight">\(\{y,y'\}\)</span> was an edge that was already considered such that by Step 3b,</p></li>
+</ul>
+<p><span class="math notranslate nohighlight">\(\begin{align*}
+d[y']&amp;\leq d[y]+w(\{y,y'\})
+\end{align*}\)</span></p>
+<p>By choice of <span class="math notranslate nohighlight">\(y\)</span>, <span class="math notranslate nohighlight">\(d[y]+w(\{y,y'\})=d(s,y)+w(\{y,y'\})\)</span>. Also, by our shortest subpaths lemma, <span class="math notranslate nohighlight">\(d(s,y)+w(\{y,y'\})=d(s,y')\)</span>. So, we have shown <span class="math notranslate nohighlight">\(d[y']\leq d(s,y')\)</span> and by our first lemma <span class="math notranslate nohighlight">\(d[y']\geq d(s,y')\)</span>. This means <span class="math notranslate nohighlight">\(d[y']=d(s,y')\)</span>. This contradicts the choice of <span class="math notranslate nohighlight">\(y\)</span> as the closest vertex to <span class="math notranslate nohighlight">\(x_{k+1}\)</span> in <span class="math notranslate nohighlight">\(P\)</span> with this equality. So, <span class="math notranslate nohighlight">\(d[y]&lt;d[x_{k+1}]\)</span> is false and <span class="math notranslate nohighlight">\(d[x_{k+1}]=d(s,x_{k+1})\)</span>.</p>
+<p>So, our claim holds for the <span class="math notranslate nohighlight">\(k+1\)</span>-th vertex added to <span class="math notranslate nohighlight">\(D\)</span>. Therefore, our claim holds for every vertex added to <span class="math notranslate nohighlight">\(D\)</span>.</p>
+</div>
+</section>
+</section>
+
     <script type="text/x-thebe-config">
     {
         requestKernel: true,
@@ -453,7 +468,7 @@
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">&lt;no title&gt;</p>
+        <p class="prev-next-title">Lecture 19: Dijkstra’s Algorithm Works</p>
       </div>
     </a>
 </div>
@@ -473,9 +488,10 @@
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="simple pst-show_toc_level nav section-nav flex-column">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#warmup">Warmup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proof-of-correctness-continued">Proof of Correctness (continued)</a></li>
 </ul>
-
   </nav></div>
 
 </div></div>
@@ -516,8 +532,8 @@ By Garrett Kepler
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
-<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>
