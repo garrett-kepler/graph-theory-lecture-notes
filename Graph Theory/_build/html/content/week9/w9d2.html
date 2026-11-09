@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Lecture : Dijkstra’s Algorithm &#8212; Math 453 Lecture Notes</title>
+    <title>Lecture 19: Dijkstra’s Algorithm Works &#8212; Math 453 Lecture Notes</title>
   
   
   
@@ -27,8 +27,8 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
@@ -40,10 +40,10 @@
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- So that users can add custom icons -->
-  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
@@ -64,34 +64,27 @@
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'content/week9/w9d2';</script>
-    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="w9d3.html" />
+    <link rel="next" title="Lecture 20: Dijkstra’s Algorithm Works (continued)" href="w9d3.html" />
     <link rel="prev" title="Lecture 18: Introduction to Dijkstra’s Algorithm" href="w9d1.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
-  
-    
-    <script src="../../_static/searchtools.js"></script>
-    <script src="../../_static/language_data.js"></script>
-    <script src="../../searchindex.js"></script>
-  
   </head>
-  <body data-default-mode="">
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
-
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-  
-  
-  
+
   
   <dialog id="pst-search-dialog">
     
@@ -117,51 +110,7 @@
 </div>
 
   
-    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
-<div class="bd-header__inner bd-page-width">
-  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
-    <span class="fa-solid fa-bars"></span>
-  </button>
-  
-  
-  <div class="col-lg-9 navbar-header-items">
-    
-    
-    <div class="navbar-header-items__end">
-      
-        <div class="navbar-item navbar-persistent--container">
-          
-
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button>
-        </div>
-      
-      
-    </div>
-    
-  </div>
-  
-  
-    <div class="navbar-persistent--mobile">
-
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button>
-    </div>
-  
-
-  
-    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
-      <span class="fa-solid fa-outdent"></span>
-    </button>
-  
-</div>
-
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
     </header>
   
 
@@ -262,7 +211,8 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 9--Dijkstra's</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="w9d1.html">Lecture 18: Introduction to Dijkstra’s Algorithm</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lecture : Dijkstra’s Algorithm</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lecture 19: Dijkstra’s Algorithm Works</a></li>
+<li class="toctree-l1"><a class="reference internal" href="w9d3.html">Lecture 20: Dijkstra’s Algorithm Works (continued)</a></li>
 </ul>
 
     </div>
@@ -398,7 +348,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Lecture : Dijkstra’s Algorithm</h1>
+    <h1>Lecture 19: Dijkstra’s Algorithm Works</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -407,7 +357,7 @@
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="pst-show_toc_level nav section-nav flex-column">
+                <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#warmup">Warmup</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proof-of-correctness-for-dijkstra-s">Proof of Correctness for Dijkstra’s</a></li>
 </ul>
@@ -421,8 +371,8 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="lecture-dijkstra-s-algorithm">
-<h1>Lecture : Dijkstra’s Algorithm<a class="headerlink" href="#lecture-dijkstra-s-algorithm" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="lecture-19-dijkstra-s-algorithm-works">
+<h1>Lecture 19: Dijkstra’s Algorithm Works<a class="headerlink" href="#lecture-19-dijkstra-s-algorithm-works" title="Link to this heading">#</a></h1>
 <section id="warmup">
 <h2>Warmup<a class="headerlink" href="#warmup" title="Link to this heading">#</a></h2>
 <p>Recall Dijkstra’s algorithm:</p>
@@ -450,17 +400,29 @@
 </li>
 </ul>
 </section>
+</div><div class="proof question admonition" id="question-1">
+<p class="admonition-title"><span class="caption-number">Question 35 </span></p>
+<section class="question-content" id="proof-content">
+<p>Consider the output from last class:</p>
+<br>
+<br>
+<a class="reference internal image-reference" href="../../_images/dij16.png"><img alt="../../_images/dij16.png" class="align-center" src="../../_images/dij16.png" style="height: 240px;" />
+</a>
+<br>
+<br>
+<p>What we claim is that the set <span class="math notranslate nohighlight">\(D\)</span> will contain the shortest distances to the vertex <span class="math notranslate nohighlight">\(A\)</span>. How does Dijkstra’s find shortest distances? Can you prove this claim?</p>
+</section>
 </div></section>
 <section id="proof-of-correctness-for-dijkstra-s">
 <h2>Proof of Correctness for Dijkstra’s<a class="headerlink" href="#proof-of-correctness-for-dijkstra-s" title="Link to this heading">#</a></h2>
 <p>For the rest of lecture, assume <span class="math notranslate nohighlight">\(G=(V,E)\)</span> is a connected, simple, positively weighted graph.</p>
-<div class="proof theorem admonition" id="theorem-1">
+<div class="proof theorem admonition" id="theorem-2">
 <p class="admonition-title"><span class="caption-number">Theorem 29 </span></p>
 <section class="theorem-content" id="proof-content">
 <p>Let <span class="math notranslate nohighlight">\(G\)</span> and some starting vertex <span class="math notranslate nohighlight">\(s\)</span> be inputted to Dijkstra’s algorithm. Then, the output will contain the shortest distances between <span class="math notranslate nohighlight">\(s\)</span> and every other vertex in <span class="math notranslate nohighlight">\(G\)</span>.</p>
 </section>
 </div><p>To prove this theorem, we will prove a couple other results first.</p>
-<div class="proof lemma admonition" id="lemma-2">
+<div class="proof lemma admonition" id="lemma-3">
 <p class="admonition-title"><span class="caption-number">Lemma 6 </span></p>
 <section class="lemma-content" id="proof-content">
 <p>For all <span class="math notranslate nohighlight">\(v\in V\)</span>, at any time <span class="math notranslate nohighlight">\(d[v]\geq d(s,v)\)</span> where <span class="math notranslate nohighlight">\(d[v]\)</span> is the current distance label under Dijkstra’s and <span class="math notranslate nohighlight">\(d(s,v)\)</span> is the shortest distance between <span class="math notranslate nohighlight">\(v\)</span> and <span class="math notranslate nohighlight">\(s\)</span>.</p>
@@ -469,7 +431,18 @@
 <p>Proof. We will proceed by induction on the iteration number.</p>
 <p><strong>Base case</strong>: At initialization, <span class="math notranslate nohighlight">\(d[s]=0\)</span> and <span class="math notranslate nohighlight">\(d[u]=\infty\)</span> for all <span class="math notranslate nohighlight">\(u\neq s\)</span>. Since <span class="math notranslate nohighlight">\(G\)</span> is simple, <span class="math notranslate nohighlight">\(d(s,s)=0\)</span> os <span class="math notranslate nohighlight">\(d[s]\geq d(s,s)\)</span>. For all the other vertices, infinity is definitely at least as big as the shortest path. So, <span class="math notranslate nohighlight">\(d[u]=\infty\geq d(s,u)\)</span> as well. So, at the beginning, the claim holds.</p>
 <p><strong>Inductive Hypothesis</strong>: Assume <span class="math notranslate nohighlight">\(d[v]\geq d(s,v)\)</span> for all <span class="math notranslate nohighlight">\(v\in V\)</span> up to when the <span class="math notranslate nohighlight">\(k\)</span>-th vertex distance is changed by Dijkstra’s.</p>
-<p><strong>Induct</strong>: Consider the <span class="math notranslate nohighlight">\(k+1\)</span>-st vertex to get its distance label changed for some <span class="math notranslate nohighlight">\(x_{k+1}\in V\)</span>. Originally,</p>
+<p><strong>Induct</strong>: Consider the <span class="math notranslate nohighlight">\(k+1\)</span>-st vertex to get its distance label changed for some <span class="math notranslate nohighlight">\(x_{k+1}\in V\)</span>. Originally, <span class="math notranslate nohighlight">\(d[x_{k+1}]=\infty\)</span>. At some point, <span class="math notranslate nohighlight">\(d[x_{k+1}]\)</span> changed to <span class="math notranslate nohighlight">\(d[u]+w(\{u,x_{k+1}\})\)</span> for some vertex <span class="math notranslate nohighlight">\(u\in D\)</span>. By the inductive hypothesis, the claim holds for <span class="math notranslate nohighlight">\(u\)</span> (i.e. <span class="math notranslate nohighlight">\(d[u]\geq d(s,u)\)</span>). Then,</p>
+<p><span class="math notranslate nohighlight">\(\begin{align*}
+d[x_{k+1}]&amp;=d[u]+w(\{u,x_{k+1}\})\\
+&amp;\geq d(s,u)+w(\{u,x_{k+1}\})\\
+\end{align*}\)</span></p>
+<p>Either <span class="math notranslate nohighlight">\(d(s,u)+w(\{u,x_{k+1}\})\)</span> is the length of a shortest path from <span class="math notranslate nohighlight">\(s\)</span> to <span class="math notranslate nohighlight">\(x_{k+1}\)</span> or it is longer than a shortest path. So,</p>
+<p><span class="math notranslate nohighlight">\(\begin{align*}
+d[x_{k+1}]&amp;\geq d(s,u)+w(\{u,x_{k+1}\})\\
+&amp;\geq d(s,x_{k+1})
+\end{align*}\)</span></p>
+<p>Thus, the claim holds for the <span class="math notranslate nohighlight">\(k+1\)</span>-th vertex change.</p>
+<p>Therefore, the claim holds at all points.</p>
 </div>
 </section>
 </section>
@@ -518,7 +491,7 @@
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">&lt;no title&gt;</p>
+        <p class="prev-next-title">Lecture 20: Dijkstra’s Algorithm Works (continued)</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -539,7 +512,7 @@
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="pst-show_toc_level nav section-nav flex-column">
+    <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#warmup">Warmup</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proof-of-correctness-for-dijkstra-s">Proof of Correctness for Dijkstra’s</a></li>
 </ul>
@@ -583,8 +556,8 @@ By Garrett Kepler
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
-<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>
