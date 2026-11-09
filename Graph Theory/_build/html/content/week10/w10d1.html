@@ -27,8 +27,8 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
@@ -40,10 +40,10 @@
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- So that users can add custom icons -->
-  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
 
     <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
@@ -64,26 +64,33 @@
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'content/week10/w10d1';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="prev" title="Lecture 20: Dijkstra’s Algorithm Works (continued)" href="../week9/w9d3.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
   </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
-
+  <body data-default-mode="">
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-
+  
+  
+  
   
   <dialog id="pst-search-dialog">
     
@@ -109,7 +116,51 @@
 </div>
 
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
     </header>
   
 
@@ -360,9 +411,12 @@
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#warmup">Warmup</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#flow-networks">Flow Networks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#max-flow">Max-Flow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#min-cut">Min-Cut</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#min-max-theorem">Min-Max Theorem</a></li>
 </ul>
             </nav>
         </div>
@@ -378,15 +432,7 @@
 <h1>Lecture 21: Network Flows<a class="headerlink" href="#lecture-21-network-flows" title="Link to this heading">#</a></h1>
 <section id="warmup">
 <h2>Warmup<a class="headerlink" href="#warmup" title="Link to this heading">#</a></h2>
-<div class="proof question admonition" id="question-0">
-<p class="admonition-title"><span class="caption-number">Question 37 </span></p>
-<section class="question-content" id="proof-content">
-<p>Consider the following graph:</p>
-<a class="reference internal image-reference" href="../../_images/warm1.png"><img alt="../../_images/warm1.png" class="align-center" src="../../_images/warm1.png" style="height: 240px;" />
-</a>
-<p>We want to remove vertices so there is no <span class="math notranslate nohighlight">\(ST\)</span>-path. What is the minimum number you need to remove? (Of course, excluding <span class="math notranslate nohighlight">\(S\)</span> and <span class="math notranslate nohighlight">\(T\)</span> themselves).</p>
-</section>
-</div><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 <span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
 <p class="sd-card-text">With a fair bit of experimentation, you might find that the minimum is 2. Some examples of vertices you could remove are the vertices that share an edge with <span class="math notranslate nohighlight">\(S\)</span> or the vertices that share an edge with <span class="math notranslate nohighlight">\(T\)</span>.</p>
@@ -402,27 +448,102 @@
 <a class="reference internal image-reference" href="../../_images/warm4.png"><img alt="../../_images/warm4.png" class="align-center" src="../../_images/warm4.png" style="height: 240px;" />
 </a>
 <p>We now want to find the minimum number of nodes to remove so there is no <u>directed</u> <span class="math notranslate nohighlight">\(ST\)</span>-path.</p>
-<div class="proof question admonition" id="question-1">
-<p class="admonition-title"><span class="caption-number">Question 38 </span></p>
-<section class="question-content" id="proof-content">
-<ol class="arabic simple">
-<li><p>How would find this quantity?</p></li>
-<li><p>Could you rephrase Menger’s theorem for this type of digraph?</p></li>
-<li><p>If you know paths in the original graph, could you know something about the directed paths after giving the edges direction?</p></li>
-</ol>
-</section>
-</div><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 <span class="sd-summary-text">“Answer”</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
 <p class="sd-card-text">Note that (luckily) both of the <span class="math notranslate nohighlight">\(ST\)</span>-paths we pointed out in the example above are now directed <span class="math notranslate nohighlight">\(ST\)</span>-paths in the new digraph. You might try adjusting your intuition from before mildly and find the answer is the same.</p>
 <p class="sd-card-text">However, this is such a specific case! Garrett put thought into this example so it just so happens that the two <span class="math notranslate nohighlight">\(ST\)</span>-paths becomes a directed <span class="math notranslate nohighlight">\(ST\)</span>-path. If Garrett formed the following graph, then there would be no way to form a directed <span class="math notranslate nohighlight">\(ST\)</span>-path!</p>
-<a class="reference internal image-reference" href="../../_images/warm4.png"><img alt="../../_images/warm4.png" class="align-center" src="../../_images/warm4.png" style="height: 240px;" />
+<a class="reference internal image-reference" href="../../_images/warm5.png"><img alt="../../_images/warm5.png" class="align-center" src="../../_images/warm5.png" style="height: 240px;" />
 </a>
 <p class="sd-card-text">So, clearly Menger’s theorem doesn’t exactly translate to these types of digraphs. We’ll have to do more work to find an analogue of Menger’s for these types of digraphs.</p>
 </div>
 </details></section>
 <section id="flow-networks">
 <h2>Flow Networks<a class="headerlink" href="#flow-networks" title="Link to this heading">#</a></h2>
+<p>The type of digraph we are discussing is what we’ll call a <it>flow network</it>. The digraph we have drawn is the foundation of such a network:</p>
+<br>
+<br>
+<a class="reference internal image-reference" href="../../_images/warm4.png"><img alt="../../_images/warm4.png" class="align-center" src="../../_images/warm4.png" style="height: 240px;" />
+</a>
+<br>
+<br>
+<p>Notice that all the arcs involving <span class="math notranslate nohighlight">\(S\)</span> point away from <span class="math notranslate nohighlight">\(S\)</span>. Likewise, all the arcs involving <span class="math notranslate nohighlight">\(T\)</span> point toward <span class="math notranslate nohighlight">\(T\)</span>. <span class="math notranslate nohighlight">\(S\)</span> is what we call a <it>source</it>. <span class="math notranslate nohighlight">\(T\)</span> is what we call a <it>sink</it>.</p>
+<div class="proof definition admonition" id="definition-0">
+<p class="admonition-title"><span class="caption-number">Definition 48 </span> (Flow Network)</p>
+<section class="definition-content" id="proof-content">
+<p>A <it>flow network</it> is a directed graph <span class="math notranslate nohighlight">\(\mathcal{G}=(V,\mathcal{E})\)</span> with the following properties:</p>
+<ol class="arabic simple">
+<li><p>There is a source node <span class="math notranslate nohighlight">\(s\in V\)</span> such that <span class="math notranslate nohighlight">\((s,v)\in \mathcal{E}\)</span> are the only arcs containing <span class="math notranslate nohighlight">\(s\)</span> and a sink node <span class="math notranslate nohighlight">\(t\in V\)</span> such that <span class="math notranslate nohighlight">\((v,t)\in \mathcal{E}\)</span> are the only arcs containing <span class="math notranslate nohighlight">\(t\)</span></p></li>
+<li><p>For all arcs <span class="math notranslate nohighlight">\((u,v)\in \mathcal{E}\)</span>, we associate a flow <span class="math notranslate nohighlight">\(f(u,v)\)</span> and a capacity <span class="math notranslate nohighlight">\(c(u,v)\)</span> such that <span class="math notranslate nohighlight">\(0\leq f(u,v)\leq c(u,v)\)</span></p></li>
+<li><p>If an arc <span class="math notranslate nohighlight">\((u,v)\)</span> exists, then <span class="math notranslate nohighlight">\((v,u)\)</span> does not</p></li>
+</ol>
+</section>
+</div><p>Taking the example digraph and equipping each arc with flows and capacities, we end up with a flow network:
+<br>
+<br></p>
+<a class="reference internal image-reference" href="../../_images/flow1.png"><img alt="../../_images/flow1.png" class="align-center" src="../../_images/flow1.png" style="height: 350px;" />
+</a>
+<br>
+<br>
+Notice that each flow is non-negative and no larger than the capacity. If these arcs were water pipes, there is no more water flowing through the pipes than the pipes can handle. Moreover, notice that the arcs with $S$ point away and the arcs with $T$ point toward. 
+</section>
+<section id="max-flow">
+<h2>Max-Flow<a class="headerlink" href="#max-flow" title="Link to this heading">#</a></h2>
+<p>Notice in the above example, the amount of flow in to <span class="math notranslate nohighlight">\(A\)</span> is 11 and the amount of flow out is 2. Using the water metaphor, this would make no sense. The amount of flow in should be equal to the amount of flow out. This makes the constraint of what we’ll define as the <it>max-flow problem</it>. The max-flow problem is exactly what it sounds like: “flow as much as you can from the source to the sink”. Formally:</p>
+<div class="proof definition admonition" id="definition-1">
+<p class="admonition-title"><span class="caption-number">Definition 49 </span> (Max-Flow Problem)</p>
+<section class="definition-content" id="proof-content">
+<p>Given a flow network such that <span class="math notranslate nohighlight">\(\sum\limits_{u\in V}f(u,v)=\sum\limits_{u\in V}f(v,u)\)</span> for all <span class="math notranslate nohighlight">\(v\in V\)</span>, maximize <span class="math notranslate nohighlight">\(\sum\limits_{u\in V}f(s,u)=\sum\limits_{u\in V}f(u,t)\)</span>.</p>
+</section>
+</div><p>In short, the max-flow problem says: “In a flow network where the flow into each node equals the flow out of each node, maximize the amount of flow from the source to the sink”.</p>
+<p>To satisfy the constraint that flow in equals flow out for each node, we can adjust our example a little:
+<br>
+<br></p>
+<a class="reference internal image-reference" href="../../_images/flow2.png"><img alt="../../_images/flow2.png" class="align-center" src="../../_images/flow2.png" style="height: 350px;" />
+</a>
+<br>
+<br>
+<p>You can verify that for each node, this requirement is satisfied. But, you might ask yourself the following:</p>
+<p>I encourage you to explore solutions and look up example algorithms.</p>
+</section>
+<section id="min-cut">
+<h2>Min-Cut<a class="headerlink" href="#min-cut" title="Link to this heading">#</a></h2>
+<p>A similar problem we might like to solve involves bottlenecking in networks. Using the water system metaphor, we might ask which set of pipes restrict flow between our source and our sink. This is what the min-cut problem asks. First, some lingo:</p>
+<div class="proof definition admonition" id="definition-2">
+<p class="admonition-title"><span class="caption-number">Definition 50 </span> (<span class="math notranslate nohighlight">\(st\)</span>-cut)</p>
+<section class="definition-content" id="proof-content">
+<p>Let <span class="math notranslate nohighlight">\(s\)</span> and <span class="math notranslate nohighlight">\(t\)</span> be source and sink nodes in a flow network <span class="math notranslate nohighlight">\(\mathcal{G}=(V,\mathcal{E})\)</span>. <span class="math notranslate nohighlight">\(st\)</span>-cuts are subsets of vertices <span class="math notranslate nohighlight">\(L\subset V\)</span> and <span class="math notranslate nohighlight">\(R\subset V-S\)</span> such that <span class="math notranslate nohighlight">\(s\in L\)</span> and <span class="math notranslate nohighlight">\(t\in R\)</span>. The capacity of an <span class="math notranslate nohighlight">\(st\)</span>-cut <span class="math notranslate nohighlight">\(c(L,R)\)</span> is defined as <span class="math notranslate nohighlight">\(c(L,R)=\sum\limits_{u\in L, v\in R}c(u,v)\)</span>.</p>
+</section>
+</div><p>In short, an <span class="math notranslate nohighlight">\(st\)</span>-cut is a way to separate the source and sink in a flow network and the capacity of that cut is the sum of the arcs that connect nodes in those two pieces. This leads to the following problem.</p>
+<div class="proof definition admonition" id="definition-3">
+<p class="admonition-title"><span class="caption-number">Definition 51 </span> (Min-Cut Problem)</p>
+<section class="definition-content" id="proof-content">
+<p>Given <span class="math notranslate nohighlight">\(s\)</span> and <span class="math notranslate nohighlight">\(t\)</span> source and sink nodes in a flow network <span class="math notranslate nohighlight">\(\mathcal{G}=(V,\mathcal{E})\)</span>, find an <span class="math notranslate nohighlight">\(st\)</span>-cut <span class="math notranslate nohighlight">\(L\)</span> and <span class="math notranslate nohighlight">\(R\)</span> such that <span class="math notranslate nohighlight">\(c(L,R)\)</span> is as small as possible.</p>
+</section>
+</div><p>Taking our example flow network, if we selected the following <span class="math notranslate nohighlight">\(ST\)</span>-cut, we would get a capacity of 8:</p>
+<br>
+<br>
+<a class="reference internal image-reference" href="../../_images/cut1.png"><img alt="../../_images/cut1.png" class="align-center" src="../../_images/cut1.png" style="height: 350px;" />
+</a>
+<br>
+<br>
+<p>I will leave you to find the minimum capacity for an <span class="math notranslate nohighlight">\(ST\)</span>-cut in this network and devise ways to solve the problem in general.</p>
+</section>
+<section id="min-max-theorem">
+<h2>Min-Max Theorem<a class="headerlink" href="#min-max-theorem" title="Link to this heading">#</a></h2>
+<p>Consider again Menger’s theorem:</p>
+<div class="proof theorem admonition" id="theorem-4">
+<p class="admonition-title"><span class="caption-number">Theorem 31 </span> (Menger’s Theorem)</p>
+<section class="theorem-content" id="proof-content">
+<p>Let <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(v\)</span> be distinct vertices in <span class="math notranslate nohighlight">\(G\)</span> with <u>no edge</u> between them. Then, the minimum number of vertices in a <span class="math notranslate nohighlight">\(uv\)</span>-separating set is exactly the maximum number of internally disjoint <span class="math notranslate nohighlight">\(uv\)</span>-paths (i.e. <span class="math notranslate nohighlight">\(\psi_G(u,v)=\kappa_G(u,v)\)</span>).</p>
+</section>
+</div><p>Hopefully, you can see how Menger’s might sound for flow networks. The “maximum number of internally disjoint paths” sounds like a flow problem. The “minimum number of vertices in a separating set” sounds like a cut problem. Indeed, the max-flow and min-cut are the same:</p>
+<div class="proof theorem admonition" id="theorem-5">
+<p class="admonition-title"><span class="caption-number">Theorem 32 </span> (Min-Max Theorem)</p>
+<section class="theorem-content" id="proof-content">
+<p>Let <span class="math notranslate nohighlight">\(\mathcal{G}=(V,\mathcal{E})\)</span> be a flow network with source node <span class="math notranslate nohighlight">\(s\)</span> and sink node <span class="math notranslate nohighlight">\(t\)</span>. Then, the maximum flow between <span class="math notranslate nohighlight">\(s\)</span> and <span class="math notranslate nohighlight">\(t\)</span> equals the minimum capacity of an <span class="math notranslate nohighlight">\(st\)</span>-cut.</p>
+</section>
+</div><p>In short, the maximum flow equals the minimum cut.</p>
 </section>
 </section>
 
@@ -482,9 +603,12 @@
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="visible nav section-nav flex-column">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#warmup">Warmup</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#flow-networks">Flow Networks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#max-flow">Max-Flow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#min-cut">Min-Cut</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#min-max-theorem">Min-Max Theorem</a></li>
 </ul>
   </nav></div>
 
@@ -526,8 +650,8 @@ By Garrett Kepler
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
 
   <footer class="bd-footer">
   </footer>
