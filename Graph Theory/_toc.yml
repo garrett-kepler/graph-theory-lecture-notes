@@ -42,3 +42,6 @@ parts:
     - file: content/week9/w9d1.md
     - file: content/week9/w9d2.md
     - file: content/week9/w9d3.md
+  - caption: Week 10--Network Flows
+    chapters:
+    - file: content/week10/w10d1.md

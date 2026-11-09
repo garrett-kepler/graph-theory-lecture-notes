@@ -211,7 +211,12 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 9--Dijkstra's</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../week9/w9d1.html">Lecture 18: Introduction to Dijkstra’s Algorithm</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../week9/w9d2.html">Lecture : Dijkstra’s Algorithm Works</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week9/w9d2.html">Lecture 19: Dijkstra’s Algorithm Works</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week9/w9d3.html">Lecture 20: Dijkstra’s Algorithm Works (continued)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 10--Network Flows</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week10/w10d1.html">Lecture 21: Network Flows</a></li>
 </ul>
 
     </div>
@@ -382,18 +387,18 @@
 <span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
 <p class="sd-card-text"><span class="math notranslate nohighlight">\(n-1\)</span>. Recall that <em>simple</em> means there are no self-loops and at most one edge between any pair of vertices.</p>
 <p class="sd-card-text">We will walk through an example to maximize the degree of a vertex, 1. Consider the case when <span class="math notranslate nohighlight">\(n=2\)</span>:</p>
-<a class="reference internal image-reference" href="../../_images/warm1.png"><img alt="../../_images/warm1.png" class="align-center" src="../../_images/warm1.png" style="width: 200px;" />
+<a class="reference internal image-reference" href="../../_images/warm11.png"><img alt="../../_images/warm11.png" class="align-center" src="../../_images/warm11.png" style="width: 200px;" />
 </a>
 <p class="sd-card-text">Since self-loops are not allowed in a simple graph, we cannot make an edge between 1 and itself. Likewise with 2 and itself. We must add an edge between 1 and 2:</p>
-<a class="reference internal image-reference" href="../../_images/warm2.png"><img alt="../../_images/warm2.png" class="align-center" src="../../_images/warm2.png" style="width: 200px;" />
+<a class="reference internal image-reference" href="../../_images/warm21.png"><img alt="../../_images/warm21.png" class="align-center" src="../../_images/warm21.png" style="width: 200px;" />
 </a>
 <p class="sd-card-text">Now that <span class="math notranslate nohighlight">\(\{1,2\}\)</span> is in the graph, we cannot add another edge between 1 and 2 otherwise the graph will not be simple. So, the maximum degree when <span class="math notranslate nohighlight">\(n=2\)</span> is 1.</p>
 <p class="sd-card-text">Considering <span class="math notranslate nohighlight">\(n=3\)</span>:</p>
-<a class="reference internal image-reference" href="../../_images/warm3.png"><img alt="../../_images/warm3.png" class="align-center" src="../../_images/warm3.png" style="width: 200px;" />
+<a class="reference internal image-reference" href="../../_images/warm31.png"><img alt="../../_images/warm31.png" class="align-center" src="../../_images/warm31.png" style="width: 200px;" />
 </a>
 <p class="sd-card-text">Again, we cannot add any more edges between 1 and the other vertices. Likewise, we cannot add edges between the vertices and themselves. So, the maximum degree when <span class="math notranslate nohighlight">\(n=3\)</span> is 2.</p>
 <p class="sd-card-text">Think about what is going on:</p>
-<a class="reference internal image-reference" href="../../_images/warm4.png"><img alt="../../_images/warm4.png" class="align-center" src="../../_images/warm4.png" style="width: 200px;" />
+<a class="reference internal image-reference" href="../../_images/warm41.png"><img alt="../../_images/warm41.png" class="align-center" src="../../_images/warm41.png" style="width: 200px;" />
 </a>
 <p class="sd-card-text">We are adding an edge between one vertex and <em>all of the other vertices in the graph</em>. There are <span class="math notranslate nohighlight">\(n-1\)</span> other vertices when we consider a given vertex. So, the maximum degree for this vertex in a simple graph is <span class="math notranslate nohighlight">\(n-1\)</span>.</p>
 </div>

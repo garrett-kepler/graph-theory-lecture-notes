@@ -211,7 +211,12 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 9--Dijkstra's</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../week9/w9d1.html">Lecture 18: Introduction to Dijkstra’s Algorithm</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../week9/w9d2.html">Lecture : Dijkstra’s Algorithm Works</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week9/w9d2.html">Lecture 19: Dijkstra’s Algorithm Works</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week9/w9d3.html">Lecture 20: Dijkstra’s Algorithm Works (continued)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Week 10--Network Flows</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week10/w10d1.html">Lecture 21: Network Flows</a></li>
 </ul>
 
     </div>
@@ -390,7 +395,7 @@
 <li><p>4a. Remove first element <span class="math notranslate nohighlight">\(u\in Q\)</span>.</p></li>
 <li><p>4b. For each edge <span class="math notranslate nohighlight">\(\{u,v\}\in E\)</span>:</p>
 <ul>
-<li><p>If <span class="math notranslate nohighlight">\(v\)</span> is not unexplored,</p>
+<li><p>If <span class="math notranslate nohighlight">\(v\)</span> is not explored,</p>
 <ul>
 <li><p>label it explored</p></li>
 <li><p>add <span class="math notranslate nohighlight">\(\{u,v\}\)</span> to <span class="math notranslate nohighlight">\(T\)</span></p></li>
@@ -410,14 +415,14 @@
 <p class="admonition-title"><span class="caption-number">Question 31 </span></p>
 <section class="question-content" id="proof-content">
 <p>Do BFS on the following graph using <span class="math notranslate nohighlight">\(A\)</span> as the root. Why is the output a tree? Why a spanning tree?</p>
-<a class="reference internal image-reference" href="../../_images/warm12.png"><img alt="../../_images/warm12.png" class="align-center" src="../../_images/warm12.png" style="height: 240px;" />
+<a class="reference internal image-reference" href="../../_images/warm13.png"><img alt="../../_images/warm13.png" class="align-center" src="../../_images/warm13.png" style="height: 240px;" />
 </a>
 </section>
 </div><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 <span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
 <p class="sd-card-text">What you should end up with is the following. Today we’ll discuss why this algorithm produces a spanning tree when a connected graph is inputted!</p>
-<a class="reference internal image-reference" href="../../_images/warm22.png"><img alt="../../_images/warm22.png" class="align-center" src="../../_images/warm22.png" style="height: 240px;" />
+<a class="reference internal image-reference" href="../../_images/warm23.png"><img alt="../../_images/warm23.png" class="align-center" src="../../_images/warm23.png" style="height: 240px;" />
 </a>
 </div>
 </details></section>
